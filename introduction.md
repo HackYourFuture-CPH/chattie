@@ -5,6 +5,7 @@
 - Communication is key
   - Especially around interfaces
 - Help each other as a group
+- Talking about interfaces is important!
 
 ## Working with git in the final project
 
