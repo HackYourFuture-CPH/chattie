@@ -77,15 +77,11 @@ _Add here information about the Business Glossary_
 
 Check the DB Model Diagram here https://dbdiagram.io/d/5f0ecd4874ca2227330d5ed5
 
- <img width=500px height=318px src="/db-diagram.png" alt="DB Diagram model"></a>
-
 - [How to make changes on the diagram](/diagram.md)
 
 #### 🖼 Mockup
 
 Check the mockup here https://www.figma.com/file/hIPS2kqa5VTsm7pMI9B3fq/HYF-CHAT-APP?node-id=1%3A143
-
-<img width=500px height=318px src="/mockup.png" alt="DB Diagram model"></a>
 
 ## 📈 Process 📉📈
 
