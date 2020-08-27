@@ -75,13 +75,18 @@ _Add here information about the Business Glossary_
 
 #### 🗄️ Database Model Diagram
 
-Check the DB Model Diagram here https://dbdiagram.io/d/5f0ecd4874ca2227330d5ed5
+Check the DB Model Diagram [here](https://dbdiagram.io/d/5f0ecd4874ca2227330d5ed5)
 
 - [How to make changes on the diagram](/diagram.md)
 
 #### 🖼 Mockup
 
-Check the mockup here https://www.figma.com/file/hIPS2kqa5VTsm7pMI9B3fq/HYF-CHAT-APP?node-id=1%3A143
+Check the mockup [here](https://www.figma.com/file/hIPS2kqa5VTsm7pMI9B3fq/HYF-CHAT-APP?node-id=1%3A143)
+
+#### 🖼 Features
+
+Go to the project board [here](https://github.com/HackYourFuture-CPH/chattie/projects/1)
+
 
 ## 📈 Process 📉📈
 
