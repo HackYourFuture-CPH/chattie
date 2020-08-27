@@ -38,8 +38,6 @@
 
 This repository is a boilerplate and set-up instructions for the Final Project.
 
-To setup the boilerplate for a New Final project you MUST read this first [HERE](/setting-up-instructions.md)
-
 After the previous steps, you have new repository ready but you need plan the project,
 check [HERE](/planning.md) before you go more down.
 
