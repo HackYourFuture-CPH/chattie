@@ -3,7 +3,7 @@
  <img width=150px height=150px src="https://www.hackyourfuture.dk/static/logo-dark.svg" alt="Project logo"></a>
 </p>
 
-<h3 align="center">Final project for Class12 - Treasure Hunt Game
+<h3 align="center">Chattie
 </h3>
 
 ---
@@ -33,7 +33,7 @@
 
 ## 🧐 About <a name = "about"></a>
 
-This repository is for Class12 Final Project - Treasure Hunt Game
+This repository is for Class13 Final Project - Chattie
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
@@ -50,32 +50,23 @@ This repository is for Class12 Final Project - Treasure Hunt Game
 
 _Class Dates_
 
-- Week 0 —> 17/05 - Intro week - Career and Intro to the FP
-- Week 1 —> 24/05 - Storybook and React Components
-- Week 2 —> 31/05 - Swagger, Endpoints, Knex & DB
-- Week 3 —> 07/06 - Create Pages
-- Week 4 —> 14/06 - Wire up Pages
-- Week 5 —> 21/06 - Fix Bugs
-- Week 6 —> 28/06 - Fix Bugs
-- Week 7 —> 05/07 - Presentations
+- Week 1 —> 6-Sep-2020 - Intro week - Intro to the FP and working in the final project
+- Week 2 —> 13-Sep-2020
+- Week 3 —> 20-Sep-2020
+- Week 4 —> 27-Sep-2020
+- Week 5 —> 4-oct.-2020
+- Week 6 —> 11-oct.-2020
+- Week 7 —> 18-oct.-2020
 
-Graduation 08/07
+Graduation 25/10
 
 _Study groups dates_  
 Until further notice, please attend the remote study groups with Elastic and Zendesk
 
-## 🕛 Class Daily Agenda 🕓
-
-_Add the Class schedule for the project_
-
-- 12:00 - 13:30 - ...
-- 13:30 - 14:00 - ...
-- 14:00 - 14:30 - Lunch
-- 14:30 - 16:00 - ...
 
 ## 👩🏻‍💼💡👨🏽‍💼 The Customer
 
-Allan from CodeArt will mock the Customer for this project
+Niels Schmidt from [Anna](https://anna.co/) is the customer for this project
 
 #### 💼 Business Glossary
 
@@ -84,12 +75,17 @@ _Add here information about the Business Glossary_
 
 #### 🗄️ Database Model Diagram
 
-Check the DB Model Diagram here https://dbdiagram.io/d/5efa7daf0425da461f0407c9
+Check the DB Model Diagram here https://dbdiagram.io/d/5f0ecd4874ca2227330d5ed5
 
- <img width=500px height=318px src="/dbdiagram_v7.png" alt="DB Diagram model"></a>
-
+ <img width=500px height=318px src="/db-diagram.png" alt="DB Diagram model"></a>
 
 - [How to make changes on the diagram](/diagram.md)
+
+#### 🖼 Mockup
+
+Check the mockup here https://www.figma.com/file/hIPS2kqa5VTsm7pMI9B3fq/HYF-CHAT-APP?node-id=1%3A143
+
+<img width=500px height=318px src="/mockup.png" alt="DB Diagram model"></a>
 
 ## 📈 Process 📉📈
 
