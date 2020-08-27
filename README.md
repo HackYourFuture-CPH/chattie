@@ -3,7 +3,7 @@
  <img width=150px height=150px src="https://www.hackyourfuture.dk/static/logo-dark.svg" alt="Project logo"></a>
 </p>
 
-<h3 align="center">Boilerplate for Final projects
+<h3 align="center">Final project for Class12 - Treasure Hunt Game
 </h3>
 
 ---
@@ -11,8 +11,6 @@
 ## 📝 Table of Contents
 
 - [About](#about)
-  - [Setting up the boilerplate](/setting-up-instructions.md)
-  - [Plan the project](/planning.md)
 - [Project's Calendar](#-projects-calendar)
 - [Class Daily Agenda](#-class-daily-agenda-)
 - [The Customer](#-the-customer)
@@ -20,7 +18,6 @@
   - [Database Model Diagram](#️-database-model-diagram)
 - [Process](#-process-)
   - [Working with code](#-working-with-code)
-  - [Guidelines for building components](#-guidelines-for-building-components)
   - [Code best practices](#-code-best-practices)
   - [Working with GIT](/working-with-git.md)
   - [Working with Heroku and Deployment](/deployment.md)
@@ -36,16 +33,7 @@
 
 ## 🧐 About <a name = "about"></a>
 
-This repository is a boilerplate and set-up instructions for the Final Project.
-
-After the previous steps, you have new repository ready but you need plan the project,
-check [HERE](/planning.md) before you go more down.
-
-🚨Delete the About Topic from you new repository README.MD file  
-🚨Delete the instructions files:
-
-- [Setting up Instructions](/setting-up-instructions.md)
-- [Planning](/planning.md)
+This repository is for Class12 Final Project - Treasure Hunt Game
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
@@ -60,9 +48,21 @@ check [HERE](/planning.md) before you go more down.
 
 ## 📅 Project's Calendar
 
-_Add the dates for the project and study groups_
-_Class Dates_  
-_Study groups dates_
+_Class Dates_
+
+- Week 0 —> 17/05 - Intro week - Career and Intro to the FP
+- Week 1 —> 24/05 - Storybook and React Components
+- Week 2 —> 31/05 - Swagger, Endpoints, Knex & DB
+- Week 3 —> 07/06 - Create Pages
+- Week 4 —> 14/06 - Wire up Pages
+- Week 5 —> 21/06 - Fix Bugs
+- Week 6 —> 28/06 - Fix Bugs
+- Week 7 —> 05/07 - Presentations
+
+Graduation 08/07
+
+_Study groups dates_  
+Until further notice, please attend the remote study groups with Elastic and Zendesk
 
 ## 🕛 Class Daily Agenda 🕓
 
@@ -75,7 +75,7 @@ _Add the Class schedule for the project_
 
 ## 👩🏻‍💼💡👨🏽‍💼 The Customer
 
-_Add here information about the customer/partner_
+Allan from CodeArt will mock the Customer for this project
 
 #### 💼 Business Glossary
 
@@ -84,7 +84,10 @@ _Add here information about the Business Glossary_
 
 #### 🗄️ Database Model Diagram
 
-_Add here the DB Model Diagram_ - Use https://dbdiagram.io/
+Check the DB Model Diagram here https://dbdiagram.io/d/5efa7daf0425da461f0407c9
+
+ <img width=500px height=318px src="/dbdiagram_v7.png" alt="DB Diagram model"></a>
+
 
 - [How to make changes on the diagram](/diagram.md)
 
