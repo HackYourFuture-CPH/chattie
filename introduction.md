@@ -14,6 +14,7 @@
 ## Expectations for getting the certificate
 
 It is your responsibility to get code into the database.
+https://github.com/HackYourFuture-CPH/chattie/blob/master/certificate.md
 
 ## Coding
 
