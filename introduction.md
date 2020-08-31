@@ -1,5 +1,7 @@
 # Introduction
 
+## What we be building (By Niels Schmidt)
+
 ## Working in the final project
 
 - Communication is key
