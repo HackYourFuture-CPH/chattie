@@ -8,6 +8,7 @@
   - Especially around interfaces
 - Help each other as a group
 - Talking about interfaces is important!
+  - Why we have swagger and proptypes
 
 ## Working with git
 
