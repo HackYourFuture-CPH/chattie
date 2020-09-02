@@ -15,7 +15,6 @@ Steps:
   - You may want to keep the repo private, but remember to set it public when project begins.
   - Add a suitable description and create the repository
 - Add Boilerplate as remote to the new repository
-
   - Clone the newly created repository locally.
   - Run the following command:
 
@@ -34,8 +33,6 @@ You should now be able to pull changes from the boilerplate master branch by run
     git pull boilerplate master --allow-unrelated-histories
 
 ### 💥Create
-
-Develop branch ➡️ this boilerplate doesn't have a develop branch ➡️ [check here](https://github.com/HackYourFuture-CPH/boilerplate-for-fp/branches)
 
 Make sure to set the develop branch to default.
 
