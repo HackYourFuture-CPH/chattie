@@ -157,6 +157,8 @@ Some components may have "knobs" which are UI controls that allows you to intera
 
 #### How to create a new story
 
+Checko out this video: https://www.youtube.com/watch?v=jjH1cKGkt3o
+
 The most basic way to create a story for your component is to put this code in your the stories file for your component (my-component.stories.js):
 
     import React from 'react';
