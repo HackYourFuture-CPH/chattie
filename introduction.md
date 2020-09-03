@@ -55,3 +55,6 @@ Make sure you truly understand the story you are about to work on. A lot of time
 Its very important to put your stories in the relevant column in the project board. Benjamin will be using that to track ow the project is going and help people that are stuck.
 
 ## Standup Alice
+
+## Version 1.0
+https://github.com/HackYourFuture-CPH/chattie/projects/1?card_filter_query=milestone%3A%22version+1.0%22
