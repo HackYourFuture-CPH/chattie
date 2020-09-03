@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { signOut } from '../../firebase/auth';
 
-export default function Header({ isAuthenticated = false }) {
+export default function NavigationHeader({ isAuthenticated = false }) {
   if (isAuthenticated) {
     return (
       <nav>
@@ -43,6 +43,6 @@ export default function Header({ isAuthenticated = false }) {
   );
 }
 
-Header.propTypes = {
+NavigationHeader.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
 };

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { signIn } from '../../firebase/auth';
-import SignIn from '../../components/Forms/SignIn';
-import Loader from '../../components/Loader';
+import SignIn from '../../components/SignIn/SignIn';
+import Loader from '../../components/Loader/Loader';
 
 export default function SignInContainer() {
   const [isLoading, setIsLoading] = useState(false);
