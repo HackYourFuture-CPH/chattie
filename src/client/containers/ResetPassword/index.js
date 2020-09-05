@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { resetPassword } from '../../firebase/auth';
-import ResetPassword from '../../components/Forms/ResetPassword';
-import Loader from '../../components/Loader';
+import ResetPassword from '../../components/ResetPassword/ResetPassword';
+import Loader from '../../components/Loader/Loader';
 
 export default function ResetPasswordContainer() {
   const [isLoading, setIsLoading] = useState(false);

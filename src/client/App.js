@@ -5,11 +5,11 @@ import { Home } from './containers/Home/Home';
 import SignIn from './containers/SignIn';
 import SignUp from './containers/SignUp';
 import ResetPassword from './containers/ResetPassword';
-import AuthenticatedRoute from './components/Auth/AuthenticatedRoute';
+import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute';
 import { useAuthentication } from './hooks/useAuthentication';
-import Header from './components/Navigation/Header';
+import Header from './components/NavigationHeader/NavigationHeader';
 import Profile from './containers/Profile';
-import Loader from './components/Loader';
+import Loader from './components/Loader/Loader';
 
 function App() {
   const { isAuthenticated, isLoading } = useAuthentication();
