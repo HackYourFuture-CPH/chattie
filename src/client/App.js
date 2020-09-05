@@ -10,29 +10,32 @@ import { useAuthentication } from './hooks/useAuthentication';
 import Header from './components/NavigationHeader/NavigationHeader';
 import Profile from './containers/Profile';
 import Loader from './components/Loader/Loader';
+import { UserContext } from './context/userContext';
 
 function App() {
-  const { isAuthenticated, isLoading } = useAuthentication();
+  const { isAuthenticated, isLoading, user } = useAuthentication();
   if (isLoading) return <Loader />;
   return (
-    <Router>
-      <Header isAuthenticated={isAuthenticated} />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <SignIn exact path="/sign-in" />
-        <SignUp exact path="/sign-up" />
-        <ResetPassword exact path="/reset-password" />
-        <AuthenticatedRoute
-          exact
-          path="/profile"
-          isAuthenticated={isAuthenticated}
-        >
-          <Profile />
-        </AuthenticatedRoute>
-      </Switch>
-    </Router>
+    <UserContext.Provider value={user}>
+      <Router>
+        <Header isAuthenticated={isAuthenticated} />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <SignIn exact path="/sign-in" />
+          <SignUp exact path="/sign-up" />
+          <ResetPassword exact path="/reset-password" />
+          <AuthenticatedRoute
+            exact
+            path="/profile"
+            isAuthenticated={isAuthenticated}
+          >
+            <Profile />
+          </AuthenticatedRoute>
+        </Switch>
+      </Router>
+    </UserContext.Provider>
   );
 }
 
