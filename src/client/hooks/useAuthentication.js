@@ -15,21 +15,24 @@ function authRedirect() {
 export function useAuthentication() {
   // default not authenticated
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState(null);
   // default is loading
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged((firebaseUser) => {
       // if user exists it means authenticated
-      if (user) {
+      if (firebaseUser) {
         setIsAuthenticated(true);
         setIsLoading(false);
+        setUser(firebaseUser);
         authRedirect();
       } else {
         setIsAuthenticated(false);
         setIsLoading(false);
+        setUser(null);
       }
     });
     return () => {}; // eslint-disable-line
   }, []);
-  return { isAuthenticated, isLoading };
+  return { isAuthenticated, isLoading, user };
 }
