@@ -9,7 +9,7 @@ import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRou
 import { useAuthentication } from './hooks/useAuthentication';
 import Header from './components/NavigationHeader/NavigationHeader';
 import Profile from './containers/Profile';
-import Loader from './components/Loader';
+import Loader from './components/Loader/Loader';
 
 function App() {
   const { isAuthenticated, isLoading } = useAuthentication();
