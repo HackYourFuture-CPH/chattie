@@ -22,6 +22,7 @@ It gives you as students a place to get comfortable with working professionally.
 - Meaning look through all the changes you are making
 - Avoid committing things that is not part of the task. (fx linting errors, weird line breaks, etc)
 - Connect the issue with a PR: See an example here: https://github.com/HackYourFuture-CPH/chattie/pull/37
+- `develop` and `master`
 
 ## Expectations for getting the certificate
 
