@@ -35,6 +35,9 @@
 
 This repository is for Class13 Final Project - Chattie
 
+Production website: https://chattie-production.herokuapp.com/
+Staging website: https://chattie-staging.herokuapp.com
+
 ## ⛏️ Built Using <a name = "built_using"></a>
 
 - [React](https://reactjs.org/) - Web Framework
@@ -86,7 +89,6 @@ Check the mockup [here](https://www.figma.com/file/hIPS2kqa5VTsm7pMI9B3fq/HYF-CH
 #### 🖼 Features
 
 Go to the project board [here](https://github.com/HackYourFuture-CPH/chattie/projects/1)
-
 
 ## 📈 Process 📉📈
 
