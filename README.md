@@ -90,7 +90,7 @@ Check the mockup [here](https://www.figma.com/file/hIPS2kqa5VTsm7pMI9B3fq/HYF-CH
 
 #### 🖼 Features
 
-Go to the project board [here](https://github.com/HackYourFuture-CPH/chattie/projects/1)
+Go to the project board [here](https://github.com/orgs/HackYourFuture-CPH/projects/2/)
 
 ## 📈 Process 📉📈
 
