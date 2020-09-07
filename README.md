@@ -56,6 +56,7 @@ _Class Dates_
 
 - Week 1 —> 6-Sep-2020 - Intro week - Intro to the FP and working in the final project
 - Week 2 —> 13-Sep-2020
+  - Did everyone get Husky working?
 - Week 3 —> 20-Sep-2020
 - Week 4 —> 27-Sep-2020
 - Week 5 —> 4-oct.-2020
