@@ -56,6 +56,7 @@ _Class Dates_
 
 - Week 1 —> 6-Sep-2020 - Intro week - Intro to the FP and working in the final project
 - Week 2 —> 13-Sep-2020
+  - Did everyone get Husky working?
 - Week 3 —> 20-Sep-2020
 - Week 4 —> 27-Sep-2020
 - Week 5 —> 4-oct.-2020
@@ -89,7 +90,7 @@ Check the mockup [here](https://www.figma.com/file/hIPS2kqa5VTsm7pMI9B3fq/HYF-CH
 
 #### 🖼 Features
 
-Go to the project board [here](https://github.com/HackYourFuture-CPH/chattie/projects/1)
+Go to the project board [here](https://github.com/orgs/HackYourFuture-CPH/projects/2/)
 
 ## 📈 Process 📉📈
 
