@@ -58,6 +58,7 @@ _Class Dates_
 - Week 2 —> 13-Sep-2020
   - Did everyone get Husky working?
   - Remember to update your story in the project board
+  - Typical development workflow
 - Week 3 —> 20-Sep-2020
 - Week 4 —> 27-Sep-2020
 - Week 5 —> 4-oct.-2020
