@@ -20,8 +20,9 @@ const messagesController = require('../controllers/messages-controller');
  *        description: Unexpected error.
  */
 router.get('/', (req, res, next) => {
+  const {query} =req.query
   messagesController
-    .getMessages()
+    .getMessages(query)
     .then((result) => res.json(result))
     .catch(next);
 });

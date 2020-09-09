@@ -2,13 +2,27 @@ const knex = require('../../config/db');
 const Error = require('../lib/utils/http-error');
 const moment = require('moment-timezone');
 
-const getMessages = async () => {
-  try {
-    return await knex('messages').select('messages.id', 'messages.title');
-  } catch (error) {
-    return error.message;
+const getMessages = async (query) => {
+
+ try{
+    if (query) {
+      return await knex("channel_messages")
+     .where("message", 'like',`%${query}%`)
+     .orderBy("channel_messages.created_at", "desc")
+   .limit(10)
+
+    } 
+      return  await knex("channel_messages")
+      .orderBy("channel_messages.created_at", "desc")
+      .limit(10) 
+
+ } 
+catch (error) {
+  return error.message;
+}
+ 
   }
-};
+
 
 const getMessageById = async (id) => {
   try {
