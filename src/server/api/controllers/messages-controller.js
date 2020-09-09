@@ -1,6 +1,7 @@
 const knex = require('../../config/db');
 const Error = require('../lib/utils/http-error');
 const moment = require('moment-timezone');
+const { select } = require('../../config/db');
 
 const getMessages = async () => {
   try {
@@ -43,11 +44,11 @@ const deleteMessage = async (messagesId) => {
 };
 
 const createMessage = async (body) => {
-  await knex('messages').insert({
-    title: body.title,
-    startDate: moment(body.startDate).format(),
-    endDate: moment(body.endDate).format(),
-    classId: body.classId,
+  await knex('channel_messages').insert({
+    message: body.message,
+    created_at: body.created_at,
+    fk_user_id :body.fk_user_id,
+    fk_channel_id: body.fk_channel_id
   });
 
   return {
