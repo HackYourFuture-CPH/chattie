@@ -30,7 +30,7 @@ const getMessages = async (query, channel_id, sender, limit, sort, sort_by) => {
       return await getMes.limit(limit);
     }
     if (sort) {
-      return await getMes.orderBy('channel_messages.id', sort, `%${sort_by}%`);
+      return await getMes.orderBy('channel_messages.id', sort);
     }
     if (sort_by) {
       return await getMes.orderBy('channel_messages.id', `%${sort_by}%`);
