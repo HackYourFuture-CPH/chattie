@@ -15,7 +15,7 @@ const getMessages = async (query, channel_id, sender, limit, sort, sort_by) => {
   try {
     if (query) {
       return await getMes.where(
-        'channel_messages.id.message',
+        'channel_messages.message',
         'like',
         `%${query}%`,
       );
@@ -33,7 +33,10 @@ const getMessages = async (query, channel_id, sender, limit, sort, sort_by) => {
       return await getMes.orderBy('channel_messages.id', sort);
     }
     if (sort_by) {
-      return await getMes.orderBy('channel_messages.id', `%${sort_by}%`);
+      return await getMes.orderBy(
+        'channel_messages.created_at',
+        `%${sort_by}%`,
+      );
     }
     return await getMes
       .groupBy('channel_messages.id')
