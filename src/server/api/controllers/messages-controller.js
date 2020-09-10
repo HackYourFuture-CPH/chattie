@@ -4,16 +4,32 @@ const knex = require('../../config/db');
 const Error = require('../lib/utils/http-error');
 const moment = require('moment-timezone');
 
-const getMessages = async (query, channel_id) => {
-  const getMes = knex('channel_messages').distinct('*');
+const getMessages = async (query, channel_id, sender) => {
+  const getMes = knex('channel_messages')
+    .select(
+      knex.raw(
+        'DISTINCT channel_messages.id, channel_messages.message, channel_messages.fk_channel_id,channel_messages.fk_user_id,channel_messages.created_at, channel_messages.updated_at,channel_messages.deleted_at,users.id,users.profile_image, users.user_name,users.email, users.last_seen, users.created_at, users.updated_at, users.deleted_at',
+      ),
+    )
+    .leftJoin(knex.raw('users ON users.id = channel_messages.fk_user_id'));
   try {
     if (query) {
-      return await getMes.where('message', 'like', `%${query}%`);
+      return await getMes.where(
+        'channel_messages.id.message',
+        'like',
+        `%${query}%`,
+      );
     }
     if (channel_id) {
-      return await getMes.where('id', channel_id);
+      return await getMes.where('channel_messages.id', channel_id);
     }
-    return await getMes.orderBy('channel_messages.created_at', 'desc').limit(1);
+    if (sender) {
+      return await getMes.where('users.email', 'like', `%${sender}%`);
+    }
+    return await getMes
+      .groupBy('channel_messages.id')
+      .orderBy('channel_messages.id', 'desc')
+      .limit(5);
   } catch (error) {
     return error.message;
   }
