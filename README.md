@@ -58,8 +58,9 @@ _Class Dates_
 - Week 2 —> 13-Sep-2020
   - Did everyone get Husky working?
   - Remember to update your story in the project board
-  - Typical development workflow
+  - Link your story
   - Update the PR text
+  - Typical development workflow
   - Work in this repo directly
   - Checklist
 - Week 3 —> 20-Sep-2020
