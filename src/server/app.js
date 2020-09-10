@@ -22,7 +22,7 @@ const app = express();
 
 app.use(express.static(buildPath));
 
-//app.use(authenticate);
+app.use(authenticate);
 
 app.locals.ENV = process.env.NODE_ENV;
 app.locals.ENV_DEVELOPMENT = process.env.NODE_ENV === 'development';
@@ -55,12 +55,12 @@ app.use((err, req, res) => {
   res.sendStatus(500);
 });
 
-app.use('/api/', function(req, res) {
+app.use('/api/', function (req, res) {
   res.status(404).send("Sorry can't find that!");
 });
 
 // If "/api" is called, redirect to the API documentation.
-app.use('/api', function(req, res) {
+app.use('/api', function (req, res) {
   res.redirect(`${process.env.API_PATH}/documentation`);
 });
 

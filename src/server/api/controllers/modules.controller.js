@@ -40,9 +40,7 @@ const editModule = async (moduleId, updatedModule) => {
 };
 
 const deleteModule = async (modulesId) => {
-  return knex('modules')
-    .where({ id: modulesId })
-    .del();
+  return knex('modules').where({ id: modulesId }).del();
 };
 
 const createModule = async (body) => {
