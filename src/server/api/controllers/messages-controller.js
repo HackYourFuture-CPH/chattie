@@ -4,7 +4,7 @@ const knex = require('../../config/db');
 const Error = require('../lib/utils/http-error');
 const moment = require('moment-timezone');
 
-const getMessages = async (query, channel_id, sender) => {
+const getMessages = async (query, channel_id, sender, limit) => {
   const getMes = knex('channel_messages')
     .select(
       knex.raw(
@@ -26,10 +26,12 @@ const getMessages = async (query, channel_id, sender) => {
     if (sender) {
       return await getMes.where('users.email', 'like', `%${sender}%`);
     }
+    if (limit) {
+      return await getMes.limit(limit);
+    }
     return await getMes
       .groupBy('channel_messages.id')
-      .orderBy('channel_messages.id', 'desc')
-      .limit(5);
+      .orderBy('channel_messages.id', 'desc');
   } catch (error) {
     return error.message;
   }
