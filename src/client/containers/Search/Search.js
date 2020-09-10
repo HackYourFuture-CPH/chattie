@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Fetcher } from '../../components/Fetcher';
-import { RenderUserPage } from '../../components/RenderUserPage';
+import { Fetcher } from '../../components/SearchAPI/Fetcher';
+import { UserDetails } from '../../components/SearchAPI/UserDetails';
 import './Styles.css';
 
 export const Search = () => {
@@ -27,7 +27,7 @@ export const Search = () => {
               data.map((item) => {
                 return (
                   <li style={{ listStyleType: 'none' }} key={`${item.login}`}>
-                    <RenderUserPage user={item} />
+                    <UserDetails user={item} />
                   </li>
                 );
               })}
