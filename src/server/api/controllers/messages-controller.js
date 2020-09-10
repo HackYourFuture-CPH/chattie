@@ -1,28 +1,23 @@
+/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable camelcase */
 const knex = require('../../config/db');
 const Error = require('../lib/utils/http-error');
 const moment = require('moment-timezone');
 
-const getMessages = async (query) => {
-
- try{
+const getMessages = async (query, channel_id) => {
+  const getMes = knex('channel_messages').distinct('*');
+  try {
     if (query) {
-      return await knex("channel_messages")
-     .where("message", 'like',`%${query}%`)
-     .orderBy("channel_messages.created_at", "desc")
-   .limit(10)
-
-    } 
-      return  await knex("channel_messages")
-      .orderBy("channel_messages.created_at", "desc")
-      .limit(10) 
-
- } 
-catch (error) {
-  return error.message;
-}
- 
+      return await getMes.where('message', 'like', `%${query}%`);
+    }
+    if (channel_id) {
+      return await getMes.where('id', channel_id);
+    }
+    return await getMes.orderBy('channel_messages.created_at', 'desc').limit(1);
+  } catch (error) {
+    return error.message;
   }
-
+};
 
 const getMessageById = async (id) => {
   try {

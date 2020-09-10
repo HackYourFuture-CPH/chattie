@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const express = require('express');
 
 const router = express.Router({ mergeParams: true });
@@ -20,9 +21,10 @@ const messagesController = require('../controllers/messages-controller');
  *        description: Unexpected error.
  */
 router.get('/', (req, res, next) => {
-  const {query} =req.query
+  // eslint-disable-next-line @typescript-eslint/camelcase
+  const { query, channel_id } = req.query;
   messagesController
-    .getMessages(query)
+    .getMessages(query, channel_id)
     .then((result) => res.json(result))
     .catch(next);
 });
