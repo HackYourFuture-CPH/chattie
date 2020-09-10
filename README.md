@@ -56,6 +56,7 @@ _Class Dates_
 
 - Week 1 —> 6-Sep-2020 - Intro week - Intro to the FP and working in the final project
 - Week 2 —> 13-Sep-2020
+  - If you dont have any story assigned, then just pick one
   - Did everyone get Husky working?
   - Remember to update your story in the project board
   - Link your story
