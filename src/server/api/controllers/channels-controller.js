@@ -1,5 +1,5 @@
 const knex = require('../../config/db');
-const Error = require('../lib/utils/http-error');
+//  const Error = require('../lib/utils/http-error');
 const moment = require('moment-timezone');
 
 const createChannel = async (body) => {
@@ -16,9 +16,9 @@ const createChannel = async (body) => {
   };
   
   module.exports = {
-    //getModules,
-    //getModuleById,
-    //deleteModule,
+    //  getModules,
+    //  getModuleById,
+    //  deleteModule,
     createChannel,
-    //editModule,
+    //  editModule,
   };
