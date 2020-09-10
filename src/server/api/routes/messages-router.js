@@ -22,9 +22,9 @@ const messagesController = require('../controllers/messages-controller');
  */
 router.get('/', (req, res, next) => {
   // eslint-disable-next-line @typescript-eslint/camelcase
-  const { query, channel_id, sender, limit, sort, sort_by } = req.query;
+  const { query, channel_id, sender, limit, sort, date } = req.query;
   messagesController
-    .getMessages(query, channel_id, sender, limit, sort, sort_by)
+    .getMessages(query, channel_id, sender, limit, sort, date)
     .then((result) => res.json(result))
     .catch(next);
 });
