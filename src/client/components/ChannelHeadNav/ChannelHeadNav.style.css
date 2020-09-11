@@ -1,0 +1,30 @@
+.channel-head-div {
+  position: relative;
+  height: 10vh;
+  background-color: lightblue;
+  display: flex;
+  justify-items: flex-start;
+  flex-direction: row;
+}
+.backArrowIcon {
+  position: relative;
+  font-weight: bold;
+  color: blue;
+  text-decoration-line: none;
+}
+.backArrowIcon h1 {
+  position: relative;
+  margin: auto 10px;
+}
+.channel-head-img {
+  position: relative;
+  border-radius: 50%;
+
+  height: 90%;
+}
+.channel-Head-name {
+  position: relative;
+  margin: auto 10px;
+  color: black;
+  margin-left: 20px;
+}
