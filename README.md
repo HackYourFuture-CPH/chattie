@@ -1,3 +1,6 @@
+Not ready to be merged
+
+
 <p align="center">
   <a href="" rel="noopener">
  <img width=150px height=150px src="https://www.hackyourfuture.dk/static/logo-dark.svg" alt="Project logo"></a>
