@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 // Router imports
-const modulesRouter = require('./channels-router');
+const channelsRouter = require('./channels-router');
 
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
@@ -29,6 +29,6 @@ const swaggerDocument = swaggerJsDoc(swaggerOptions);
 router.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Application routes
-router.use('/channels', modulesRouter);
+router.use('/channels', channelsRouter);
 
 module.exports = router;
