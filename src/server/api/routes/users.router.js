@@ -1,5 +1,5 @@
 const express = require('express');
-// require('express-async-errors');
+
 const router = express.Router();
 const knex = require('../../config/db');
 
@@ -52,9 +52,5 @@ router.post('/', async (req, res) => {
     res.status(400).send(e);
   }
 });
-
-// router.use((err, req, res, next) => {
-//  res.status(400).send(err.message);
-// });
 
 module.exports = router;
