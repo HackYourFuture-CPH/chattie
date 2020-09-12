@@ -14,7 +14,9 @@ const getMessageById = async (id) => {
   try {
     const messages = await knex('messages')
       .select('messages.id as id', 'title')
-      .where({ id });
+      .where({
+        id,
+      });
     if (messages.length === 0) {
       throw new Error(`incorrect entry message with the id of ${id}`, 404);
     }
@@ -26,7 +28,9 @@ const getMessageById = async (id) => {
 
 const editMessage = async (messageId, updatedMessage) => {
   return knex('messages')
-    .where({ id: messageId })
+    .where({
+      id: messageId,
+    })
     .update({
       title: updatedMessage.title,
       startDate: moment(updatedMessage.startDate).format(),
@@ -38,7 +42,9 @@ const editMessage = async (messageId, updatedMessage) => {
 
 const deleteMessage = async (messagesId) => {
   return knex('messages')
-    .where({ id: messagesId })
+    .where({
+      id: messagesId,
+    })
     .del();
 };
 

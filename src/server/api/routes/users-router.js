@@ -1,19 +1,19 @@
 const express = require('express');
 
 const router = express.Router({
-  mergeParams: true
+  mergeParams: true,
 });
 
 // controllers
-const messagesController = require('../controllers/messages-controller');
+const usersController = require('../controllers/users-controller');
 
 /**
  * @swagger
- * /messages:
+ * /users:
  *  get:
- *    summary: Get all messages
+ *    summary: Get all users
  *    description:
- *      Will return all messages.
+ *      Will return all users.
  *    produces: application/json
  *    responses:
  *      200:
@@ -22,15 +22,15 @@ const messagesController = require('../controllers/messages-controller');
  *        description: Unexpected error.
  */
 router.get('/', (req, res, next) => {
-  messagesController
-    .getMessages()
+  usersController
+    .getUsers()
     .then((result) => res.json(result))
     .catch(next);
 });
 
 /**
  * @swagger
- * /messages/{ID}:
+ * /users/{ID}:
  *  get:
  *    summary: Get module by ID
  *    description:
@@ -51,15 +51,15 @@ router.get('/', (req, res, next) => {
  *        description: Unexpected error.
  */
 router.get('/:id', (req, res, next) => {
-  messagesController
-    .getMessageById(req.params.id)
+  usersController
+    .getUserById(req.params.id)
     .then((result) => res.json(result))
     .catch(next);
 });
 
 /**
  * @swagger
- * /messages:
+ * /users:
  *  post:
  *    summary: Create a module
  *    description:
@@ -94,22 +94,19 @@ router.get('/:id', (req, res, next) => {
  *        description: Unexpected error.
  */
 router.post('/', (req, res) => {
-  messagesController
-    .createMessage(req.body)
+  usersController
+    .createUser(req.body)
     .then((result) => res.json(result))
     .catch((error) => {
       console.log(error);
 
-      res
-        .status(400)
-        .send('Bad request')
-        .end();
+      res.status(400).send('Bad request').end();
     });
 });
 
 /**
  * @swagger
- * /messages/{ID}:
+ * /users/{ID}:
  *  patch:
  *    summary: Create a module
  *    description:
@@ -142,15 +139,15 @@ router.post('/', (req, res) => {
  *        description: Unexpected error.
  */
 router.patch('/:id', (req, res, next) => {
-  messagesController
-    .editMessage(req.params.id, req.body)
+  usersController
+    .editUser(req.params.id, req.body)
     .then((result) => res.json(result))
     .catch(next);
 });
 
 /**
  * @swagger
- * /messages/{ID}:
+ * /users/{ID}:
  *  delete:
  *    summary: Delete a module
  *    description:
@@ -167,15 +164,15 @@ router.patch('/:id', (req, res, next) => {
  *        description: Unexpected error.
  */
 router.delete('/:id', (req, res) => {
-  messagesController
-    .deleteMessage(req.params.id, req)
+  usersController
+    .deleteUser(req.params.id, req)
     .then((result) => {
       // If result is equal to 0, then that means the module id does not exist
       if (result === 0) {
-        res.status(404).send('The message ID you provided does not exist.');
+        res.status(404).send('The User ID you provided does not exist.');
       } else {
         res.json({
-          success: true
+          success: true,
         });
       }
     })

@@ -1,10 +1,9 @@
 const knex = require('../../config/db');
-const Error = require('../lib/utils/http-error');
-const moment = require('moment-timezone');
 
 const getUsers = async () => {
   try {
-    return await knex('users').select('users.id', 'users.user_name');
+    const userList = await knex('users').select('*').limit(20);
+    return userList.length > 0 ? userList : 'No Users';
   } catch (error) {
     return error.message;
   }
@@ -12,15 +11,8 @@ const getUsers = async () => {
 
 const getUserById = async (id) => {
   try {
-    const users = await knex('users')
-      .select('users.id as id', 'title')
-      .where({
-        id
-      });
-    if (users.length === 0) {
-      throw new Error(`incorrect entry of the user with an id of ${id}`, 404);
-    }
-    return getUserById;
+    const user = await knex('users').select('user_name', 'id').where({ id });
+    return user;
   } catch (error) {
     return error.message;
   }
