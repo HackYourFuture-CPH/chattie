@@ -22,7 +22,7 @@ const app = express();
 
 app.use(express.static(buildPath));
 
-app.use(authenticate);
+//app.use(authenticate);
 
 app.locals.ENV = process.env.NODE_ENV;
 app.locals.ENV_DEVELOPMENT = process.env.NODE_ENV === 'development';
