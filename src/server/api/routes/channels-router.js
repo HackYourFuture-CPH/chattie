@@ -7,121 +7,6 @@ const channelsController = require('../controllers/channels-controller');
 
 /**
  * @swagger
- * /modules:
- *  post:
- *    summary: Create a channel
- *    description:
- *      Will create a channel.
- *    produces: application/json
- *    parameters:
- *      - in: body
- *        name: channel
- *        description: The channel to create.
- *        schema:
- *          type: object
- *          required:
- *              - created_at
- *              - updated_at
- *          properties:
- *            title:
- *              type: string
- *            created_at:
- *              type: string
- *              format: date-time
- *
- *            updated_at:
- *              type: string
- *              format: date-time
- *
- *            deleted_at:
- *              type: string
- *              format: date-time
- *
- *    responses:
- *      201:
- *        description: Channel created
- *      5XX:
- *        description: Unexpected error.
- */
-router.post('/', (req, res) => {
-  channelsController
-    .createChannel(req.body)
-    .then((result) => res.json(result))
-    .catch((error) => {
-      console.log(error);
-
-      res
-        .status(400)
-        .send('Bad request')
-        .end();
-    });
-});
-
-/**
- * @swagger
- * /channels:
- *  get:
- *    summary: Get all channels sorted alphabetically
- *    description:
- *      Will return all channels.
- *    produces: application/json
- *    responses:
- *      200:
- *        description: Successful request
- *      5XX:
- *        description: Unexpected error.
- */
-router.get('/', (req, res, next) => {
-  channelsController
-    .getChannels()
-    .then((result) => res.json(result))
-    .catch(next);
-});
-
-/**
- * @swagger
- * /channels:
- *  get:
- *    summary: Get channels, sorted with the most recently created first
- *    description:
- *      Will return id and title of the channels.
- *    produces: application/json
- *    responses:
- *      200:
- *        description: Successful request
- *      5XX:
- *        description: Unexpected error.
- */
-router.get('/', (req, res, next) => {
-  channelsController
-    .getRecentlyCreatedChannels()
-    .then((result) => res.json(result))
-    .catch(next);
-});
-
-/**
- * @swagger
- * /channels:
- *  get:
- *    summary: Get channels, sorted by latest messages
- *    description:
- *      Will return id and title of the channels.
- *    produces: application/json
- *    responses:
- *      200:
- *        description: Successful request
- *      5XX:
- *        description: Unexpected error.
- */
-router.get('/', (req, res, next) => {
-  channelsController
-    .getChannelsWithLatestMessages()
-    .then((result) => res.json(result))
-    .catch(next);
-});
-
-/**
- * @swagger
  * /channels/{ID}:
  *  get:
  *    summary: Get channels by ID
@@ -153,9 +38,9 @@ router.get('/:id', (req, res, next) => {
  * @swagger
  * /channels/:
  *  get:
- *    summary: filter the channels
+ *    summary: Get channels
  *    description:
- *      Will return only specific channel
+ *      Will return all or filtered channels
  *    produces: application/json
  *    parameters:
  *     - in: query
@@ -173,7 +58,16 @@ router.get('/:id', (req, res, next) => {
  *       schema:
  *         type: integer
  *         description: Get channel with a title that partially matches the specified search word
- *
+ *     - in: query
+ *       name: sortDate
+ *       schema:
+ *         type: integer
+ *         description: Get channels, sorted with the most recently created first
+ *     - in: query
+ *       name: sortMessages
+ *       schema:
+ *         type: integer
+ *         description: Get channels, sorted by latest messages
  *    responses:
  *      200:
  *        description: Successful request
@@ -182,30 +76,7 @@ router.get('/:id', (req, res, next) => {
  */
 router.get('/', (req, res, next) => {
   channelsController
-    .getLimitNumberChannels(req.query.limit)
-    .then((result) => res.json(result))
-    .catch(next);
-});
-
-router.get('/', (req, res, next) => {
-  channelsController
-    .getCreatedAfterChannels(req.query.createdAfter)
-    .then((result) => res.json(result))
-    .catch(next);
-});
-
-router.get('/', (req, res, next) => {
-  channelsController
-    .getSpecifiedChannelsTitle(req.query.searchWord)
-    .then((result) => res.json(result))
-    .catch(next);
-});
-
-router.get('/', (req, res, next) => {
-  channelsController
-    .getLimitNumberChannels(req.query.limit)
-    .getCreatedAfterChannels(req.query.createdAfter)
-    .getSpecifiedChannelsTitle(req.query.searchWord)
+    .getFilteredChannels(req.query)
     .then((result) => res.json(result))
     .catch(next);
 });
