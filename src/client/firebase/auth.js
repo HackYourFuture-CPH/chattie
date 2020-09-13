@@ -65,3 +65,10 @@ export async function resetPassword({ email }) {
 export function signOut() {
   auth.signOut();
 }
+
+
+/**
+ * Getting user token to authenticate/authorize user
+ */
+
+export const getUserFirebaseToken = async () => auth().currentUser?.getIdToken() ?? null,

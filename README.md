@@ -24,7 +24,9 @@
   - [Working Knex and migrations](/knex-and-migrations.md)
   - [Working with API Documentation - Swagger](#working-with-api-documentation---swagger)
   - [Working with Storybook](#working-with-storybook)
-  - [Working with AWS - Amazon Services](#working-with-aws---amazon-services) - [Testing](#testing)
+  - [Working with AWS - Amazon Services](#working-with-aws---amazon-services)
+  - [Testing](#testing)
+  - [Making authenticated requests through firebase](#making-authenticated-requests-through-firebase)
 - [Getting Started](#getting-started)
   - [Installations](/installations.md) - [Code linting](#code-linting)
 - [Getting the certificate](/certificate.md)
@@ -74,7 +76,6 @@ Graduation 25/10
 
 _Study groups dates_  
 Until further notice, please attend the remote study groups with Elastic and Zendesk
-
 
 ## 👩🏻‍💼💡👨🏽‍💼 The Customer
 
@@ -318,6 +319,43 @@ To run all test, write this command:
 To run the tests when you change a test file, run:
 
 `npm run test:watch`
+
+### Making authenticated requests through firebase (useFetch hook)
+
+#### What is it?
+
+We created a small hook wrapper the `fetch` API to abstract away the authorization headers.
+
+It also has some other bells and whistles to make data fetching simpler such as:
+
+- loading state
+- error state
+
+#### Usage
+
+Let's say I have a component which needs to fetch some data, this is how you could use it.
+
+```javascript
+function App() {
+  const { response, loading, error } = useFetch(
+    '[SOME URL HERE TO AN API ENDPOINT]'
+    {} // here you can pass other options just like usual with the fetch API
+  );
+  const renderLoading = () => loading && <p>Loading...</p>;
+  const renderError = () => error && <p>Something went wrong...</p>;
+  const renderData = () => response && <p>{response.title}</p>;
+  return (
+    <div className="App">
+      <h1>I want to loading some data</h1>
+      {renderLoading()}
+      {renderError()}
+      {renderData()}
+    </div>
+  );
+}
+```
+
+checkout the hook code here: [useFetch](src/client/hooks/useFetch.js)
 
 ## 🏁 Getting Started
 
