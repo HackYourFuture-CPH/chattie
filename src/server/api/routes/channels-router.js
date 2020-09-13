@@ -49,7 +49,7 @@ router.post('/', (req, res) => {
   channelsController
     .createChannel(req.body)
     .then((result) => res.json(result))
-    .catch((error) => {
+    .catch(() => {
       res
         .status(400)
         .send('Bad request')
