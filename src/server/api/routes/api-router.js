@@ -35,6 +35,4 @@ router.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 router.use('/modules', modulesRouter);
 router.use('/messages', messagesRouter);
 
-router.use('/messages', messagesRouter);
-
 module.exports = router;
