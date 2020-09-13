@@ -42,14 +42,14 @@ const channelsController = require('../controllers/channels-controller');
  *        description: Channel created
  *      5XX:
  *        description: Unexpected error.
+ *      400:
+ *        description: Bad request.
  */
 router.post('/', (req, res) => {
   channelsController
     .createChannel(req.body)
     .then((result) => res.json(result))
     .catch((error) => {
-      console.log(error);
-
       res
         .status(400)
         .send('Bad request')
