@@ -2,10 +2,8 @@ const knex = require('../../config/db');
 
 const getUsers = async () => {
   try {
-    const userList = await knex('users')
-      .select('*')
-      .limit(20);
-    return userList.length > 0 ? userList : 'No Users';
+    const userList = await knex('users').select('*');
+    return userList;
   } catch (error) {
     return error.message;
   }
