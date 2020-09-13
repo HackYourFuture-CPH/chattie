@@ -3,7 +3,7 @@
  <img width=150px height=150px src="https://www.hackyourfuture.dk/static/logo-dark.svg" alt="Project logo"></a>
 </p>
 
-<h3 align="center">Boilerplate for Final projects
+<h3 align="center">Chattie
 </h3>
 
 ---
@@ -11,8 +11,6 @@
 ## 📝 Table of Contents
 
 - [About](#about)
-  - [Setting up the boilerplate](/setting-up-instructions.md)
-  - [Plan the project](/planning.md)
 - [Project's Calendar](#-projects-calendar)
 - [Class Daily Agenda](#-class-daily-agenda-)
 - [The Customer](#-the-customer)
@@ -20,7 +18,6 @@
   - [Database Model Diagram](#️-database-model-diagram)
 - [Process](#-process-)
   - [Working with code](#-working-with-code)
-  - [Guidelines for building components](#-guidelines-for-building-components)
   - [Code best practices](#-code-best-practices)
   - [Working with GIT](/working-with-git.md)
   - [Working with Heroku and Deployment](/deployment.md)
@@ -36,16 +33,11 @@
 
 ## 🧐 About <a name = "about"></a>
 
-This repository is a boilerplate and set-up instructions for the Final Project.
+This repository is for Class13 Final Project - Chattie
 
-After the previous steps, you have new repository ready but you need plan the project,
-check [HERE](/planning.md) before you go more down.
+Production website: https://chattie-production.herokuapp.com/
 
-🚨Delete the About Topic from you new repository README.MD file  
-🚨Delete the instructions files:
-
-- [Setting up Instructions](/setting-up-instructions.md)
-- [Planning](/planning.md)
+Staging website: https://chattie-staging.herokuapp.com
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
@@ -60,22 +52,33 @@ check [HERE](/planning.md) before you go more down.
 
 ## 📅 Project's Calendar
 
-_Add the dates for the project and study groups_
-_Class Dates_  
-_Study groups dates_
+_Class Dates_
 
-## 🕛 Class Daily Agenda 🕓
+- Week 1 —> 6-Sep-2020 - Intro week - Intro to the FP and working in the final project
+- Week 2 —> 13-Sep-2020
+  - If you dont have any story assigned, then just pick one
+  - Did everyone get Husky working?
+  - Remember to update your story in the project board
+  - Link your story
+  - Update the PR text
+  - Typical development workflow
+  - Work in this repo directly
+  - Checklist
+- Week 3 —> 20-Sep-2020
+- Week 4 —> 27-Sep-2020
+- Week 5 —> 4-oct.-2020
+- Week 6 —> 11-oct.-2020
+- Week 7 —> 18-oct.-2020
 
-_Add the Class schedule for the project_
+Graduation 25/10
 
-- 12:00 - 13:30 - ...
-- 13:30 - 14:00 - ...
-- 14:00 - 14:30 - Lunch
-- 14:30 - 16:00 - ...
+_Study groups dates_  
+Until further notice, please attend the remote study groups with Elastic and Zendesk
+
 
 ## 👩🏻‍💼💡👨🏽‍💼 The Customer
 
-_Add here information about the customer/partner_
+Niels Schmidt from [Anna](https://anna.co/) is the customer for this project
 
 #### 💼 Business Glossary
 
@@ -84,9 +87,17 @@ _Add here information about the Business Glossary_
 
 #### 🗄️ Database Model Diagram
 
-_Add here the DB Model Diagram_ - Use https://dbdiagram.io/
+Check the DB Model Diagram [here](https://dbdiagram.io/d/5f0ecd4874ca2227330d5ed5)
 
 - [How to make changes on the diagram](/diagram.md)
+
+#### 🖼 Mockup
+
+Check the mockup [here](https://www.figma.com/file/hIPS2kqa5VTsm7pMI9B3fq/HYF-CHAT-APP?node-id=1%3A143)
+
+#### 🖼 Features
+
+Go to the project board [here](https://github.com/orgs/HackYourFuture-CPH/projects/2/)
 
 ## 📈 Process 📉📈
 
@@ -156,6 +167,8 @@ The storybook application will become available on [http://localhost:3007](http:
 Some components may have "knobs" which are UI controls that allows you to interactively play with the props of a given component. It is up to the author of the component to set up knobs.
 
 #### How to create a new story
+
+Checko out this video: https://www.youtube.com/watch?v=jjH1cKGkt3o
 
 The most basic way to create a story for your component is to put this code in your the stories file for your component (my-component.stories.js):
 
