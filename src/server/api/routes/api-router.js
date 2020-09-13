@@ -4,6 +4,7 @@ const router = express.Router();
 
 // Router imports
 const modulesRouter = require('./modules.router');
+const messagesRouter = require('./messages-router');
 
 // messages router imports
 const messagesRouter = require('./messages-router');
@@ -33,6 +34,7 @@ router.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Application routes
 router.use('/modules', modulesRouter);
+router.use('/messages', messagesRouter);
 
 router.use('/messages', messagesRouter);
 

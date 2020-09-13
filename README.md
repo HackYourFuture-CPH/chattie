@@ -56,7 +56,14 @@ _Class Dates_
 
 - Week 1 —> 6-Sep-2020 - Intro week - Intro to the FP and working in the final project
 - Week 2 —> 13-Sep-2020
+  - If you dont have any story assigned, then just pick one
   - Did everyone get Husky working?
+  - Remember to update your story in the project board
+  - Link your story
+  - Update the PR text
+  - Typical development workflow
+  - Work in this repo directly
+  - Checklist
 - Week 3 —> 20-Sep-2020
 - Week 4 —> 27-Sep-2020
 - Week 5 —> 4-oct.-2020

@@ -1,10 +1,44 @@
+/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable camelcase */
 const knex = require('../../config/db');
 const Error = require('../lib/utils/http-error');
 const moment = require('moment-timezone');
+// getting all messages from channel_messages and query based on query, channel_id, sender, limit, sort and date
+const getChannelMessages = async (req) => {
+  const { query, channel_id, sender, limit, sort } = req.query;
 
-const getMessages = async () => {
+  let channelMessages = knex('channel_messages').distinct('*');
+
   try {
-    return await knex('messages').select('messages.id', 'messages.title');
+    if (query) {
+      channelMessages = channelMessages.where(
+        'channel_messages.message',
+        'like',
+        `%${query}%`,
+      );
+    }
+    if (channel_id) {
+      channelMessages = channelMessages
+        .where('channel_messages.id', channel_id)
+        .orWhereNot('channel_messages.id', channel_id);
+    }
+    if (sender) {
+      channelMessages = channelMessages
+        .where('channel_messages.fk_user_id', 'like', `%${sender}%`)
+        .orWhereNot('channel_messages.fk_user_id', 'like', `%${sender}%`);
+    }
+    if (limit) {
+      channelMessages = channelMessages.limit(limit);
+    }
+    if (sort) {
+      channelMessages = channelMessages.orderBy(
+        'channel_messages.created_at',
+        sort,
+      );
+    }
+    return await channelMessages
+      .groupBy('channel_messages.id')
+      .orderBy('channel_messages.id', 'desc');
   } catch (error) {
     return error.message;
   }
@@ -56,7 +90,7 @@ const createMessage = async (body) => {
 };
 
 module.exports = {
-  getMessages,
+  getChannelMessages,
   getMessageById,
   deleteMessage,
   createMessage,
