@@ -45,7 +45,7 @@ const deleteMessage = async (messagesId) => {
 const createMessage = async (body) => {
   await knex('channel_messages').insert({
     message: body.message,
-    created_at: body.created_at,
+    created_at: moment(body.created_at).format(),
     fk_user_id: body.fk_user_id,
     fk_channel_id: body.fk_channel_id,
   });
