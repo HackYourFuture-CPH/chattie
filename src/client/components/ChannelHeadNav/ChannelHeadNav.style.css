@@ -6,23 +6,23 @@
   justify-items: flex-start;
   flex-direction: row;
 }
-.backArrowIcon {
+.channel-head-div .backArrowIcon {
   position: relative;
   font-weight: bold;
   color: blue;
   text-decoration-line: none;
 }
-.backArrowIcon h1 {
+.channel-head-div .backArrowIcon h1 {
   position: relative;
   margin: auto 10px;
 }
-.channel-head-img {
+.channel-head-div .channel-head-img {
   position: relative;
   border-radius: 50%;
 
   height: 90%;
 }
-.channel-Head-name {
+.channel-head-div .channel-Head-name {
   position: relative;
   margin: auto 10px;
   color: black;
