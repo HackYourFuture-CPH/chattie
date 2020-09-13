@@ -4,6 +4,8 @@ const router = express.Router();
 
 // Router imports
 const modulesRouter = require('./modules.router');
+
+// messages router imports
 const messagesRouter = require('./messages-router');
 
 const swaggerJsDoc = require('swagger-jsdoc');
