@@ -71,8 +71,9 @@ export function signOut() {
  */
 
 export const getUserFirebaseToken = async () => {
-  if (auth.currentUser) {
-    return auth.currentUser.getIdToken();
+  const { currentUser } = auth;
+  if (currentUser) {
+    return currentUser.getIdToken();
   }
   return null;
 };
