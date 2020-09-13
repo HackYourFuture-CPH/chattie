@@ -3,8 +3,6 @@
 const knex = require('../../config/db');
 const Error = require('../lib/utils/http-error');
 const moment = require('moment-timezone');
-const Knex = require('knex');
-
 // getting all messages from channel_messages and query based on query, channel_id, sender, limit, sort and date
 const getChannelMessages = async (req) => {
   const { query, channel_id, sender, limit, sort } = req.query;
