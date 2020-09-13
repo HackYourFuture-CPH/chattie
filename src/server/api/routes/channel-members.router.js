@@ -41,14 +41,14 @@ const channelMembersController = require('../controllers/channel-members.control
  *        description: channel-member created
  *      5XX:
  *        description: Unexpected error.
+ *      400:
+ *        description: Bad request.
  */
 router.post('/', (req, res) => {
   channelMembersController
     .createChannelMember(req.body)
     .then((result) => res.json(result))
-    .catch((error) => {
-      console.log(error);
-
+    .catch(() => {
       res
         .status(400)
         .send('Bad request')
