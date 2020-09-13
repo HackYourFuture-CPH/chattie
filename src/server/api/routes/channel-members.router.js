@@ -8,15 +8,15 @@ const channelMembersController = require('../controllers/channel-members.control
 
 /**
  * @swagger
- * /channel_members:
+ * /channel-members:
  *  post:
- *    summary: Create a module
+ *    summary: Create channel-members
  *    description:
- *      Will create a module.
+ *      Will create a channel-member.
  *    produces: application/json
  *    parameters:
  *      - in: body
- *        name: module
+ *        name: channel-member
  *        description: The module to create.
  *        schema:
  *          type: object
@@ -38,7 +38,7 @@ const channelMembersController = require('../controllers/channel-members.control
  *              type: string
  *    responses:
  *      201:
- *        description: Module created
+ *        description: channel-member created
  *      5XX:
  *        description: Unexpected error.
  */
