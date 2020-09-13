@@ -17,9 +17,7 @@ const getModuleById = async (id) => {
   try {
     const modules = await knex('modules')
       .select('modules.id as id', 'title')
-      .where({
-        id,
-      });
+      .where({ id });
     if (modules.length === 0) {
       throw new Error(`incorrect entry with the id of ${id}`, 404);
     }
@@ -31,9 +29,7 @@ const getModuleById = async (id) => {
 
 const editModule = async (moduleId, updatedModule) => {
   return knex('modules')
-    .where({
-      id: moduleId,
-    })
+    .where({ id: moduleId })
     .update({
       title: updatedModule.title,
       startDate: moment(updatedModule.startDate).format(),
@@ -45,9 +41,7 @@ const editModule = async (moduleId, updatedModule) => {
 
 const deleteModule = async (modulesId) => {
   return knex('modules')
-    .where({
-      id: modulesId,
-    })
+    .where({ id: modulesId })
     .del();
 };
 
