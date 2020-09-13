@@ -17,7 +17,7 @@ const channelMembersController = require('../controllers/channel-members.control
  *    parameters:
  *      - in: body
  *        name: channel-member
- *        description: The module to create.
+ *        description: create channel-memeber.
  *        schema:
  *          type: object
  *          required:
