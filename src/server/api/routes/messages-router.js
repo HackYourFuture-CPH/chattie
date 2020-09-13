@@ -21,10 +21,8 @@ const messagesController = require('../controllers/messages-controller');
  *        description: Unexpected error.
  */
 router.get('/', (req, res, next) => {
-  // eslint-disable-next-line @typescript-eslint/camelcase
-  const { query, channel_id, sender, limit, sort, date } = req.query;
   messagesController
-    .getMessages(query, channel_id, sender, limit, sort, date)
+    .getChannelMessages(req)
     .then((result) => res.json(result))
     .catch(next);
 });

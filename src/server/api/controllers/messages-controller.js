@@ -3,44 +3,42 @@
 const knex = require('../../config/db');
 const Error = require('../lib/utils/http-error');
 const moment = require('moment-timezone');
+const Knex = require('knex');
 
 // getting all messages from channel_messages and query based on query, channel_id, sender, limit, sort and date
-const getMessages = async (query, channel_id, sender, limit, sort, date) => {
-  const get_channel_messages = knex('channel_messages').distinct('*');
+const getChannelMessages = async (req) => {
+  const { query, channel_id, sender, limit, sort } = req.query;
+
+  let channelMessages = knex('channel_messages').distinct('*');
+
   try {
     if (query) {
-      return await get_channel_messages.where(
+      channelMessages = channelMessages.where(
         'channel_messages.message',
         'like',
         `%${query}%`,
       );
     }
     if (channel_id) {
-      return await get_channel_messages.where(
-        'channel_messages.id',
-        channel_id,
-      );
+      channelMessages = channelMessages
+        .where('channel_messages.id', channel_id)
+        .orWhereNot('channel_messages.id', channel_id);
     }
     if (sender) {
-      return await get_channel_messages.where(
-        'channel_messages.fk_user_id',
-        'like',
-        `%${sender}%`,
-      );
+      channelMessages = channelMessages
+        .where('channel_messages.fk_user_id', 'like', `%${sender}%`)
+        .orWhereNot('channel_messages.fk_user_id', 'like', `%${sender}%`);
     }
     if (limit) {
-      return await get_channel_messages.limit(limit);
+      channelMessages = channelMessages.limit(limit);
     }
     if (sort) {
-      return await get_channel_messages.orderBy('channel_messages.id', sort);
-    }
-    if (date) {
-      return await get_channel_messages.orderBy(
+      channelMessages = channelMessages.orderBy(
         'channel_messages.created_at',
-        `%${date}%`,
+        sort,
       );
     }
-    return await get_channel_messages
+    return await channelMessages
       .groupBy('channel_messages.id')
       .orderBy('channel_messages.id', 'desc');
   } catch (error) {
@@ -94,7 +92,7 @@ const createMessage = async (body) => {
 };
 
 module.exports = {
-  getMessages,
+  getChannelMessages,
   getMessageById,
   deleteMessage,
   createMessage,
