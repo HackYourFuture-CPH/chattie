@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import './ChannelHeadNav.style.css';
 
 export default function ChannelHeadNav({ channelName, urlBack, imgUrl }) {
-  const backArow = '<';
+  const backArrow = '<';
   return (
     <div className="channel-head-div">
-      <Link to={urlBack} className="backArrowIcon">
-        <h1>{backArow}</h1>
+      <Link to={urlBack} className="channel-head-back-arrow-icon">
+        <h1>{backArrow}</h1>
       </Link>
       <img src={imgUrl} alt="Room" className="channel-head-img" />
-      <h2 className="channel-Head-name">{channelName}</h2>
+      <h2 className="channel-head-name">{channelName}</h2>
     </div>
   );
 }

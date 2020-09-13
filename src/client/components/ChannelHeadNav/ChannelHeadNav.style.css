@@ -6,7 +6,7 @@
   justify-items: flex-start;
   flex-direction: row;
 }
-.channel-head-div .backArrowIcon {
+.channel-head-div .channel-head-back-arrow-icon {
   position: relative;
   font-weight: bold;
   color: blue;
@@ -19,10 +19,9 @@
 .channel-head-div .channel-head-img {
   position: relative;
   border-radius: 50%;
-
   height: 90%;
 }
-.channel-head-div .channel-Head-name {
+.channel-head-div .channel-head-name {
   position: relative;
   margin: auto 10px;
   color: black;
