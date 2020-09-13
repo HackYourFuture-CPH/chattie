@@ -11,7 +11,6 @@ import Header from './components/NavigationHeader/NavigationHeader';
 import Profile from './containers/Profile';
 import Loader from './components/Loader/Loader';
 import { UserContext } from './context/userContext';
-import Footer from './components/Footer/Footer';
 
 function App() {
   const { isAuthenticated, isLoading, user } = useAuthentication();
@@ -19,7 +18,6 @@ function App() {
   return (
     <UserContext.Provider value={user}>
       <Router>
-        <Footer />
         <Header isAuthenticated={isAuthenticated} />
         <Switch>
           <Route exact path="/">
