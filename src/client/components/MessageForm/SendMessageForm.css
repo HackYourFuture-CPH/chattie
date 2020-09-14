@@ -1,0 +1,15 @@
+footer {
+  background-color: lightgray;
+  color: #ffffff;
+  padding: 10px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+footer input {
+  margin-left: 10px;
+  width: 1000px;
+}
+footer img {
+  width: 30px;
+}
