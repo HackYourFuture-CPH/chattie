@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import AddNewGroup from './AddNewGroup';
 
-const GroupHandler = (props) => {
+const GroupHandler = () => {
   const [newGroup, setNewGroup] = useState('');
   const [addGroup, setaddGroup] = useState('');
 
