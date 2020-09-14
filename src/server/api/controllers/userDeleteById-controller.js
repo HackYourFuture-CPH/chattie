@@ -1,10 +1,9 @@
 const knex = require('../../config/db');
-const Error = require('../lib/utils/http-error');
 
-const userDeleteById = async (id) => {
+const userDeleteById = async (userId) => {
   try {
     return await knex('user')
-      .where({ id: id })
+      .where({ id: userId })
       .del();
   } catch (error) {
     return error.message;
