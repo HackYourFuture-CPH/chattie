@@ -1,5 +1,5 @@
 .search {
-  background-color: #f7f9fb;
+  background-color: #f2f9fb;
   border: none;
   border-radius: 10px;
   width: 343px;
@@ -7,10 +7,18 @@
   left: 16px;
   top: 80px;
 }
+
 input {
   padding: 10px;
 }
 
 .userLinkInSearch {
   text-decoration: none;
+}
+
+.cancelInputSearch {
+  background-color: white;
+  color: #4c9999;
+  border: none;
+  margin-left: 5px;
 }
