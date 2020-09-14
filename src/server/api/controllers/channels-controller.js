@@ -1,12 +1,14 @@
 const knex = require('../../config/db');
 
 const createChannel = async (body) => {
-  await knex('channels').insert({
+  const newChannel = {
     title: body.title,
-  });
+  };
+  await knex('channels').insert(newChannel);
 
   return {
     successful: true,
+    title: newChannel.title,
   };
 };
 
