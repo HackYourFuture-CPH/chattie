@@ -5,7 +5,6 @@ const router = express.Router();
 // Router imports
 const channelsRouter = require('./channels-router');
 const modulesRouter = require('./modules.router');
-const channelsRouter = require('./channels-router');
 
 // messages router imports
 const messagesRouter = require('./messages-router');

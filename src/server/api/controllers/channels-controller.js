@@ -1,5 +1,4 @@
 const knex = require('../../config/db');
-const moment = require('moment-timezone');
 
 const createChannel = async (body) => {
   await knex('channels').insert({
