@@ -33,7 +33,10 @@ router.get('/:id', (req, res, next) => {
     .getChannelMemberById(req.params.id)
     .then((result) => res.json(result))
     .catch(next);
+});
 
+/**
+ * @swagger
  * /channel-members:
  *  post:
  *    summary: Create channel-members

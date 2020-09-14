@@ -38,5 +38,5 @@ const createChannelMember = async (body) => {
 
 module.exports = {
   createChannelMember,
-  getChannelMemberById
+  getChannelMemberById,
 };
