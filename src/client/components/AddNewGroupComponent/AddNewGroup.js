@@ -18,14 +18,14 @@ const AddNewGroup = (props) => {
     <div className="container">
       <div className="wraper">
         <div className="add-group">
-          <button type="button" onClick={props.groupdHandler}>
+          <button type="button" onClick={props.ongroupdHandler}>
             AddGroup
           </button>
           <input
             type="text"
             value={props.newGroup}
             placeholder="Add new group"
-            onChange={props.AddGroupName}
+            onChange={props.onAddGroupName}
           />
           {groupname}
         </div>
@@ -35,8 +35,8 @@ const AddNewGroup = (props) => {
 };
 AddNewGroup.propTypes = {
   addGroup: PropTypes.string.isRequired,
-  groupdHandler: PropTypes.func.isRequired,
+  ongroupdHandler: PropTypes.func.isRequired,
   newGroup: PropTypes.string.isRequired,
-  AddGroupName: PropTypes.func.isRequired,
+  onAddGroupName: PropTypes.func.isRequired,
 };
 export default AddNewGroup;
