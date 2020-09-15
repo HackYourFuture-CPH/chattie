@@ -26,8 +26,16 @@
   width: 70%;
   margin: auto;
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
 }
+a:link,
+a:active,
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
 .OverviewSearchMessagesBtn {
   width: 20%;
   border: none;
