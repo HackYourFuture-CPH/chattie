@@ -68,6 +68,7 @@ _Class Dates_
   - small prs! 
   - getting your pr merged is a skill in itself. This is your responsibility, so be aware of the status. 
     Keep the pr rolling along! If blocked, reach out to me and put story in blocked
+  - Resolving conversations
 - Week 4 —> 27-Sep-2020
 - Week 5 —> 4-oct.-2020
 - Week 6 —> 11-oct.-2020
