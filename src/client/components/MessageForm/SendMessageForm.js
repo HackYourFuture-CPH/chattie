@@ -3,9 +3,9 @@ import './SendMessageForm.css';
 
 function SendMessageForm() {
   const [input, setInput] = useState('');
-  const data = {
-    channel_id: null,
-    user_id: null,
+  const messageInputData = {
+    channelId: null,
+    userId: null,
     message: input,
   };
   const handleSubmit = () => {
@@ -14,27 +14,25 @@ function SendMessageForm() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(messageInputData),
     })
       .then((res) => res.json())
       .then((messages) => console.log(messages));
   };
 
   return (
-    <footer>
-      <div className="container">
-        <form onSubmit={handleSubmit}>
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/List-Icon.svg/768px-List-Icon.svg.png"
-            alt=""
-          />
-          <input
-            value={input}
-            onChange={(event) => setInput(event.target.value)}
-          />
-        </form>
-      </div>
-    </footer>
+    <div className="container">
+      <form onSubmit={handleSubmit}>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/List-Icon.svg/768px-List-Icon.svg.png"
+          alt=""
+        />
+        <input
+          value={input}
+          onChange={(event) => setInput(event.target.value)}
+        />
+      </form>
+    </div>
   );
 }
 export default SendMessageForm;

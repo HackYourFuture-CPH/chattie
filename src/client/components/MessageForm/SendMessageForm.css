@@ -1,4 +1,4 @@
-footer {
+form {
   background-color: lightgray;
   color: #ffffff;
   padding: 10px 0;
@@ -6,10 +6,10 @@ footer {
   bottom: 0;
   width: 100%;
 }
-footer input {
+form input {
   margin-left: 10px;
   width: 1000px;
 }
-footer img {
+form img {
   width: 30px;
 }
