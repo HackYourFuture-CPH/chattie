@@ -81,4 +81,47 @@ router.get('/', (req, res, next) => {
     .catch(next);
 });
 
+/**
+ * @swagger
+ * /channels/{ID}:
+ *  patch:
+ *    summary: edit a channel
+ *    description:
+ *      Will edit a channel.
+ *    produces: application/json
+ *    parameters:
+ *      - in: path
+ *        name: ID
+ *        description: ID of the channel to patch.
+ *      - in: body
+ *        name: channel
+ *        description: The channel to edit.
+ *        schema:
+ *          type: object
+ *          properties:
+ *            title:
+ *              type: string
+ *            startDate:
+ *              type: string
+ *              format: date-time
+ *            endDate:
+ *              type: string
+ *              format: date-time
+ *            classId:
+ *              type: string
+ *    responses:
+ *      200:
+ *        description: channel was patched.
+ *      5XX:
+ *        description: Unexpected error.
+ *      400:
+ *        description: Bad Request.
+ */
+router.patch('/:id', (req, res, next) => {
+  channelsController
+    .editChannel(req.params.id, req.body)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+
 module.exports = router;
