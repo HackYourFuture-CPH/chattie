@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const baseUrl = '';
 
@@ -8,7 +9,6 @@ async function getUserData(search) {
   return result;
 }
 
-// eslint-disable-next-line react/prop-types
 export const Fetcher = ({ search, render }) => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(search);
@@ -40,8 +40,7 @@ export const Fetcher = ({ search, render }) => {
       }
     };
 
-    // eslint-disable-next-line react/prop-types
-    if (search !== '' && search.length > 2) {
+    if (search !== '' && search.length >= 2) {
       getData();
     } else {
       setError(false);
@@ -60,4 +59,9 @@ export const Fetcher = ({ search, render }) => {
       })}
     </>
   );
+};
+
+Fetcher.propTypes = {
+  render: PropTypes.string.isRequired,
+  search: PropTypes.string.isRequired,
 };

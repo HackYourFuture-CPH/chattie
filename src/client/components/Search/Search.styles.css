@@ -6,10 +6,7 @@
   height: 40px;
   left: 16px;
   top: 80px;
-}
-
-input {
-  padding: 10px;
+  padding-left: 10px;
 }
 
 .userLinkInSearch {

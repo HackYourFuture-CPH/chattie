@@ -4,11 +4,11 @@ import Search from './Search';
 
 export default { title: 'Search', decorators: [withKnobs] };
 
-export const Component = () => <Search getUserData={searchGitHub} />;
+export const Component = () => <Search getUserData={userSearch} />;
 
 const baseUrl = '';
 
-async function searchGitHub(search) {
+async function userSearch(search) {
   const response = await fetch(`${baseUrl}${encodeURIComponent(search)}`);
   const result = await response.json();
   return result;

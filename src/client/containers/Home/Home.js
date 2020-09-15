@@ -1,7 +1,3 @@
 import React from 'react';
 
-export const Home = () => (
-  <section className="home">
-    <p>Final project!</p>
-  </section>
-);
+export const Home = () => <section className="home">Final project!</section>;

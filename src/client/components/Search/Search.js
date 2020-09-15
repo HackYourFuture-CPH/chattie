@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Fetcher } from '../Fetcher/Fetcher';
 import { UserDetails } from '../Fetcher/UserDetails';
 import './Search.styles.css';
 
-// eslint-disable-next-line react/prop-types
 export default function Search({ getUserData }) {
   const [search, setSearch] = useState('');
   const [isSearching, setIsSearching] = useState(false);
@@ -33,8 +33,7 @@ export default function Search({ getUserData }) {
           onClick={handleCancel}
           href="#"
         >
-          {' '}
-          Cancel{' '}
+          Cancel
         </button>
       ) : null}
 
@@ -61,3 +60,7 @@ export default function Search({ getUserData }) {
     </>
   );
 }
+
+Search.propTypes = {
+  getUserData: PropTypes.string.isRequired,
+};
