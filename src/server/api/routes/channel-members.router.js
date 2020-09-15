@@ -23,6 +23,8 @@ const channelMembersController = require('../controllers/channel-members.control
  *        description: channel member deleted
  *      5XX:
  *        description: Unexpected error.
+ *      404:
+ *        description: channel member ID doesn't exist.
  */
 router.delete('/:id', (req, res) => {
   channelMembersController
