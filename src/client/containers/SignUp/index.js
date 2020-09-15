@@ -22,9 +22,26 @@ export default function SignUpContainer() {
       alert("Passwords doesn't match");
       return;
     }
-    const isSignedUp = await signUp({ email, password });
+    const response = await signUp({ email, password });
+    if (response) {
+      try {
+        await fetch('/api/users', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            uid: response.user.uid,
+            email,
+            username: email,
+          }),
+        });
+        setIsSuccessful(true);
+      } catch {
+        // ignore for now
+      }
+    }
     setIsLoading(false);
-    if (isSignedUp) setIsSuccessful(true);
   };
   if (isLoading) return <Loader />;
   if (isSuccessful) return <UserCreationSuccess />;
