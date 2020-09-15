@@ -22,12 +22,12 @@ function SendMessageForm() {
 
   return (
     <footer>
-      <div class="container">
+      <div className="container">
         <form onSubmit={handleSubmit}>
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/List-Icon.svg/768px-List-Icon.svg.png"
-            alt="Image"
-          ></img>
+            alt="icon-image"
+          />
           <input
             value={input}
             onChange={(event) => setInput(event.target.value)}

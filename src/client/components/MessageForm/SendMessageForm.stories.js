@@ -1,5 +1,5 @@
 import React from 'react';
-import SendMessageForm from '../MessageForm/SendMessageForm';
+import SendMessageForm from './SendMessageForm';
 
 export default {
   title: 'SendMessageForm',
