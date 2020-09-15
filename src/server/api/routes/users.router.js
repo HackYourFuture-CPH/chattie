@@ -23,7 +23,7 @@ const usersController = require('../controllers/users.controller');
  *            - user_name
  *            - email
  *            - profile_image
- *             - last_seen
+ *            - last_seen
  *          properties:
  *            user_name:
  *              type: string
