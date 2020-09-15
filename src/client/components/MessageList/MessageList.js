@@ -1,34 +1,20 @@
-import React, { useState } from 'react';
-import Message from './components/Messages/Message';
+import React from 'react';
+import Message, { MessageType } from '../Message/Message';
+import PropTypes from 'prop-types';
 
-function MessageList() {
-  const [input, setInput] = useState('');
-  const [messages, setMessages] = useState([
-    { username: 'anna', text: 'hi' },
-    { username: 'aswini', text: 'how are you' },
-  ]);
-  const [username, setUsername] = useState('');
-
-  const sendMessage = (event) => {
-    event.preventDefault();
-    setMessages([...messages, { username: username, text: input }]);
-    setInput('');
-  };
+function MessageList({ messages }) {
   return (
     <div>
-      {messages.map((msgfromUser, index) => (
-        <Message username={msgfromUser.username} text={msgfromUser.text} />
+      {messages.map((username, text) => (
+        <Message username={username} text={text} />
       ))}
-      <form>
-        <input
-          value={input}
-          onChange={(event) => setInput(event.target.value)}
-        />
-        <button type="submit" onClick={sendMessage}>
-          Send Message
-        </button>
-      </form>
     </div>
   );
 }
+MessageList.propTypes = {
+  messages: PropTypes.arrayOf(MessageType),
+};
+MessageList.defaultProps = {
+  messages: [],
+};
 export default MessageList;

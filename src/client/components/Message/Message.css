@@ -1,0 +1,18 @@
+.chat_body {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+.chat_message {
+  position: relative;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 10px;
+  width: fit-content;
+  background-color: cyan;
+  margin-bottom: 30px;
+}
+.chat_name {
+  font-weight: 800;
+  font-size: small;
+}
