@@ -4,11 +4,13 @@ const createChannel = async (body) => {
   const newChannel = {
     title: body.title,
   };
-  await knex('channels').insert(newChannel);
+  //will return the total number of channels after inserting a new channel
+  const insertedChannels = await knex('channels').insert(newChannel);
 
   return {
     successful: true,
-    title: newChannel.title,
+    //id for the newly created channel will be same as total number of channels inserted
+    idForNewChannelCreated: insertedChannels[0],
   };
 };
 

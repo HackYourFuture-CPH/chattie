@@ -19,9 +19,6 @@ const channelsController = require('../controllers/channels-controller');
  *        description: The channel to create.
  *        schema:
  *          type: object
- *          required:
- *              - created_at
- *              - updated_at
  *          properties:
  *            title:
  *              type: string
