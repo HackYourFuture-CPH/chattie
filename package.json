@@ -28,10 +28,11 @@
   "author": "Shanawaz Islam",
   "license": "MIT",
   "dependencies": {
+    "@fortawesome/fontawesome-free-solid": "^5.0.13",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
-    "@fortawesome/react-fontawesome": "^0.1.7",
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "@storybook/addon-knobs": "^5.3.17",
     "@storybook/react": "^5.3.17",
     "@storybook/theming": "^5.3.17",

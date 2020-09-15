@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    font-size: 17px;
+    color: #2b3233;
+    background-color: #f0f3f4;
+    font-family: Roboto;
+}
+
+#root {
+    text-align: center;
+    width: 25%;
+    background-color: white;
+    margin: 1% auto;
+    padding: 0 0 2%;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0 #333333;
+}
+
+.header-profile ul, .user-email, .user-phone {
+    display: flex;
+}
+
+.header-profile ul {
+    justify-content: space-between;
+    list-style: none;
+}
+
+.header-profile {
+    background-color: #FFB127;
+    padding: 2%;
+}
+
+li a {
+    text-decoration: none;
+    color: #2d3233;
+}
+
+.svg-inline--fa {
+    color: #007677;
+}
+
+.svg-inline--fa.fa-w-16 {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.svg-inline--fa.fa-w-14 {
+    width: 1.7em;
+    height: 1.7em;
+}
+
+.icon {
+    width: 30%;
+    margin-top: 5%;
+}
+
+.email-info, .phone-info {
+    text-align: left;
+    line-height: 0.5;
+}
+
+.user-email, .user-phone {
+    border-radius: 15px;
+    box-shadow: 2px 2px 4px #2b3233;
+    padding: 1%;
+    width: 80%;
+    margin: 0 auto 5%;
+}
+
+.name-image-container {
+    background-color: #FFB127;
+    background-image: -webkit-linear-gradient(-75deg, #FFB127 49.95%, #ffffff 50.05%);
+    min-height: 50px;
+}
+
+.name-image-container img {
+    width: 30%;
+    border-radius: 50%;
+    padding: 0.5%;
+    background: white;
+    box-shadow: 1px 1px 2px #2b3233;
+    margin-top: 18%;
+}
+
+button {
+    background-color: rgb(76, 153, 153);
+    border-radius: 5px;
+    border-width: 0px;
+    font-weight: 300;
+    color: rgb(255, 255, 255);
+    padding: 5px;
+    font-size: 17px;
+}
+
+@media screen and (max-width: 1050px) {
+    #root {
+        width: 100%;
+        height: 100%;
+    }
+}

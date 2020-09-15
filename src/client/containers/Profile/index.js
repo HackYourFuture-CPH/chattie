@@ -7,7 +7,7 @@ export default function Profile() {
   return (
     <UserContext.Consumer>
       {(user) => (
-        <div className="booking-container">
+        <div className="profile-container">
           {user && <ProfileDetails {...user} />}
         </div>
       )}
