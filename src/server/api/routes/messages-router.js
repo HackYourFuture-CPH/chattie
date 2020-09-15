@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const express = require('express');
 
 const router = express.Router({ mergeParams: true });
@@ -21,7 +22,7 @@ const messagesController = require('../controllers/messages-controller');
  */
 router.get('/', (req, res, next) => {
   messagesController
-    .getMessages()
+    .getChannelMessages(req)
     .then((result) => res.json(result))
     .catch(next);
 });
