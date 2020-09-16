@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import './Overview.styles.css';
 import Profile from '../../containers/Profile/index';
 // import UsersList from '../UsersListComponent/UsersList';
+import Search from '../Search/Search';
 
 import OverviewSearchMessagesBtn from './OverviewSearchMessagesBtn';
 
@@ -10,13 +11,12 @@ function Overview() {
   return (
     <div className="overview">
       <h3 className="chatTitle">Chats</h3>
-      <div className="btnAndProfile">
+      <Search />
+      {/* <UsersList /> */}
+      <div className="btn-and-profile">
         <Router>
           <Link to="/profile">Profile</Link>
           <Switch>
-            {/* <Route>
-              <UsersList />
-            </Route> */}
             <Route>
               <Route exact path="/profile">
                 <Profile />
