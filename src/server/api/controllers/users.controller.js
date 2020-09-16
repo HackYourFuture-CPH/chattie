@@ -1,7 +1,5 @@
 const knex = require('../../config/db');
 
-const moment = require('moment-timezone');
-
 const createUser = async (body) => {
   const newUser = {
     user_name: body.userName,
@@ -9,9 +7,11 @@ const createUser = async (body) => {
     profile_image: body.profileImage,
     last_seen: new Date(),
   };
-  await knex('users').insert(newUser);
+
+  const createdUser = await knex('users').insert(newUser);
   return {
     successful: true,
+    id: createdUser[0],
   };
 };
 
