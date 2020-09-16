@@ -10,7 +10,7 @@ const createChannel = async (body) => {
   return {
     successful: true,
     //  id for the newly created channel will be same as total number of channels inserted
-    idForNewChannelCreated: insertedChannels[0],
+    id: insertedChannels[0],
   };
 };
 
