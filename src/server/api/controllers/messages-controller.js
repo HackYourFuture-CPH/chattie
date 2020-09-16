@@ -71,17 +71,17 @@ const editMessage = async (messageId, updatedMessage) => {
 };
 
 const deleteMessage = async (messagesId) => {
-  return knex('messages')
+  return knex('channel_messages')
     .where({ id: messagesId })
     .del();
 };
 
 const createMessage = async (body) => {
-  await knex('messages').insert({
-    title: body.title,
-    startDate: moment(body.startDate).format(),
-    endDate: moment(body.endDate).format(),
-    classId: body.classId,
+  await knex('channel_messages').insert({
+    message: body.message,
+    created_at: moment().format(),
+    fk_user_id: body.userId,
+    fk_channel_id: body.channelId,
   });
 
   return {
