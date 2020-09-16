@@ -3,19 +3,21 @@ const express = require('express');
 const router = express.Router({ mergeParams: true });
 
 // controllers
-const privateChannelController = require('../controllers/private-channel.controller');
+
+const channelMembersController = require('../controllers/channel-members.controller');
+
 /**
  * @swagger
- * /private-channel:
+ * /channel-members:
  *  post:
- *    summary: Create a private channel
+ *    summary: Create channel-members
  *    description:
- *      Will create a private channel.
+ *      Will create a channel-member.
  *    produces: application/json
  *    parameters:
  *      - in: body
- *        name: private channel
- *        description: The private channel to create.
+ *        name: channel-member
+ *        description: create channel-memeber.
  *        schema:
  *          type: object
  *          required:
@@ -36,22 +38,22 @@ const privateChannelController = require('../controllers/private-channel.control
  *              type: string
  *    responses:
  *      201:
- *        description: private channel created
+ *        description: channel-member created
  *      5XX:
  *        description: Unexpected error.
+ *      400:
+ *        description: Bad request.
  */
-router.get('/', (req, res) => {
-  const { user1, user2 } = req.query;
-
-  privateChannelController
-    .checkPrivateChannel(user1, user2)
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((error) => {
-      console.log(error);
-
-      res.status(400).send('Bad request').end();
+router.post('/', (req, res) => {
+  channelMembersController
+    .createChannelMember(req.body)
+    .then((result) => res.json(result))
+    .catch(() => {
+      res
+        .status(400)
+        .send('Bad request')
+        .end();
     });
 });
+
 module.exports = router;
