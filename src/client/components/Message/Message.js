@@ -12,8 +12,9 @@ function Message({ username, text }) {
     </div>
   );
 }
-export const MessageType = PropTypes.shape({
+Message.propTypes = {
   username: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-});
+};
+
 export default Message;
