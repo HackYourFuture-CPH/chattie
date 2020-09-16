@@ -8,7 +8,7 @@ export default function ChannelHeadNav({ channelName, urlBack, imgUrl }) {
   return (
     <div className="channel-head-div">
       <Link to={urlBack} className="channel-head-back-arrow-icon">
-        <h1>{backArrow}</h1>
+        <h2>{backArrow}</h2>
       </Link>
       <img src={imgUrl} alt="Room" className="channel-head-img" />
       <h2 className="channel-head-name">{channelName}</h2>
