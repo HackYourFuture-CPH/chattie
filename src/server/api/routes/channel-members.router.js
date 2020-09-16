@@ -10,32 +10,28 @@ const channelMembersController = require('../controllers/channel-members.control
  * @swagger
  * /channel-members:
  *  post:
- *    summary: Create channel-members
+ *    summary: Create channel members
  *    description:
- *      Will create a channel-member.
+ *      Will create a channel member.
  *    produces: application/json
  *    parameters:
  *      - in: body
  *        name: channel-member
- *        description: create channel-memeber.
+ *        description: creates a channel memeber.
  *        schema:
  *          type: object
  *          required:
- *            - title
- *            - startDate
- *            - endDate
- *             - classId
+ *            - channelId
+ *            - userId
  *          properties:
- *            title:
- *              type: string
- *            startDate:
- *              type: string
- *              format: date-time
- *            endDate:
- *              type: string
- *              format: date-time
- *            classId:
- *              type: string
+ *           - channelId:
+ *                type: integer
+ *                required: true
+ *                description: the id of the channel to add the user
+ *           - userId:
+ *                type: integer
+ *                required: true
+ *                description: the id of the user to add to the channel
  *    responses:
  *      201:
  *        description: channel-member created
