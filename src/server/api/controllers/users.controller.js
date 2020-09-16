@@ -10,10 +10,6 @@ const createUser = async (body) => {
   await knex('users').insert(newUser);
   return {
     successful: true,
-    user_name: newUser.user_name,
-    email: newUser.email,
-    profile_image: newUser.profile_image,
-    last_seen: newUser.last_seen,
   };
 };
 
