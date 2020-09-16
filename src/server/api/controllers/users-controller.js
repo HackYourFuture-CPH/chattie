@@ -1,14 +1,5 @@
 const knex = require('../../config/db');
 
-const getUsers = async () => {
-  try {
-    const userList = await knex('users').select('*');
-    return userList;
-  } catch (error) {
-    return error.message;
-  }
-};
-
 const getUserById = async (id) => {
   try {
     const user = await knex('users')
@@ -20,7 +11,34 @@ const getUserById = async (id) => {
   }
 };
 
+const getFilteredUsers = async ({
+  limit,
+  userName,
+  profileImageUrl,
+  email,
+}) => {
+  let searchUsers = knex('users');
+  if (limit) {
+    searchUsers = searchUsers.limit(limit);
+  }
+  if (userName) {
+    searchUsers = searchUsers.where('user_name', 'like', `%${userName}%`);
+  }
+  if (profileImageUrl) {
+    searchUsers = searchUsers.where(
+      'profile_image',
+      'like',
+      `%${profileImageUrl}%`,
+    );
+  }
+  if (email) {
+    searchUsers = searchUsers.where('email', 'like', `%${email}%`);
+  }
+
+  return searchUsers;
+};
+
 module.exports = {
-  getUsers,
   getUserById,
+  getFilteredUsers,
 };
