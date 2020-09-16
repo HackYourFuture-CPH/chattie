@@ -1,5 +1,5 @@
 const express = require('express');
-// require('express-async-errors');
+
 const router = express.Router();
 
 // controllers
@@ -9,14 +9,14 @@ const usersController = require('../controllers/users.controller');
  * @swagger
  * /modules:
  *  post:
- *    summary: Create a module
+ *    summary: Create a user
  *    description:
- *      Will create a module.
+ *      Will create a user.
  *    produces: application/json
  *    parameters:
  *      - in: body
- *        name: module
- *        description: The module to create.
+ *        name: user
+ *        description: The module to create a user.
  *        schema:
  *          type: object
  *          required:
@@ -37,7 +37,7 @@ const usersController = require('../controllers/users.controller');
  *              type: string
  *    responses:
  *      201:
- *        description: Module created
+ *        description: user created
  *      5XX:
  *        description: Unexpected error.
  */
@@ -46,7 +46,7 @@ router.post('/', (req, res) => {
   usersController
     .createUser(req.body)
     .then((result) => res.json(result))
-    .catch((error) => {
+    .catch(() => {
       res.status(400).send('Bad request').end();
     });
 });

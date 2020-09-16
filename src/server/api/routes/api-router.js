@@ -4,6 +4,7 @@ const router = express.Router();
 
 // Router imports
 const modulesRouter = require('./modules.router');
+
 const usersRouter = require('./users.router');
 
 const channelsRouter = require('./channels-router');
@@ -14,6 +15,7 @@ const messagesRouter = require('./messages-router');
 const swaggerJsDoc = require('swagger-jsdoc');
 
 const swaggerUi = require('swagger-ui-express');
+
 const channelMembersController = require('./channel-members.router');
 
 const swaggerOptions = {
