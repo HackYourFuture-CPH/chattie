@@ -7,15 +7,23 @@
   justify-content: space-between;
   gap: 2em;
 }
-.chatTitle {
+.chat-title {
   width: 90%;
   height: 20%;
   margin: 10px;
   text-align: center;
 }
-
+.search {
+  width: 90%;
+  margin: auto;
+}
+.users-list {
+  width: 90%;
+  height: 500px;
+  margin: auto;
+}
 .btn-and-profile {
-  width: 70%;
+  width: 90%;
   margin: auto;
   display: flex;
   flex-direction: row-reverse;
@@ -27,7 +35,9 @@ a:visited {
   text-decoration: none;
   color: black;
 }
-
+a {
+  font-weight: bold;
+}
 /* #### Mobile Phones Portrait or Landscape #### */
 @media screen and (max-device-width: 640px) {
   /* some CSS here */
