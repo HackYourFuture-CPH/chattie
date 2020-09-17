@@ -20,20 +20,16 @@ const usersController = require('../controllers/users.controller');
  *        schema:
  *          type: object
  *          required:
- *            - user_name
+ *            - userName
  *            - email
- *            - profile_image
- *            - last_seen
+ *            - profileImage
  *          properties:
- *            user_name:
+ *            userName:
  *              type: string
  *            email:
  *              type: string
  *              format: email
- *            last_seen:
- *              type: string
- *              format: date-time
- *            profile_image:
+ *            profileImage:
  *              type: string
  *    responses:
  *      201:

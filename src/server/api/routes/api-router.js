@@ -4,13 +4,9 @@ const router = express.Router();
 
 // Router imports
 const modulesRouter = require('./modules.router');
-<<<<<<< HEAD
 
 const usersRouter = require('./users.router');
 
-=======
-const usersRouter = require('./users-router');
->>>>>>> develop
 const channelsRouter = require('./channels-router');
 
 // messages router imports
