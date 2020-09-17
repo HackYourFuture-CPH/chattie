@@ -7,6 +7,45 @@ const channelsController = require('../controllers/channels-controller');
 
 /**
  * @swagger
+ * /modules:
+ *  post:
+ *    summary: Create a channel
+ *    description:
+ *      Will create a channel.
+ *    produces: application/json
+ *    parameters:
+ *      - in: body
+ *        name: channel
+ *        description: The channel to create.
+ *        schema:
+ *          type: object
+ *          required:
+ *              - title
+ *          properties:
+ *            title:
+ *              type: string
+ *    responses:
+ *      201:
+ *        description: Channel created
+ *      5XX:
+ *        description: Unexpected error.
+ *      400:
+ *        description: Bad request.
+ */
+router.post('/', (req, res) => {
+  channelsController
+    .createChannel(req.body)
+    .then((result) => res.json(result))
+    .catch(() => {
+      res
+        .status(400)
+        .send('Bad request')
+        .end();
+    });
+});
+
+/**
+ * @swagger
  * /channels/{ID}:
  *  get:
  *    summary: Get channels by ID
@@ -73,6 +112,8 @@ router.get('/:id', (req, res, next) => {
  *        description: Successful request
  *      5XX:
  *        description: Unexpected error.
+ *      400:
+ *        description: Bad request.
  */
 router.get('/', (req, res, next) => {
   channelsController
