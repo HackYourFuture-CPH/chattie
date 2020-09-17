@@ -40,8 +40,9 @@ router.delete('/:id', (req, res) => {
       }
     })
     .catch((error) => console.log(error));
+});
 
-/** 
+/**
  *@swagger
  * /channel-member/{ID}:
  *  get:
