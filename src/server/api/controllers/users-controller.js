@@ -2,7 +2,9 @@ const knex = require('../../config/db');
 
 const getUserById = async (id) => {
   try {
-    const user = await knex('users').select('user_name', 'id').where({ id });
+    const user = await knex('users')
+      .select('user_name', 'id')
+      .where({ id });
     return user;
   } catch (error) {
     return error.message;
@@ -38,6 +40,7 @@ const getFilteredUsers = async ({
 
 const createUser = async (body) => {
   const newUser = {
+    uid: body.uid,
     user_name: body.userName,
     email: body.email,
     profile_image: body.profileImage,
