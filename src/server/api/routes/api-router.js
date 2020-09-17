@@ -7,7 +7,6 @@ const modulesRouter = require('./modules.router');
 
 // messages router imports
 const messagesRouter = require('./messages-router');
-const userRouter = require('./userDeleteById-router');
 
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
@@ -35,6 +34,5 @@ router.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // Application routes
 router.use('/modules', modulesRouter);
 router.use('/messages', messagesRouter);
-router.use('/user', userRouter);
 
 module.exports = router;
