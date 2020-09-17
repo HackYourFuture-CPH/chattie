@@ -41,7 +41,16 @@ const getFilteredChannels = async ({
   return resultSearch;
 };
 
+const editChannel = async (channelId, updatedChannel) => {
+  return knex('channels')
+    .where({ id: channelId })
+    .update({
+      title: updatedChannel.title,
+    });
+};
+
 module.exports = {
   getChannelsById,
   getFilteredChannels,
+  editChannel,
 };
