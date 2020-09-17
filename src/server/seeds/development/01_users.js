@@ -12,6 +12,7 @@ exports.seed = function(knex) {
           user_name: 'Peter',
           email: 'peter123@gmail.com',
           last_seen: '2020-09-10 03:15:25',
+          uid: 'uid',
         },
         {
           id: 2,
@@ -20,6 +21,7 @@ exports.seed = function(knex) {
           user_name: 'Lena',
           email: 'lenaS@example.com',
           last_seen: '2020-08-19 22:15:56',
+          uid: 'uid',
         },
         {
           id: 3,
@@ -28,6 +30,7 @@ exports.seed = function(knex) {
           user_name: 'Sharron',
           email: 'sharron@gmail.com',
           last_seen: '2019-06-05 18:09:22',
+          uid: 'uid',
         },
         {
           id: 4,
@@ -36,6 +39,7 @@ exports.seed = function(knex) {
           user_name: 'Dublin',
           email: 'dublin@yahoo.com',
           last_seen: '2019-11-25 16:05:07',
+          uid: 'uid',
         },
         {
           id: 5,
@@ -44,6 +48,7 @@ exports.seed = function(knex) {
           user_name: 'Mia',
           email: 'mia123@example.com',
           last_seen: '2020-05-05 09:04:22',
+          uid: 'uid',
         },
         {
           id: 6,
@@ -52,6 +57,7 @@ exports.seed = function(knex) {
           user_name: 'Bret',
           email: 'bretB@yahoo.com',
           last_seen: '2019-10-17 13:52:34',
+          uid: 'uid',
         },
         {
           id: 7,
@@ -60,6 +66,7 @@ exports.seed = function(knex) {
           user_name: 'Mark',
           email: 'mark04@gmail.com',
           last_seen: '2020-07-18 15:32:42',
+          uid: 'uid',
         },
         {
           id: 8,
@@ -68,6 +75,7 @@ exports.seed = function(knex) {
           user_name: 'Micheal',
           email: 'mickJ@example.com',
           last_seen: '2019-09-24 23:43:11',
+          uid: 'uid',
         },
         {
           id: 9,
@@ -76,6 +84,7 @@ exports.seed = function(knex) {
           user_name: 'Britney',
           email: 'brit_09@yahoo.com',
           last_seen: '2019-02-13 16:51:19',
+          uid: 'uid',
         },
         {
           id: 10,
@@ -84,6 +93,7 @@ exports.seed = function(knex) {
           user_name: 'Paul',
           email: 's_paul@example.com',
           last_seen: '2020-07-04 18:29:32',
+          uid: 'uid',
         },
       ]);
     });
