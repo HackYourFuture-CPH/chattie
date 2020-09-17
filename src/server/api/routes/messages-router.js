@@ -146,7 +146,6 @@ router.patch('/:id', (req, res, next) => {
     .then((result) => res.json(result))
     .catch(next);
 });
-
 /**
  * @swagger
  * /messages/{ID}:

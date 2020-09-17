@@ -59,14 +59,14 @@ const getMessageById = async (id) => {
 };
 
 const editMessage = async (messageId, updatedMessage) => {
-  return knex('messages')
-    .where({ id: messageId })
+  console.log(messageId);
+  return knex('channel_messages')
+    .where('id', '=', messageId)
     .update({
-      title: updatedMessage.title,
-      startDate: moment(updatedMessage.startDate).format(),
-      endDate: moment(updatedMessage.endDate).format(),
-      classId: updatedMessage.classId,
-      updatedAt: moment().format(),
+      message: updatedMessage.message,
+      fk_channel_id: updatedMessage.channelId,
+      fk_user_id: updatedMessage.userId,
+      updated_at: moment().format(),
     });
 };
 
