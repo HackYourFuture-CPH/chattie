@@ -2,8 +2,20 @@ const knex = require('../../config/db');
 
 const getUserById = async (id) => {
   try {
-    const user = await knex('users').select('user_name', 'id').where({ id });
+    const user = await knex('users')
+      .select('user_name', 'id')
+      .where({ id });
     return user;
+  } catch (error) {
+    return error.message;
+  }
+};
+// user delete by id
+const userDeleteById = async (userId) => {
+  try {
+    return await knex('users')
+      .where({ id: userId })
+      .del();
   } catch (error) {
     return error.message;
   }
@@ -55,4 +67,5 @@ module.exports = {
   getUserById,
   getFilteredUsers,
   createUser,
+  userDeleteById,
 };

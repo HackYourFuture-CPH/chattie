@@ -48,6 +48,14 @@ router.get('/', (req, res, next) => {
     .catch(next);
 });
 
+//user delete by id
+router.delete('/:id', (req, res, next) => {
+  usersController
+    .userDeleteById(req.params.id)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+
 /**
  * @swagger
  * /users/{ID}:
@@ -115,7 +123,10 @@ router.post('/', (req, res) => {
     .createUser(req.body)
     .then((result) => res.json(result))
     .catch(() => {
-      res.status(400).send('Bad request').end();
+      res
+        .status(400)
+        .send('Bad request')
+        .end();
     });
 });
 
