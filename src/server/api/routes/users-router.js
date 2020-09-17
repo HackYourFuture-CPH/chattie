@@ -48,7 +48,7 @@ router.get('/', (req, res, next) => {
     .catch(next);
 });
 
-//user delete by id
+// user delete by id
 router.delete('/:id', (req, res, next) => {
   usersController
     .userDeleteById(req.params.id)
