@@ -11,6 +11,7 @@ module.exports = {
     'react/prop-types': 'warn',
     'import/prefer-default-export': 'off',
     '@typescript-eslint/camelcase': 'warn',
+    '@typescript-eslint/no-empty-function': 'off', 
     'func-names': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     'no-restricted-globals': 'off',

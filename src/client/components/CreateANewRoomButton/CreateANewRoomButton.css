@@ -1,0 +1,11 @@
+button {
+  height: 40px;
+  min-width: 40px;
+  display: block;
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
+
+div.new-room {
+  font-size: 5px;
+}
