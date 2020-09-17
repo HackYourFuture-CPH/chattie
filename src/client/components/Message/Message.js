@@ -4,11 +4,9 @@ import './Messages.css';
 
 function Message({ username, text }) {
   return (
-    <div>
-      <div className="chat_Body">
-        <p className="chat_name"> {username}</p>
-        <p className="chat_message ">{text}</p>
-      </div>
+    <div className="chat-message">
+      <p className="chat-message__name"> {username}</p>
+      <p className="chat-message__text ">{text}</p>
     </div>
   );
 }
