@@ -4,5 +4,5 @@ import RoomList from './RoomList';
 export default { title: 'RoomList' };
 
 export const BasicStory = () => (
-  <RoomList roomList={['yuka', 'anna', 'tiago']} />
+  <RoomList roomList={['Kitchen', 'FoH', 'Maintenance', 'Delivery']} />
 );

@@ -4,17 +4,17 @@ import PropTypes from 'prop-types';
 
 const RoomList = ({ roomList }) => {
   return (
-    <div>
+    <div className="outside">
       {roomList.map((room) => {
         const firstToChar = room.split('');
         const firstChar = firstToChar[0];
         return (
-          <div className="room-list">
+          <div>
             <li className="list">
               <div>
                 <button type="submit">{firstChar}</button>
 
-                <div>{room}</div>
+                <div className="room-name">{room}</div>
               </div>
             </li>
           </div>
