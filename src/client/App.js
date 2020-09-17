@@ -10,7 +10,6 @@ import { useAuthentication } from './hooks/useAuthentication';
 import Header from './components/NavigationHeader/NavigationHeader';
 import Profile from './containers/Profile';
 import Loader from './components/Loader/Loader';
-import Overview from './components/Overview/Overview';
 import { UserContext } from './context/userContext';
 
 function App() {
@@ -34,9 +33,6 @@ function App() {
           >
             <Profile />
           </AuthenticatedRoute>
-          <Route>
-            <Overview exact path="/overview" />
-          </Route>
         </Switch>
       </Router>
     </UserContext.Provider>
