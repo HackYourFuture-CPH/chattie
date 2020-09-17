@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Messages.css';
+import './Message.css';
 
 function Message({ username, text }) {
   return (
