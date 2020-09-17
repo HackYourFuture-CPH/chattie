@@ -28,14 +28,6 @@ a:visited {
   color: black;
 }
 
-.OverviewSearchMessagesBtn {
-  width: 20%;
-  border: none;
-  font-size: medium;
-  font-weight: bold;
-  background-color: transparent;
-}
-
 /* #### Mobile Phones Portrait or Landscape #### */
 @media screen and (max-device-width: 640px) {
   /* some CSS here */
