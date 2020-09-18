@@ -48,6 +48,26 @@ router.get('/', (req, res, next) => {
     .catch(next);
 });
 
+/**
+ * @swagger
+ * /modules:
+ *  post:
+ *    summary: Delete a user
+ *    description:
+ *      Will Delete  a user  by id.
+ *    produces: application/json
+ *    parameters:
+ *      - in: path
+ *        name: ID
+ *        Type:integer
+ *        description:  Will Delete  a user  by id.
+ *    responses:
+ *      200:
+ *        description: User deleted
+ *      5XX:
+ *        description: Unexpected error.
+ */
+
 // user delete by id
 router.delete('/:id', (req, res, next) => {
   usersController
