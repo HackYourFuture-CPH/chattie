@@ -2,17 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Message.css';
 
-function Message({ username, text }) {
+const Message = (props) => {
   return (
     <div className="chat-message">
-      <p className="chat-message__name"> {username}</p>
-      <p className="chat-message__text ">{text}</p>
+      <p className="chat-message__name"> {props.currentUser}</p>
+      <p className="chat-message__text ">{props.message}</p>
     </div>
   );
-}
+};
+
 Message.propTypes = {
-  username: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  currentUser: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
 };
 
 export default Message;
