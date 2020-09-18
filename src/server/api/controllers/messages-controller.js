@@ -71,7 +71,7 @@ const editMessage = async (messageId, updatedMessage) => {
 };
 
 const deleteMessage = async (messagesId) => {
-  return knex('messages')
+  return knex('channel_messages')
     .where({ id: messagesId })
     .del();
 };

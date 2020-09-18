@@ -1,0 +1,44 @@
+.overview {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2em;
+}
+.chat-title {
+  width: 90%;
+  height: 20%;
+  margin: 10px;
+  text-align: center;
+}
+.search {
+  width: 90%;
+  margin: auto;
+}
+.users-list {
+  width: 90%;
+  height: 500px;
+  margin: auto;
+}
+.btn-and-profile {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+a:link,
+a:active,
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+a {
+  font-weight: bold;
+}
+/* #### Mobile Phones Portrait or Landscape #### */
+@media screen and (max-device-width: 640px) {
+  /* some CSS here */
+}
