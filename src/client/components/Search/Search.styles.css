@@ -1,0 +1,21 @@
+.search {
+  background-color: #f2f9fb;
+  border: none;
+  border-radius: 10px;
+  width: 343px;
+  height: 40px;
+  left: 16px;
+  top: 80px;
+  padding-left: 10px;
+}
+
+.userLinkInSearch {
+  text-decoration: none;
+}
+
+.cancelInputSearch {
+  background-color: white;
+  color: #4c9999;
+  border: none;
+  margin-left: 5px;
+}

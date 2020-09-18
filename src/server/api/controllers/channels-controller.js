@@ -1,5 +1,19 @@
 const knex = require('../../config/db');
 
+const createChannel = async (body) => {
+  const newChannel = {
+    title: body.title,
+  };
+  //  will return the total number of channels after inserting a new channel
+  const insertedChannels = await knex('channels').insert(newChannel);
+
+  return {
+    successful: true,
+    //  id for the newly created channel will be same as total number of channels inserted
+    id: insertedChannels[0],
+  };
+};
+
 const getChannelsById = async (id) => {
   const channels = await knex('channels')
     .select('channels.id as id', 'title')
@@ -41,7 +55,23 @@ const getFilteredChannels = async ({
   return resultSearch;
 };
 
+const editChannel = async (channelId, updatedChannel) => {
+  return knex('channels')
+    .where({ id: channelId })
+    .update({
+      title: updatedChannel.title,
+    });
+};
+
+const deleteChannelById = async (channelId) => {
+  return knex('channels')
+    .where({ id: channelId })
+    .del();
+};
 module.exports = {
+  createChannel,
   getChannelsById,
   getFilteredChannels,
+  editChannel,
+  deleteChannelById,
 };

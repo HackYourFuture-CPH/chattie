@@ -8,34 +8,95 @@ const channelMembersController = require('../controllers/channel-members.control
 
 /**
  * @swagger
+ * /channel-members/{ID}:
+ *  delete:
+ *    summary: Delete a channel member
+ *    description:
+ *      Will delete a channel member with a given ID.
+ *    produces: application/json
+ *    parameters:
+ *      - in: path
+ *        name: ID
+ *        description: ID of the channel member to delete.
+ *    responses:
+ *      200:
+ *        description: channel member deleted
+ *      5XX:
+ *        description: Unexpected error.
+ *      404:
+ *        description: channel member ID doesn't exist.
+ */
+router.delete('/:id', (req, res) => {
+  channelMembersController
+    .deleteChannelMember(req.params.id, req)
+    .then((result) => {
+      // If result is equal to 0, then that means the channel member id does not exist
+      if (result === 0) {
+        res
+          .status(404)
+          .send('The channel member ID you provided does not exist.');
+      } else {
+        res.json({ success: true });
+      }
+    })
+    .catch((error) => console.log(error));
+});
+
+/**
+ *@swagger
+ * /channel-member/{ID}:
+ *  get:
+ *    summary: Get channel members by ID
+ *    description:
+ *      Will return single channel member with a matching ID.
+ *    produces: application/json
+ *    parameters:
+ *     - in: path
+ *       name: ID
+ *       schema:
+ *         type: integer
+ *         required: true
+ *         description: The ID of the channel member to get
+ *
+ *    responses:
+ *      200:
+ *        description: Successful request
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.get('/:id', (req, res, next) => {
+  channelMembersController
+    .getChannelMemberById(req.params.id)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+
+/**
+ * @swagger
  * /channel-members:
  *  post:
- *    summary: Create channel-members
+ *    summary: Create channel members
  *    description:
- *      Will create a channel-member.
+ *      Will create a channel member.
  *    produces: application/json
  *    parameters:
  *      - in: body
  *        name: channel-member
- *        description: create channel-memeber.
+ *        description: creates a channel memeber.
  *        schema:
  *          type: object
  *          required:
- *            - title
- *            - startDate
- *            - endDate
- *             - classId
+ *            - channelId
+ *            - userId
  *          properties:
- *            title:
- *              type: string
- *            startDate:
- *              type: string
- *              format: date-time
- *            endDate:
- *              type: string
- *              format: date-time
- *            classId:
- *              type: string
+ *           - channelId:
+ *                type: integer
+ *                required: true
+ *                description: the id of the channel to add the user
+ *           - userId:
+ *                type: integer
+ *                required: true
+ *                description: the id of the user to add to the channel
  *    responses:
  *      201:
  *        description: channel-member created
