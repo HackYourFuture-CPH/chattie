@@ -9,11 +9,9 @@ import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRou
 import { useAuthentication } from './hooks/useAuthentication';
 import Header from './components/NavigationHeader/NavigationHeader';
 import Profile from './containers/Profile';
-import Channels from './containers/Channels/Channels';
 import Channel from './containers/Channel/Channel';
 import Loader from './components/Loader/Loader';
 import { UserContext } from './context/userContext';
-import { ChannelContext } from './context/channelContext';
 
 function App() {
   const { isAuthenticated, isLoading, user } = useAuthentication();
@@ -36,18 +34,9 @@ function App() {
           >
             <Profile />
           </AuthenticatedRoute>
-          <AuthenticatedRoute
-            exact
-            path="/channel"
-            isAuthenticated={isAuthenticated}
-          >
-            <Channels />
-          </AuthenticatedRoute>
-          <ChannelContext.Provider>
-            <Route exact path="/channel/:id" isAuthenticated={isAuthenticated}>
-              <Channel />
-            </Route>
-          </ChannelContext.Provider>
+          <Route exact path="/channel/:id" isAuthenticated={isAuthenticated}>
+            <Channel />
+          </Route>
         </Switch>
       </Router>
     </UserContext.Provider>
