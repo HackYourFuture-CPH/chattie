@@ -1,46 +1,30 @@
 import React from 'react';
-import MessageList from '../MessageList/MessageList';
+import Message from './Message/Message';
 
-export default { title: 'MessageList' };
+export default {
+  title: 'Message',
+  component: Message,
+};
 
 export const OneMessage = () => (
-  <MessageList
-    messages={[
-      {
-        username: 'evan',
-        text: 'whats up',
-      },
-    ]}
+  <Message
+    message={{
+      message: 'whats up',
+    }}
   />
 );
-export const EmptyMessage = () => <MessageList messages={[]} />;
+export const EmptyMessage = () => (
+  <Message
+    message={{
+      message: '',
+    }}
+  />
+);
 export const BigMessage = () => (
-  <MessageList
-    messages={[
-      {
-        username: 'anna',
-        text:
-          'whats up.?this is a sample text to see how the text will be rendered',
-      },
-    ]}
-  />
-);
-export const Messages = () => (
-  <MessageList
-    messages={[
-      {
-        username: 'anna',
-        text: 'hiiii',
-      },
-      {
-        username: 'ivy',
-        text:
-          'whats up.?this is a sample text to see how the chats will look when stacked below each other',
-      },
-      {
-        username: 'evan',
-        text: 'sample text',
-      },
-    ]}
+  <Message
+    message={{
+      message:
+        'whats up.?this is a sample text to see how the text will be rendered',
+    }}
   />
 );
