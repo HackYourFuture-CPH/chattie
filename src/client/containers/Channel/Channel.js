@@ -9,7 +9,7 @@ export default function Channel() {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const url = `http://localhost:3000/api/messages?channel_id=${id}`;
+        const url = `${window.location.origin}/api/messages?channel_id=${id}`;
         const matchedChannel = await fetch(url).then((res) => res.json());
         setMessages(matchedChannel);
       } catch (err) {
