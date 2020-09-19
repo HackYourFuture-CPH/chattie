@@ -11,7 +11,6 @@ import Header from './components/NavigationHeader/NavigationHeader';
 import Profile from './containers/Profile';
 import Loader from './components/Loader/Loader';
 import { UserContext } from './context/userContext';
-import MessageList from './components/MessageList/MessageList';
 
 function App() {
   const { isAuthenticated, isLoading, user } = useAuthentication();
@@ -36,7 +35,6 @@ function App() {
           </AuthenticatedRoute>
         </Switch>
       </Router>
-      <MessageList />
     </UserContext.Provider>
   );
 }
