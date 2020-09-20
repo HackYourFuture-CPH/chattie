@@ -11,6 +11,7 @@ import Header from './components/NavigationHeader/NavigationHeader';
 import Profile from './containers/Profile';
 import Loader from './components/Loader/Loader';
 import { UserContext } from './context/userContext';
+import Overview from './components/Overview/Overview';
 
 function App() {
   const { isAuthenticated, isLoading, user } = useAuthentication();
@@ -33,6 +34,9 @@ function App() {
           >
             <Profile />
           </AuthenticatedRoute>
+          <Route exact path="/overview">
+            <Overview />
+          </Route>
         </Switch>
       </Router>
     </UserContext.Provider>
