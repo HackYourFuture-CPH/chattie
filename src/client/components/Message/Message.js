@@ -1,28 +1,15 @@
 import React from 'react';
-import './Message.css';
 import PropTypes from 'prop-types';
-import { UserContext } from '../../context/userContext';
+import './Message.css';
 
 const Message = (props) => {
   return (
-    <UserContext.Consumer>
-      {(user) => {
-        const currentUserId = user ? user.id === props.message.id : '';
-        return (
-          <div className="chat-message__container">
-            <p
-              className={`chat-message__text ${currentUserId &&
-                'chat-message__receiver'}`}
-            >
-              {props.message.message}
-            </p>
-          </div>
-        );
-      }}
-    </UserContext.Consumer>
+    <div className="chat-message__text">
+      <p>{props.text}</p>
+    </div>
   );
 };
 Message.propTypes = {
-  message: PropTypes.arrayOf(PropTypes.string).isRequired,
+  text: PropTypes.string.isRequired,
 };
 export default Message;

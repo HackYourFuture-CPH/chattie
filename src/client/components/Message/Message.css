@@ -1,20 +1,9 @@
-.chat-message__container {
-  display: flex;
-  flex-direction: column;
-  display: block;
-  overflow: hidden;
-  min-width: 240px;
-}
 .chat-message__text {
   position: relative;
   font-size: 16px;
-  padding: 10px;
+  padding: 5px;
   border-radius: 10px;
   width: fit-content;
   background-color: grey;
   margin-bottom: 30px;
-}
-.chat-message__receiver {
-  margin-left: auto;
-  background-color: lightblue;
 }

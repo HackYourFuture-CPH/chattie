@@ -1,30 +1,16 @@
-import React from 'react';
-import Message from './Message/Message';
+// import React from 'react';
+// import Messages from '../Message/Message';
 
-export default {
-  title: 'Message',
-  component: Message,
-};
+// export default {
+//   title: 'Messages',
+//   component: Messages,
+// };
 
-export const OneMessage = () => (
-  <Message
-    message={{
-      message: 'whats up',
-    }}
-  />
-);
-export const EmptyMessage = () => (
-  <Message
-    message={{
-      message: '',
-    }}
-  />
-);
-export const BigMessage = () => (
-  <Message
-    message={{
-      message:
-        'whats up.?this is a sample text to see how the text will be rendered',
-    }}
-  />
-);
+// export const BigMessage = () => (
+//   <Messages
+//     message={{
+//       message:
+//         'whats up.?this is a sample text to see how the text will be rendered',
+//     }}
+//   />
+// );
