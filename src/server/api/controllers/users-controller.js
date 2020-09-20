@@ -2,7 +2,9 @@ const knex = require('../../config/db');
 
 const getUserById = async (id) => {
   try {
-    const user = await knex('users').select('user_name', 'id').where({ id });
+    const user = await knex('users')
+      .select('user_name', 'id')
+      .where({ id });
     return user;
   } catch (error) {
     return error.message;
