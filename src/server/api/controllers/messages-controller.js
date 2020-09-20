@@ -18,14 +18,17 @@ const getChannelMessages = async (req) => {
       );
     }
     if (channel_id) {
-      channelMessages = channelMessages
-        .where('channel_messages.id', channel_id)
-        .orWhereNot('channel_messages.id', channel_id);
+      channelMessages = channelMessages.where(
+        'channel_messages.id',
+        channel_id,
+      );
     }
     if (sender) {
-      channelMessages = channelMessages
-        .where('channel_messages.fk_user_id', 'like', `%${sender}%`)
-        .orWhereNot('channel_messages.fk_user_id', 'like', `%${sender}%`);
+      channelMessages = channelMessages.where(
+        'channel_messages.fk_user_id',
+        'like',
+        `%${sender}%`,
+      );
     }
     if (limit) {
       channelMessages = channelMessages.limit(limit);

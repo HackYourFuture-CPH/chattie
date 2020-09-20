@@ -10,10 +10,36 @@ const messagesController = require('../controllers/messages-controller');
  * @swagger
  * /messages:
  *  get:
- *    summary: Get all messages
+ *    summary: Get chennel_messages' data by query
  *    description:
  *      Will return all messages.
  *    produces: application/json
+ *    parameters:
+ *     - in: query
+ *       name: query
+ *       schema:
+ *         type: string
+ *         description: Returning messages from chennel_messages based on query
+ *     - in: query
+ *       name: channel_id
+ *       schema:
+ *         type: integer
+ *         description: Get channel_messages.id
+ *     - in: query
+ *       name: sender
+ *       schema:
+ *         type: integer
+ *         description: Get users id trough channel_messages.fk_user_id
+ *     - in: query
+ *       name: limit
+ *       schema:
+ *         type: integer
+ *         description: Limit the number of query
+ *     - in: query
+ *       name: sort
+ *       schema:
+ *         type: integer
+ *         description: sort the query as asc or desc
  *    responses:
  *      200:
  *        description: Successful request
