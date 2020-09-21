@@ -9,6 +9,14 @@
   padding-left: 10px;
 }
 
+.userListInSearch {
+  padding-top: 15px;
+  display: flex;
+  justify-items: flex-start;
+  flex-direction: row;
+  align-items: center;
+}
+
 .userLinkInSearch {
   text-decoration: none;
 }
