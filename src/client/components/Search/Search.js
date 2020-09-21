@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Fetcher } from '../Fetcher/Fetcher';
 import { UserDetails } from '../Fetcher/UserDetails';
+import { UserProfileImage } from '../Fetcher/UserProfileImage';
 import './Search.styles.css';
 
 export default function Search({ getUserData }) {
@@ -49,7 +50,12 @@ export default function Search({ getUserData }) {
             {data &&
               data.map((item) => {
                 return (
-                  <li style={{ listStyleType: 'none' }} key={`${item.login}`}>
+                  <li
+                    style={{ listStyleType: 'none' }}
+                    className="userListInSearch"
+                    key={`${item.login}`}
+                  >
+                    <UserProfileImage user={item} />
                     <UserDetails user={item} />
                   </li>
                 );

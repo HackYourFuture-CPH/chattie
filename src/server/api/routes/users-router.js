@@ -7,7 +7,7 @@ const usersController = require('../controllers/users-controller');
 
 /**
  * @swagger
- * /users/:
+ * /users:
  *  get:
  *    summary: Get users
  *    description:
@@ -79,7 +79,7 @@ router.get('/:id', (req, res, next) => {
 
 /**
  * @swagger
- * /modules:
+ * /users:
  *  post:
  *    summary: Create a user
  *    description:
@@ -92,10 +92,13 @@ router.get('/:id', (req, res, next) => {
  *        schema:
  *          type: object
  *          required:
+ *            - uid
  *            - userName
  *            - email
  *            - profileImage
  *          properties:
+ *            uid:
+ *              type: string
  *            userName:
  *              type: string
  *            email:

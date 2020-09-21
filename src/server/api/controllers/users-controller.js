@@ -41,6 +41,7 @@ const getFilteredUsers = async ({
 
 const createUser = async (body) => {
   const newUser = {
+    uid: body.uid,
     user_name: body.userName,
     email: body.email,
     profile_image: body.profileImage,

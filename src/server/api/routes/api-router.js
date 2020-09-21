@@ -42,5 +42,4 @@ router.use('/channels', channelsRouter);
 router.use('/messages', messagesRouter);
 router.use('/channel-members', channelMembersRouter);
 
-
 module.exports = router;
