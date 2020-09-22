@@ -1,9 +1,17 @@
-.chat-message__text {
+.chat-message__body {
+  flex: auto;
+  padding: 30 px;
+}
+.chat-message__message {
   position: relative;
   font-size: 16px;
-  padding: 5px;
-  border-radius: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: gray;
   width: fit-content;
-  background-color: grey;
   margin-bottom: 30px;
+}
+.chat-message__receiver {
+  margin-left: auto;
+  background-color: cornflowerblue;
 }
