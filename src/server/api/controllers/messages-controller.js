@@ -1,10 +1,47 @@
+/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable camelcase */
 const knex = require('../../config/db');
 const Error = require('../lib/utils/http-error');
 const moment = require('moment-timezone');
+// getting all messages from channel_messages and query based on query, channel_id, sender, limit, sort and date
+const getChannelMessages = async (req) => {
+  const { query, channel_id, sender, limit, sort } = req.query;
 
-const getMessages = async () => {
+  let channelMessages = knex('channel_messages').distinct('*');
+
   try {
-    return await knex('messages').select('messages.id', 'messages.title');
+    if (query) {
+      channelMessages = channelMessages.where(
+        'channel_messages.message',
+        'like',
+        `%${query}%`,
+      );
+    }
+    if (channel_id) {
+      channelMessages = channelMessages.where(
+        'channel_messages.id',
+        channel_id,
+      );
+    }
+    if (sender) {
+      channelMessages = channelMessages.where(
+        'channel_messages.fk_user_id',
+        'like',
+        `%${sender}%`,
+      );
+    }
+    if (limit) {
+      channelMessages = channelMessages.limit(limit);
+    }
+    if (sort) {
+      channelMessages = channelMessages.orderBy(
+        'channel_messages.created_at',
+        sort,
+      );
+    }
+    return await channelMessages
+      .groupBy('channel_messages.id')
+      .orderBy('channel_messages.id', 'desc');
   } catch (error) {
     return error.message;
   }
@@ -25,29 +62,27 @@ const getMessageById = async (id) => {
 };
 
 const editMessage = async (messageId, updatedMessage) => {
-  return knex('messages')
-    .where({ id: messageId })
-    .update({
-      title: updatedMessage.title,
-      startDate: moment(updatedMessage.startDate).format(),
-      endDate: moment(updatedMessage.endDate).format(),
-      classId: updatedMessage.classId,
-      updatedAt: moment().format(),
-    });
+  return knex('channel_messages')
+  .where('id',"=",messageId)
+  .update({
+    message: updatedMessage.message,
+    fk_channel_id: updatedMessage.channelId,
+    fk_user_id: updatedMessage.userId,
+    updated_at: moment().format(),
+  });
 };
-
 const deleteMessage = async (messagesId) => {
-  return knex('messages')
+  return knex('channel_messages')
     .where({ id: messagesId })
     .del();
 };
 
 const createMessage = async (body) => {
-  await knex('messages').insert({
-    title: body.title,
-    startDate: moment(body.startDate).format(),
-    endDate: moment(body.endDate).format(),
-    classId: body.classId,
+  await knex('channel_messages').insert({
+    message: body.message,
+    created_at: moment().format(),
+    fk_user_id: body.userId,
+    fk_channel_id: body.channelId,
   });
 
   return {
@@ -56,7 +91,7 @@ const createMessage = async (body) => {
 };
 
 module.exports = {
-  getMessages,
+  getChannelMessages,
   getMessageById,
   deleteMessage,
   createMessage,
