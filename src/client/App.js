@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Home } from './containers/Home/Home';
 import SignIn from './containers/SignIn';
 import SignUp from './containers/SignUp';
+import Overview from './components/Overview/Overview';
 import ResetPassword from './containers/ResetPassword';
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute';
 import { useAuthentication } from './hooks/useAuthentication';
@@ -32,6 +33,13 @@ function App() {
             isAuthenticated={isAuthenticated}
           >
             <Profile />
+          </AuthenticatedRoute>
+          <AuthenticatedRoute
+            exact
+            path="/overview"
+            isAuthenticated={isAuthenticated}
+          >
+            <Overview />
           </AuthenticatedRoute>
         </Switch>
       </Router>

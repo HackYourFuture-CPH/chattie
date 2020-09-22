@@ -7,5 +7,10 @@ export default {
   component: Userslist,
 };
 
-const people = ['tariq', 'javid', 'peter', 'jhon'];
+const people = [
+  { id: 1, name: 'tariq' },
+  { id: 2, name: 'javid' },
+  { id: 3, name: 'peter' },
+  { id: 4, name: 'jhon' },
+];
 export const userList = () => <Userslist people={people} />;
