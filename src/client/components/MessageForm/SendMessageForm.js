@@ -15,9 +15,7 @@ function SendMessageForm() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(messageInputData),
-    })
-      .then((res) => res.json())
-      .then((messages) => console.log(messages));
+    }).then((res) => res.json());
   };
 
   return (
