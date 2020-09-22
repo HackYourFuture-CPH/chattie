@@ -8,8 +8,10 @@
 }
 
 .header-profile {
+    border-top-left-radius: 3%;
+    border-top-right-radius: 3%;
     background-color: #FFB127;
-    padding: 1%;
+    padding: 3% 5% 0;
 }
 
 .svg-inline--fa {
