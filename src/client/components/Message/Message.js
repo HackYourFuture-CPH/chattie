@@ -18,15 +18,15 @@ const Message = ({ message, username }) => {
   );
 };
 Message.defaultProps = {
-  message: '',
-  username: '',
+  message: [],
 };
-Message.propTypes = PropTypes.shape({
-  name: PropTypes.string,
-  messages: PropTypes.shape({
-    name: PropTypes.string,
-    message: PropTypes.string,
-  }),
-});
-
+Message.propTypes = {
+  username: PropTypes.string.isRequired,
+  message: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      message: PropTypes.string.isRequired,
+    }),
+  ),
+};
 export default Message;

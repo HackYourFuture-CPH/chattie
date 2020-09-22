@@ -17,12 +17,13 @@ const MessageList = ({ messages }) => {
 MessageList.defaultProps = {
   messages: [],
 };
-MessageList.propTypes = PropTypes.shape({
-  username: PropTypes.string,
-  messages: PropTypes.shape({
-    name: PropTypes.string,
-    message: PropTypes.string,
-  }),
-});
+MessageList.propTypes = {
+  messages: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      message: PropTypes.string,
+    }),
+  ),
+};
 
 export default MessageList;
