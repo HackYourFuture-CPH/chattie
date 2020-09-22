@@ -42,8 +42,8 @@ export async function signIn({ email, password }) {
 
 export async function signUp({ email, password }) {
   try {
-    await auth.createUserWithEmailAndPassword(email, password);
-    return true;
+    const user = await auth.createUserWithEmailAndPassword(email, password);
+    return user;
   } catch (error) {
     handleAuthErrors(error);
   }

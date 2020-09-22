@@ -67,6 +67,11 @@ _Class Dates_
   - Work in this repo directly
   - Checklist
 - Week 3 —> 20-Sep-2020
+  - small prs! 
+  - getting your pr merged is a skill in itself. This is your responsibility, so be aware of the status. 
+    Keep the pr rolling along! If blocked, reach out to me and put story in blocked
+  - Resolving conversations
+  - Why do i talk so much about responsibility?
 - Week 4 —> 27-Sep-2020
 - Week 5 —> 4-oct.-2020
 - Week 6 —> 11-oct.-2020
@@ -152,6 +157,8 @@ To add proptypes, simply import the proptypes package and specify exactly what d
 Note the capitalization in the example above. It's easy to get wrong. Refer to the [proptypes npm package for further documentation](https://www.npmjs.com/package/prop-types).
 
 #### Using Storybook
+
+Checkout this great video from Zaki Wasik: https://www.youtube.com/watch?v=_AZhtGTWN8k
 
 Storybook provides a _sandbox environment_ where it is easy to mock components in a visual way. When you create a _presentational component_ you should always add a story so it shows up in storybook. Benefits of using Storybook is:
 

@@ -11,6 +11,7 @@ module.exports = {
     'react/prop-types': 'warn',
     'import/prefer-default-export': 'off',
     '@typescript-eslint/camelcase': 'warn',
+    '@typescript-eslint/no-empty-function': 'off', 
     'func-names': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     'no-restricted-globals': 'off',
@@ -25,4 +26,12 @@ module.exports = {
     'react/state-in-constructor': 'off',
     'react/no-access-state-in-setstate': 'off',
   },
+  overrides: [
+    {
+      files: ['**/seeds/**/*.js', '**/controllers/**/*.js'],
+      rules: {
+        '@typescript-eslint/camelcase': 'off',
+      },
+    },
+  ],
 };

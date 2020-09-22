@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const express = require('express');
 
 const router = express.Router({ mergeParams: true });
@@ -9,10 +10,36 @@ const messagesController = require('../controllers/messages-controller');
  * @swagger
  * /messages:
  *  get:
- *    summary: Get all messages
+ *    summary: Get chennel_messages' data by query
  *    description:
  *      Will return all messages.
  *    produces: application/json
+ *    parameters:
+ *     - in: query
+ *       name: query
+ *       schema:
+ *         type: string
+ *         description: Returning messages from chennel_messages based on query
+ *     - in: query
+ *       name: channel_id
+ *       schema:
+ *         type: integer
+ *         description: Get channel_messages.id
+ *     - in: query
+ *       name: sender
+ *       schema:
+ *         type: integer
+ *         description: Get users id trough channel_messages.fk_user_id
+ *     - in: query
+ *       name: limit
+ *       schema:
+ *         type: integer
+ *         description: Limit the number of query
+ *     - in: query
+ *       name: sort
+ *       schema:
+ *         type: integer
+ *         description: sort the query as asc or desc
  *    responses:
  *      200:
  *        description: Successful request
@@ -21,7 +48,7 @@ const messagesController = require('../controllers/messages-controller');
  */
 router.get('/', (req, res, next) => {
   messagesController
-    .getMessages()
+    .getChannelMessages(req)
     .then((result) => res.json(result))
     .catch(next);
 });
@@ -150,17 +177,17 @@ router.patch('/:id', (req, res, next) => {
  * @swagger
  * /messages/{ID}:
  *  delete:
- *    summary: Delete a module
+ *    summary: Delete a message
  *    description:
- *      Will delete a module with a given ID.
+ *      Will delete a message with a given ID.
  *    produces: application/json
  *    parameters:
  *      - in: path
  *        name: ID
- *        description: ID of the module to delete.
+ *        description: ID of the message to delete.
  *    responses:
  *      200:
- *        description: Module deleted
+ *        description: Message deleted
  *      5XX:
  *        description: Unexpected error.
  */
@@ -168,7 +195,7 @@ router.delete('/:id', (req, res) => {
   messagesController
     .deleteMessage(req.params.id, req)
     .then((result) => {
-      // If result is equal to 0, then that means the module id does not exist
+      // If result is equal to 0, then that means the message id does not exist
       if (result === 0) {
         res.status(404).send('The message ID you provided does not exist.');
       } else {
