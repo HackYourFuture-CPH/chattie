@@ -1,5 +1,5 @@
 import React from 'react';
-import MessageList from './MessageList/MessageList';
+import MessageList from './MessageList.js';
 
 export default { title: 'MessageList', component: MessageList };
 
