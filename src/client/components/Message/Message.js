@@ -23,7 +23,10 @@ Message.defaultProps = {
 };
 Message.propTypes = PropTypes.shape({
   name: PropTypes.string,
-  message: PropTypes.string,
+  messages: PropTypes.shape({
+    name: PropTypes.string,
+    message: PropTypes.string,
+  }),
 });
 
 export default Message;
