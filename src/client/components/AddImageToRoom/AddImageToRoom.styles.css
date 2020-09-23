@@ -1,6 +1,35 @@
 .add-image-to-room input {
+  display: none;
+}
+
+.image-container {
   border-radius: 50%;
   width: 56px;
   height: 56px;
-  background-color: #a6c5d7;
+  position: relative;
+}
+
+.button button:hover {
+  cursor: pointer;
+}
+
+.button button {
+  position: absolute;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  border: 2px solid #a6c5d7;
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.input-picture img {
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
