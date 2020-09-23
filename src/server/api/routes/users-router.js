@@ -50,6 +50,38 @@ router.get('/', (req, res, next) => {
 
 /**
  * @swagger
+ * /User/{ID}:
+ *  delete:
+ *    summary: Delete a user
+ *    description:
+ *      Will delete a user with a given ID.
+ *    produces: application/json
+ *    parameters:
+ *      - in: path
+ *        name: ID
+ *        description: ID of the user to delete.
+ *    responses:
+ *      200:
+ *        description: user deleted
+ *      5XX:
+ *        description: Unexpected error.
+ */
+
+router.delete('/:id', (req, res) => {
+  usersController
+    .deleteUser(req.params.id)
+    .then((result) => {
+      if (result === 0) {
+        res.status(404).send('The user of this does not exist.');
+      } else {
+        res.json({ success: true });
+      }
+    })
+    .catch((error) => console.log(error));
+});
+
+/**
+ * @swagger
  * /users/{ID}:
  *  get:
  *    summary: Get user by ID
