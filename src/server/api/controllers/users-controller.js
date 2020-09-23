@@ -11,6 +11,12 @@ const getUserById = async (id) => {
     return error.message;
   }
 };
+// users delete by id
+const deleteUser = async (userId) => {
+  return knex('users')
+    .where({ id: userId })
+    .del();
+};
 
 const getFilteredUsers = async ({
   limit,
