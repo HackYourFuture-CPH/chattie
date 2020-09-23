@@ -1,4 +1,5 @@
 const knex = require('../../config/db');
+const moment = require('moment-timezone');
 
 const getUserById = async (id) => {
   try {
@@ -47,6 +48,7 @@ const getFilteredUsers = async ({
 
 const createUser = async (body) => {
   const newUser = {
+    uid: body.uid,
     user_name: body.userName,
     email: body.email,
     profile_image: body.profileImage,
@@ -60,9 +62,22 @@ const createUser = async (body) => {
   };
 };
 
+const editUser = async (userId, updatedUser) => {
+  return knex('users')
+    .where({ id: userId })
+    .update({
+      profile_image: updatedUser.profileImage,
+      user_name: updatedUser.userName,
+      email: updatedUser.email,
+      last_seen: new Date(),
+      updated_at: moment().format('YYYY-MM-DD HH:mm:ss'), // included datetime format for MySQL
+    });
+};
+
 module.exports = {
   getUserById,
   getFilteredUsers,
   createUser,
   deleteUser,
+  editUser,
 };

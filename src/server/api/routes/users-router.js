@@ -38,7 +38,7 @@ router.delete('/:id', (req, res) => {
 });
 /**
  * @swagger
- * /users/:
+ * /users:
  *  get:
  *    summary: Get users
  *    description:
@@ -110,7 +110,7 @@ router.get('/:id', (req, res, next) => {
 
 /**
  * @swagger
- * /modules:
+ * /users:
  *  post:
  *    summary: Create a user
  *    description:
@@ -123,10 +123,13 @@ router.get('/:id', (req, res, next) => {
  *        schema:
  *          type: object
  *          required:
+ *            - uid
  *            - userName
  *            - email
  *            - profileImage
  *          properties:
+ *            uid:
+ *              type: string
  *            userName:
  *              type: string
  *            email:
@@ -151,6 +154,56 @@ router.post('/', (req, res) => {
         .send('Bad request')
         .end();
     });
+});
+
+/**
+ * @swagger
+ * /users/{ID}:
+ *  patch:
+ *    summary: edit a user
+ *    description:
+ *      Will edit a user.
+ *    produces: application/json
+ *    parameters:
+ *      - in: path
+ *        name: ID
+ *        description: ID of the user to patch.
+ *      - in: body
+ *        name: user
+ *        description: The user to edit.
+ *        schema:
+ *          type: object
+ *          properties:
+ *            profileImage:
+ *              type: string
+ *            userName:
+ *              type: string
+ *            email:
+ *              type: string
+ *            lastSeen:
+ *              type: string
+ *              format: date-time
+ *            updatedAt:
+ *              type: string
+ *              format: date-time
+ *    responses:
+ *      200:
+ *        description: Module was patched
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.patch('/:id', (req, res) => {
+  usersController
+    .editUser(req.params.id, req.body)
+    .then((result) => {
+      // If result is equal to 0, then that means the user id does not exist
+      if (result === 0) {
+        res.status(400).send(`User ID '${req.params.id}' does not exist.`);
+      } else {
+        res.json({ success: true });
+      }
+    })
+    .catch((error) => console.log(error));
 });
 
 module.exports = router;

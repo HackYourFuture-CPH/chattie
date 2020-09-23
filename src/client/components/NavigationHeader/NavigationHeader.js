@@ -6,13 +6,16 @@ import { signOut } from '../../firebase/auth';
 export default function NavigationHeader({ isAuthenticated = false }) {
   if (isAuthenticated) {
     return (
-      <nav>
+      <nav className="header-profile">
         <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/profile">Profile</Link>
+          </li>
+          <li>
+            <Link to="/channel">Chats</Link>
           </li>
           <li>
             <button type="button" onClick={signOut}>

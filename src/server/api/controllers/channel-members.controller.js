@@ -1,5 +1,6 @@
 const knex = require('../../config/db');
 const Error = require('../lib/utils/http-error');
+const moment = require('moment-timezone');
 
 const getChannelMemberById = async (id) => {
   try {
@@ -25,6 +26,12 @@ const getChannelMemberById = async (id) => {
   }
 };
 
+const deleteChannelMember = async (channelMemberId) => {
+  return knex('channel_members')
+    .where({ id: channelMemberId })
+    .del();
+};
+
 const createChannelMember = async (body) => {
   await knex('channel_members').insert({
     fk_channel_id: body.channelId,
@@ -36,7 +43,19 @@ const createChannelMember = async (body) => {
   };
 };
 
+const editChannelMembers = async (channelMemberId, updatedChannelMember) => {
+  return knex('channel_members')
+    .where({ id: channelMemberId })
+    .update({
+      fk_channel_id: updatedChannelMember.channelId,
+      fk_user_id: updatedChannelMember.userId,
+      updated_at: moment().format('YYYY-MM-DD HH:mm:ss'), // included datetime format for MySQL
+    });
+};
+
 module.exports = {
   createChannelMember,
+  deleteChannelMember,
   getChannelMemberById,
+  editChannelMembers,
 };

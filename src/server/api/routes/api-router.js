@@ -12,12 +12,11 @@ const channelsRouter = require('./channels-router');
 // messages router imports
 const messagesRouter = require('./messages-router');
 const channelMembersRouter = require('./channel-members.router');
+const notificationsRouter = require('./notifications-router');
 
 const swaggerJsDoc = require('swagger-jsdoc');
 
 const swaggerUi = require('swagger-ui-express');
-
-const channelMembersController = require('./channel-members.router');
 
 const swaggerOptions = {
   swaggerDefinition: {
@@ -42,7 +41,7 @@ router.use('/modules', modulesRouter);
 router.use('/users', usersRouter);
 router.use('/channels', channelsRouter);
 router.use('/messages', messagesRouter);
-router.use('/channel-members', channelMembersController);
 router.use('/channel-members', channelMembersRouter);
+router.use('/notifications', notificationsRouter);
 
 module.exports = router;

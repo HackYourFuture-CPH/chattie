@@ -63,9 +63,15 @@ const editChannel = async (channelId, updatedChannel) => {
     });
 };
 
+const deleteChannelById = async (channelId) => {
+  return knex('channels')
+    .where({ id: channelId })
+    .del();
+};
 module.exports = {
   createChannel,
   getChannelsById,
   getFilteredChannels,
   editChannel,
+  deleteChannelById,
 };
