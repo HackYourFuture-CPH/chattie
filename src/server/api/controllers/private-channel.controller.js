@@ -3,44 +3,63 @@ const knex = require('../../config/db');
 // const moment = require('moment-timezone');
 
 async function checkPrivateChannel(arrOfUsers) {
-  const allUsersChannels = await knex('channel_members as a')
-    .select('a.id', 'a.fk_channel_id as channel', 'a.fk_user_id as user')
+  const all = await knex('channel_members as a')
+    .count('a.fk_user_id', { as: 'numberOfUsers' })
+    .join('channel_members as b', 'b.fk_channel_id', 'a.fk_channel_id')
+    .select('a.id', 'a.fk_channel_id as channelId')
     .whereIn('a.fk_user_id', arrOfUsers)
-    .groupBy('a.fk_channel_id');
+    .groupBy('a.id')
+    .having('numberOfUsers', '=', arrOfUsers.length);
+  const d = all.filter(async (res) => {
+    console.log('first res', res);
+    const channelMembers = await knex('channel_members as a')
+      .select('a.fk_user_id as userId')
+      .where('a.fk_channel_id', '=', res.channelId);
 
-  const commonChannels = [];
-  let i;
-  allUsersChannels.forEach((member) => {
-    for (i = 0; i < allUsersChannels.length; i + 1) {
-      /*
-      if (
-        allUsersChannels[i].id !== member.id &&
-        allUsersChannels[i].user !== member.user &&
-        allUsersChannels[i].channel === member.channel
-      ) {
-        commonChannels.push(member);
-        
-      } else {
-        return;
-      } */
-      // commonChannels.push(member);
-      console.log(member);
+    const intArr = channelMembers.map((userObj) => userObj.userId);
+    console.log(
+      intArr.every((currentValue) => arrOfUsers.includes(currentValue)),
+    );
+    if (
+      intArr.every((currentValue) => arrOfUsers.includes(currentValue)) &&
+      intArr.length === arrOfUsers.length
+    ) {
+      console.log('here', res);
+      return res;
     }
+    return { ...res, channelId: false };
   });
-  /* const commonChannels = commonChannels.find(
-    async (member) => (await roomMembers(member.channel).length) === 2,
-  ); */
-
-  return commonChannels;
-}
-async function roomMembers(channelId) {
-  const members = await knex('channel_members as a')
-    .select('a.id', 'a.fk_user_id')
-    .where('a.fk_channel_id', '=', channelId);
-  console.log(`members:${channelId} `, members);
-  return members;
+  return d;
 }
 
 module.exports = {
   checkPrivateChannel,
 };
+/**
+ *   .on('query-response', function (response) {
+      console.log('from here', response);
+      return response;
+    })
+    .then((res2) => {
+      console.log('res2', res2);
+      res2.filter(async (res) => {
+        console.log('first res', res);
+        const channelMembers = await knex('channel_members as a')
+          .select('a.fk_user_id as userId')
+          .where('a.fk_channel_id', '=', res.channelId);
+
+        const intArr = channelMembers.map((userObj) => userObj.userId);
+        console.log(
+          intArr.every((currentValue) => arrOfUsers.includes(currentValue)),
+        );
+        if (
+          intArr.every((currentValue) => arrOfUsers.includes(currentValue)) &&
+          intArr.length === arrOfUsers.length
+        ) {
+          console.log('here', res);
+          return res;
+        }
+      });
+    })
+    .catch((error) => console.log(error));
+ */

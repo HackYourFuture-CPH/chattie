@@ -39,12 +39,12 @@ const swaggerDocument = swaggerJsDoc(swaggerOptions);
 router.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Application routes
+router.use('/private-channel/', privateChannelRouter);
 router.use('/modules', modulesRouter);
 router.use('/users', usersRouter);
 router.use('/channels', channelsRouter);
 router.use('/messages', messagesRouter);
-router.use('/private-channel/', privateChannelRouter);
-router.use('/channel-members', channelMembersController);
+// router.use('/channel-members', channelMembersController);
 
 router.use('/channel-members', channelMembersRouter);
 
