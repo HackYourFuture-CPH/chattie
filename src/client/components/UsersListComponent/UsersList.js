@@ -39,8 +39,8 @@ export default function Userslist() {
     );
     const { channelId } = await response.json();
     const { uid } = currentUser;
-    const response2 = await fetch(`/api/users/current?uid=${uid}`);
-    const currentUserFromServer = await response2.json();
+    const resCurrentUser = await fetch(`/api/users/current?uid=${uid}`);
+    const currentUserFromServer = await resCurrentUser.json();
 
     await fetch('/api/channel-members', requestConfig({ channelId, userId }));
     await fetch(
