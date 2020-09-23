@@ -1,7 +1,7 @@
 import React from 'react';
-import './CreateNewRoomButton.css';
+import './CreateANewRoomButton.css';
 
-function CreateNewRoomButton() {
+function CreateANewRoomButton() {
   return (
     <div className="new-room-form">
       <div>
@@ -13,4 +13,4 @@ function CreateNewRoomButton() {
     </div>
   );
 }
-export default CreateNewRoomButton;
+export default CreateANewRoomButton;

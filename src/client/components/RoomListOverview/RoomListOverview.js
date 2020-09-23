@@ -2,12 +2,12 @@ import React from 'react';
 import RoomList from '../RoomList/RoomList';
 import './RoomListOverview.css';
 import PropTypes from 'prop-types';
-import CreateNewRoomButton from '../CreateNewRoomButton/CreateNewRoomButton';
+import CreateANewRoomButton from '../CreateANewRoomButton/CreateANewRoomButton';
 
 function RoomListOverview(props) {
   return (
     <div className="roomlist-overview">
-      <CreateNewRoomButton />
+      <CreateANewRoomButton />
       <RoomList roomList={props.roomList} />
     </div>
   );
