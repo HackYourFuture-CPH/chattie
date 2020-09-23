@@ -3,48 +3,35 @@ const express = require('express');
 const router = express.Router({ mergeParams: true });
 
 // controllers
-const privateChannelController = require('../controllers/private-channel.controller');
+const checkForChannelController = require('../controllers/private-channel.controller');
 /**
  * @swagger
  * /private-channel:
- *  post:
- *    summary: Create a private channel
+ *  get:
+ *    summary: check what channels have provided users
  *    description:
- *      Will create a private channel.
+ *      Take an array of user and return what channels are they member of
  *    produces: application/json
  *    parameters:
- *      - in: body
- *        name: private channel
- *        description: The private channel to create.
- *        schema:
- *          type: object
- *          required:
- *            - title
- *            - startDate
- *            - endDate
- *             - classId
- *          properties:
- *            title:
- *              type: string
- *            startDate:
- *              type: string
- *              format: date-time
- *            endDate:
- *              type: string
- *              format: date-time
- *            classId:
- *              type: string
+ *      - name: users
+ *        in: query
+ *        description: Array of usersIds.
+ *        required: true
+ *        type: array
+ *
+ *
  *    responses:
  *      201:
- *        description: private channel created
+ *        description:successful operation
+ *
  *      5XX:
  *        description: Unexpected error.
  */
 router.get('/', (req, res) => {
-  const { user1, user2 } = req.query;
-
-  privateChannelController
-    .checkPrivateChannel(user1, user2)
+  const { users } = req.query;
+  const arrUsers = JSON.parse(users);
+  checkForChannelController
+    .checkPrivateChannel(arrUsers)
     .then((result) => {
       res.send(result);
     })
