@@ -31,5 +31,5 @@ export default function Channel() {
       </>
     );
   }
-  return console.log(messages);
+  //  return console.log(messages);
 }
