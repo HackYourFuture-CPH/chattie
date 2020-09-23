@@ -6,22 +6,21 @@ import './MessageList.css';
 // Loop through all the messages in the state and create a Message component
 const MessageList = ({ messages }) => {
   return (
-    <div className="messages" id="messageList">
-      {messages.map(({ username, message }) => (
-        <Message key={message.id} username={username} message={message} />
+    <div className="chat-messages__container">
+      {messages.map(({ index, username, message }) => (
+        <Message key={index} username={username} text={message} />
       ))}
     </div>
   );
 };
-
 MessageList.defaultProps = {
   messages: [],
 };
 MessageList.propTypes = {
   messages: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string,
-      message: PropTypes.string,
+      username: PropTypes.string,
+      text: PropTypes.string,
     }),
   ),
 };

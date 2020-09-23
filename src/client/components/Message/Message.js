@@ -2,31 +2,25 @@ import React from 'react';
 import './Message.css';
 import PropTypes from 'prop-types';
 
-// message:{text, senderId,}, userId
-// Was the message sent by the current user. If so, add a css class
-// here message is object which contains user which need not be logged in and the text message
-const Message = ({ message, username }) => {
-  return (
-    <div className="chat-message__body">
-      <p
-        className={`chat-message__message ${message.name === username &&
-          'chat-message__receiver'}`}
-      >
-        {message.message}
-      </p>
+// chat needs to be aligned to right or left based on the user
+const Message = ({ text }) => {
+  const isWrittenByUser = true;
+  return isWrittenByUser ? (
+    <div className="chat-messageContainer justifyEnd">
+      <div className="chat-messageBox backgroundBlue">
+        <p className="chat-messageText colorWhite">{text}</p>
+      </div>
+    </div>
+  ) : (
+    <div className="chat-messageContainer justifyStart">
+      <div className="chat-messageBox backgroundLight">
+        <p className="chat-messageText colorDark">{text}</p>
+      </div>
     </div>
   );
 };
-Message.defaultProps = {
-  message: [],
-};
+
 Message.propTypes = {
-  username: PropTypes.string.isRequired,
-  message: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      message: PropTypes.string.isRequired,
-    }),
-  ),
+  text: PropTypes.string.isRequired,
 };
 export default Message;
