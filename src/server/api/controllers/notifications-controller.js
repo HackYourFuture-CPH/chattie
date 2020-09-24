@@ -16,7 +16,14 @@ const createNotification = async (body) => {
     id: insertedNotifications[0],
   };
 };
+// users delete by id
+const deleteNotification = async (notiId) => {
+  return knex('notifications')
+    .where({ id: notiId })
+    .del();
+};
 
 module.exports = {
   createNotification,
+  deleteNotification,
 };
