@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CreateANewRoomButton from './CreateANewRoomButton/CreateANewRoomButton';
+import CreateANewRoomButton from './CreateANewRoomButton';
 
 export default { title: 'CreateANewRoomButton' };
 
