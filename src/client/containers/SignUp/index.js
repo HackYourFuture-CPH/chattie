@@ -10,7 +10,7 @@ const getDoesPasswordsMatch = ({ password, passwordConfirm }) =>
 export default function SignUpContainer() {
   const [isSuccessful, setIsSuccessful] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const onSubmit = async ({ email, password, passwordConfirm }) => {
+  const onSubmit = async ({ email, password, passwordConfirm, image }) => {
     setIsLoading(true);
     const doesPasswordsMatch = getDoesPasswordsMatch({
       password,
@@ -22,7 +22,7 @@ export default function SignUpContainer() {
       alert("Passwords doesn't match");
       return;
     }
-    const response = await signUp({ email, password });
+    const response = await signUp({ email, password, image });
     if (response) {
       try {
         await fetch('/api/users', {
@@ -34,6 +34,7 @@ export default function SignUpContainer() {
             uid: response.user.uid,
             email,
             username: email,
+            image,
           }),
         });
         setIsSuccessful(true);
