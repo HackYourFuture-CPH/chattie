@@ -1,0 +1,23 @@
+.lista {
+  padding-top: 15px;
+  display: flex;
+  justify-items: flex-start;
+  flex-direction: row;
+  align-items: center;
+}
+
+.searchBox {
+  background-color: #0b811e;
+  border: none;
+  border-radius: 30px;
+  width: 500px;
+  height: 100px;
+  left: 26px;
+  top: 80px;
+  padding-left: 50px;
+}
+
+div p {
+  background-color: limegreen;
+  font: bold;
+}
