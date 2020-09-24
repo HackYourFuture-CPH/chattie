@@ -3,63 +3,53 @@ const knex = require('../../config/db');
 // const moment = require('moment-timezone');
 
 async function checkPrivateChannel(arrOfUsers) {
-  const all = await knex('channel_members as a')
+  // get all channels where the users are member off and the number of users is equal to arrOfUsers.length
+  const allChannelsForUsers = await knex('channel_members as a')
     .count('a.fk_user_id', { as: 'numberOfUsers' })
     .join('channel_members as b', 'b.fk_channel_id', 'a.fk_channel_id')
     .select('a.id', 'a.fk_channel_id as channelId')
     .whereIn('a.fk_user_id', arrOfUsers)
     .groupBy('a.id')
     .having('numberOfUsers', '=', arrOfUsers.length);
-  const d = all.filter(async (res) => {
-    console.log('first res', res);
+
+  // map throw all the channels using the channel id to call a query that
+  // return all the users id are member in that channel and make it as an array called membersId
+  const promischannelMembers = allChannelsForUsers.map(async (row) => {
     const channelMembers = await knex('channel_members as a')
       .select('a.fk_user_id as userId')
-      .where('a.fk_channel_id', '=', res.channelId);
-
+      .where('a.fk_channel_id', '=', row.channelId);
     const intArr = channelMembers.map((userObj) => userObj.userId);
-    console.log(
-      intArr.every((currentValue) => arrOfUsers.includes(currentValue)),
-    );
-    if (
-      intArr.every((currentValue) => arrOfUsers.includes(currentValue)) &&
-      intArr.length === arrOfUsers.length
-    ) {
-      console.log('here', res);
-      return res;
-    }
-    return { ...res, channelId: false };
+    return { ...row, membersId: intArr };
   });
-  return d;
-}
 
+  // call all the promises
+  const channelMembers = await Promise.all(promischannelMembers);
+
+  const commonChannelsId = [];
+
+  // check each chanel for membersIds array if this array is same length as arrOfUsers and all
+  // the items in that array exected in arrOfUsers
+  channelMembers.forEach((channel) => {
+    if (
+      channel.membersId.every((currentValue) =>
+        arrOfUsers.includes(currentValue),
+      ) &&
+      channel.membersId.length === arrOfUsers.length
+    ) {
+      commonChannelsId.push(channel.channelId);
+    }
+  });
+
+  // clean the repeated channelIds
+  const channelIdToReturn = commonChannelsId.reduce((a, b) => {
+    if (a.indexOf(b) === -1) {
+      a.push(b);
+    }
+    return a;
+  }, []);
+
+  return channelIdToReturn;
+}
 module.exports = {
   checkPrivateChannel,
 };
-/**
- *   .on('query-response', function (response) {
-      console.log('from here', response);
-      return response;
-    })
-    .then((res2) => {
-      console.log('res2', res2);
-      res2.filter(async (res) => {
-        console.log('first res', res);
-        const channelMembers = await knex('channel_members as a')
-          .select('a.fk_user_id as userId')
-          .where('a.fk_channel_id', '=', res.channelId);
-
-        const intArr = channelMembers.map((userObj) => userObj.userId);
-        console.log(
-          intArr.every((currentValue) => arrOfUsers.includes(currentValue)),
-        );
-        if (
-          intArr.every((currentValue) => arrOfUsers.includes(currentValue)) &&
-          intArr.length === arrOfUsers.length
-        ) {
-          console.log('here', res);
-          return res;
-        }
-      });
-    })
-    .catch((error) => console.log(error));
- */
