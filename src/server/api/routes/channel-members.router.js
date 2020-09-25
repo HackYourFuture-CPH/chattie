@@ -117,4 +117,50 @@ router.post('/', (req, res) => {
     });
 });
 
+/**
+ * @swagger
+ * /channel-members/{ID}:
+ *  patch:
+ *    summary: edit channel_members
+ *    description:
+ *      Will edit channel_members.
+ *    produces: application/json
+ *    parameters:
+ *      - in: path
+ *        name: ID
+ *        description: ID of the channel-member to patch.
+ *      - in: body
+ *        name: channel_members
+ *        description: The channel_member to edit.
+ *        schema:
+ *          type: object
+ *          properties:
+ *            channelId:
+ *              type: string
+ *            userId:
+ *              type: string
+ *    responses:
+ *      200:
+ *        description: channel_member was patched.
+ *      5XX:
+ *        description: Unexpected error.
+ *      400:
+ *        description: Bad request.
+ */
+router.patch('/:id', (req, res) => {
+  channelMembersController
+    .editChannelMembers(req.params.id, req.body)
+    .then((result) => {
+      // If result is equal to 0, then that means the channel member id does not exist
+      if (result === 0) {
+        res
+          .status(400)
+          .send(`channel ID '${req.params.id}' does not exist.`);
+      } else {
+        res.json({ success: true });
+      }
+    })
+    .catch((error) => console.log(error));
+});
+
 module.exports = router;
