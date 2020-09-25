@@ -1,8 +1,6 @@
 import React from 'react';
 import './Overview.styles.css';
-
-// user List component not working and breaking all other functionalities
-// import UsersList from '../UsersListComponent/UsersList';
+import UserList from '../../containers/UserList/UserList';
 import Search from '../Search/Search';
 
 function Overview() {
@@ -12,8 +10,9 @@ function Overview() {
       <div className="search">
         <Search />
       </div>
-      <div className="users-list">{/* <UsersList /> */}</div>
-
+      <div className="users-list">
+        <UserList />
+      </div>
       <div className="btn-and-profile">
         <a href="/profile">Profile</a>
         <a href="/chats">Chats</a>

@@ -12,6 +12,7 @@ const channelsRouter = require('./channels-router');
 // messages router imports
 const messagesRouter = require('./messages-router');
 const channelMembersRouter = require('./channel-members.router');
+const notificationsRouter = require('./notifications-router');
 
 // private channel router imports
 const privateChannelRouter = require('./private-channel.router');
@@ -44,8 +45,7 @@ router.use('/modules', modulesRouter);
 router.use('/users', usersRouter);
 router.use('/channels', channelsRouter);
 router.use('/messages', messagesRouter);
-// router.use('/channel-members', channelMembersController);
-
 router.use('/channel-members', channelMembersRouter);
+router.use('/notifications', notificationsRouter);
 
 module.exports = router;

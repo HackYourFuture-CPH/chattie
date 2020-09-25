@@ -1,5 +1,6 @@
 const knex = require('../../config/db');
 const Error = require('../lib/utils/http-error');
+const moment = require('moment-timezone');
 
 const getChannelMemberById = async (id) => {
   try {
@@ -88,9 +89,20 @@ async function checkForCommoneChannels(arrOfUsers) {
   return channelIdToReturn;
 }
 
+const editChannelMembers = async (channelMemberId, updatedChannelMember) => {
+  return knex('channel_members')
+    .where({ id: channelMemberId })
+    .update({
+      fk_channel_id: updatedChannelMember.channelId,
+      fk_user_id: updatedChannelMember.userId,
+      updated_at: moment().format('YYYY-MM-DD HH:mm:ss'), // included datetime format for MySQL
+    });
+};
+
 module.exports = {
   createChannelMember,
   deleteChannelMember,
   getChannelMemberById,
   checkForCommoneChannels,
+  editChannelMembers,
 };

@@ -2,13 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './UsersListStyle.css';
 
-export default function Userslist(props) {
+export default function Userslist({ users }) {
   return (
     <div className="container">
-      <div className="wraper">
-        <ul>
-          {props.people.map((people) => (
-            <li key={people}>{people}</li>
+      <div className="wrapper">
+        <ul className="user-list">
+          {users.map((user) => (
+            <li key={user.id}>
+              <img src={user.profile_image} alt={user.profile_image} />
+              <span>{user.user_name}</span>
+            </li>
           ))}
         </ul>
       </div>
@@ -17,5 +20,10 @@ export default function Userslist(props) {
 }
 
 Userslist.propTypes = {
-  people: PropTypes.arrayOf(PropTypes.string).isRequired,
+  users: PropTypes.arrayOf(
+    PropTypes.shape({
+      user_name: PropTypes.string,
+      profile_image: PropTypes.string,
+    }),
+  ).isRequired,
 };

@@ -1,26 +1,33 @@
-.body {
-  padding: 0;
-  margin: 0;
-}
-
 .container {
-  width: 100%;
-
+  width: 90%;
+  height: 50%;
   margin: auto;
 }
-.wraper {
-  display: flex;
-  flex-direction: column;
-  background-color: #cccc;
+.wrapper {
+  display: inline-flex;
+  flex-direction: row;
   align-items: center;
   text-align: center;
+  width: 80%;
+}
+.user-list {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-around;
   margin: auto;
-  width: 90%;
+  padding: 3%;
+  width: 60%;
+  height: 40%;
 }
 
-.wraper input {
-  width: 200px;
+.user-list li {
+  list-style-type: none;
 }
-ul li {
-  list-style: none;
+img {
+  width: 70%;
+  height: 40%;
+  border-radius: 50%;
+}
+.user-list li span {
+  padding: 3px;
 }
