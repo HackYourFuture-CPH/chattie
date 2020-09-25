@@ -110,10 +110,51 @@ router.post('/', (req, res) => {
     .createChannelMember(req.body)
     .then((result) => res.json(result))
     .catch(() => {
-      res
-        .status(400)
-        .send('Bad request')
-        .end();
+      res.status(400).send('Bad request').end();
+    });
+});
+/**
+ * @swagger
+ * /channel-members/?users[]:
+ *  get:
+ *    summary: check which channels have provided users in commone
+ *    description:
+ *      Take an array of users and return the common channels' ids are they member of
+ *    produces: application/json
+ *    parameters:
+ *      - in: query
+ *        name: users
+ *        description: Array of users Ids.
+ *        required: true
+ *        schema:
+ *          type: array
+ *          items:
+ *             type: integer
+ *
+ *    responses:
+ *      201:
+ *        description: Ok
+ *        content:
+ *          application/json:
+ *             schema:
+ *               type : array
+ *               items:
+ *                  type : integers
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.get('/?users[]', (req, res) => {
+  const { users } = req.query;
+  const arrUsers = JSON.parse(users);
+  channelMembersController
+    .checkForCommoneChannels(arrUsers)
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((error) => {
+      console.log(error);
+
+      res.status(400).send('Bad request').end();
     });
 });
 
