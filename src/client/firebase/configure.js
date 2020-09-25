@@ -5,6 +5,7 @@ import 'firebase/database';
 import 'firebase/firestore';
 import 'firebase/functions';
 import 'firebase/messaging';
+import 'firebase/storage';
 import config from './config';
 
 const configuration = {
@@ -20,9 +21,13 @@ if (!firebase.apps.length) {
   firebase.initializeApp(configuration);
 }
 
+const storage = firebase.storage();
 export const auth = firebase.auth();
 export const db = firebase.database();
 export const firestore = firebase.firestore();
+export {
+  storage,firebase as default
+}
 /**
  * Connect to firestore emulator if running locally
  */
