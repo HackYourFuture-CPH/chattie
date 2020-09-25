@@ -8,9 +8,9 @@ export default {
 };
 
 const people = [
-  { id: 1, name: 'tariq' },
-  { id: 2, name: 'javid' },
-  { id: 3, name: 'peter' },
-  { id: 4, name: 'jhon' },
+  { id: 1, user_name: 'tariq' },
+  { id: 2, user_name: 'javid' },
+  { id: 3, user_name: 'peter' },
+  { id: 4, user_name: 'jhon' },
 ];
-export const userList = () => <Userslist people={people} />;
+export const userList = () => <Userslist users={people} />;
