@@ -13,8 +13,8 @@ const profileImage =
 export const profileView = () => (
   <ProfileDatails
     title="Test title"
-    user_name={username}
-    profile_image={profileImage}
+    userName={username}
+    profileImage={profileImage}
     email={email}
   />
 );

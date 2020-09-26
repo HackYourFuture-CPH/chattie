@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
 import { Home } from './containers/Home/Home';
 import SignIn from './containers/SignIn';
 import SignUp from './containers/SignUp';
@@ -13,7 +12,6 @@ import Profile from './containers/Profile';
 import Channel from './containers/Channel/Channel';
 import Loader from './components/Loader/Loader';
 import { UserContext } from './context/userContext';
-import Overview from './components/Overview/Overview';
 
 function App() {
   const { isAuthenticated, isLoading, user } = useAuthentication();

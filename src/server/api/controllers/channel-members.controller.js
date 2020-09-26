@@ -27,7 +27,9 @@ const getChannelMemberById = async (id) => {
 };
 
 const deleteChannelMember = async (channelMemberId) => {
-  return knex('channel_members').where({ id: channelMemberId }).del();
+  return knex('channel_members')
+    .where({ id: channelMemberId })
+    .del();
 };
 
 const createChannelMember = async (body) => {
@@ -40,16 +42,23 @@ const createChannelMember = async (body) => {
     successful: true,
   };
 };
-async function checkForCommoneChannels(arrOfUsers) {
-  // get all channels where the users are member off and the number of users is equal to arrOfUsers.length
-  const allChannelsForUsers = await knex('channel_members as a')
-    .count('a.fk_user_id', { as: 'numberOfUsers' })
-    .join('channel_members as b', 'b.fk_channel_id', 'a.fk_channel_id')
-    .select('a.id', 'a.fk_channel_id as channelId')
-    .whereIn('a.fk_user_id', arrOfUsers)
-    .groupBy('a.id')
-    .having('numberOfUsers', '=', arrOfUsers.length);
+const checkForCommoneChannels = async (arrOfUsers) => {
+  const generalChannels = await knex('channel_members')
+    .select('fk_channel_id as channelId')
+    .whereIn('fk_user_id', arrOfUsers)
+    .groupBy('fk_channel_id')
+    .having(knex.raw('count(*)'), '=', arrOfUsers.length);
+  return generalChannels.map((channel) => channel.channelId);
+};
 
+// get all channels where the users are member off and the number of users is equal to arrOfUsers.length
+/* const allChannelsForUsers = await knex('channel_members as a')
+.count('a.fk_user_id', { as: 'numberOfUsers' })
+.join('channel_members as b', 'b.fk_channel_id', 'a.fk_channel_id')
+.select('a.id', 'a.fk_channel_id as channelId')
+.whereIn('a.fk_user_id', arrOfUsers)
+.groupBy('a.id')
+.having('numberOfUsers', '=', arrOfUsers.length);
   // map throw all the channels using the channel id to call a query that
   // return all the users id are member in that channel and make it as an array called membersId
   const promischannelMembers = allChannelsForUsers.map(async (row) => {
@@ -87,7 +96,7 @@ async function checkForCommoneChannels(arrOfUsers) {
   }, []);
 
   return channelIdToReturn;
-}
+} */
 
 const editChannelMembers = async (channelMemberId, updatedChannelMember) => {
   return knex('channel_members')
