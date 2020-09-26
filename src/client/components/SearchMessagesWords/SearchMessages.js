@@ -1,29 +1,26 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
+/* eslint-disable no-shadow */
+/* eslint-disable array-callback-return */
+/* eslint-disable react/button-has-type */
+import React, { useState } from 'react';
 import './SearchMessages.css';
 
-export default function SearchMessages() {
-  const [searchTerm, setSearchTerm] = React.useState('');
-  const [searchResults, setSearchResults] = React.useState([]);
+function SearchMessages() {
+  const [searchTerm, setsearchTerm] = useState('Search');
+  const [searchResults, setsearchResults] = useState([]);
 
-  const handleInputChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
+  function handleChange(event) {
+    setsearchTerm(event.target.value);
+  }
 
-  useEffect(() => {
+  function handleSubmit() {
     fetch(`/api/messages?query=${searchTerm}`)
       .then((response) => response.json())
-      .then((data) => setSearchResults(data.searchResults));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  React.useEffect(() => {
-    const results = searchResults.filter((message) =>
-      message.toLowerCase().includes(searchTerm.toLowerCase()),
-    );
-    setSearchResults(results);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchTerm]);
+      .then((searchResults) => setsearchResults(searchResults));
+    const filteredResults = searchResults.filter((message) => {
+      message.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+    setsearchResults(filteredResults);
+  }
 
   return (
     <div className="searchBox">
@@ -31,12 +28,12 @@ export default function SearchMessages() {
         type="text"
         placeholder="Search"
         value={searchTerm}
-        onChange={handleInputChange}
+        onChange={handleChange}
       />
       <p>
-        <button type="submit">click Me</button>
+        <button onClick={handleSubmit}>submit</button>
       </p>
-      <ul className="lista">
+      <ul className="outputList">
         {searchResults.map((messageItem) => (
           <li>{messageItem}</li>
         ))}
@@ -45,6 +42,4 @@ export default function SearchMessages() {
   );
 }
 
-SearchMessages.defaultType = {
-  searchTerm: PropTypes.func.isRequired,
-};
+export default SearchMessages;

@@ -1,4 +1,4 @@
-.lista {
+.searchBox.OutputList {
   padding-top: 15px;
   display: flex;
   justify-items: flex-start;
@@ -17,7 +17,7 @@
   padding-left: 50px;
 }
 
-div p {
+.searchBox p {
   background-color: limegreen;
   font: bold;
 }
