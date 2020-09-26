@@ -36,7 +36,7 @@ const channelMembersController = require('../controllers/channel-members.control
  *        description: Unexpected error.
  */
 router.get('/common-channels', (req, res) => {
-  const users = req.query.users;
+  const { users } = req.query;
   const arrUsers = JSON.parse(users);
   channelMembersController
     .checkForCommoneChannels(arrUsers)
@@ -46,7 +46,10 @@ router.get('/common-channels', (req, res) => {
     .catch((error) => {
       console.log(error);
 
-      res.status(400).send('Bad request').end();
+      res
+        .status(400)
+        .send('Bad request')
+        .end();
     });
 });
 
@@ -154,7 +157,10 @@ router.post('/', (req, res) => {
     .createChannelMember(req.body)
     .then((result) => res.json(result))
     .catch(() => {
-      res.status(400).send('Bad request').end();
+      res
+        .status(400)
+        .send('Bad request')
+        .end();
     });
 });
 
