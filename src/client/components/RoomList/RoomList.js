@@ -11,8 +11,8 @@ const RoomList = ({ roomList }) => {
           <div>
             <li className="list">
               <div>
-                <img className="Room-image" src={room.imageUrl} alt="" />
-                <label className="Room-title">{room.title}</label>
+                <img className="room-image" src={room.imageUrl} alt="" />
+                <label className="room-title">{room.title}</label>
               </div>
             </li>
           </div>
