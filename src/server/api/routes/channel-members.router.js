@@ -37,9 +37,9 @@ const channelMembersController = require('../controllers/channel-members.control
  */
 router.get('/common-channels', (req, res) => {
   const { users } = req.query;
-  const arrUsers = JSON.parse(users);
+  const usersId = JSON.parse(users);
   channelMembersController
-    .checkForCommoneChannels(arrUsers)
+    .getCommonChannels(usersId)
     .then((result) => {
       res.send(result);
     })
