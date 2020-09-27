@@ -12,6 +12,13 @@ const getUserById = async (id) => {
   }
 };
 
+// users delete by id
+const deleteUser = async (userId) => {
+  return knex('users')
+    .where({ id: userId })
+    .del();
+};
+
 const getFilteredUsers = async ({
   limit,
   userName,
@@ -71,5 +78,6 @@ module.exports = {
   getUserById,
   getFilteredUsers,
   createUser,
+  deleteUser,
   editUser,
 };

@@ -8,7 +8,6 @@ const modulesRouter = require('./modules.router');
 const usersRouter = require('./users-router');
 
 const channelsRouter = require('./channels-router');
-
 // messages router imports
 const messagesRouter = require('./messages-router');
 const channelMembersRouter = require('./channel-members.router');
