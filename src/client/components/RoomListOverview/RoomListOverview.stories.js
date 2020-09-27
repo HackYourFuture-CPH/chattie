@@ -1,7 +1,7 @@
 import React from 'react';
 import RoomListOverview from './RoomListOverview';
 
-export default { title: 'RoomListOveview' };
+export default { title: 'RoomListOverview' };
 
 const roomList = [
   {
