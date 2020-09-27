@@ -27,7 +27,9 @@ const getChannelMemberById = async (id) => {
 };
 
 const deleteChannelMember = async (channelMemberId) => {
-  return knex('channel_members').where({ id: channelMemberId }).del();
+  return knex('channel_members')
+    .where({ id: channelMemberId })
+    .del();
 };
 
 const createChannelMember = async (body) => {
