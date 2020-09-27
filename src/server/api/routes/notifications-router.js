@@ -46,7 +46,7 @@ router.post('/', (req, res) => {
 });
 /**
  * @swagger
- * /Notification/{ID}:
+ * /notification/{ID}:
  *  delete:
  *    summary: Delete a Notification
  *    description:
@@ -62,7 +62,6 @@ router.post('/', (req, res) => {
  *      5XX:
  *        description: Unexpected error.
  */
-
 router.delete('/:id', (req, res) => {
   notificationsController
     .deleteNotification(req.params.id)

@@ -16,10 +16,11 @@ const createNotification = async (body) => {
     id: insertedNotifications[0],
   };
 };
+
 // users delete by id
-const deleteNotification = async (notiId) => {
+const deleteNotification = async (notificationId) => {
   return knex('notifications')
-    .where({ id: notiId })
+    .where({ id: notificationId })
     .del();
 };
 
