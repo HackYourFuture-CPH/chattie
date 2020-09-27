@@ -161,8 +161,7 @@ router.post('/', (req, res) => {
         .status(400)
         .send('Bad request')
         .end();
-    });
-});
+    });;
 
 /**
  * @swagger
