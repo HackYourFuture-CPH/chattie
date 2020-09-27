@@ -42,6 +42,54 @@ const createChannelMember = async (body) => {
     successful: true,
   };
 };
+async function getCommonChannels(users) {
+  // get all channels where the users are member off and the number of users is equal to users.length
+  const allChannelsForUsers = await knex('channel_members as a')
+    .count('a.fk_user_id', { as: 'numberOfUsers' })
+    .join('channel_members as b', 'b.fk_channel_id', 'a.fk_channel_id')
+    .select('a.id', 'a.fk_channel_id as channelId')
+    .whereIn('a.fk_user_id', users)
+    .groupBy('a.id')
+    .having('numberOfUsers', '=', users.length);
+
+  // map throw all the channels using the channel id to call a query that
+  // return all the users id are member in that channel and make it as an array called membersId
+  const promischannelMembers = allChannelsForUsers.map(async (row) => {
+    const channelMembers = await knex('channel_members as a')
+      .select('a.fk_user_id as userId')
+      .where('a.fk_channel_id', '=', row.channelId);
+    const intArr = channelMembers.map((userObj) => userObj.userId);
+    return { ...row, membersId: intArr };
+  });
+
+  // call all the promises
+  const channelMembers = await Promise.all(promischannelMembers);
+
+  const commonChannelsId = [];
+
+  // check each chanel for membersIds array if this array is same length as users and all
+  // the items in that array exected in users
+  channelMembers.forEach((channel) => {
+    if (
+      channel.membersId.every((currentValue) =>
+        users.includes(currentValue),
+      ) &&
+      channel.membersId.length === users.length
+    ) {
+      commonChannelsId.push(channel.channelId);
+    }
+  });
+
+  // clean the repeated channelIds
+  const channelIdToReturn = commonChannelsId.reduce((a, b) => {
+    if (a.indexOf(b) === -1) {
+      a.push(b);
+    }
+    return a;
+  }, []);
+
+  return channelIdToReturn;
+}
 
 const editChannelMembers = async (channelMemberId, updatedChannelMember) => {
   return knex('channel_members')
@@ -57,5 +105,6 @@ module.exports = {
   createChannelMember,
   deleteChannelMember,
   getChannelMemberById,
+  getCommonChannels,
   editChannelMembers,
 };

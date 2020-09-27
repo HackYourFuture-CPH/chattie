@@ -5,6 +5,53 @@ const router = express.Router({ mergeParams: true });
 // controllers
 
 const channelMembersController = require('../controllers/channel-members.controller');
+/**
+ * @swagger
+ * /channel-members/common-channels:
+ *  get:
+ *    summary: check which channels have provided users in commone
+ *    description:
+ *      Take an array of users and return the common channels' ids are they member of
+ *    produces: application/json
+ *    parameters:
+ *      - in: query
+ *        name: users
+ *        description: Array of users Ids.
+ *        required: true
+ *        schema:
+ *          type: array
+ *          items:
+ *             type: integer
+ *
+ *    responses:
+ *      201:
+ *        description: Ok
+ *        content:
+ *          application/json:
+ *             schema:
+ *               type : array
+ *               items:
+ *                  type : integers
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.get('/common-channels', (req, res) => {
+  const { users } = req.query;
+  const usersId = JSON.parse(users);
+  channelMembersController
+    .getCommonChannels(usersId)
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((error) => {
+      console.log(error);
+
+      res
+        .status(400)
+        .send('Bad request')
+        .end();
+    });
+});
 
 /**
  * @swagger
@@ -114,8 +161,7 @@ router.post('/', (req, res) => {
         .status(400)
         .send('Bad request')
         .end();
-    });
-});
+    });;
 
 /**
  * @swagger
@@ -153,9 +199,7 @@ router.patch('/:id', (req, res) => {
     .then((result) => {
       // If result is equal to 0, then that means the channel member id does not exist
       if (result === 0) {
-        res
-          .status(400)
-          .send(`channel ID '${req.params.id}' does not exist.`);
+        res.status(400).send(`channel ID '${req.params.id}' does not exist.`);
       } else {
         res.json({ success: true });
       }
