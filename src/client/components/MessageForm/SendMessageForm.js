@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import fetchWithAuth from '../../utils/fetchWithAuth';
 import './SendMessageForm.css';
 
 function SendMessageForm() {
@@ -8,15 +9,12 @@ function SendMessageForm() {
     userId: null,
     message: input,
   };
-  const handleSubmit = () => {
-    fetch('/api/messages', {
+
+  const handleSubmit = async () => {
+    await fetchWithAuth('/api/messages', {
       method: 'post',
-      headers: {
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify(messageInputData),
-    }).then((res) => res.json());
-    // .then((messages) => console.log(messages));
+    });
   };
 
   return (
