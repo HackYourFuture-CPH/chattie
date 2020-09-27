@@ -7,8 +7,8 @@ import './MessageList.css';
 const MessageList = ({ messages }) => {
   return (
     <div className="chat-messages__container">
-      {messages.map(({ index, username, message }) => (
-        <Message key={index} username={username} text={message} />
+      {messages.map(({ username, message, id }) => (
+        <Message key={id} username={username} text={message} />
       ))}
     </div>
   );
