@@ -1,4 +1,4 @@
-.room-image {
+.Room-image {
   height: 50px;
   min-width: 50px;
   display: block;
@@ -16,7 +16,7 @@
   margin-right: 10px;
   padding: 10px;
 }
-.room-title {
+.Room-title {
   font-size: 10px;
   font-weight: bolder;
   text-align: center;
