@@ -3,4 +3,4 @@ import AddImageToRoom from './AddImageToRoom';
 
 export default { title: 'Add Image To Room' };
 
-export const Component = () => <AddImageToRoom AddRoomImage={() => {}} />;
+export const Component = () => <AddImageToRoom />;

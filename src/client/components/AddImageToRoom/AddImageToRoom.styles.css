@@ -2,18 +2,18 @@
   display: none;
 }
 
-.image-container {
+.add-image-to-room_upload-image-button {
   border-radius: 50%;
   width: 56px;
   height: 56px;
   position: relative;
 }
 
-.button button:hover {
+.add-image-to-room_button button:hover {
   cursor: pointer;
 }
 
-.button button {
+.add-image-to-room_button button {
   position: absolute;
   border-radius: 50%;
   width: 56px;
@@ -25,7 +25,7 @@
   z-index: 10;
 }
 
-.input-picture img {
+.add-image-to-room_image-preview img {
   border-radius: 50%;
   width: 56px;
   height: 56px;

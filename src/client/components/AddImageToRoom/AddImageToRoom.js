@@ -27,14 +27,14 @@ export default function AddImageToRoom() {
         ref={imageUploader}
       />
 
-      <div className="image-container ">
-        <div className="button">
+      <div className="add-image-to-room_upload-image-button">
+        <div className="add-image-to-room_button">
           <button type="button" onClick={() => imageUploader.current.click()}>
             +
           </button>
         </div>
 
-        <div className="input-picture">
+        <div className="add-image-to-room_image-preview">
           <img alt="room_img" ref={uploadedImage} />
         </div>
       </div>
