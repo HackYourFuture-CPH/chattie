@@ -1,7 +1,7 @@
 import React from 'react';
 
-import RoomHandler from './RoomHandler';
+import AddNewRoom from '../../containers/AddNewRoom/AddNewRoom';
 
 export default { title: 'Add new group' };
 
-export const Component = () => <RoomHandler />;
+export const Component = () => <AddNewRoom />;
