@@ -5,21 +5,23 @@ export default function SignUp({ onSubmit }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
-  const [image, setImage] = useState('');
+  const [profileImage, setProfileImage] = useState('');
   const handleEmailInput = (e) => setEmail(e.target.value);
   const handlePasswordInput = (e) => setPassword(e.target.value);
   const handlePasswordConfirmInput = (e) => setPasswordConfirm(e.target.value);
   const handleImageInput = (e) => {
-    const imageFile = e.target.files[0].name;
+    const imageFile = e.target.files[0];
     if (imageFile.size > 2048000) {
       // eslint-disable-next-line no-alert
-      return alert('File is too big. Máx. file size 2Mb');
+      return alert('Your file is too big. Máx. file size 2Mb');
     }
-    return setImage(imageFile); // return setImage(imageFile); // setImage must call handleImageUpload() made by Anna (issuee
+    // Here you must return setProfileImage(HandleUploadImage(imageFile))
+    // HandleUploadImage() must return a string with URL to the image from firebase
+    return setProfileImage('');
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ email, password, passwordConfirm, image });
+    onSubmit({ email, password, passwordConfirm, profileImage });
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -63,14 +65,14 @@ export default function SignUp({ onSubmit }) {
         </label>
       </div>
       <div>
-        <label htmlFor="image">
+        <label htmlFor="profileImage">
           Profile Image:{' '}
           <input
             type="file"
-            name="image"
+            name="profileImage"
             accept="image/*"
             multiple={false}
-            files={image}
+            files={profileImage}
             onChange={handleImageInput}
             required
           />

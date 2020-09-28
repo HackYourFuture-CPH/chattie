@@ -40,12 +40,12 @@ export async function signIn({ email, password }) {
   }
 }
 
-export async function signUp({ email, password, image }) {
+export async function signUp({ email, password, profileImage }) {
   try {
     const user = await auth.createUserWithEmailAndPassword(
       email,
       password,
-      image,
+      profileImage,
     );
     return user;
   } catch (error) {
