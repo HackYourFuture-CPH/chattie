@@ -1,6 +1,3 @@
-/* eslint-disable no-shadow */
-/* eslint-disable array-callback-return */
-/* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
 import './SearchMessages.css';
 
@@ -15,8 +12,8 @@ function SearchMessages() {
   function handleSubmit() {
     fetch(`/api/messages?query=${searchTerm}`)
       .then((response) => response.json())
-      .then((searchResults) => setsearchResults(searchResults));
-    const filteredResults = searchResults.filter((message) => {
+      .then((data) => setsearchResults(data.messages));
+    const filteredResults = setsearchResults.forEach((message) => {
       message.toLowerCase().includes(searchTerm.toLowerCase());
     });
     setsearchResults(filteredResults);
@@ -31,7 +28,9 @@ function SearchMessages() {
         onChange={handleChange}
       />
       <p>
-        <button onClick={handleSubmit}>submit</button>
+        <button type="submit" onClick={handleSubmit}>
+          submit
+        </button>
       </p>
       <ul className="outputList">
         {searchResults.map((messageItem) => (
