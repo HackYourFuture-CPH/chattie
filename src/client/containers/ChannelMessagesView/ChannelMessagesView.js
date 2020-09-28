@@ -1,31 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import MessageList from '../../components/MessageList/MessageList';
+import PropTypes from 'prop-types';
 
-
-function ChannelMessagesView() {
-  const [messages, setMessages] = useState([]);
-
-
-  const getMsg = async () => {
-    const response = await fetch('api/messages/');
-
-    const result = await response.json();
-
-    setMessages(result);
-  };
-
-  useEffect(() => {
-    const interval = setInterval(getMsg, 5000);
-    return () => clearInterval(interval);
-  },[]);
+function ChannelMessagesView(props) {
 
   return (
     <ul className="container">
-      {messages &&
-        <MessageList messages={messages} />
+      {props.messages &&
+        <MessageList messages={props.messages} />
       }
     </ul>
   );
 }
+
+ChannelMessagesView.propTypes = {
+  messages: PropTypes.arrayOf(PropTypes.string).isRequired
+}
+
 
 export default ChannelMessagesView;

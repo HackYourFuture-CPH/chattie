@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
+import ChannelMessagesView from '../ChannelMessagesView/ChannelMessagesView';
 
 export default function Channel() {
   const { id } = useParams();
@@ -9,7 +10,7 @@ export default function Channel() {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const url = `/api/messages?channel_id=${id}`;
+        const url = `/api/users`;
         const matchedChannel = await fetch(url).then((res) => res.json());
         setMessages(matchedChannel);
       } catch (err) {
@@ -17,10 +18,26 @@ export default function Channel() {
       }
     };
     fetchMessages();
+
   }, [id]);
+
+  const getMsg = async () => {
+    const response = await fetch(`/api/users`);
+    const result = await response.json();
+
+    setMessages(result);
+  };
+
+  useEffect(() => {
+      getMsg();
+    const interval = setInterval(getMsg, 5000);
+    return () => clearInterval(interval);
+  },[]);
+
   if (messages.length === 0) {
     return (
       <>
+        <ChannelMessagesView messages={messages}/>
         <p>Messages not found for channel with id: {id}</p>
         <UserContext.Consumer>
           {(user) => {
