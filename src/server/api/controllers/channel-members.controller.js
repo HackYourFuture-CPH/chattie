@@ -71,9 +71,7 @@ async function getCommonChannels(users) {
   // the items in that array exected in users
   channelMembers.forEach((channel) => {
     if (
-      channel.membersId.every((currentValue) =>
-        users.includes(currentValue),
-      ) &&
+      channel.membersId.every((currentValue) => users.includes(currentValue)) &&
       channel.membersId.length === users.length
     ) {
       commonChannelsId.push(channel.channelId);
