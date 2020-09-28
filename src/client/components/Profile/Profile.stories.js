@@ -1,10 +1,6 @@
 import React from 'react';
 import ProfileDatails from './ProfileDetails';
 
-export default {
-  title: 'Profile view',
-};
-
 const username = 'Victoria Kush';
 const email = 'v.kush@email.com';
 const profileImage =

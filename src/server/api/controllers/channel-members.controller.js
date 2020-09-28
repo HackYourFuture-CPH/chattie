@@ -42,7 +42,7 @@ const createChannelMember = async (body) => {
     successful: true,
   };
 };
-const checkForCommoneChannels = async (arrOfUsers) => {
+const checkForGeneralChannels = async (arrOfUsers) => {
   const generalChannels = await knex('channel_members')
     .select('fk_channel_id as channelId')
     .whereIn('fk_user_id', arrOfUsers)
@@ -51,14 +51,15 @@ const checkForCommoneChannels = async (arrOfUsers) => {
   return generalChannels.map((channel) => channel.channelId);
 };
 
-// get all channels where the users are member off and the number of users is equal to arrOfUsers.length
-/* const allChannelsForUsers = await knex('channel_members as a')
-.count('a.fk_user_id', { as: 'numberOfUsers' })
-.join('channel_members as b', 'b.fk_channel_id', 'a.fk_channel_id')
-.select('a.id', 'a.fk_channel_id as channelId')
-.whereIn('a.fk_user_id', arrOfUsers)
-.groupBy('a.id')
-.having('numberOfUsers', '=', arrOfUsers.length);
+const checkForCommoneChannels = async (arrOfUsers) => {
+  // get all channels where the users are member off and the number of users is equal to arrOfUsers.length
+  const allChannelsForUsers = await knex('channel_members as a')
+    .count('a.fk_user_id', { as: 'numberOfUsers' })
+    .join('channel_members as b', 'b.fk_channel_id', 'a.fk_channel_id')
+    .select('a.id', 'a.fk_channel_id as channelId')
+    .whereIn('a.fk_user_id', arrOfUsers)
+    .groupBy('a.id')
+    .having('numberOfUsers', '=', arrOfUsers.length);
   // map throw all the channels using the channel id to call a query that
   // return all the users id are member in that channel and make it as an array called membersId
   const promischannelMembers = allChannelsForUsers.map(async (row) => {
@@ -96,7 +97,7 @@ const checkForCommoneChannels = async (arrOfUsers) => {
   }, []);
 
   return channelIdToReturn;
-} */
+};
 
 const editChannelMembers = async (channelMemberId, updatedChannelMember) => {
   return knex('channel_members')
@@ -113,5 +114,6 @@ module.exports = {
   deleteChannelMember,
   getChannelMemberById,
   checkForCommoneChannels,
+  checkForGeneralChannels,
   editChannelMembers,
 };

@@ -1,4 +1,4 @@
-.user-list-container {
+.user-list {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,7 +6,7 @@
   margin: 2% auto;
 }
 
-.user-list {
+.user-item {
   display: inline-flex;
   justify-content: space-around;
   align-items: center;
@@ -14,7 +14,7 @@
   width: 100%;
 }
 
-.user-list img {
+.user-item img {
   width: 20%;
   border-radius: 50%;
 }

@@ -118,6 +118,54 @@ router.post('/', (req, res) => {
 });
 /**
  * @swagger
+ * /channel-members/?users[]:
+ *  get:
+ *    summary: check which channels have provided users in commone
+ *    description:
+ *      Take an array of users and return the common channels' ids are they member of
+ *    produces: application/json
+ *    parameters:
+ *      - in: query
+ *        name: users
+ *        description: Array of users Ids.
+ *        required: true
+ *        schema:
+ *          type: array
+ *          items:
+ *             type: integer
+ *
+ *    responses:
+ *      201:
+ *        description: Ok
+ *        content:
+ *          application/json:
+ *             schema:
+ *               type : array
+ *               items:
+ *                  type : integers
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.get('/?users[]', (req, res) => {
+  const { users } = req.query;
+  const usersId = JSON.parse(users);
+  channelMembersController
+    .getCommonChannels(usersId)
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((error) => {
+      console.log(error);
+
+      res
+        .status(400)
+        .send('Bad request')
+        .end();
+    });
+});
+
+/**
+ * @swagger
  * /channel-members/:
  *  get:
  *    summary: figure out which channels has specific user
@@ -157,7 +205,7 @@ router.get('/', (req, res) => {
     .filter((id) => id >= 0);
 
   channelMembersController
-    .checkForCommoneChannels(arrUsers)
+    .checkForGeneralChannels(arrUsers)
     .then((result) => {
       res.send(result);
     })
