@@ -52,7 +52,6 @@ const checkForGeneralChannels = async (arrOfUsers) => {
   return generalChannels.map((channel) => channel.channelId);
 };
 
-
 async function getCommonChannels(users) {
   // get all channels where the users are member off and the number of users is equal to users.length
   const allChannelsForUsers = await knex('channel_members as a')
@@ -82,9 +81,7 @@ async function getCommonChannels(users) {
   // the items in that array exected in users
   channelMembers.forEach((channel) => {
     if (
-      channel.membersId.every((currentValue) =>
-        users.includes(currentValue),
-      ) &&
+      channel.membersId.every((currentValue) => users.includes(currentValue)) &&
       channel.membersId.length === users.length
     ) {
       commonChannelsId.push(channel.channelId);
@@ -100,7 +97,7 @@ async function getCommonChannels(users) {
   }, []);
 
   return channelIdToReturn;
-};
+}
 
 const editChannelMembers = async (channelMemberId, updatedChannelMember) => {
   return knex('channel_members')
@@ -116,7 +113,7 @@ module.exports = {
   createChannelMember,
   deleteChannelMember,
   getChannelMemberById,
-  checkForCommoneChannels,
+  checkForGeneralChannels,
   getCommonChannels,
   editChannelMembers,
 };
