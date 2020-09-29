@@ -5,7 +5,7 @@ const Error = require('../lib/utils/http-error');
 const moment = require('moment-timezone');
 // getting all messages from channel_messages and query based on query, channel_id, sender, limit, sort and date
 const getChannelMessages = async (req) => {
-  const { query, channel_id, sender, limit, sort } = req.query;
+  const { query, channelId, sender, limit, sort } = req.query;
 
   let channelMessages = knex('channel_messages').distinct('*');
 
@@ -17,10 +17,10 @@ const getChannelMessages = async (req) => {
         `%${query}%`,
       );
     }
-    if (channel_id) {
+    if (channelId) {
       channelMessages = channelMessages.where(
-        'channel_messages.id',
-        channel_id,
+        'channel_messages.fk_channel_id',
+        channelId,
       );
     }
     if (sender) {
