@@ -4,8 +4,6 @@ exports.up = function(knex) {
     table.tinyint('unread');
     table.integer('fk_user_id').unsigned();
     table.foreign('fk_user_id').references('users.id');
-    table.integer('fk_message_id').unsigned();
-    table.foreign('fk_message_id').references('channel_messages.id');
     table.integer('fk_channel_id').unsigned();
     table.foreign('fk_channel_id').references('channels.id');
   });
