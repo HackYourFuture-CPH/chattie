@@ -1,6 +1,9 @@
 exports.up = function(knex) {
   return knex.schema.table('users', (table) => {
-    table.string('uid').notNull();
+    table
+      .string('uid')
+      .notNull()
+      .defaultTo('');
   });
 };
 

@@ -4,7 +4,10 @@ exports.up = function(knex) {
     table.string('profile_image');
     table.string('user_name');
     table.string('email');
-    table.datetime('last_seen').notNullable();
+    table
+      .datetime('last_seen')
+      .notNullable()
+      .defaultTo(knex.fn.now());
     table
       .datetime('created_at')
       .defaultTo(knex.fn.now())
