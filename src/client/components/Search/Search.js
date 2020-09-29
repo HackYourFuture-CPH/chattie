@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { Fetcher } from '../Fetcher/Fetcher';
 import { UserDetails } from '../Fetcher/UserDetails';
 import { UserProfileImage } from '../Fetcher/UserProfileImage';
 import './Search.styles.css';
 
-export default function Search({ getUserData }) {
+export default function Search() {
   const [search, setSearch] = useState('');
   const [isSearching, setIsSearching] = useState(false);
 
@@ -40,7 +39,6 @@ export default function Search({ getUserData }) {
 
       <Fetcher
         search={search}
-        getUserData={getUserData}
         render={({ data, error, loading, noUserMatch }) => (
           <div>
             {loading && <div>Loading... </div>}
@@ -48,15 +46,15 @@ export default function Search({ getUserData }) {
             {noUserMatch && <div>No results founded</div>}
 
             {data &&
-              data.map((item) => {
+              data.map((user) => {
                 return (
                   <li
                     style={{ listStyleType: 'none' }}
                     className="userListInSearch"
-                    key={`${item.login}`}
+                    key={`${user.user_name}`}
                   >
-                    <UserProfileImage user={item} />
-                    <UserDetails user={item} />
+                    <UserProfileImage user={user.profile_image} />
+                    <UserDetails user={user.user_name} />
                   </li>
                 );
               })}
@@ -66,7 +64,3 @@ export default function Search({ getUserData }) {
     </>
   );
 }
-
-Search.propTypes = {
-  getUserData: PropTypes.string.isRequired,
-};
