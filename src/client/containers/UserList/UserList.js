@@ -1,6 +1,5 @@
 import React from 'react';
 import Userslist from '../../components/UsersListComponent/UsersList';
-import '../../components/UsersListComponent/UsersListStyle.css';
 import { OnStartChat } from './OnStartChat';
 import useFetch from '../../hooks/useFetch';
 
