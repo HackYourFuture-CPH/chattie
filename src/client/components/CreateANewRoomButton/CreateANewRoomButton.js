@@ -13,5 +13,4 @@ function CreateANewRoomButton() {
     </div>
   );
 }
-
 export default CreateANewRoomButton;
