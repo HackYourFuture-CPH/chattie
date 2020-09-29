@@ -1,0 +1,21 @@
+.return-icon {
+  float: left;
+  font-size: 2em;
+  margin-left: 2%;
+}
+.sign-up-form input {
+  display: inline-block;
+  width: 90%;
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: rgb(237, 233, 233);
+  margin-top: 7%;
+}
+.sign-up-button {
+  margin-top: 40%;
+  margin-bottom: -10%;
+}
+.sign-up-button button {
+  width: 80%;
+  padding: 3%;
+}
