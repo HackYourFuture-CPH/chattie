@@ -25,59 +25,51 @@ export default function SignUp({ onSubmit }) {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="email">
-          Email:{' '}
-          <input
-            type="email"
-            name="email"
-            placeholder="Write your email"
-            value={email}
-            onChange={handleEmailInput}
-            required
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="password">
-          Password:{' '}
-          <input
-            type="password"
-            name="password"
-            placeholder="Write your password"
-            value={password}
-            onChange={handlePasswordInput}
-            required
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="password">
-          Password - confirm:{' '}
-          <input
-            type="password"
-            name="password"
-            placeholder="Write your password again"
-            value={passwordConfirm}
-            onChange={handlePasswordConfirmInput}
-            required
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="profileImage">
-          Profile Image:{' '}
-          <input
-            type="file"
-            name="profileImage"
-            accept="image/*"
-            multiple={false}
-            files={profileImage}
-            onChange={handleImageInput}
-            required
-          />
-        </label>
-      </div>
+      <label htmlFor="email">
+        Email:{' '}
+        <input
+          type="email"
+          name="email"
+          placeholder="Write your email"
+          value={email}
+          onChange={handleEmailInput}
+          required
+        />
+      </label>
+      <label htmlFor="password">
+        Password:{' '}
+        <input
+          type="password"
+          name="password"
+          placeholder="Write your password"
+          value={password}
+          onChange={handlePasswordInput}
+          required
+        />
+      </label>
+      <label htmlFor="password">
+        Password - confirm:{' '}
+        <input
+          type="password"
+          name="password"
+          placeholder="Write your password again"
+          value={passwordConfirm}
+          onChange={handlePasswordConfirmInput}
+          required
+        />
+      </label>
+      <label htmlFor="profileImage">
+        Profile Image:{' '}
+        <input
+          type="file"
+          name="profileImage"
+          accept="image/*"
+          multiple={false}
+          files={profileImage}
+          onChange={handleImageInput}
+          required
+        />
+      </label>
       <button type="submit">Sign up</button>
     </form>
   );
