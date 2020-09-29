@@ -1,6 +1,10 @@
 import React from 'react';
 import ProfileDatails from './ProfileDetails';
 
+export default {
+  title: 'Profile view',
+};
+
 const username = 'Victoria Kush';
 const email = 'v.kush@email.com';
 const profileImage =
@@ -8,7 +12,6 @@ const profileImage =
 
 export const profileView = () => (
   <ProfileDatails
-    title="Test title"
     userName={username}
     profileImage={profileImage}
     email={email}

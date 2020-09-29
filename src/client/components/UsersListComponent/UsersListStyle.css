@@ -6,7 +6,7 @@
   margin: 2% auto;
 }
 
-.user-item {
+.user-list .user-item {
   display: inline-flex;
   justify-content: space-around;
   align-items: center;
@@ -14,7 +14,7 @@
   width: 100%;
 }
 
-.user-item img {
+.user-list .user-item img {
   width: 20%;
   border-radius: 50%;
 }

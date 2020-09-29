@@ -1,36 +1,37 @@
-import { getExistchannel } from '../../api/getExistchannel';
+import { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import fetchWithAuth from '../../utils/fetchWithAuth';
+import { UserContext } from '../../context/userContext';
+import { getExistingChannelForUsers } from '../../api/getExistingСhannelForUsers';
 
-const requestConfig = (body) => ({
-  method: 'POST',
-  headers: {
-    Accept: 'application/json',
-    'Content-type': 'application/json',
-  },
-  body: JSON.stringify(body),
-});
-export const onStartChat = (history) => {
-  return async (userId, currentUser) => {
-    const { existChannelId, currentUserFromServer } = await getExistchannel(
-      currentUser,
-      userId,
-    );
+export const OnStartChat = () => {
+  const history = useHistory();
+  const user = useContext(UserContext);
+  const onCreateConversation = async (userId, currentUser) => {
+    const {
+      existChannelId,
+      currentUserFromServer,
+    } = await getExistingChannelForUsers(currentUser, userId);
 
     if (existChannelId?.length) {
       history.push(`/channel/${existChannelId}`);
     } else {
-      const response = await fetch(
-        '/api/channels',
-        requestConfig({ title: null, channelId }),
-      );
-      const { channelId } = await response.json();
+      const { channelId } = await fetchWithAuth('/api/channels', {
+        method: 'POST',
+        body: JSON.stringify({ title: null, channelId }),
+      });
+      await fetchWithAuth('/api/channel-members', {
+        method: 'POST',
+        body: JSON.stringify({ channelId, userId }),
+      });
 
-      await fetch('/api/channel-members', requestConfig({ channelId, userId }));
-      await fetch(
-        '/api/channel-members',
-        requestConfig({ channelId, userId: currentUserFromServer.id }),
-      );
+      await fetchWithAuth('/api/channel-members', {
+        method: 'POST',
+        body: JSON.stringify({ channelId, userId: currentUserFromServer.id }),
+      });
 
       history.push(`/channel/${channelId}`);
     }
   };
+  return { user, onCreateConversation };
 };

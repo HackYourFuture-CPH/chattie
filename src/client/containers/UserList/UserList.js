@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Userslist from '../../components/UsersListComponent/UsersList';
 import '../../components/UsersListComponent/UsersListStyle.css';
+import { OnStartChat } from './OnStartChat';
 
 const UserList = () => {
+  const { user, onCreateConversation } = OnStartChat();
   const [users, setUsers] = useState([]);
   useEffect(() => {
     const fetchUsers = async () => {
@@ -17,7 +19,17 @@ const UserList = () => {
     };
     fetchUsers();
   }, []);
-  return <div>{users && <Userslist users={users} />}</div>;
+  return (
+    <div>
+      {users && user && onCreateConversation && (
+        <Userslist
+          users={users}
+          user={user}
+          onCreateConversation={onCreateConversation}
+        />
+      )}
+    </div>
+  );
 };
 
 export default UserList;

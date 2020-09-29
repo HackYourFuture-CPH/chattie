@@ -1,4 +1,4 @@
-export async function getExistchannel(currentUser, userId) {
+export async function getExistingChannelForUsers(currentUser, userId) {
   const { uid } = currentUser;
   const resCurrentUser = await fetch(`/api/users/current?uid=${uid}`);
   const currentUserFromServer = await resCurrentUser.json();
