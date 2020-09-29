@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable camelcase */
 /* eslint-disable @typescript-eslint/camelcase */
 import React from 'react';
@@ -15,8 +13,10 @@ export default function Userslist({ users, user, onCreateConversation }) {
       {users.map(({ id, user_name, profile_image }) => (
         <li
           key={id}
+          role="presentation"
           className="user-item"
           onClick={() => onCreateConversation(id, user)}
+          onKeyDown={() => onCreateConversation(id, user)}
         >
           <img src={profile_image} alt={profile_image} />
           <span>{user_name} </span>
