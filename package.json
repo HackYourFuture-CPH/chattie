@@ -28,6 +28,7 @@
   "author": "Shanawaz Islam",
   "license": "MIT",
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.11.5",
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
@@ -82,7 +83,6 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
-    "@babel/plugin-transform-runtime": "^7.11.5",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "case-sensitive-paths-webpack-plugin": "^2.3.0",
