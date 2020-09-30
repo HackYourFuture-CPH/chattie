@@ -17,6 +17,15 @@ const createNotification = async (body) => {
   };
 };
 
+const editNotification = async (notificationID, updatedNotification) => {
+  return knex('notifications')
+    .where({ id: notificationID })
+    .update({
+      title: updatedNotification.title,
+    });
+};
+
 module.exports = {
   createNotification,
+  editNotification,
 };

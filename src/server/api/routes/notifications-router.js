@@ -45,4 +45,48 @@ router.post('/', (req, res) => {
     });
 });
 
+/**
+ * @swagger
+ * /notifications/{ID}:
+ *  patch:
+ *    summary: edit a notification
+ *    description:
+ *      Will edit a notification.
+ *    produces: application/json
+ *    parameters:
+ *      - in: path
+ *        name: ID
+ *        description: ID of the notification to patch.
+ *      - in: body
+ *        name: notification
+ *        description: The notification to edit.
+ *        schema:
+ *          type: object
+ *          properties:
+ *            title:
+ *              type: string
+ *                id:
+ *              type: string
+ *    responses:
+ *      200:
+ *        description: Notification was patched
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.patch('/:id', (req, res) => {
+  notificationsController
+    .editNotification(req.params.id, req.body)
+    .then((result) => {
+      // If result is equal to 0, then that means the channel member id does not exist
+      if (result === 0) {
+        res
+          .status(400)
+          .send(`notification ID '${req.params.id}' does not exist.`);
+      } else {
+        res.json({ success: true });
+      }
+    })
+    .catch((error) => console.log(error));
+});
+
 module.exports = router;
