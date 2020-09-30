@@ -1,8 +1,9 @@
 nav {
   display: none;
 }
-.body {
-  background-color: white;
+
+.home {
+  width: 100%;
 }
 
 .home-container-logo-buttons {
@@ -19,7 +20,7 @@ nav {
   justify-content: center;
 }
 
-.home-logoAnna {
+.home-logo-anna {
   width: 400px;
   height: 400px;
 }
@@ -31,22 +32,26 @@ nav {
   justify-content: center;
 }
 
-.home-buttonSignUp {
+.home-button-signup {
   margin-bottom: 16px;
+  width: 295px;
+  height: 48px;
 }
 
-.home-buttonSignUp:hover {
+.home-button-signup:hover {
   cursor: pointer;
 }
 
-.home-buttonSignIn {
+.home-button-signin {
   border: 1px solid #3e99c0;
   border-radius: 8px;
   background-color: white;
   color: #3e99c0;
+  width: 295px;
+  height: 48px;
 }
 
-.home-buttonSignIn:hover {
+.home-button-signin:hover {
   cursor: pointer;
 }
 
@@ -57,18 +62,24 @@ nav {
 }
 
 .home-hyf-text p {
-  font-size: 10px;
+  font-size: 11px;
 }
 
 @media screen and (max-width: 750px) {
-  .home-logoAnna {
+  .home-logo-anna {
     width: 320px;
     height: 320px;
   }
+
   .home-buttons {
     bottom: 51px;
   }
+
   .home-img {
     margin-top: 8%;
+  }
+
+  .home-hyf-text p {
+    font-size: 10px;
   }
 }

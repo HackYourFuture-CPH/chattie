@@ -10,7 +10,11 @@ export const Home = () => (
     <div className="home-container-logo-buttons">
       <div className="home-img">
         <Link to="/">
-          <img className="home-logoAnna" src={logoAnna} alt="logo-anna" />
+          <img
+            className="home-logo-anna"
+            src={logoAnna}
+            alt="The company Anna's logo"
+          />
         </Link>
       </div>
 
@@ -18,7 +22,7 @@ export const Home = () => (
         <div>
           <Link to="/sign-up">
             <button
-              className="home-buttonSignUp"
+              className="home-button-signup"
               path
               to="/sign-up"
               type="button"
@@ -30,7 +34,7 @@ export const Home = () => (
 
         <div>
           <Link to="/sign-in">
-            <button className="home-buttonSignIn " type="button">
+            <button className="home-button-signin" type="button">
               Sign in
             </button>
           </Link>
