@@ -66,7 +66,6 @@ const editMessage = async (messageId, updatedMessage) => {
     .where('id', '=', messageId)
     .update({
       message: updatedMessage.message,
-      seenUnseen: updatedMessage.seenUnseen,
       fk_channel_id: updatedMessage.channelId,
       fk_user_id: updatedMessage.userId,
       updated_at: moment().format(),
