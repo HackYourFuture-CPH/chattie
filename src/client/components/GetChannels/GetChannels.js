@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { useParams, Link } from 'react-router-dom';
 
-function GetChannels({ users }) {
+function GetChannels() {
+  const { channelId } = useParams();
   const [channels, setChannels] = useState([]);
 
   useEffect(() => {
     let mounted = true;
-    // if (!users) return;
-
     if (mounted) {
       const fetchData = async () => {
         try {
-          const getChannels = await fetch(`api/channels`).then((response) =>
-            response.json(),
-          );
+          const getChannels = await fetch(
+            `api/channels/${channelId}`,
+          ).then((response) => response.json());
 
           setChannels(getChannels);
         } catch (error) {
@@ -27,18 +25,9 @@ function GetChannels({ users }) {
     return () => {
       mounted = false;
     };
-  }, []);
-  console.log(channels);
-  //   if (!users) {
-  //     return <p>No channels</p>;
-  //   }
+  }, [channelId]);
   if (!channels) {
-    return (
-      <>
-        <p>No Channel!</p>
-        <Redirect to="/" />
-      </>
-    );
+    return <p>Opps no channel!</p>;
   }
   if (channels.length === 0) {
     return <p>Loading ...</p>;
@@ -48,23 +37,16 @@ function GetChannels({ users }) {
       <ul style={{ listStyle: 'none' }}>
         {channels.map((channel) => {
           return (
-            <li key={channel.id}>
-              <Link to={`/overview/${channel.id}`}>{channel.title} </Link>
-            </li>
+            <>
+              <li key={channel.id}>
+                <Link to={`/overview/${channel.id}`}>{channel.title} </Link>
+              </li>
+            </>
           );
         })}
       </ul>
     </div>
   );
 }
-
-GetChannels.propTypes = {
-  users: PropTypes.objectOf(
-    PropTypes.shape({
-      user_name: PropTypes.string,
-      profile_image: PropTypes.string,
-    }),
-  ).isRequired,
-};
 
 export default GetChannels;
