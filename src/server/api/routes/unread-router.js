@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const express = require('express');
 
 const router = express.Router({ mergeParams: true });
@@ -7,23 +8,23 @@ const unReadMessagesController = require('../controllers/unread-controller');
 
 /**
  * @swagger
- * /modules:
- *  post:
+ * /unread:
+ *  get:
  *    summary: Get Unread_messages
  *    description:
  *      Get Unread_messages.
  *    produces: application/json
  *    parameters:
- *      - in: body
- *        name: unSean
- *        description: update Unread_messages.
- *        schema:
- *          type: object
- *          required:
- *              - title
- *          properties:
- *            title:
- *              type: integer
+ *     - in: query
+ *       name: userId
+ *       schema:
+ *         type: string
+ *         description: Returning unread messages from unread_messages based on query
+ *     - in: query
+ *       name: channelId
+ *       schema:
+ *         type: integer
+ *         description: Get channel_messages.id
  *    responses:
  *      201:
  *        description: Get Unread_messagesd
@@ -42,26 +43,26 @@ router.get('/', (req, res, next) => {
 
 /**
  * @swagger
- * /modules:
- *  post:
+ * /unread:
+ *  patch:
  *    summary: update Unread_messages
  *    description:
  *      pdate Unread_messages.
  *    produces: application/json
  *    parameters:
- *      - in: body
- *        name: unSean
- *        description: update Unread_messages.
- *        schema:
- *          type: object
- *          required:
- *              - title
- *          properties:
- *            title:
- *              type: integer
+ *     - in: query
+ *       name: userId
+ *       schema:
+ *         type: string
+ *         description: updating unread messages from unread_messages based on query
+ *     - in: query
+ *       name: channelId
+ *       schema:
+ *         type: integer
+ *         description: updating based onchannel_messages.id
  *    responses:
  *      201:
- *        description: Unread_messagesd
+ *        description: Unread_messages
  *      5XX:
  *        description: Unexpected error.
  *      400:
@@ -70,7 +71,7 @@ router.get('/', (req, res, next) => {
 
 router.patch('/:id', (req, res) => {
   unReadMessagesController
-    .upDateUnReadMessages(req, req)
+    .upDateUnReadMessages(req)
     .then((result) => res.json(result))
     .catch(() => {
       res
