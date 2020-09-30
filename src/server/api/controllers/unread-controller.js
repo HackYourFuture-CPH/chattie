@@ -1,36 +1,14 @@
 const knex = require('../../config/db');
 
 const getUnReadMessages = async (req) => {
-  const { userId, messageId, channelId } = req.query;
+  const { userId, channelId } = req.query;
   console.log(userId);
-
+  let unreadMessages = knex('unread_messages').distinct('*');
   try {
-    let unreadMessages = knex('unread_messages')
-      .select(
-        knex.raw(
-          'DISTINCT unread_messages.id AS unreadId,unread_messages.unread,unread_messages.fk_user_id AS userId, unread_messages.fk_message_id AS messageId ,unread_messages.fk_channel_id AS channelId, channels.title, channel_messages.message, users.user_name',
-        ),
-      )
-      .leftJoin(
-        knex.raw('channels ON channels.id = unread_messages.fk_channel_id'),
-      )
-      .leftJoin(
-        knex.raw(
-          'channel_messages ON channel_messages.id = unread_messages.fk_message_id',
-        ),
-      )
-      .leftJoin(knex.raw('users ON users.id = unread_messages.fk_user_id'));
-
     if (userId) {
       unreadMessages = unreadMessages.where(
         'unread_messages.fk_user_id',
         userId,
-      );
-    }
-    if (messageId) {
-      unreadMessages = unreadMessages.where(
-        'unread_messages.fk_message_id',
-        messageId,
       );
     }
     if (channelId) {
@@ -48,25 +26,16 @@ const getUnReadMessages = async (req) => {
   }
 };
 
-const upDateUnReadMessages = async (req, res) => {
+const upDateUnReadMessages = async (req) => {
   const { id } = req.params;
-  const { unread, userId, messageId, channelId } = res.body;
-  // console.log('id', id);
-  // console.log('unread', unread);
-
+  const { userId, channelId } = req.body;
   try {
     const upDateUnReadMessage = await knex('unread_messages')
-      .update('unread', unread)
-      .where('id', id);
-    if (userId) {
-      upDateUnReadMessage.andWhere('fk_user_id', userId);
-    }
-    if (messageId) {
-      upDateUnReadMessage.orWhere('fk_message_id', messageId);
-    }
-    if (channelId) {
-      upDateUnReadMessage.orWhere('fk_channel_id', channelId);
-    }
+      .update('unread', 0)
+      .where('id', id)
+      .andWhere('fk_user_id', userId)
+      .andWhere('fk_channel_id', channelId);
+
     return upDateUnReadMessage;
   } catch (error) {
     return error.message;
