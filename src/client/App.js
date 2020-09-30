@@ -13,6 +13,7 @@ import Channel from './containers/Channel/Channel';
 import Loader from './components/Loader/Loader';
 import { UserContext } from './context/userContext';
 import Overview from './components/Overview/Overview';
+import GetCahnnel from './components/GetChannels/GetChannel';
 
 function App() {
   const { isAuthenticated, isLoading, user } = useAuthentication();
@@ -41,6 +42,7 @@ function App() {
           <Route exact path="/channel/:id" isAuthenticated={isAuthenticated}>
             <Channel />
           </Route>
+          <Route exact path="/overview/:id" component={GetCahnnel} />
         </Switch>
       </Router>
     </UserContext.Provider>
