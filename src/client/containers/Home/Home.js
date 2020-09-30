@@ -7,7 +7,7 @@ import logoAnna from '../../../client/assets/images/logoAnna.png';
 
 export const Home = () => (
   <section className="home">
-    <div className="home-containe-logo-buttons">
+    <div className="home-container-logo-buttons">
       <div className="home-img">
         <Link to="/">
           <img className="home-logoAnna" src={logoAnna} alt="logo-anna" />
@@ -34,6 +34,10 @@ export const Home = () => (
               Sign in
             </button>
           </Link>
+        </div>
+
+        <div className="home-hyf-text">
+          <p>Built by students from HackYourFuture</p>
         </div>
       </div>
     </div>
