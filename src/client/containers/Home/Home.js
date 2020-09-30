@@ -2,8 +2,7 @@ import React from 'react';
 import './Home.styles.css';
 import '../../index.css';
 import { Link } from 'react-router-dom';
-// eslint-disable-next-line import/no-useless-path-segments
-import logoAnna from '../../../client/assets/images/logoAnna.png';
+import logoAnna from '../../assets/images/logoAnna.png';
 
 export const Home = () => (
   <section className="home">
