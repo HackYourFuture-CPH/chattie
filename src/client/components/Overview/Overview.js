@@ -3,7 +3,7 @@ import './Overview.styles.css';
 import UserList from '../../containers/UserList/UserList';
 import Search from '../Search/Search';
 import GetChannels from '../GetChannels/GetChannels';
-import GetChannel from '../GetChannels/GetChannel';
+import CountUnReadMessages from '../UnreadMessages/CountUnreadMessages';
 
 function Overview() {
   return (
@@ -15,6 +15,7 @@ function Overview() {
       <div className="users-list">
         <UserList />
         <GetChannels />
+        <CountUnReadMessages />
       </div>
       <div className="btn-and-profile">
         <a href="/profile">Profile</a>
