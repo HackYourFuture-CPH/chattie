@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import UpdateUnreadMessages from '../UnreadMessages/UpdateUnreadMessages';
+import { useParams } from 'react-router-dom';
 
-export default function GetChannel({ match }) {
+export default function GetChannel() {
+  const { id } = useParams();
+
   const [channel, setChannel] = useState([]);
   useEffect(() => {
     const fetchChannel = async () => {
       try {
-        const getChannel = await fetch(
-          `/api/channels/${match.params.id}`,
-        ).then((response) => response.json());
+        const getChannel = await fetch(`/api/channels/${id}`).then((response) =>
+          response.json(),
+        );
 
         setChannel(getChannel);
       } catch (error) {
@@ -17,21 +20,13 @@ export default function GetChannel({ match }) {
     };
 
     fetchChannel();
-  }, [match]);
-
+  }, [id]);
   return (
     <>
+      <UpdateUnreadMessages />
       {channel.map((channe) => {
         return <h5 key={channe.id}>{channe.title}</h5>;
       })}
     </>
   );
 }
-GetChannel.propTypes = {
-  match: PropTypes.arrayOf(
-    PropTypes.shape({
-      params: PropTypes.object,
-      id: PropTypes.integer,
-    }),
-  ).isRequired,
-};
