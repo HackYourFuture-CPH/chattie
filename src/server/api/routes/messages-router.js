@@ -173,10 +173,6 @@ router.patch('/:id', (req, res, next) => {
     .catch(next);
 });
 
-router.get('/userId',(req, res, next) => {
-  
-})
-
 /**
  * @swagger
  * /messages/{ID}:

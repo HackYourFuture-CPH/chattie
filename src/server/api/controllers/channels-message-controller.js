@@ -12,14 +12,18 @@ const getChannelsId = async (userId) => {
       .where('fk_user_id', '=', userId);
     console.log(channels);
     if (channels.length === 0) {
-      throw new Error(
-        `create your first conversation!`,
-      );
+      throw new Error(`create your first conversation!`);
     }
     const messages = await Promise.all(
       channels.map(async (element) => {
         const message = await knex('channel_messages')
-          .select('message','title').innerJoin('channels','channels.id', '=', 'channel_messages.fk_channel_id')
+          .select('message', 'title')
+          .innerJoin(
+            'channels',
+            'channels.id',
+            '=',
+            'channel_messages.fk_channel_id',
+          )
           .where('fk_channel_id', '=', element.fk_channel_id)
           .orderBy('channel_messages.updated_at', 'asc')
           .limit(1);
