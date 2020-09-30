@@ -165,6 +165,7 @@ router.post('/', (req, res) => {
 });
 
 /**
+ * 
  * @swagger
  * /channel-members/{ID}:
  *  patch:

@@ -68,6 +68,7 @@ const deleteChannelById = async (channelId) => {
     .where({ id: channelId })
     .del();
 };
+
 module.exports = {
   createChannel,
   getChannelsById,
