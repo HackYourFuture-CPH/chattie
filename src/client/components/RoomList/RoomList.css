@@ -1,25 +1,23 @@
-button {
+.Room-image {
   height: 50px;
   min-width: 50px;
   display: block;
   border-radius: 50%;
   margin-bottom: 5px;
-  font-weight: bold;
 }
-
 .outside {
   display: flex;
   flex-direction: row;
+  border-radius: 50%;
 }
-
 .list {
   list-style-type: none;
   display: flex;
   margin-right: 10px;
+  padding: 10px;
 }
-
-.room-name {
-  font-size: 5px;
+.Room-title {
+  font-size: 10px;
   font-weight: bolder;
   text-align: center;
 }

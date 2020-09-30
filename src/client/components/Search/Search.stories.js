@@ -6,7 +6,7 @@ export default { title: 'Search', decorators: [withKnobs] };
 
 export const Component = () => <Search getUserData={userSearch} />;
 
-const baseUrl = '';
+const baseUrl = `/api/users?userName=`;
 
 async function userSearch(search) {
   const response = await fetch(`${baseUrl}${encodeURIComponent(search)}`);

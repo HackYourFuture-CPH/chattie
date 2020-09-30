@@ -8,4 +8,4 @@ export default {
 };
 
 const people = ['tariq', 'javid', 'peter', 'jhon'];
-export const userList = () => <Userslist people={people} />;
+export const userList = () => <Userslist users={people} />;

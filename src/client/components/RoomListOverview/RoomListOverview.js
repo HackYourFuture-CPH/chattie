@@ -1,8 +1,8 @@
 import React from 'react';
-import CreateANewRoomButton from '../CreateANewRoomButton/CreateANewRoomButton';
 import RoomList from '../RoomList/RoomList';
 import './RoomListOverview.css';
 import PropTypes from 'prop-types';
+import CreateANewRoomButton from '../CreateANewRoomButton/CreateANewRoomButton';
 
 function RoomListOverview(props) {
   return (
@@ -12,9 +12,7 @@ function RoomListOverview(props) {
     </div>
   );
 }
-
 RoomListOverview.propTypes = {
   roomList: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
-
 export default RoomListOverview;
