@@ -1,35 +1,35 @@
-.signIn {
+.sign-in {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.signIn-icon-title {
+.sign-in-icon-title {
   display: flex;
   flex-direction: row;
   align-items: center;
   
 }
 
-.signIn-icon {
+.sign-in-icon {
   font-size: 30px;
   color: #3e99c0;
   margin-left: 10%;
 }
 
-.signIn-inputs {
+.sign-in-inputs {
   display: flex;
   flex-direction: column;
 }
 
-.signIn-title {
+.sign-in-title {
   color: black;
   margin-left: 30%;
 }
 
-.signIn-email input,
-.signIn-password input {
+.sign-in-email input,
+.sign-in-password input {
   display: inline-block;
   outline: 0;
   border-width: 0 0 1px;
@@ -37,12 +37,12 @@
   width: 295px;
 }
 
-.signIn-email input {
+.sign-in-email input {
   margin-top: 65px;
   margin-bottom: 30px;
 }
 
-.signIn-button {
+.sign-in-button {
   background-color: #3e99c0;
   border-radius: 8px;
   border-width: 0px;

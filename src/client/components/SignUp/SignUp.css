@@ -1,23 +1,23 @@
-.signUp-icon-title {
+.sign-up-icon-title {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.signUp-forms{
+.sign-up-forms{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.signUp-icon {
+.sign-up-icon {
   font-size: 30px;
   color: #3e99c0;
   margin-left: 10%;
 }
 
-.signUp-title {
+.sign-up-title {
   color: black;
   margin-left: 30%;
 }
@@ -31,7 +31,7 @@
   margin-bottom: 30px;
 }
 
-.signUp-name{
+.sign-up-name{
   margin-top: 65px;
 }
 

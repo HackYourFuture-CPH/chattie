@@ -25,21 +25,21 @@ export default function SignUp({ onSubmit }) {
   };
   return (
     <div>
-      <div className="signUp-icon-title">
-        <div className="signUp-icon">
+      <div className="sign-up-icon-title">
+        <div className="sign-up-icon">
           <Link to="/">
             <FontAwesomeIcon icon={faAngleLeft} />
           </Link>
         </div>
 
-        <div className="signUp-title">
+        <div className="sign-up-title">
           <h3>Sign Up</h3>
         </div>
       </div>
-      <div className="signUp-forms">
+      <div className="sign-up-forms">
         <form className="sign-up-form" onSubmit={handleSubmit}>
-          <div className="signUp">
-            <div className="signUp-name">
+          <div className="sign-up">
+            <div className="sign-up-name">
               <input
                 type="text"
                 name="name"
@@ -72,7 +72,7 @@ export default function SignUp({ onSubmit }) {
               />
             </div>
 
-            <div className="signUp-phone">
+            <div className="sign-up-phone">
               <input
                 type="tel"
                 name="phone"
@@ -94,7 +94,7 @@ export default function SignUp({ onSubmit }) {
                 required
               />
             </div>
-            <div className="signUp-password">
+            <div className="sign-up-password">
               <input
                 type="password"
                 name="password"
