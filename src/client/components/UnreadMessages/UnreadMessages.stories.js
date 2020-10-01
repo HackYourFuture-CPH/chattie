@@ -3,7 +3,7 @@ import UpdateUnreadMessages from './UpdateUnreadMessages';
 import CountUnreadMessages from './CountUnreadMessages';
 
 export default {
-  title: 'UpdateUnreadMessages',
+  title: 'CountUnreadMessages',
   components: {
     component1: UpdateUnreadMessages,
     component2: CountUnreadMessages,
@@ -11,8 +11,8 @@ export default {
 };
 
 export const Component1 = () => (
-  <UpdateUnreadMessages title="UpdateUnreadMessages" />
+  <UpdateUnreadMessages title="updateUnreadMessages" />
 );
 export const Component2 = () => (
-  <CountUnreadMessages title="CountUnreadMessages" />
+  <CountUnreadMessages title="countUnreadMessages" />
 );
