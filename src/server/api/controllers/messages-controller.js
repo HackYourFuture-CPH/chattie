@@ -78,15 +78,32 @@ const deleteMessage = async (messagesId) => {
 };
 
 const createMessage = async (body) => {
-  await knex('channel_messages').insert({
+  const newMessage = {
     message: body.message,
     created_at: moment().format(),
     fk_user_id: body.userId,
     fk_channel_id: body.channelId,
+  };
+  const messageId = await knex('channel_messages').insert(newMessage);
+  const userInCahnnel = knex
+    .select('fk_user_id')
+    .from('channel_members')
+    .where({ fk_channel_id: body.channelId });
+
+  const newRowForEachUser = await userInCahnnel;
+
+  newRowForEachUser.forEach(async () => {
+    const addNewRow = await knex('unread_messages').insert({
+      unread: 1,
+      fk_user_id: body.userId,
+      fk_channel_id: body.channelId,
+    });
+    return addNewRow;
   });
 
   return {
     successful: true,
+    id: messageId[0],
   };
 };
 
