@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router({ mergeParams: true });
 
 // controllers
-const unReadMessagesController = require('../controllers/unread-controller');
+const unreadMessagesController = require('../controllers/unread-controller');
 
 /**
  * @swagger
@@ -35,7 +35,7 @@ const unReadMessagesController = require('../controllers/unread-controller');
  */
 
 router.get('/', (req, res, next) => {
-  unReadMessagesController
+  unreadMessagesController
     .getUnReadMessages(req)
     .then((result) => res.json(result))
     .catch(next);
@@ -45,9 +45,9 @@ router.get('/', (req, res, next) => {
  * @swagger
  * /unread:
  *  patch:
- *    summary: update Unread_messages
+ *    summary: update unread_messages
  *    description:
- *      pdate Unread_messages.
+ *      update unread_messages.
  *    produces: application/json
  *    parameters:
  *     - in: query
@@ -70,7 +70,7 @@ router.get('/', (req, res, next) => {
  */
 
 router.patch('/:id', (req, res) => {
-  unReadMessagesController
+  unreadMessagesController
     .upDateUnReadMessages(req)
     .then((result) => res.json(result))
     .catch(() => {
@@ -82,5 +82,3 @@ router.patch('/:id', (req, res) => {
 });
 
 module.exports = router;
-
-// router.post('/update/:id', unReadMessagesController.update);

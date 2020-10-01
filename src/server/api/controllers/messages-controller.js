@@ -85,13 +85,11 @@ const createMessage = async (body) => {
     fk_channel_id: body.channelId,
   };
   const messageId = await knex('channel_messages').insert(newMessage);
-  const userInCahnnel = knex
+  const usersInChannel = knex
     .select('fk_user_id')
     .from('channel_members')
     .where({ fk_channel_id: body.channelId });
-
-  const newRowForEachUser = await userInCahnnel;
-
+  const newRowForEachUser = await usersInChannel;
   newRowForEachUser.forEach(async () => {
     const addNewRow = await knex('unread_messages').insert({
       unread: 1,

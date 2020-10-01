@@ -13,7 +13,7 @@ const channelsRouter = require('./channels-router');
 const messagesRouter = require('./messages-router');
 const channelMembersRouter = require('./channel-members.router');
 const notificationsRouter = require('./notifications-router');
-const unreadMessages = require('./unread-router');
+const unreadRouter = require('./unread-router');
 
 const swaggerJsDoc = require('swagger-jsdoc');
 
@@ -44,6 +44,6 @@ router.use('/channels', channelsRouter);
 router.use('/messages', messagesRouter);
 router.use('/channel-members', channelMembersRouter);
 router.use('/notifications', notificationsRouter);
-router.use('/unread', unreadMessages);
+router.use('/unread', unreadRouter);
 
 module.exports = router;
