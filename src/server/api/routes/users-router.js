@@ -73,10 +73,17 @@ router.delete('/:id', (req, res) => {
  */
 
 router.get('/', (req, res, next) => {
-  usersController
-    .getFilteredUsers(req.query)
-    .then((result) => res.json(result))
-    .catch(next);
+  if (Object.keys(req.query).length === 0) {
+    usersController
+      .getUsers()
+      .then((result) => res.json(result))
+      .catch(next);
+  } else {
+    usersController
+      .getFilteredUsers(req.query)
+      .then((result) => res.json(result))
+      .catch(next);
+  }
 });
 
 /**

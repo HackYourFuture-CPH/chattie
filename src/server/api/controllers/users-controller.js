@@ -1,6 +1,15 @@
 const knex = require('../../config/db');
 const moment = require('moment-timezone');
 
+const getUsers = async () => {
+  try {
+    const users = await knex('users').select('*');
+    return users;
+  } catch (error) {
+    return error;
+  }
+};
+
 const getUserById = async (id) => {
   try {
     const user = await knex('users')
@@ -19,31 +28,41 @@ const deleteUser = async (userId) => {
     .del();
 };
 
-const getFilteredUsers = async ({
-  limit,
-  userName,
-  profileImageUrl,
-  email,
-}) => {
-  let searchUsers = knex('users');
-  if (limit) {
-    searchUsers = searchUsers.limit(limit);
-  }
-  if (userName) {
-    searchUsers = searchUsers.where('user_name', 'like', `%${userName}%`);
-  }
-  if (profileImageUrl) {
-    searchUsers = searchUsers.where(
-      'profile_image',
-      'like',
-      `%${profileImageUrl}%`,
-    );
-  }
-  if (email) {
-    searchUsers = searchUsers.where('email', 'like', `%${email}%`);
-  }
+const getFilteredUsers = async (req) => {
+  const { limit, userName, profileImageUrl, email } = req;
+  try {
+    let searchUsers = knex('users').select('*');
+    if (!req) {
+      return searchUsers;
+    }
+    if (limit) {
+      searchUsers = searchUsers.limit(limit);
+      return searchUsers;
+    }
+    if (userName) {
+      searchUsers = searchUsers.where('user_name', 'like', `%${userName}%`);
+      return searchUsers;
+    }
+    if (profileImageUrl) {
+      searchUsers = searchUsers.where(
+        'profile_image',
+        'like',
+        `%${profileImageUrl}%`,
+      );
+      return searchUsers;
+    }
+    if (email) {
+      searchUsers = searchUsers.where('email', 'like', `%${email}%`);
+      return searchUsers;
+    }
 
-  return searchUsers;
+    // if the query does not match any of these search you get this message.
+    if (!limit || !userName || !email || !profileImageUrl) {
+      return 'The search is not supported';
+    }
+  } catch (error) {
+    return error;
+  }
 };
 
 const createUser = async (body) => {
@@ -52,6 +71,7 @@ const createUser = async (body) => {
     user_name: body.userName,
     email: body.email,
     profile_image: body.profileImage,
+
     last_seen: new Date(),
   };
 
@@ -75,6 +95,7 @@ const editUser = async (userId, updatedUser) => {
 };
 
 module.exports = {
+  getUsers,
   getUserById,
   getFilteredUsers,
   createUser,
