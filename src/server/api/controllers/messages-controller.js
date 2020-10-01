@@ -3,7 +3,7 @@
 const knex = require('../../config/db');
 const Error = require('../lib/utils/http-error');
 const moment = require('moment-timezone');
-// getting all messages from channel_messages and query based on query, channel_id, sender, limit, sort and date
+// getting all messages from channel_messages and query based on query, channelId, sender, limit, sort and date
 const getChannelMessages = async (req) => {
   const { query, channelId, sender, limit, sort } = req.query;
 
@@ -18,10 +18,13 @@ const getChannelMessages = async (req) => {
       );
     }
     if (channelId) {
-      channelMessages = channelMessages.where(
-        'channel_messages.fk_channel_id',
-        channelId,
-      );
+      channelMessages = channelMessages
+        .select('users.user_name as userName')
+        .where('channel_messages.fk_channel_id', channelId)
+        .join('users', {
+          'channel_messages.fk_user_id': 'users.id',
+        })
+        .orderBy('channel_messages.updated_at', 'desc');
     }
     if (sender) {
       channelMessages = channelMessages.where(

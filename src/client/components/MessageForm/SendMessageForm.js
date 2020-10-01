@@ -20,8 +20,8 @@ function SendMessageForm() {
   };
 
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit}>
+    <>
+      <form onSubmit={handleSubmit} className="send-new-message-form">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/List-Icon.svg/768px-List-Icon.svg.png"
           alt=""
@@ -31,7 +31,7 @@ function SendMessageForm() {
           onChange={(event) => setInput(event.target.value)}
         />
       </form>
-    </div>
+    </>
   );
 }
 export default SendMessageForm;

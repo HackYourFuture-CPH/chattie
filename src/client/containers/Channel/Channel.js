@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import Message from '../../components/Message/Messages';
+
+import SendMessageForm from '../../components/MessageForm/SendMessageForm';
 import { useParams } from 'react-router-dom';
-// import { UserContext } from '../../context/userContext';
+import { UserContext } from '../../context/userContext';
 
 export default function Channel() {
   const { channelId } = useParams();
   const [messages, setMessages] = useState([]);
+  const user = useContext(UserContext);
 
   useEffect(() => {
     const fetchMessages = async () => {
@@ -19,12 +23,14 @@ export default function Channel() {
     };
     fetchMessages();
   }, [channelId]);
+  const currentUserEmail = user ? user.email : '';
 
   return (
-    <ul className="message-list">
-      {messages.map(({ id, message }) => (
-        <li key={id}>{message}</li>
-      ))}
-    </ul>
+    <>
+      {messages && (
+        <Message messages={messages} currentUserEmail={currentUserEmail} />
+      )}
+      <SendMessageForm />
+    </>
   );
 }

@@ -1,15 +1,18 @@
-form {
-  background-color: lightgray;
+.send-new-message-form {
+  margin-top: 5%;
+  background-color: #f3f3f3;
   color: #ffffff;
-  padding: 10px 0;
-  position: absolute;
-  bottom: 0;
+  padding: 2%;
   width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
-form input {
+
+.send-new-message-form input {
   margin-left: 10px;
-  width: 1000px;
+  width: 300px;
 }
-form img {
+
+.send-new-message-form img {
   width: 30px;
 }

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
 import './UsersListStyle.css';
