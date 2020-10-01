@@ -1,0 +1,16 @@
+.number-of-unread-messages {
+  border: solid burlywood 1px;
+  width: 20px;
+  height: 20px;
+  margin: auto;
+  border-radius: 50%;
+  background-color: burlywood;
+  position: relative;
+}
+
+.font-weight {
+  font-size: 12px;
+  font-weight: bold;
+  margin: auto;
+  padding: auto;
+}
