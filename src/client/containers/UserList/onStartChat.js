@@ -16,21 +16,24 @@ export const OnStartChat = () => {
     if (existChannelId?.length) {
       history.push(`/channel/${existChannelId}`);
     } else {
-      const { channelId } = await fetchWithAuth('/api/channels', {
+      const { id } = await fetchWithAuth('/api/channels', {
         method: 'POST',
-        body: JSON.stringify({ title: null, channelId }),
+        body: JSON.stringify({ title: null, id }),
+      });
+      const newlyCreatedChannelId = id;
+      await fetchWithAuth('/api/channel-members', {
+        method: 'POST',
+        body: JSON.stringify({ channelId: newlyCreatedChannelId, userId }),
       });
       await fetchWithAuth('/api/channel-members', {
         method: 'POST',
-        body: JSON.stringify({ channelId, userId }),
+        body: JSON.stringify({
+          channelId: newlyCreatedChannelId,
+          userId: currentUserFromServer.id,
+        }),
       });
 
-      await fetchWithAuth('/api/channel-members', {
-        method: 'POST',
-        body: JSON.stringify({ channelId, userId: currentUserFromServer.id }),
-      });
-
-      history.push(`/channel/${channelId}`);
+      history.push(`/channel/${newlyCreatedChannelId}`);
     }
   };
   return { user, onCreateConversation };

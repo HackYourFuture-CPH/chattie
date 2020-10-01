@@ -7,7 +7,7 @@ const createChannel = async (body) => {
   //  will return the total number of channels after inserting a new channel
   const insertedChannels = await knex('channels').insert(newChannel);
 
-  return { channelId: insertedChannels[0] };
+  return { id: insertedChannels[0] };
 };
 
 const getChannelsById = async (id) => {
