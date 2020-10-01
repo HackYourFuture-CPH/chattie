@@ -40,9 +40,7 @@ const getFilteredUsers = async (req) => {
   const { limit, userName, profileImageUrl, email } = req;
   try {
     let searchUsers = knex('users').select('*');
-    if (!req) {
-      return searchUsers;
-    }
+
     if (limit) {
       searchUsers = searchUsers.limit(limit);
       return searchUsers;
