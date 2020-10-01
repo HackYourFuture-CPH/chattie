@@ -22,7 +22,7 @@ const editNotification = async (notificationId, updatedNotification) => {
   return knex('notifications')
     .where({ id: notificationId })
     .update({
-      title: updatedNotification.title,
+      message: updatedNotification.message,
     });
   
 // users delete by id
