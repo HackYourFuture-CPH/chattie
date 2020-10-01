@@ -1,23 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Userslist from '../../components/UsersListComponent/UsersList';
-import '../../components/UsersListComponent/UsersListStyle.css';
+import { OnStartChat } from './onStartChat';
+import useFetch from '../../hooks/useFetch';
 
 const UserList = () => {
-  const [users, setUsers] = useState([]);
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const baseUrl = `/api/users`;
-        const response = await fetch(baseUrl);
-        const result = await response.json();
-        setUsers(result);
-      } catch (error) {
-        return <p>{error}</p>;
-      }
-    };
-    fetchUsers();
-  }, []);
-  return <div>{users && <Userslist users={users} />}</div>;
+  const { user, onCreateConversation } = OnStartChat();
+  const { response: users, loading, error } = useFetch(`/api/users`);
+
+  if (loading) {
+    return <>Loading..., please wait!</>;
+  }
+
+  if (error) {
+    return <>An error has occurred ☹️</>;
+  }
+  return (
+    <>
+      {users && user && onCreateConversation && (
+        <Userslist
+          users={users}
+          user={user}
+          onCreateConversation={onCreateConversation}
+        />
+      )}
+    </>
+  );
 };
 
 export default UserList;
