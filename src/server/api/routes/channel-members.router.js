@@ -166,6 +166,61 @@ router.post('/', (req, res) => {
 
 /**
  * @swagger
+ * /channel-members/:
+ *  get:
+ *    summary: figure out which channels has specific user
+ *    description:
+ *      Take an array of users and return the common channels' ids are they member of
+ *    produces: application/json
+ *    parameters:
+ *      - in: query
+ *        name: memberIds
+ *        description: Array of users Ids.
+ *        required: true
+ *        schema:
+ *          ArrayOfInt:
+ *           type: array
+ *           items:
+ *             type: integer
+ *             format: int64
+ *           example: [1, 2, 3]
+ *
+ *    responses:
+ *      201:
+ *        description: Ok
+ *        content:
+ *          application/json:
+ *             schema:
+ *               type : array
+ *               items:
+ *                  type : integers
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.get('/', (req, res) => {
+  const { memberIds } = req.query;
+  const arrUsers = memberIds
+    .split(',')
+    .map((id) => +id)
+    .filter((id) => id >= 0);
+
+  channelMembersController
+    .checkForGeneralChannels(arrUsers)
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((error) => {
+      console.log(error);
+
+      res
+        .status(400)
+        .send('Bad request')
+        .end();
+    });
+});
+
+/**
+ * @swagger
  * /channel-members/{ID}:
  *  patch:
  *    summary: edit channel_members

@@ -10,6 +10,14 @@ const getUsers = async () => {
   }
 };
 
+const getUserByUid = async (uid) => {
+  const user = await knex('users')
+    .select('user_name', 'id')
+    .limit(1)
+    .where({ uid });
+  return user.length === 1 ? user[0] : undefined;
+};
+
 const getUserById = async (id) => {
   try {
     const user = await knex('users')
@@ -96,6 +104,7 @@ const editUser = async (userId, updatedUser) => {
 
 module.exports = {
   getUsers,
+  getUserByUid,
   getUserById,
   getFilteredUsers,
   createUser,

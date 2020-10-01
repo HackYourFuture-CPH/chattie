@@ -10,15 +10,17 @@ export default function SignUp({ onSubmit }) {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
   const handleNameInput = (e) => setName(e.target.value);
   const handleRoleInput = (e) => setRole(e.target.value);
   const handlePhoneInput = (e) => setPhone(e.target.value);
   const handleEmailInput = (e) => setEmail(e.target.value);
   const handlePasswordInput = (e) => setPassword(e.target.value);
+  const handlePasswordConfirmInput = (e) => setPasswordConfirm(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ name, role, email, phone, password });
+    onSubmit({ name, role, email, phone, password, passwordConfirm });
   };
   return (
     <div>
@@ -52,9 +54,9 @@ export default function SignUp({ onSubmit }) {
         <input
           type="tel"
           name="phone"
-          placeholder="Phone number"
+          placeholder="Phone number eg:12345678"
           value={phone}
-          pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+          pattern="[0-9]{8}"
           onChange={handlePhoneInput}
           required
         />
@@ -64,6 +66,14 @@ export default function SignUp({ onSubmit }) {
           placeholder="Password"
           value={password}
           onChange={handlePasswordInput}
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Confirm Password"
+          value={passwordConfirm}
+          onChange={handlePasswordConfirmInput}
           required
         />
         <div className="sign-up-button">
