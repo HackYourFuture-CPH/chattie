@@ -73,8 +73,44 @@ router.delete('/:id', (req, res) => {
  */
 
 router.get('/', (req, res, next) => {
+  if (Object.keys(req.query).length === 0) {
+    usersController
+      .getUsers()
+      .then((result) => res.json(result))
+      .catch(next);
+  } else {
+    usersController
+      .getFilteredUsers(req.query)
+      .then((result) => res.json(result))
+      .catch(next);
+  }
+});
+
+/**
+ * @swagger
+ * /users/current:
+ *  get:
+ *    summary: Get user by uid
+ *    description:
+ *      Will return single user with a matching ID.
+ *    produces: application/json
+ *    parameters:
+ *     - in: query
+ *       name: uid
+ *       schema:
+ *         type: string
+ *         required: true
+ *         description: The firebase uid of the user to get
+ *
+ *    responses:
+ *      200:
+ *        description: Successful request
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.get('/current', (req, res, next) => {
   usersController
-    .getFilteredUsers(req.query)
+    .getUserByUid(req.query.uid)
     .then((result) => res.json(result))
     .catch(next);
 });
