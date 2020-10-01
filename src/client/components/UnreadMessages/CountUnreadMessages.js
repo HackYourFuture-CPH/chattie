@@ -3,7 +3,7 @@ import './Unread.style.css';
 import { useParams } from 'react-router-dom';
 
 function CountUnreadMessages() {
-  const { channelId } = useParams();
+  const { userId, channelId } = useParams();
 
   const [unreadMessages, setUnreadMessages] = useState([]);
 
@@ -13,7 +13,7 @@ function CountUnreadMessages() {
       const unReadedMessages = async () => {
         try {
           const getUnreadMessages = await fetch(
-            `/api/unread?channelId=${channelId}`,
+            `/api/unread?userId=${userId}&channelId=${channelId}`,
           ).then((response) => response.json());
 
           setUnreadMessages(getUnreadMessages);
@@ -28,7 +28,7 @@ function CountUnreadMessages() {
     return () => {
       mounted = false;
     };
-  }, [channelId]);
+  }, [userId, channelId]);
 
   const courentUnreadMessages = [];
   const unreads = unreadMessages
