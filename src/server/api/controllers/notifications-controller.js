@@ -3,7 +3,7 @@ const knex = require('../../config/db');
 
 const createNotification = async (body) => {
   const newNotification = {
-    title: body.title,
+    message: body.message,
   };
   //  will return the total number of notifications after inserting a new notification
   const insertedNotifications = await knex('notifications').insert(
@@ -17,15 +17,23 @@ const createNotification = async (body) => {
   };
 };
 
-const editNotification = async (notificationID, updatedNotification) => {
+notificationEndpoints
+const editNotification = async (notificationId, updatedNotification) => {
   return knex('notifications')
-    .where({ id: notificationID })
+    .where({ id: notificationId })
     .update({
       title: updatedNotification.title,
     });
+  
+// users delete by id
+const deleteNotification = async (notificationId) => {
+  return knex('notifications')
+    .where({ id: notificationId })
+    .del();
 };
 
 module.exports = {
   createNotification,
   editNotification,
+  deleteNotification,
 };

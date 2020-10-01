@@ -81,6 +81,35 @@ router.get('/', (req, res, next) => {
 
 /**
  * @swagger
+ * /users/current:
+ *  get:
+ *    summary: Get user by uid
+ *    description:
+ *      Will return single user with a matching ID.
+ *    produces: application/json
+ *    parameters:
+ *     - in: query
+ *       name: uid
+ *       schema:
+ *         type: string
+ *         required: true
+ *         description: The firebase uid of the user to get
+ *
+ *    responses:
+ *      200:
+ *        description: Successful request
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.get('/current', (req, res, next) => {
+  usersController
+    .getUserByUid(req.query.uid)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+
+/**
+ * @swagger
  * /users/{ID}:
  *  get:
  *    summary: Get user by ID

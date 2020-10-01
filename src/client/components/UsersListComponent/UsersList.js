@@ -1,21 +1,28 @@
+/* eslint-disable camelcase */
+/* eslint-disable @typescript-eslint/camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
 import './UsersListStyle.css';
 
-export default function Userslist({ users }) {
+export default function Userslist({ users, user, onCreateConversation }) {
+  if (!user || !users) {
+    return <ul className="user-list" />;
+  }
   return (
-    <div className="container">
-      <div className="wrapper">
-        <ul className="user-list">
-          {users.map((user) => (
-            <li key={user.id}>
-              <img src={user.profile_image} alt={user.profile_image} />
-              <span>{user.user_name}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <ul className="user-list">
+      {users.map(({ id, user_name, profile_image }) => (
+        <li
+          key={id}
+          role="presentation"
+          className="user-item"
+          onClick={() => onCreateConversation(id, user)}
+          onKeyDown={() => onCreateConversation(id, user)}
+        >
+          <img src={profile_image} alt={profile_image} />
+          <span>{user_name} </span>
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -26,4 +33,6 @@ Userslist.propTypes = {
       profile_image: PropTypes.string,
     }),
   ).isRequired,
+  user: PropTypes.shape({}).isRequired,
+  onCreateConversation: PropTypes.func.isRequired,
 };

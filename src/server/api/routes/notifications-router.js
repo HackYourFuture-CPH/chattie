@@ -44,6 +44,36 @@ router.post('/', (req, res) => {
         .end();
     });
 });
+/**
+ * @swagger
+ * /notification/{ID}:
+ *  delete:
+ *    summary: Delete a Notification
+ *    description:
+ *      Will delete a Notification with a given ID.
+ *    produces: application/json
+ *    parameters:
+ *      - in: path
+ *        name: ID
+ *        description: ID of the Notification to delete.
+ *    responses:
+ *      200:
+ *        description: Notification deleted
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.delete('/:id', (req, res) => {
+  notificationsController
+    .deleteNotification(req.params.id)
+    .then((result) => {
+      if (result === 0) {
+        res.status(404).send('This type of notification does not exist.');
+      } else {
+        res.json({ success: true });
+      }
+    })
+    .catch((error) => console.log(error));
+});
 
 /**
  * @swagger

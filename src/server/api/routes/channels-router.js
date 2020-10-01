@@ -7,7 +7,7 @@ const channelsController = require('../controllers/channels-controller');
 
 /**
  * @swagger
- * /modules:
+ * /channels:
  *  post:
  *    summary: Create a channel
  *    description:
