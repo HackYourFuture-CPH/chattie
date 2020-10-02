@@ -21,7 +21,7 @@ const messagesController = require('../controllers/messages-controller');
  *         type: string
  *         description: Returning messages from chennel_messages based on query
  *     - in: query
- *       name: channel_id
+ *       name: channelId
  *       schema:
  *         type: integer
  *         description: Get channel_messages.id

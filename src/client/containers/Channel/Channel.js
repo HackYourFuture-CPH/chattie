@@ -1,35 +1,43 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import MessageList from '../../components/MessageList/MessageList';
+import SendMessageForm from '../../components/MessageForm/SendMessageForm';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
 
 export default function Channel() {
-  const { id } = useParams();
+  const { channelId } = useParams();
   const [messages, setMessages] = useState([]);
+  const user = useContext(UserContext);
 
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const url = `/api/messages?channel_id=${id}`;
-        const matchedChannel = await fetch(url).then((res) => res.json());
+        const url = `/api/messages?channelId=${channelId}`;
+        const responce = await fetch(url);
+        const matchedChannel = await responce.json();
         setMessages(matchedChannel);
       } catch (err) {
         return <p>{err}</p>;
       }
     };
     fetchMessages();
-  }, [id]);
+  }, [channelId]);
+  const currentUserEmail = user ? user.email : '';
+
   if (messages.length === 0) {
     return (
       <>
-        <p>Messages not found for channel with id: {id}</p>
-        <UserContext.Consumer>
-          {(user) => {
-            const email = user ? user.email : '';
-            return <div>This is a private channels for the user: {email}.</div>;
-          }}
-        </UserContext.Consumer>
+        <div>There does not seem to be any messages here. Try sending one</div>
+        <SendMessageForm />
       </>
     );
   }
-  //  return console.log(messages);
+  return (
+    <>
+      {messages && (
+        <MessageList messages={messages} currentUserEmail={currentUserEmail} />
+      )}
+      <SendMessageForm channelId={channelId} userId={currentUserEmail} />
+    </>
+  );
 }

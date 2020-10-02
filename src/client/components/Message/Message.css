@@ -1,23 +1,22 @@
-.chat-messageBox {
+.current-user-message, .other-users-message {
   background: #f3f3f3;
   border-radius: 20px;
   padding: 5px 20px;
   color: white;
   display: inline-block;
   max-width: 80%;
-  
 }
 
-.chat-messageText {
+.chat-message-text {
   float: left;
   font-size: 1.1em;
   width: fit-content;
   margin-bottom: 30px;
 }
 
-.chat-messageContainer {
+.chat-message-container {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
   padding: 0 5%;
   margin-top: 3px;
 }
@@ -30,26 +29,14 @@
   padding-right: 10px;
 }
 
-.justifyStart {
-  justify-content: flex-start;
-}
-
-.justifyEnd {
-  justify-content: flex-end;
-}
-
-.colorWhite {
+.chat-message-container .current-user-message {
+  background: #2979ff;
+  align-self: flex-end;
   color: white;
 }
 
-.colorDark {
-  color: #353535;
-}
-
-.backgroundBlue {
-  background: #2979ff;
-}
-
-.backgroundLight {
+.chat-message-container .other-users-message {
   background: #f3f3f3;
+  color: #353535;
+  align-self: flex-start;
 }
