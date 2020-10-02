@@ -20,8 +20,8 @@ export default function Message({
   ) : (
     <li key={id} className="other-users-message">
       <img src={profile_image} alt={profile_image} />
-      <p>{userName}</p>
       <p className="chat-message-text">{message}</p>
+      <p>{userName}</p>
     </li>
   );
 }

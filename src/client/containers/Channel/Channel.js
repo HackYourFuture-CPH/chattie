@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import Message from '../../components/Message/Messages';
-
+import MessageList from '../../components/MessageList/MessageList';
 import SendMessageForm from '../../components/MessageForm/SendMessageForm';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
@@ -25,12 +24,20 @@ export default function Channel() {
   }, [channelId]);
   const currentUserEmail = user ? user.email : '';
 
+  if (messages.length === 0) {
+    return (
+      <>
+        <div>There does not seem to be any messages here. Try sending one</div>
+        <SendMessageForm />
+      </>
+    );
+  }
   return (
     <>
       {messages && (
-        <Message messages={messages} currentUserEmail={currentUserEmail} />
+        <MessageList messages={messages} currentUserEmail={currentUserEmail} />
       )}
-      <SendMessageForm />
+      <SendMessageForm channelId={channelId} userId={currentUserEmail} />
     </>
   );
 }
