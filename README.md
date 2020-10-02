@@ -74,6 +74,7 @@ _Class Dates_
   - Why do i talk so much about responsibility?
 - Week 4 —> 27-Sep-2020
 - Week 5 —> 4-oct.-2020
+  - How to repect mentors time online
 - Week 6 —> 11-oct.-2020
 - Week 7 —> 18-oct.-2020
 
