@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import './SendMessageForm.css';
+import PropTypes from 'prop-types';
 
-function SendMessageForm() {
+function SendMessageForm({ channelId, userId }) {
   const [input, setInput] = useState('');
+  console.log(channelId, userId);
   const messageInputData = {
-    channelId: null,
-    userId: null,
+    channelId,
+    userId,
     message: input,
   };
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(messageInputData);
     fetch('/api/messages', {
       method: 'post',
       headers: {
@@ -34,4 +38,9 @@ function SendMessageForm() {
     </>
   );
 }
+
+SendMessageForm.propTypes = {
+  userId: PropTypes.number.isRequired,
+  channelId: PropTypes.string.isRequired,
+};
 export default SendMessageForm;
