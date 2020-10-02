@@ -1,28 +1,36 @@
+/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable camelcase */
 import React from 'react';
 import Message from '../Message/Message';
 import PropTypes from 'prop-types';
-import './MessageList.css';
+import '../Message/Message.css';
 
-// Loop through all the messages in the state and create a Message component
-const MessageList = ({ messages }) => {
+const MessageList = ({ messages, currentUserEmail }) => {
   return (
-    <div className="chat-messages__container">
-      {messages.map(({ username, message, id }) => (
-        <Message key={id} username={username} text={message} />
-      ))}
-    </div>
+    <ul className="chat-message-container">
+      {messages.map(({ id, message, userName, profile_image, email }) =>
+        Message({
+          id,
+          profile_image,
+          userName,
+          message,
+          email,
+          currentUserEmail,
+        }),
+      )}
+    </ul>
   );
 };
-MessageList.defaultProps = {
-  messages: [],
-};
+
 MessageList.propTypes = {
   messages: PropTypes.arrayOf(
     PropTypes.shape({
-      username: PropTypes.string,
-      text: PropTypes.string,
+      userName: PropTypes.string,
+      profile_image: PropTypes.string,
+      message: PropTypes.string,
+      email: PropTypes.string,
     }),
-  ),
+  ).isRequired,
+  currentUserEmail: PropTypes.string.isRequired,
 };
-
 export default MessageList;

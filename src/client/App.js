@@ -9,7 +9,7 @@ import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRou
 import { useAuthentication } from './hooks/useAuthentication';
 import Header from './components/NavigationHeader/NavigationHeader';
 import Profile from './containers/Profile';
-import Channel from './containers/Channel/Channel';
+import { Channel } from './containers/Channel/Channel';
 import Loader from './components/Loader/Loader';
 import { UserContext } from './context/userContext';
 
