@@ -3,7 +3,6 @@ import MessageList from '../../components/MessageList/MessageList';
 import SendMessageForm from '../../components/MessageForm/SendMessageForm';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
-import useFetch from '../../hooks/useFetch';
 
 const messageFetchUpdateInterval = 3000;
 

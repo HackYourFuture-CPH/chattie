@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 function SendMessageForm({ channelId, userId }) {
   const [input, setInput] = useState('');
-  console.log(channelId, userId);
+
   const messageInputData = {
     channelId,
     userId,
@@ -12,7 +12,6 @@ function SendMessageForm({ channelId, userId }) {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(messageInputData);
     fetch('/api/messages', {
       method: 'post',
       headers: {
