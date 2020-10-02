@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-const baseUrl = '';
+const baseUrl = `/api/users?userName=`;
 
 async function getUserData(search) {
   const response = await fetch(`${baseUrl}${encodeURIComponent(search)}`);
@@ -18,23 +18,22 @@ export const Fetcher = ({ search, render }) => {
   useEffect(() => {
     const getData = async () => {
       setLoading(true);
-
       const result = await getUserData(search);
 
       setLoading(false);
 
-      if (result.message) {
-        setError(result.message);
+      if (result.error) {
+        setError(true);
       } else {
-        setData(result.items);
+        setData(result.user);
         setError(false);
         setNoUserMatch(false);
       }
 
-      if (result.items.length === 0) {
+      if (result.length === 0) {
         setNoUserMatch(true);
       } else {
-        setData(result.items);
+        setData(result);
         setError(false);
         setNoUserMatch(false);
       }
@@ -62,6 +61,6 @@ export const Fetcher = ({ search, render }) => {
 };
 
 Fetcher.propTypes = {
-  render: PropTypes.string.isRequired,
+  render: PropTypes.func.isRequired,
   search: PropTypes.string.isRequired,
 };
