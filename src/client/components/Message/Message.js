@@ -19,9 +19,11 @@ export default function Message({
     </li>
   ) : (
     <li key={id} className="other-users-message">
-      <img src={profile_image} alt={profile_image} />
-      <p className="chat-message-text">{message}</p>
-      <p>{userName}</p>
+      <div className="messenge-photo">
+        <img src={profile_image} alt={profile_image} />
+        <p className="chat-message-text">{message}</p>
+      </div>
+      <p className="user-name">{userName}</p>
     </li>
   );
 }
