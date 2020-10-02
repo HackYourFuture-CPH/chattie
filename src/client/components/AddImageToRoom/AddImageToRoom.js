@@ -10,6 +10,7 @@ export default function AddImageToRoom() {
 
   const handleImageUpload = (e) => {
     const selectedFile = e.target.files[0];
+
     if (selectedFile) {
       if (types.includes(selectedFile.type)) {
         setError(null);
@@ -36,7 +37,7 @@ export default function AddImageToRoom() {
         </label>
 
         {error && <p>{error}</p>}
-        <div className="add-image-to-room_image-preview">
+        <div className="add-image-to-room-image-preview">
           {url && <img alt="room-img" src={url} />}
         </div>
       </div>
