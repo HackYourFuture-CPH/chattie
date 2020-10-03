@@ -13,6 +13,7 @@ exports.seed = function(knex) {
           email: 'peter123@gmail.com',
           last_seen: '2020-09-10 03:15:25',
           uid: 'uid',
+          phone_number: '+45 31823401',
         },
         {
           id: 2,
@@ -22,6 +23,7 @@ exports.seed = function(knex) {
           email: 'lenaS@example.com',
           last_seen: '2020-08-19 22:15:56',
           uid: 'uid',
+          phone_number: '+45 31823402',
         },
         {
           id: 3,
@@ -31,6 +33,7 @@ exports.seed = function(knex) {
           email: 'sharron@gmail.com',
           last_seen: '2019-06-05 18:09:22',
           uid: 'uid',
+          phone_number: '+45 31823403',
         },
         {
           id: 4,
@@ -40,6 +43,7 @@ exports.seed = function(knex) {
           email: 'dublin@yahoo.com',
           last_seen: '2019-11-25 16:05:07',
           uid: 'uid',
+          phone_number: '+45 31823404',
         },
         {
           id: 5,
@@ -49,6 +53,7 @@ exports.seed = function(knex) {
           email: 'mia123@example.com',
           last_seen: '2020-05-05 09:04:22',
           uid: 'uid',
+          phone_number: '+45 31823405',
         },
         {
           id: 6,
@@ -58,6 +63,7 @@ exports.seed = function(knex) {
           email: 'bretB@yahoo.com',
           last_seen: '2019-10-17 13:52:34',
           uid: 'uid',
+          phone_number: '+45 31823406',
         },
         {
           id: 7,
@@ -67,6 +73,7 @@ exports.seed = function(knex) {
           email: 'mark04@gmail.com',
           last_seen: '2020-07-18 15:32:42',
           uid: 'uid',
+          phone_number: '+45 31823407',
         },
         {
           id: 8,
@@ -76,6 +83,7 @@ exports.seed = function(knex) {
           email: 'mickJ@example.com',
           last_seen: '2019-09-24 23:43:11',
           uid: 'uid',
+          phone_number: '+45 31823408',
         },
         {
           id: 9,
@@ -85,6 +93,7 @@ exports.seed = function(knex) {
           email: 'brit_09@yahoo.com',
           last_seen: '2019-02-13 16:51:19',
           uid: 'uid',
+          phone_number: '+45 31823409',
         },
         {
           id: 10,
@@ -94,6 +103,7 @@ exports.seed = function(knex) {
           email: 's_paul@example.com',
           last_seen: '2020-07-04 18:29:32',
           uid: 'uid',
+          phone_number: '+45 31823410',
         },
       ]);
     });
