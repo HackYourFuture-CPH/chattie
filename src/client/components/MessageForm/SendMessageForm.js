@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './SendMessageForm.css';
 import PropTypes from 'prop-types';
+import fetchWithAuth from '../../utils/fetchWithAuth';
 
 function SendMessageForm({ channelId, userId }) {
   const [input, setInput] = useState('');
@@ -12,7 +13,7 @@ function SendMessageForm({ channelId, userId }) {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch('/api/messages', {
+    fetchWithAuth('/api/messages', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
