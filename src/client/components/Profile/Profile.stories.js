@@ -15,5 +15,6 @@ export const profileView = () => (
     userName={username}
     profileImage={profileImage}
     email={email}
+    buttonText="edit"
   />
 );
