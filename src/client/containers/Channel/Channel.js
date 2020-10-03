@@ -3,6 +3,7 @@ import MessageList from '../../components/MessageList/MessageList';
 import SendMessageForm from '../../components/MessageForm/SendMessageForm';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
+import fetchWithAuth from '../../utils/fetchWithAuth';
 
 const messageFetchUpdateInterval = 3000;
 
@@ -16,8 +17,7 @@ export default function Channel() {
     const fetchMessages = async () => {
       try {
         const url = `/api/messages?channelId=${channelId}`;
-        const responce = await fetch(url);
-        const channelMessages = await responce.json();
+        const channelMessages = await fetchWithAuth(url);
         setMessages(channelMessages);
       } catch (err) {
         return <p>{err}</p>;
@@ -27,8 +27,7 @@ export default function Channel() {
     fetchMessages();
 
     const fetchAndSetUserFromDatabase = async () => {
-      const response = await fetch(`/api/users?email=${user.email}`);
-      const users = await response.json();
+      const users = await fetchWithAuth(`/api/users?email=${user.email}`);
 
       setUserFromDatabase(users[0]);
     };
