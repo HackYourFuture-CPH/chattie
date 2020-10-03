@@ -15,7 +15,10 @@ export default function SignUpContainer() {
     email,
     password,
     passwordConfirm,
-    profileImage,
+    url,
+    name,
+    role,
+    phone,
   }) => {
     setIsLoading(true);
     const doesPasswordsMatch = getDoesPasswordsMatch({
@@ -28,7 +31,15 @@ export default function SignUpContainer() {
       alert("Passwords doesn't match");
       return;
     }
-    const response = await signUp({ email, password, profileImage });
+    const response = await signUp({
+      email,
+      password,
+      passwordConfirm,
+      url,
+      name,
+      role,
+      phone,
+    });
     if (response) {
       try {
         await fetchWithAuth('/api/users', {
@@ -39,8 +50,10 @@ export default function SignUpContainer() {
           body: JSON.stringify({
             uid: response.user.uid,
             email,
-            username: email,
-            profileImage,
+            // eslint-disable-next-line @typescript-eslint/camelcase
+            profile_image: url,
+            // eslint-disable-next-line @typescript-eslint/camelcase
+            user_name: name,
           }),
         });
         setIsSuccessful(true);

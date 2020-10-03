@@ -4,11 +4,11 @@ import './Profile.styling.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneSquare, faEnvelope } from '@fortawesome/fontawesome-free-solid';
 
-const ProfileDetails = ({ profileImage, userName, email }) => (
-  <>
+const ProfileDetails = ({ photoURL, displayName, email }) => (
+  <div className="container">
     <section className="name-image-container">
-      <img src={profileImage} className="profile-img" alt="users profile" />
-      <h2>{userName}</h2>
+      <img src={photoURL} className="profile-img" alt="users profile" />
+      <h2>{displayName}</h2>
       <p>Professional role</p>
     </section>
     <section className="users-information-container">
@@ -31,19 +31,19 @@ const ProfileDetails = ({ profileImage, userName, email }) => (
         </div>
       </div>
     </section>
-  </>
+  </div>
 );
 
 export default ProfileDetails;
 
 ProfileDetails.propTypes = {
-  userName: PropTypes.string,
+  displayName: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  profileImage: PropTypes.string,
+  photoURL: PropTypes.string.isRequired,
 };
 
-ProfileDetails.defaultProps = {
-  userName: 'My Name',
-  profileImage:
-    'https://cdn.pixabay.com/photo/2016/08/31/11/54/user-1633249_960_720.png',
-};
+// ProfileDetails.defaultProps = {
+//   displayName: 'My Name',
+//   photoURL:
+//     'https://cdn.pixabay.com/photo/2016/08/31/11/54/user-1633249_960_720.png',
+// };
