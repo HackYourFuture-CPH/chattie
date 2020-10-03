@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import './SendMessageForm.css';
+import PropTypes from 'prop-types';
+import fetchWithAuth from '../../utils/fetchWithAuth';
 
-function SendMessageForm() {
+function SendMessageForm({ channelId, userId }) {
   const [input, setInput] = useState('');
+
   const messageInputData = {
-    channelId: null,
-    userId: null,
+    channelId,
+    userId,
     message: input,
   };
-  const handleSubmit = () => {
-    fetch('/api/messages', {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    fetchWithAuth('/api/messages', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
@@ -34,4 +38,9 @@ function SendMessageForm() {
     </>
   );
 }
+
+SendMessageForm.propTypes = {
+  userId: PropTypes.number.isRequired,
+  channelId: PropTypes.string.isRequired,
+};
 export default SendMessageForm;
