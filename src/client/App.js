@@ -47,7 +47,11 @@ function App() {
           <Route exact path="/overview">
             <Overview />
           </Route>
-          <Route exact path="/channel/:id" isAuthenticated={isAuthenticated}>
+          <Route
+            exact
+            path="/channel/:channelId"
+            isAuthenticated={isAuthenticated}
+          >
             <Channel />
           </Route>
         </Switch>

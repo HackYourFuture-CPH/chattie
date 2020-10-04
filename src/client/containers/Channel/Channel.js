@@ -1,35 +1,69 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import MessageList from '../../components/MessageList/MessageList';
+import SendMessageForm from '../../components/MessageForm/SendMessageForm';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
+import fetchWithAuth from '../../utils/fetchWithAuth';
+
+const messageFetchUpdateInterval = 3000;
 
 export default function Channel() {
-  const { id } = useParams();
+  const { channelId } = useParams();
   const [messages, setMessages] = useState([]);
+  const user = useContext(UserContext);
+  const [userFromDatabase, setUserFromDatabase] = useState(null);
 
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const url = `/api/messages?channel_id=${id}`;
-        const matchedChannel = await fetch(url).then((res) => res.json());
-        setMessages(matchedChannel);
+        const url = `/api/messages?channelId=${channelId}`;
+        const channelMessages = await fetchWithAuth(url);
+        setMessages(channelMessages);
       } catch (err) {
         return <p>{err}</p>;
       }
     };
+
     fetchMessages();
-  }, [id]);
-  if (messages.length === 0) {
+
+    const fetchAndSetUserFromDatabase = async () => {
+      const users = await fetchWithAuth(`/api/users?email=${user.email}`);
+
+      setUserFromDatabase(users[0]);
+    };
+    if (user) {
+      fetchAndSetUserFromDatabase();
+    }
+
+    const interval = setInterval(() => {
+      fetchMessages();
+    }, messageFetchUpdateInterval);
+    return () => clearInterval(interval);
+  }, [channelId, user]);
+
+  const currentUserEmail = user ? user.email : '';
+
+  if (!userFromDatabase) {
     return (
       <>
-        <p>Messages not found for channel with id: {id}</p>
-        <UserContext.Consumer>
-          {(user) => {
-            const email = user ? user.email : '';
-            return <div>This is a private channels for the user: {email}.</div>;
-          }}
-        </UserContext.Consumer>
+        <div>Loading user</div>
       </>
     );
   }
-  //  return console.log(messages);
+  if (messages.length === 0) {
+    return (
+      <>
+        <div>There does not seem to be any messages here. Try sending one</div>
+        <SendMessageForm channelId={channelId} userId={userFromDatabase.id} />
+      </>
+    );
+  }
+  return (
+    <>
+      {messages && (
+        <MessageList messages={messages} currentUserEmail={currentUserEmail} />
+      )}
+      <SendMessageForm channelId={channelId} userId={userFromDatabase.id} />
+    </>
+  );
 }
