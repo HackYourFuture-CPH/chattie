@@ -35,7 +35,7 @@ export default function SignUp({ onSubmit }) {
           onChange={handleNameInput}
           required
         />
-         <input
+        <input
           type="text"
           name="role"
           placeholder="Your role"
@@ -68,7 +68,7 @@ export default function SignUp({ onSubmit }) {
           onChange={handlePasswordInput}
           required
         />
-        <input
+         <input
           type="password"
           name="password"
           placeholder="Confirm Password"
