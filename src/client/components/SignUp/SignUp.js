@@ -119,3 +119,4 @@ export default function SignUp({ onSubmit }) {
 SignUp.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
+
