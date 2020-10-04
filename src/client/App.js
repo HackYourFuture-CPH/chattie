@@ -35,7 +35,7 @@ function App() {
             <Profile />
           </AuthenticatedRoute>
           <Route exact path="/overview">
-            <Overview />
+            <Overview roomList={[]}/>
           </Route>
           <Route
             exact
