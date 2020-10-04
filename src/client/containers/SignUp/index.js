@@ -51,9 +51,9 @@ export default function SignUpContainer() {
             uid: response.user.uid,
             email,
             // eslint-disable-next-line @typescript-eslint/camelcase
-            profile_image: url,
+            profileImage: url,
             // eslint-disable-next-line @typescript-eslint/camelcase
-            user_name: name,
+            userName: name,
           }),
         });
         setIsSuccessful(true);

@@ -4,11 +4,11 @@ import './Profile.styling.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneSquare, faEnvelope } from '@fortawesome/fontawesome-free-solid';
 
-const ProfileDetails = ({ photoURL, displayName, email }) => (
+const ProfileDetails = ({ profileImage, userName, email }) => (
   <div className="container">
     <section className="name-image-container">
-      <img src={photoURL} className="profile-img" alt="users profile" />
-      <h2>{displayName}</h2>
+      <img src={profileImage} className="profile-img" alt="users profile" />
+      <h2>{userName}</h2>
       <p>Professional role</p>
     </section>
     <section className="users-information-container">
@@ -37,9 +37,9 @@ const ProfileDetails = ({ photoURL, displayName, email }) => (
 export default ProfileDetails;
 
 ProfileDetails.propTypes = {
-  displayName: PropTypes.string.isRequired,
+  userName: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  photoURL: PropTypes.string.isRequired,
+  profileImage: PropTypes.string.isRequired,
 };
 
 // ProfileDetails.defaultProps = {

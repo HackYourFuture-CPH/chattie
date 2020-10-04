@@ -63,7 +63,7 @@ export default function SignUp({ onSubmit }) {
                 placeholder="Name"
                 value={name}
                 onChange={handleNameInput}
-                required
+                // required
               />
             </div>
 
@@ -74,7 +74,7 @@ export default function SignUp({ onSubmit }) {
                 placeholder="Your role"
                 value={role}
                 onChange={handleRoleInput}
-                required
+                // required
               />
             </div>
 
@@ -97,7 +97,7 @@ export default function SignUp({ onSubmit }) {
                 value={phone}
                 pattern="[0-9]{8}"
                 onChange={handlePhoneInput}
-                required
+                // required
               />
             </div>
 
