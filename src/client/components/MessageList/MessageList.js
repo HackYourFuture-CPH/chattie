@@ -2,16 +2,24 @@ import React from 'react';
 import Message from '../Message/Message';
 import PropTypes from 'prop-types';
 import './MessageList.css';
+import ProfileImage from '../ProfileImage/ProfileImage';
 
 // Loop through all the messages in the state and create a Message component
 const MessageList = ({ messages }) => {
-  return (
-    <div className="chat-messages__container">
-      {messages.map(({ index, username, message }) => (
-        <Message key={index} username={username} text={message} />
-      ))}
-    </div>
-  );
+  const messageComponent = messages.map(({ index, username, message }) => {
+    if (index === messages.length - 1) {
+      return (
+        <>
+          <ProfileImage username={username} />
+          <Message key={index} username={username} text={message} />
+        </>
+      );
+    }
+
+    return <Message key={index} username={username} text={message} />;
+  });
+
+  return <div className="chat-messages__container">{messageComponent}</div>;
 };
 MessageList.defaultProps = {
   messages: [],
