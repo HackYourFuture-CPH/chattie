@@ -40,14 +40,14 @@ function App() {
           </Route>
           <Route
             exact
-            path="/channel/:channelId"
+            path="/channels/:channelId"
             isAuthenticated={isAuthenticated}
           >
             <Channel />
           </Route>
           <Route
             exact
-            path="/channel/:id/about"
+            path="/channels/:id/about"
             isAuthenticated={isAuthenticated}
           >
             <RenderChannelInformation />

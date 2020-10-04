@@ -1,5 +1,7 @@
 import React from 'react';
 
-export const RenderChannelInformation = () => {
-  return <h3>Here is channel info</h3>;
+export const RenderChannelInformation = ({
+  headline = 'Here is channel info',
+}) => {
+  return <h3>{headline}</h3>;
 };
