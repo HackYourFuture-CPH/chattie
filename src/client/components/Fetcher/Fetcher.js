@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import fetchWithAuth from '../../utils/fetchWithAuth';
 
 const baseUrl = `/api/users?userName=`;
 
 async function getUserData(search) {
-  const response = await fetch(`${baseUrl}${encodeURIComponent(search)}`);
-  const result = await response.json();
+  const result = await fetchWithAuth(`${baseUrl}${encodeURIComponent(search)}`);
   return result;
 }
 

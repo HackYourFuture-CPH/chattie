@@ -24,7 +24,7 @@ const getChannelMessages = async (req) => {
         .join('users', {
           'channel_messages.fk_user_id': 'users.id',
         })
-        .orderBy('channel_messages.updated_at', 'desc');
+        .orderBy('channel_messages.updated_at', 'asc');
     }
     if (sender) {
       channelMessages = channelMessages.where(
@@ -83,7 +83,6 @@ const deleteMessage = async (messagesId) => {
 const createMessage = async (body) => {
   await knex('channel_messages').insert({
     message: body.message,
-    created_at: moment().format(),
     fk_user_id: body.userId,
     fk_channel_id: body.channelId,
   });

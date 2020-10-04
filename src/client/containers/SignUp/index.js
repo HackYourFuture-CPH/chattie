@@ -3,6 +3,7 @@ import { signUp } from '../../firebase/auth';
 import UserCreationSuccess from '../../components/UserCreationSuccess/UserCreationSuccess';
 import SignUp from '../../components/SignUp/SignUp';
 import Loader from '../../components/Loader/Loader';
+import fetchWithAuth from '../../utils/fetchWithAuth';
 
 const getDoesPasswordsMatch = ({ password, passwordConfirm }) =>
   password === passwordConfirm;
@@ -30,7 +31,7 @@ export default function SignUpContainer() {
     const response = await signUp({ email, password, profileImage });
     if (response) {
       try {
-        await fetch('/api/users', {
+        await fetchWithAuth('/api/users', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
