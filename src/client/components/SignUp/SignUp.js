@@ -20,7 +20,7 @@ export default function SignUp({ onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ name, role, email, phone, password, passwordConfirm });
+    onSubmit({ name, role, email, phone, password,passwordConfirm });
   };
   return (
     <div>
@@ -35,7 +35,7 @@ export default function SignUp({ onSubmit }) {
           onChange={handleNameInput}
           required
         />
-        <input
+         <input
           type="text"
           name="role"
           placeholder="Your role"
