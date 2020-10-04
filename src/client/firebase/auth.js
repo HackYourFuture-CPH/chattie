@@ -40,14 +40,14 @@ export async function signIn({ email, password }) {
   }
 }
 
-export async function signUp({ email, password, profileImage }) {
+export async function signUp({ email, password }) {
   try {
     const user = await auth.createUserWithEmailAndPassword(email, password);
-    if (user) {
-      user.updateProfile({
-        photoURL: profileImage,
-      });
-    }
+    // if (user) {
+    //   user.updateProfile({
+    //     photoURL: profileImage,
+    //   });
+    // }
     return user;
   } catch (error) {
     handleAuthErrors(error);
