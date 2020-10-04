@@ -9,7 +9,7 @@ function Overview() {
     <UserContext.Consumer>
       {(user) => {
         const { uid, email, displayName } = user;
-        console.log(user);
+
         return (
           <div className="overview">
             <h3 className="chat-title">Chats</h3>
