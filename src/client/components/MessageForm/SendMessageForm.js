@@ -20,6 +20,7 @@ function SendMessageForm({ channelId, userId }) {
       },
       body: JSON.stringify(messageInputData),
     }).then((res) => res.json());
+    setInput('');
     // .then((messages) => console.log(messages));
   };
 
