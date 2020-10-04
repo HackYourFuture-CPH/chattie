@@ -8,7 +8,7 @@ const RoomList = ({ roomList }) => {
     <div className="outside">
       {roomList.map((room) => {
         return (
-          <div>
+          <div key={room.id}>
             <li className="list">
               <div>
                 <img className="Room-image" src={room.imageUrl} alt="" />
@@ -23,6 +23,11 @@ const RoomList = ({ roomList }) => {
 };
 
 RoomList.propTypes = {
-  roomList: PropTypes.func.isRequired,
+  roomList: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      imageUrl: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };
 export default RoomList;
