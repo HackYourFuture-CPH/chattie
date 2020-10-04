@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import RoomForm from '../../components/AddNewRoom/RoomForm';
 import '../../components/AddNewRoom/AddNewRoomStyle.css';
+import fetchWithAuth from '../../utils/fetchWithAuth';
 
 const AddNewRoom = ({ addUsers }) => {
   const [roomName, setNewRoom] = useState('');
@@ -12,13 +13,16 @@ const AddNewRoom = ({ addUsers }) => {
   // send data fucntion
   const createRoom = async (name) => {
     const response = await fetch('api/channels', {
+  const createRoom = async (data) => {
+    const response = await fetchWithAuth('api/channels', {
+
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ title: name }),
     });
-    return response.json();
+    return response;
   };
   const onCreate = async (event) => {
     event.preventDefault();
