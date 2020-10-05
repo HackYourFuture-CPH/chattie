@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Home } from './containers/Home/Home';
 import SignIn from './containers/SignIn';
@@ -11,13 +11,32 @@ import Header from './components/NavigationHeader/NavigationHeader';
 import Profile from './containers/Profile';
 import Channel from './containers/Channel/Channel';
 import Loader from './components/Loader/Loader';
+import fetchWithAuth from './utils/fetchWithAuth';
 import { UserContext } from './context/userContext';
 
 function App() {
+  const [currentUser, setCurrentUser] = useState();
   const { isAuthenticated, isLoading, user } = useAuthentication();
+
+  useEffect(() => {
+    const fetchUserFromDatabase = async () => {
+      try {
+        const { uid } = await user;
+        const url = `/api/users/current/?uid=`;
+        const userFromDB = await fetchWithAuth(url + uid);
+        return setCurrentUser(userFromDB);
+      } catch (err) {
+        return <p>{err}</p>;
+      }
+    };
+    if (user) {
+      fetchUserFromDatabase();
+    }
+  }, [user]);
+
   if (isLoading) return <Loader />;
   return (
-    <UserContext.Provider value={user}>
+    <UserContext.Provider value={currentUser}>
       <Router>
         <Header isAuthenticated={isAuthenticated} />
         <Switch>
