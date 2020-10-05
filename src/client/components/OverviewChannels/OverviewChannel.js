@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import UpdateUnreadMessages from '../UnreadMessages/UpdateUnreadMessages';
 import { useParams } from 'react-router-dom';
 
-export default function GetChannel() {
+export default function OverviewChannel() {
   const { id } = useParams();
 
   const [channel, setChannel] = useState([]);

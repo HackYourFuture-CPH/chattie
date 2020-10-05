@@ -13,6 +13,11 @@
   margin: 10px;
   text-align: center;
 }
+.overview.user-details {
+  font-display: center;
+  color: grey;
+  margin-left: 190px;
+}
 .search {
   width: 90%;
   margin: auto;

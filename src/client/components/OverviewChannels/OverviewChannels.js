@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
-function GetChannels() {
+function OverviewChannels() {
   const { channelId } = useParams();
   const [channels, setChannels] = useState([]);
 
@@ -49,4 +49,4 @@ function GetChannels() {
   );
 }
 
-export default GetChannels;
+export default OverviewChannels;
