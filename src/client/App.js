@@ -35,6 +35,7 @@ function App() {
   }, [user]);
 
   if (isLoading) return <Loader />;
+
   return (
     <UserContext.Provider value={currentUser}>
       <Router>
