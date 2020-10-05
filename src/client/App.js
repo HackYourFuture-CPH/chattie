@@ -16,16 +16,9 @@ import { UserContext } from './context/userContext';
 function App() {
   const { isAuthenticated, isLoading, user } = useAuthentication();
   const loginUser =
-    user === null
-      ? {}
-      : {
-          uid: user.uid,
-          email: user.email,
-          displayName: user.displayName,
-        };
+    user === null ? [] : [user.uid, user.email, user.displayName];
 
   if (isLoading) return <Loader />;
-
   return (
     <UserContext.Provider value={loginUser}>
       <Router>

@@ -8,18 +8,13 @@ function Overview() {
   return (
     <UserContext.Consumer>
       {(user) => {
-        const { uid, email, displayName } = user;
+        // eslint-disable-next-line no-console
+        console.log(user);
 
         return (
           <div className="overview">
             <h3 className="chat-title">Chats</h3>
-            <div className="user-details">
-              <ul>
-                <li>User ID: {uid}</li>
-                <li>Email: {email}</li>
-                <li>User Name: {displayName}</li>
-              </ul>
-            </div>
+
             <div className="search">
               <Search />
             </div>
