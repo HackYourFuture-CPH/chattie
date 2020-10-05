@@ -9,7 +9,7 @@ function Overview() {
     <UserContext.Consumer>
       {(user) => {
         if (user) {
-          const { uid, user_name, email } = user;
+          const { uid, userName, email } = user;
           return (
             <div className="overview">
               <h3 className="chat-title">Chats</h3>
@@ -17,7 +17,7 @@ function Overview() {
                 <ul>
                   <li>User ID: {uid}</li>
                   <li>Email: {email}</li>
-                  <li>User Name: {user_name}</li>
+                  <li>User Name: {userName}</li>
                 </ul>
               </div>
 

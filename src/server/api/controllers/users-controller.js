@@ -12,7 +12,13 @@ const getUsers = async () => {
 
 const getUserByUid = async (uid) => {
   const user = await knex('users')
-    .select('*')
+    .select(
+      'id',
+      'email',
+      'uid',
+      'profile_image as profileImage',
+      'user_name as userName',
+    )
     .limit(1)
     .where({ uid });
   return user.length === 1 ? user[0] : undefined;

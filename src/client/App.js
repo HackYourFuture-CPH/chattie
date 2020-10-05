@@ -16,6 +16,7 @@ import { UserContext } from './context/userContext';
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
+  const [error, setError] = useState({});
   const { isAuthenticated, isLoading, user } = useAuthentication();
 
   useEffect(() => {
@@ -23,16 +24,18 @@ function App() {
       try {
         const { uid } = await user;
         const url = `/api/users/current/?uid=`;
-        const userFromDB = await fetchWithAuth(url + uid);
-        return setCurrentUser(userFromDB);
+        await fetchWithAuth(`${url}${uid}`).then((userData) =>
+          setCurrentUser(userData),
+        );
       } catch (err) {
-        return <p>{err}</p>;
+        setError(err);
       }
     };
     if (user) {
       fetchUserFromDatabase();
     }
-  }, [user]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [error, user]);
 
   if (isLoading) return <Loader />;
 
