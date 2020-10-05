@@ -1,0 +1,60 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.main {
+  width: 100%;
+  margin: auto;
+}
+.form-input {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+.form-input button {
+  width: 150px;
+  height: 50px;
+  margin-left: 10px;
+}
+
+.wraper img {
+  width: 30px;
+  height: 30px;
+}
+
+.wraper-roomform {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+.wraper-roomform img {
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+}
+.wraper-roomform div {
+  color: red;
+}
+.back-button {
+  margin: auto;
+  width: 90%;
+}
+.back-button button {
+  width: 100px;
+  height: 50px;
+  text-align: center;
+}
+
+.container-roomform {
+  margin-top: 10px;
+  color: green;
+  width: 70%;
+  display: flex;
+  margin: auto;
+}
+.heading-members-channel {
+  text-align: center;
+  font-size: 10px;
+}

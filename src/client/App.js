@@ -12,6 +12,7 @@ import Profile from './containers/Profile';
 import Channel from './containers/Channel/Channel';
 import Loader from './components/Loader/Loader';
 import { UserContext } from './context/userContext';
+import AddPeopleToRoom from './containers/AddPeopleToRoom/AddPeopleToRoom';
 
 function App() {
   const { isAuthenticated, isLoading, user } = useAuthentication();
@@ -54,6 +55,12 @@ function App() {
           >
             <Channel />
           </Route>
+          <Route
+            exact
+            path="/add-people"
+            component={AddPeopleToRoom}
+            isAuthenticated={isAuthenticated}
+          />
         </Switch>
       </Router>
     </UserContext.Provider>
