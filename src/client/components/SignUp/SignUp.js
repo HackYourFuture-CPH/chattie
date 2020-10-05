@@ -4,6 +4,7 @@ import './SignUp.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/fontawesome-free-solid';
 import { Link } from 'react-router-dom';
+import { useStorage } from '../../hooks/useStorage.js';
 
 export default function SignUp({ onSubmit }) {
   const [name, setName] = useState('');
@@ -12,16 +13,32 @@ export default function SignUp({ onSubmit }) {
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [file, setFile] = useState('');
   const handleNameInput = (e) => setName(e.target.value);
   const handleRoleInput = (e) => setRole(e.target.value);
   const handlePhoneInput = (e) => setPhone(e.target.value);
   const handleEmailInput = (e) => setEmail(e.target.value);
   const handlePasswordInput = (e) => setPassword(e.target.value);
   const handlePasswordConfirmInput = (e) => setPasswordConfirm(e.target.value);
+  const handleFileInput = (e) => {
+    const selectedFile = e.target.files[0];
+    if (selectedFile) {
+      return setFile(selectedFile);
+    }
+  };
+  const { url } = useStorage(file);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ name, role, email, phone, password, passwordConfirm });
+    onSubmit({
+      name,
+      role,
+      email,
+      phone,
+      password,
+      passwordConfirm,
+      url,
+    });
   };
   return (
     <div>
@@ -104,6 +121,18 @@ export default function SignUp({ onSubmit }) {
                 required
               />
             </div>
+            <div>
+              <input
+                type="file"
+                name="profileImage"
+                accept="image/*"
+                multiple={false}
+                files={file}
+                onChange={handleFileInput}
+                required
+              />
+            </div>
+
             <div>
               <button className="sign-up-button" type="submit">
                 Sign up

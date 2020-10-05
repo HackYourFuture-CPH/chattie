@@ -33,6 +33,10 @@ justify-content: space-between;
   border-radius: 0px;
 }
 
+.cancel-input-in-search:hover{
+cursor: pointer;
+}
+
 .user-details {
   width: 90%;
   background-color: white;
