@@ -1,15 +1,22 @@
+.search-button{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+
 .search {
   background-color: #f2f9fb;
   border: none;
   border-radius: 10px;
-  width: 343px;
+  max-width: 343px;
+  min-width: 255px;
   height: 40px;
   left: 16px;
   top: 80px;
   padding-left: 10px;
 }
 
-.userListInSearch {
+.user-list-in-search {
   padding-top: 15px;
   display: flex;
   justify-items: flex-start;
@@ -17,13 +24,26 @@
   align-items: center;
 }
 
-.userLinkInSearch {
-  text-decoration: none;
-}
-
-.cancelInputSearch {
+.cancel-input-in-search {
   background-color: white;
   color: #4c9999;
   border: none;
   margin-left: 5px;
+  padding-left: 15px;
+  border-radius: 0px;
+}
+
+.user-details {
+  width: 90%;
+  background-color: white;
+  position: relative;
+  z-index: 10;
+  padding: 10px;
+}
+
+.user-list-in-search img {
+  width: 30%;
+  border-radius: 50%;
+  text-align: center;
+  display:block;
 }

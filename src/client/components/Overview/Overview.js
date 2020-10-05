@@ -13,9 +13,17 @@ function Overview() {
       <div className="users-list">
         <UserList />
       </div>
+
       <div className="btn-and-profile">
-        <a href="/profile">Profile</a>
-        <a href="/chats">Chats</a>
+        <div className="title-dot">
+          <a href="/Overview">Chats</a>
+          <span className="chat-dot"> </span>
+        </div>
+
+        <div className="title-dot">
+          <a href="/profile">Profile</a>
+          <span className="chat-dot white-dot"> </span>
+        </div>
       </div>
     </div>
   );
