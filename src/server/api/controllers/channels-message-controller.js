@@ -33,13 +33,15 @@ const getChannelsId = async (userId) => {
       }),
     );
     const lastMessages = messages.map((item) => item[0]);
-    /* lastMessages.sort(function(a, b) {
-      let keyA = new Date(a.updated_at), 
-          keyB = new Date(b.updated_at);
-          if (keyA < keyB) return 1;
-          if (keyA > keyB) return -1;
-          return 0;
-    }); */
+
+    lastMessages.sort(function(a, b) {
+      const keyA = new Date(a.updated_at);
+      const keyB = new Date(b.updated_at);
+      if (keyA < keyB) return 1;
+      if (keyA > keyB) return -1;
+      return 0;
+    });
+
     return lastMessages;
   } catch (error) {
     return error.message;
