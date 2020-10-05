@@ -4,6 +4,7 @@ import UserList from '../../containers/UserList/UserList';
 import Search from '../Search/Search';
 import { UserContext } from '../../context/userContext';
 import OverviewChannel from '../OverviewChannels/OverviewChannel';
+import CountUnreadMessages from '../UnreadMessages/CountUnreadMessages';
 
 function Overview() {
   return (
@@ -28,6 +29,7 @@ function Overview() {
             <div className="users-list">
               <UserList />
               <OverviewChannel />
+              <CountUnreadMessages />
             </div>
             <div className="btn-and-profile">
               <a href="/profile">Profile</a>
