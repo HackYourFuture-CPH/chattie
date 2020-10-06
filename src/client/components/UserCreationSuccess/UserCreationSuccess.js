@@ -1,11 +1,10 @@
+/* eslint-disable no-alert */
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 export default function UserCreationSuccess() {
-  return (
-    <div>
-      Your account was successfully created, you can now head over and sign in
-    </div>
-  );
+  alert('Your account was successfully created');
+  return <Redirect to="/overview" />;
 }
 
 UserCreationSuccess.propTypes = {};
