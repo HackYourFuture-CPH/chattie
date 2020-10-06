@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './SendMessageForm.css';
 import PropTypes from 'prop-types';
 import fetchWithAuth from '../../utils/fetchWithAuth';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function SendMessageForm({ channelId, userId }) {
   const [input, setInput] = useState('');
@@ -28,10 +29,7 @@ function SendMessageForm({ channelId, userId }) {
     <>
       <form onSubmit={handleSubmit} className="send-new-message-form">
         <div className="new-message-form-imag">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/List-Icon.svg/768px-List-Icon.svg.png"
-            alt=""
-          />
+          <FontAwesomeIcon icon="image" />
         </div>
         <div className="new-message-form-input">
           {' '}

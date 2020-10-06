@@ -3,7 +3,7 @@
   height: 90%;
   overflow: auto;
   display: flex;
-  flex-direction: column;
+  flex-flow: column nowrap;
 }
 
 .chat-message-ul {
