@@ -4,6 +4,7 @@ import SendMessageForm from '../../components/MessageForm/SendMessageForm';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
 import fetchWithAuth from '../../utils/fetchWithAuth';
+import ChannelHeadNav from '../../components/ChannelHeadNav/ChannelHeadNav';
 
 const messageFetchUpdateInterval = 3000;
 
@@ -53,6 +54,14 @@ export default function Channel() {
   if (messages.length === 0) {
     return (
       <>
+        <ChannelHeadNav
+          imgUrl={
+            userFromDatabase.profileImage || 'https://loremflickr.com/320/240'
+          }
+          urlBack="/overview"
+          channelName={userFromDatabase.user_name}
+          channelId={channelId}
+        />
         <div>There does not seem to be any messages here. Try sending one</div>
         <SendMessageForm channelId={channelId} userId={userFromDatabase.id} />
       </>
@@ -60,6 +69,14 @@ export default function Channel() {
   }
   return (
     <>
+      <ChannelHeadNav
+        imgUrl={
+          userFromDatabase.profileImage || 'https://loremflickr.com/320/240'
+        }
+        urlBack="/overview"
+        channelName={userFromDatabase.user_name}
+        channelId={channelId}
+      />
       {messages && (
         <MessageList messages={messages} currentUserEmail={currentUserEmail} />
       )}
