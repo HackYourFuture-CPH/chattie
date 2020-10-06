@@ -8,9 +8,9 @@ const RoomList = ({ roomList }) => {
     <div className="outside">
       {roomList.map((room) => {
         return (
-          <div key={room.id}>
+          <div key={room.title}>
             <li className="list">
-              <div>
+              <div className="pic-and-title">
                 <img className="Room-image" src={room.imageUrl} alt="" />
                 <label className="Room-title">{room.title}</label>
               </div>
