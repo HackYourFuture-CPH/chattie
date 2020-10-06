@@ -1,0 +1,47 @@
+.footer-chat-profile {
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgba(255, 255, 255, 0.8);
+  bottom: 0;
+  left:0;
+  right: 0;
+  position: fixed;
+}
+
+.footer-chat-profile a:hover {
+  text-decoration: none;
+  color: #3e99c0;
+}
+
+.title-dot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chat-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #3e99c0;
+  position: fixed;
+  bottom: -8px;
+}
+
+/* desible it, when it's profile page and put a class to chat */
+.overview-active-link{
+  font-weight: bold;
+}
+
+/* desible it, when it's profile page and put a class to chat */
+.white-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: -8px;
+}
+

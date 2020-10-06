@@ -3,6 +3,7 @@ import './Overview.styles.css';
 import UserList from '../../containers/UserList/UserList';
 import Search from '../Search/Search';
 import { UserContext } from '../../context/userContext';
+import FooterChatProfole from '../footerChatProfile/FooterChatProfile';
 
 function Overview() {
   return (
@@ -22,17 +23,7 @@ function Overview() {
               <UserList />
             </div>
 
-            <div className="btn-and-profile">
-              <div className="title-dot">
-                <a href="/Overview">Chats</a>
-                <span className="chat-dot"> </span>
-              </div>
-
-              <div className="title-dot">
-                <a href="/profile">Profile</a>
-                <span className="chat-dot white-dot"> </span>
-              </div>
-            </div>
+            <FooterChatProfole />
           </div>
         );
       }}
