@@ -10,9 +10,5 @@ export default {
   },
 };
 
-export const Component1 = () => (
-  <UpdateUnreadMessages title="updateUnreadMessages" />
-);
-export const Component2 = () => (
-  <CountUnreadMessages title="countUnreadMessages" />
-);
+export const Component1 = () => <UpdateUnreadMessages />;
+export const Component2 = () => <CountUnreadMessages />;

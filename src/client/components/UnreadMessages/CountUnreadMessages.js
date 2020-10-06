@@ -10,19 +10,19 @@ function CountUnreadMessages() {
   useEffect(() => {
     let mounted = true;
     if (mounted) {
-      const unReadedMessages = async () => {
+      const fetchUnreadMessages = async () => {
         try {
           const getUnreadMessages = await fetch(
             `/api/unread?userId=${userId}&channelId=${channelId}`,
-          ).then((response) => response.json());
-
-          setUnreadMessages(getUnreadMessages);
-        } catch (erro) {
-          return erro;
+          );
+          const getResult = await getUnreadMessages.json();
+          setUnreadMessages(getResult);
+        } catch (error) {
+          console.log(error);
         }
       };
 
-      unReadedMessages();
+      fetchUnreadMessages();
     }
 
     return () => {
@@ -32,15 +32,15 @@ function CountUnreadMessages() {
 
   const courentUnreadMessages = [];
   const unreads = unreadMessages
-    .map((unreadM) => {
-      return unreadM.unread;
+    .map((u) => {
+      return u.unread;
     })
     .reduce((a, b) => a + b, 0);
   courentUnreadMessages.push(unreads);
 
   return (
     <div className="number-of-unread-messages">
-      <p className="font-weight">{courentUnreadMessages} </p>
+      <p>{courentUnreadMessages} </p>
     </div>
   );
 }
