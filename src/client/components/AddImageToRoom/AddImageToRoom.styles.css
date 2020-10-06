@@ -1,0 +1,38 @@
+.add-image-to-room-input-file {
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.add-image-to-room-label {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  padding-top: 12px;
+  color: white;
+  background-color: #a6c5d7;
+  display: inline-block;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  position: relative;
+}
+
+#root {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.add-image-to-room :hover {
+  cursor: pointer;
+}
+
+.add-image-to-room-image-preview img {
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
