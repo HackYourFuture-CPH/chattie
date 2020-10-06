@@ -6,6 +6,7 @@ function CountUnreadMessages() {
   const { userId, channelId } = useParams();
 
   const [unreadMessages, setUnreadMessages] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     let mounted = true;
@@ -17,8 +18,8 @@ function CountUnreadMessages() {
           );
           const getResult = await getUnreadMessages.json();
           setUnreadMessages(getResult);
-        } catch (error) {
-          console.log(error);
+        } catch (e) {
+          setError(e);
         }
       };
 
@@ -39,9 +40,12 @@ function CountUnreadMessages() {
   courentUnreadMessages.push(unreads);
 
   return (
-    <div className="number-of-unread-messages">
-      <p>{courentUnreadMessages} </p>
-    </div>
+    <>
+      <div className="number-of-unread-messages">
+        <p>{courentUnreadMessages} </p>
+      </div>
+      <error />
+    </>
   );
 }
 
