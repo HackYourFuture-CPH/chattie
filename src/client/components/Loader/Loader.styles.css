@@ -1,23 +1,53 @@
-.loading:after {
-  content: '.';
-  animation: dots 1s steps(5, end) infinite;
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  justify-content: space-around;
+  margin: 0 auto;
+  max-width: 650px;
+  min-width: 200px;
 }
 
-@keyframes dots {
-  0%,
-  20% {
-    color: rgba(0, 0, 0, 0);
-    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0);
+.container .canvas {
+  align-items: center;
+  background: #eeeeee;
+  border-radius: 50%;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  height: 10em;
+  justify-content: center;
+  margin: 1em 1em 2em 1em;
+  width: 10em;
+}
+
+.container .canvas .hour-glass {
+  animation: hour-glass 1s linear infinite;
+  border: solid 1.5em #1e857c;
+  border-right: solid 1.5em transparent;
+  border-left: solid 1.5em transparent;
+  border-radius: 100%;
+  width: 0;
+  height: 0;
+}
+
+@keyframes hour-glass {
+  0% {
+    transform: rotate(0deg);
   }
-  40% {
-    color: black;
-    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0);
+  50% {
+    transform: rotate(60deg);
   }
-  60% {
-    text-shadow: 0.25em 0 0 black, 0.5em 0 0 rgba(0, 0, 0, 0);
-  }
-  80%,
   100% {
-    text-shadow: 0.25em 0 0 black, 0.5em 0 0 black;
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    align-items: center;
+    flex-direction: column;
+  }
+  .canvas {
+    margin: 1em;
   }
 }
