@@ -1,11 +1,14 @@
 import React from 'react';
 import './AddPeopleToRoom.css';
 import PropTypes from 'prop-types';
+import DisplayUserInGroup from './DisplayUserInGroup';
+import DiplayListOFUsers from './DiplayListOFUsers';
 
 export default function AddPeopleToRoom({
-  DiplayListOFUsers,
-  displayUserInGroup,
+  onRemoveFromGroup,
   users,
+  input,
+  addUserInGroup,
   addUsers,
   onChangeInput,
   nextToGroup,
@@ -23,24 +26,40 @@ export default function AddPeopleToRoom({
         </div>
       </div>
 
-      <div className="inputsearch">
-        <input type="text" placeholder="Search" onChange={onChangeInput} />
+      <div className="input-search">
+        <input
+          type="text"
+          placeholder="Search for user"
+          onChange={onChangeInput}
+        />
         <button type="button" className="next-button" onClick={nextToGroup}>
           Next
         </button>
       </div>
 
-      <div className="add-people">{displayUserInGroup()}</div>
-
-      <div className="list-people">{DiplayListOFUsers()}</div>
+      <div className="add-people">
+        <DisplayUserInGroup
+          addUsers={addUsers}
+          onRemoveFromGroup={(id) => onRemoveFromGroup(id)}
+        />
+      </div>
+      <div className="list-people">
+        <DiplayListOFUsers
+          users={users}
+          input={input}
+          addUserInGroup={(id) => addUserInGroup(id)}
+        />
+      </div>
     </div>
   );
 }
+
 AddPeopleToRoom.propTypes = {
-  DiplayListOFUsers: PropTypes.func.isRequired,
-  displayUserInGroup: PropTypes.func.isRequired,
-  users: PropTypes.objectOf.isRequired,
-  addUsers: PropTypes.objectOf.isRequired,
+  onRemoveFromGroup: PropTypes.func.isRequired,
+  addUsers: PropTypes.arrayOf(Object).isRequired,
+  users: PropTypes.arrayOf(Object).isRequired,
+  addUserInGroup: PropTypes.func.isRequired,
   onChangeInput: PropTypes.func.isRequired,
   nextToGroup: PropTypes.func.isRequired,
+  input: PropTypes.string.isRequired,
 };

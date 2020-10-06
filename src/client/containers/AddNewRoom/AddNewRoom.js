@@ -41,19 +41,9 @@ const AddNewRoom = ({ addUsers }) => {
     });
   } //  end  if statement
 
-  // add dispaly people in group
-  const displaypeopleInGroup = () => {
-    return addUsers.map((user) => (
-      <div className="wraper-roomform">
-        <img src={user.profile_image} alt="user pic" />
-        <div>{user.user_name}</div>
-      </div>
-    ));
-  };
-
   // back button that is move to back app people to room page
   const backToAddPeople = () => {
-    window.location.assign('./addpeople');
+    window.location.assign('./add-people');
   };
 
   return (
@@ -63,14 +53,14 @@ const AddNewRoom = ({ addUsers }) => {
         inputChange={(e) => inputChange(e)}
         roomName={roomName}
         roomId={roomId}
-        displaypeopleInGroup={displaypeopleInGroup}
         backToAddPeople={backToAddPeople}
+        addUsers={addUsers}
       />
     </>
   );
 };
 AddNewRoom.propTypes = {
-  addUsers: PropTypes.objectOf.isRequired,
+  addUsers: PropTypes.arrayOf(Object).isRequired,
 };
 
 export default AddNewRoom;

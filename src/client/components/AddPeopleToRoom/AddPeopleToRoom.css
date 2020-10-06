@@ -25,12 +25,12 @@
   flex-direction: column;
   align-items: center;
   margin: auto;
-  color:red;
+  color: red;
 }
 .list-name span {
   color: black;
 }
-.inputsearch {
+.input-search {
   width: 90%;
   margin: auto;
   display: flex;
@@ -82,11 +82,11 @@ input {
   width: 50px;
   height: 50px;
 }
-.plusSign {
+.plus-sign {
   margin-left: auto;
   color: green;
 }
-.xSign {
+.x-sign {
   color: red;
 }
 /*Groupchat */
