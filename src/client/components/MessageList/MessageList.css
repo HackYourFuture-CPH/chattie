@@ -3,7 +3,7 @@
   height: 90%;
   overflow: auto;
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column-reverse;
 }
 
 .chat-message-ul {
