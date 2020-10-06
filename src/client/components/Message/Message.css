@@ -1,32 +1,17 @@
 .current-user-message, .other-users-message {
-  background: #f3f3f3;
-  border-radius: 20px;
-  padding: 5px 20px;
+  border-radius: 10px;
+  padding: 3%;
   color: white;
   display: inline-block;
   max-width: 80%;
-}
-
-.chat-message-text {
-  float: left;
-  font-size: 1.1em;
-  width: fit-content;
-  margin-bottom: 30px;
+  margin: 2% 0;
 }
 
 .chat-message-container {
   display: flex;
   flex-direction: column;
   padding: 0 5%;
-  margin-top: 3px;
-}
-
-.pl-10 {
-  padding-left: 10px;
-}
-
-.pr-10 {
-  padding-right: 10px;
+  margin: 5% 0;
 }
 
 .chat-message-container .current-user-message {
@@ -36,7 +21,33 @@
 }
 
 .chat-message-container .other-users-message {
-  background: #f3f3f3;
   color: #353535;
   align-self: flex-start;
+}
+
+.other-users-message .chat-message-text {
+  background: #f3f3f3;
+  border-radius: 10px;
+  padding: 5%;
+}
+
+.chat-message-text {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.other-users-message .messenge-photo {
+  display: flex;
+}
+
+.other-users-message .messenge-photo img {
+  align-self: baseline;
+  width: 20%;
+  margin-right: 5%;
+}
+
+.other-users-message .user-name {
+  text-align: left;
+  font-size: 12px;
+  margin-left: 25%;
 }
