@@ -20,11 +20,11 @@ function App() {
   const { isAuthenticated, isLoading, user } = useAuthentication();
 
   useEffect(() => {
-    const fetchUserFromDatabase = async () => {
+    const fetchUserFromDatabase = () => {
       try {
-        const { uid } = await user;
+        const { uid } = user;
         const url = `/api/users/current/?uid=`;
-        await fetchWithAuth(`${url}${uid}`).then((userData) =>
+        fetchWithAuth(`${url}${uid}`).then((userData) =>
           setCurrentUser(userData),
         );
       } catch (err) {
