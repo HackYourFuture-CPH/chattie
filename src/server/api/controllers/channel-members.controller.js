@@ -2,6 +2,20 @@ const knex = require('../../config/db');
 const Error = require('../lib/utils/http-error');
 const moment = require('moment-timezone');
 
+const getChannelMembersByChannelId = async (channelId) => {
+  const channelMembers = await knex('channel_members')
+    .select(
+      'users.email',
+      'users.user_name as userName',
+      'users.profile_image as profileImage',
+    )
+    .where('channel_members.fk_channel_id', channelId)
+    .join('users', {
+      'channel_members.fk_user_id': 'users.id',
+    });
+  return channelMembers;
+};
+
 const getChannelMemberById = async (id) => {
   try {
     const channelMemberById = await knex('channel_members')
@@ -112,6 +126,7 @@ const editChannelMembers = async (channelMemberId, updatedChannelMember) => {
 module.exports = {
   createChannelMember,
   deleteChannelMember,
+  getChannelMembersByChannelId,
   getChannelMemberById,
   checkForGeneralChannels,
   getCommonChannels,

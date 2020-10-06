@@ -55,6 +55,35 @@ router.get('/common-channels', (req, res) => {
 
 /**
  * @swagger
+ * /channel-members/membersInfo:
+ *  get:
+ *    summary: Get channel members profile details by channel id
+ *    description:
+ *      Will return single user with a matching channel ID.
+ *    produces: application/json
+ *    parameters:
+ *     - in: query
+ *       name: channelId
+ *       schema:
+ *         type: string
+ *         required: true
+ *         description: channel id
+ *
+ *    responses:
+ *      200:
+ *        description: Successful request
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.get('/membersInfo', (req, res, next) => {
+  channelMembersController
+    .getChannelMembersByChannelId(req.query.channelId)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+
+/**
+ * @swagger
  * /channel-members/{ID}:
  *  delete:
  *    summary: Delete a channel member

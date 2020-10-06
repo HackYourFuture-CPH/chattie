@@ -15,7 +15,7 @@ const getChannelsById = async (id) => {
     .select('channels.id as id', 'title')
     .where({ id });
 
-  return channels;
+  return channels[0];
 };
 
 const getFilteredChannels = async ({
