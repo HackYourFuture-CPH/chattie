@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './SearchMessages.css';
+import fetchWithAuth from '../../utils/fetchWithAuth';
 
 function SearchMessages() {
   const [searchTerm, setsearchTerm] = useState('Search');
@@ -10,9 +11,9 @@ function SearchMessages() {
   }
 
   function handleSubmit() {
-    fetch(`/api/messages?query=${searchTerm}`)
-      .then((response) => response.json())
-      .then((data) => setsearchResults(data.messages));
+    fetchWithAuth(`/api/messages?query=${searchTerm}`).then((data) =>
+      setsearchResults(data.messages),
+    );
     const filteredResults = setsearchResults.forEach((message) => {
       message.toLowerCase().includes(searchTerm.toLowerCase());
     });

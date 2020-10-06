@@ -1,26 +1,38 @@
+/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable camelcase */
 import React from 'react';
-import './Message.css';
 import PropTypes from 'prop-types';
+import './Message.css';
 
-// chat needs to be aligned to right or left based on the user
-const Message = ({ text }) => {
-  const isWrittenByUser = true;
-  return isWrittenByUser ? (
-    <div className="chat-messageContainer justifyEnd">
-      <div className="chat-messageBox backgroundBlue">
-        <p className="chat-messageText colorWhite">{text}</p>
-      </div>
-    </div>
+export default function Message({
+  id,
+  profile_image,
+  userName,
+  message,
+  email,
+  currentUserEmail,
+}) {
+  const isCurrentUser = email === currentUserEmail;
+  return isCurrentUser ? (
+    <li key={id} className="current-user-message">
+      <p className="chat-message-text">{message}</p>
+    </li>
   ) : (
-    <div className="chat-messageContainer justifyStart">
-      <div className="chat-messageBox backgroundLight">
-        <p className="chat-messageText colorDark">{text}</p>
+    <li key={id} className="other-users-message">
+      <div className="messenge-photo">
+        <img src={profile_image} alt={profile_image} />
+        <p className="chat-message-text">{message}</p>
       </div>
-    </div>
+      <p className="user-name">{userName}</p>
+    </li>
   );
-};
+}
 
 Message.propTypes = {
-  text: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  userName: PropTypes.string.isRequired,
+  profile_image: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  currentUserEmail: PropTypes.string.isRequired,
 };
-export default Message;
