@@ -36,7 +36,7 @@ const unreadMessagesController = require('../controllers/unread-controller');
 
 router.get('/', (req, res, next) => {
   unreadMessagesController
-    .getUnReadMessages(req)
+    .getUnreadMessages(req)
     .then((result) => res.json(result))
     .catch(next);
 });
@@ -71,7 +71,7 @@ router.get('/', (req, res, next) => {
 
 router.patch('/:id', (req, res) => {
   unreadMessagesController
-    .upDateUnReadMessages(req)
+    .updateUnreadMessages(req)
     .then((result) => res.json(result))
     .catch(() => {
       res

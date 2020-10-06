@@ -1,50 +1,57 @@
-.sign-up-icon-title {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.sign-up-forms{
+.sign-in {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.sign-up-icon {
+.sign-in-icon-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+}
+
+.sign-in-icon {
   font-size: 30px;
   color: #3e99c0;
   margin-left: 10%;
 }
 
-.sign-up-title {
+.sign-in-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-in-title {
   color: black;
   margin-left: 30%;
 }
 
-.sign-up-form input {
+.sign-in-email input,
+.sign-in-password input {
   display: inline-block;
-  width: 295px;
   outline: 0;
   border-width: 0 0 1px;
   border-color: rgb(237, 233, 233);
+  width: 295px;
+}
+
+.sign-in-email input {
+  margin-top: 65px;
   margin-bottom: 30px;
 }
 
-.sign-up-name{
-  margin-top: 65px;
-}
-
-.sign-up-button {
+.sign-in-button {
   background-color: #3e99c0;
   border-radius: 8px;
   border-width: 0px;
   font-weight: 295;
   color: rgb(255, 255, 255);
+  text-align: center;
   padding: 5px;
   font-size: 17px;
   width: 295px;
   height: 48px;
   margin-top: 30%;
-  text-align: center;
 }

@@ -1,4 +1,4 @@
-.channel-head-div {
+.channel-head-navigation {
   position: relative;
   height: 10vh;
   background-color: lightblue;
@@ -7,24 +7,33 @@
   flex-direction: row;
   align-items: center;
 }
-.channel-head-div .channel-head-back-arrow-icon {
+.channel-head-navigation .channel-head-back-arrow-icon {
   position: relative;
   font-weight: bold;
   color: blue;
   text-decoration-line: none;
 }
-.channel-head-div .channel-head-back-arrow-icon h2 {
+.channel-head-navigation .channel-head-back-arrow-icon h2 {
   position: relative;
   margin: auto 10px;
 }
-.channel-head-div .channel-head-img {
+.channel-head-navigation .channel-head-img {
   position: relative;
   border-radius: 50%;
   height: 90%;
+  max-width: 15%;
 }
-.channel-head-div .channel-head-name {
+.channel-head-navigation .channel-head-name {
   position: relative;
   margin: auto 10px;
   color: black;
   margin-left: 20px;
+}
+.channel-head-navigation .channel-information-button {
+  font-weight: bold;
+  color: black;
+  height: fit-content;
+  float: right;
+  margin: auto;
+  margin-right: 5px;
 }

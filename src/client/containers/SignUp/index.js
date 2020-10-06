@@ -3,6 +3,7 @@ import { signUp } from '../../firebase/auth';
 import UserCreationSuccess from '../../components/UserCreationSuccess/UserCreationSuccess';
 import SignUp from '../../components/SignUp/SignUp';
 import Loader from '../../components/Loader/Loader';
+import fetchWithAuth from '../../utils/fetchWithAuth';
 
 const getDoesPasswordsMatch = ({ password, passwordConfirm }) =>
   password === passwordConfirm;
@@ -10,7 +11,15 @@ const getDoesPasswordsMatch = ({ password, passwordConfirm }) =>
 export default function SignUpContainer() {
   const [isSuccessful, setIsSuccessful] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const onSubmit = async ({ email, password, passwordConfirm }) => {
+  const onSubmit = async ({
+    email,
+    password,
+    passwordConfirm,
+    url,
+    name,
+    role,
+    phone,
+  }) => {
     setIsLoading(true);
     const doesPasswordsMatch = getDoesPasswordsMatch({
       password,
@@ -22,10 +31,18 @@ export default function SignUpContainer() {
       alert("Passwords doesn't match");
       return;
     }
-    const response = await signUp({ email, password });
+    const response = await signUp({
+      email,
+      password,
+      passwordConfirm,
+      url,
+      name,
+      role,
+      phone,
+    });
     if (response) {
       try {
-        await fetch('/api/users', {
+        await fetchWithAuth('/api/users', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -33,7 +50,10 @@ export default function SignUpContainer() {
           body: JSON.stringify({
             uid: response.user.uid,
             email,
-            username: email,
+            // eslint-disable-next-line @typescript-eslint/camelcase
+            profileImage: url,
+            // eslint-disable-next-line @typescript-eslint/camelcase
+            userName: name,
           }),
         });
         setIsSuccessful(true);

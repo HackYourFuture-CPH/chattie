@@ -1,8 +1,7 @@
 const knex = require('../../config/db');
 
-const getUnReadMessages = async (req) => {
+const getUnreadMessages = async (req) => {
   const { userId, channelId } = req.query;
-  console.log(userId);
   let unreadMessages = knex('unread_messages').distinct('*');
   try {
     if (userId) {
@@ -26,7 +25,7 @@ const getUnReadMessages = async (req) => {
   }
 };
 
-const upDateUnReadMessages = async (req) => {
+const updateUnreadMessages = async (req) => {
   const { id } = req.params;
   const { userId, channelId } = req.body;
   try {
@@ -42,7 +41,7 @@ const upDateUnReadMessages = async (req) => {
   }
 };
 
-const createUnReadMessages = async (body) => {
+const createUnreadMessages = async (body) => {
   await knex('unread_messages').insert({
     unread: body.unread,
     fk_user_id: body.userId,
@@ -56,7 +55,7 @@ const createUnReadMessages = async (body) => {
 };
 
 module.exports = {
-  getUnReadMessages,
-  upDateUnReadMessages,
-  createUnReadMessages,
+  getUnreadMessages,
+  updateUnreadMessages,
+  createUnreadMessages,
 };
