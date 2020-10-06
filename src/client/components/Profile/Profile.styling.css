@@ -1,6 +1,4 @@
-.header-profile ul,
-.user-email,
-.user-phone {
+.header-profile ul, .user-email, .user-phone {
   display: flex;
 }
 
@@ -17,7 +15,7 @@
 }
 
 .svg-inline--fa {
-  color: #007677;
+  color: #3e99c0;
 }
 
 .svg-inline--fa.fa-w-16 {
@@ -35,8 +33,7 @@
   margin-top: 5%;
 }
 
-.email-info,
-.phone-info {
+.email-info, .phone-info {
   text-align: left;
   line-height: 0.5;
 }
@@ -48,8 +45,7 @@
   align-items: center;
 }
 
-.user-email,
-.user-phone {
+.user-email, .user-phone {
   border-radius: 15px;
   box-shadow: 2px 2px 4px #2b3233;
   padding: 1%;
@@ -59,11 +55,7 @@
 
 .name-image-container {
   background-color: #ffb127;
-  background-image: -webkit-linear-gradient(
-    -75deg,
-    #ffb127 49.95%,
-    #ffffff 50.05%
-  );
+  background-image: -webkit-linear-gradient( -75deg, #ffb127 49.95%, #ffffff 50.05%);
   min-height: 50px;
 }
 
