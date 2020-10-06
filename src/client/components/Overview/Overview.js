@@ -3,7 +3,7 @@ import './Overview.styles.css';
 import UserList from '../../containers/UserList/UserList';
 import Search from '../Search/Search';
 import { UserContext } from '../../context/userContext';
-import OverviewChannel from '../OverviewChannels/OverviewChannel';
+import OverviewChannels from '../OverviewChannels/OverviewChannels';
 import CountUnreadMessages from '../UnreadMessages/CountUnreadMessages';
 
 function Overview() {
@@ -28,7 +28,7 @@ function Overview() {
             </div>
             <div className="users-list">
               <UserList />
-              <OverviewChannel />
+              <OverviewChannels />
               <CountUnreadMessages />
             </div>
             <div className="btn-and-profile">
