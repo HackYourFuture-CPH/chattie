@@ -8,7 +8,7 @@ import './MessageList.css';
 const MessageList = ({ messages, currentUserEmail }) => {
   return (
     <div className="chat-message-container">
-      <ul className="chat-message-ul">
+      <ul className="chat-message">
         {messages.map(({ id, message, userName, profile_image, email }) =>
           Message({
             id,

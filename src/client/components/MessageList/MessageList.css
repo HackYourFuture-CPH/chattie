@@ -6,7 +6,7 @@
   flex-direction: column-reverse;
 }
 
-.chat-message-ul {
+.chat-message {
   width: 90%;
   height: 100%;
   margin: auto;
