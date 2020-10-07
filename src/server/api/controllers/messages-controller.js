@@ -65,30 +65,40 @@ const getMessageById = async (id) => {
 };
 
 const editMessage = async (messageId, updatedMessage) => {
-  return knex('channel_messages')
-    .where('id', '=', messageId)
-    .update({
-      message: updatedMessage.message,
-      fk_channel_id: updatedMessage.channelId,
-      fk_user_id: updatedMessage.userId,
-      updated_at: moment().format(),
-    });
+  return knex('channel_messages').where('id', '=', messageId).update({
+    message: updatedMessage.message,
+    fk_channel_id: updatedMessage.channelId,
+    fk_user_id: updatedMessage.userId,
+    updated_at: moment().format(),
+  });
 };
 const deleteMessage = async (messagesId) => {
-  return knex('channel_messages')
-    .where({ id: messagesId })
-    .del();
+  return knex('channel_messages').where({ id: messagesId }).del();
 };
 
 const createMessage = async (body) => {
-  await knex('channel_messages').insert({
+  const newMessage = {
     message: body.message,
     fk_user_id: body.userId,
     fk_channel_id: body.channelId,
+  };
+  const messageId = await knex('channel_messages').insert(newMessage);
+  const usersInChannel = await knex
+    .select('fk_user_id')
+    .from('channel_members')
+    .where({ fk_channel_id: body.channelId });
+  usersInChannel.forEach(async () => {
+    const addNewRow = await knex('unread_messages').insert({
+      unread: 1,
+      fk_user_id: body.userId,
+      fk_channel_id: body.channelId,
+    });
+    return addNewRow;
   });
 
   return {
     successful: true,
+    id: messageId[0],
   };
 };
 

@@ -1,8 +1,8 @@
-exports.seed = function(knex) {
+exports.seed = function (knex) {
   // Deletes ALL existing entries
   return knex('notifications')
     .del()
-    .then(function() {
+    .then(function () {
       // Inserts seed entries
       return knex('notifications').insert([
         {
@@ -19,7 +19,7 @@ exports.seed = function(knex) {
           fk_user_id: 2,
           message: 'You have 5 unread messages',
           has_been_read: false,
-          created_at: '2020-10-01 12:10:00',
+          created_at: '2020-09-01 12:10:00',
           updated_at: '2020-10-01 12:10:00',
           deleted_at: '2020-10-01 12:10:00',
         },
@@ -28,7 +28,7 @@ exports.seed = function(knex) {
           fk_user_id: 3,
           message: 'You have successfully updated name',
           has_been_read: false,
-          created_at: '2020-10-01 12:00:00',
+          created_at: '2020-09-11 12:00:00',
           updated_at: '2020-10-01 12:00:00',
           deleted_at: '2020-10-01 12:10:00',
         },
@@ -37,7 +37,7 @@ exports.seed = function(knex) {
           fk_user_id: 4,
           message: 'you have 2 unread messages',
           has_been_read: false,
-          created_at: '2020-10-01 12:10:00',
+          created_at: '2020-08-01 12:10:00',
           updated_at: '2020-10-01 12:10:00',
           deleted_at: '2020-10-01 12:10:00',
         },
@@ -46,7 +46,7 @@ exports.seed = function(knex) {
           fk_user_id: 5,
           message: 'you have successfully updated your phone number',
           has_been_read: true,
-          created_at: '2020-10-01 12:10:00',
+          created_at: '2020-08-13 12:10:00',
           updated_at: '2020-10-01 12:10:00',
           deleted_at: '2020-10-01 12:10:00',
         },
@@ -55,7 +55,7 @@ exports.seed = function(knex) {
           fk_user_id: 6,
           message: 'you have 3 unread messages',
           has_been_read: false,
-          created_at: '2020-10-01 12:10:00',
+          created_at: '2020-11-23 12:10:00',
           updated_at: '2020-10-01 12:10:00',
           deleted_at: '2020-10-01 12:10:00',
         },

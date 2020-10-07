@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Profile.styling.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import SignOutButton from '../SignOut/SignOut';
 import { faPhoneSquare, faEnvelope } from '@fortawesome/fontawesome-free-solid';
 
 const ProfileDetails = ({ profileImage, userName, email }) => (
@@ -30,6 +31,9 @@ const ProfileDetails = ({ profileImage, userName, email }) => (
           <p>+45 -- -- -- --</p>
         </div>
       </div>
+    </section>
+    <section>
+      <SignOutButton />
     </section>
   </div>
 );

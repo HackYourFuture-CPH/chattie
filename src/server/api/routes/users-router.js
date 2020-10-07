@@ -51,7 +51,7 @@ router.delete('/:id', (req, res) => {
  *         type: integer
  *         description: The numbers of users to return
  *     - in: query
- *       name: searchUserName
+ *       name: userName
  *       schema:
  *         type: string
  *         description: Get users that partially matches the specified username
@@ -61,7 +61,7 @@ router.delete('/:id', (req, res) => {
  *         type: string
  *         description: Get users that partially matches the specified profileImageUrl
  *     - in: query
- *       name: searchUserEmail
+ *       name: email
  *       schema:
  *         type: string
  *         description: Get users that partially matches the specified user-email
@@ -185,10 +185,7 @@ router.post('/', (req, res) => {
     .createUser(req.body)
     .then((result) => res.json(result))
     .catch(() => {
-      res
-        .status(400)
-        .send('Bad request')
-        .end();
+      res.status(400).send('Bad request').end();
     });
 });
 
