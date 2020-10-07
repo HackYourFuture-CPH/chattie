@@ -33,7 +33,7 @@ export const OnStartChat = () => {
         }),
       });
 
-      history.push(`/channel/${newlyCreatedChannelId}`);
+      history.push(`/channels/${newlyCreatedChannelId}`);
     }
   };
   return { user, onCreateConversation };
