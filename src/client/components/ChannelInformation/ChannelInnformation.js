@@ -2,17 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './ChannelInformation.style.css';
 
-export const RenderChannelInformation = ({
-  channelImg,
-  channelTitle,
-  members,
-}) => {
+export const RenderChannelInformation = ({ image, title, members }) => {
   return (
     <>
       <div className="channel-information-header">
-        <img src={channelImg} alt="Room" className="channel-information-img" />
+        <img src={image} alt="Room" className="channel-information-img" />
       </div>
-      <h3 className="channel-information-title">{channelTitle}</h3>
+      <h3 className="channel-information-title">{title}</h3>
       <div className="channel-information-main">
         {members &&
           members.map((member) => {
@@ -32,17 +28,12 @@ export const RenderChannelInformation = ({
   );
 };
 RenderChannelInformation.propTypes = {
-  channelImg: PropTypes.string,
-  channelTitle: PropTypes.string,
+  image: PropTypes.string,
+  title: PropTypes.string,
   members: PropTypes.arrayOf(PropTypes.object),
 };
 RenderChannelInformation.defaultProps = {
-  channelImg: 'https://loremflickr.com/320/240',
-  channelTitle: 'Room',
-  members: [
-    { name: 'Member', imgUrl: 'https://loremflickr.com/320/240' },
-    { name: 'Member', imgUrl: 'https://loremflickr.com/320/240' },
-    { name: 'Member', imgUrl: 'https://loremflickr.com/320/240' },
-    { name: 'Member', imgUrl: 'https://loremflickr.com/320/240' },
-  ],
+  image: '',
+  title: '',
+  members: [],
 };
