@@ -11,7 +11,7 @@ export default function DisplayUserInGroup({ addedUsers, onRemoveFromGroup }) {
         <img src={user.profile_image} alt="users_image" />
         <div>{user.user_name}</div>
         <div role="presentation" onClick={() => onRemoveFromGroup(user.id)}>
-          <FontAwesomeIcon icon={faMinusSquare} />
+          <FontAwesomeIcon icon={faMinusSquare} className="icons-color" />
         </div>
       </div>
     ));
