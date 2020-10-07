@@ -46,7 +46,7 @@ function App() {
             <Profile />
           </AuthenticatedRoute>
           <Route exact path="/overview">
-            <Overview roomList={[]} />
+            <Overview />
           </Route>
           <Route
             exact
