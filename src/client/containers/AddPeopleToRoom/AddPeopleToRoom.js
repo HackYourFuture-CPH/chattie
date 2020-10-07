@@ -2,17 +2,21 @@ import React, { useEffect, useState } from 'react';
 import AddPeopleToRoomForm from '../../components/AddPeopleToRoom/AddPeopleToRoomForm';
 import '../../components/AddPeopleToRoom/AddPeopleToRoom.css';
 import AddNewRoom from '../AddNewRoom/AddNewRoom';
+import fetchWithAuth from '../../utils/fetchWithAuth';
 
 export default function AddPeopleToRoom() {
   const [users, setUsers] = useState([]); // this is use to control the data from api
   const [addedUsers, setAddedUsers] = useState([]); //  this is use to add user to usersgroup
   const [input, setInput] = useState(''); //  this is use to handle the input from user to search out
   const [toAddRoom, setToAddRoom] = useState(false); //  thi is use to move to next page
+
   const url = 'api/users';
   useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((user) => setUsers(user));
+    async function fetchUsers() {
+      const response = await fetchWithAuth(url);
+      setUsers(response);
+    }
+    fetchUsers();
   }, []);
 
   // Add users in group list by using click
