@@ -3,10 +3,9 @@ import './Overview.styles.css';
 import UserList from '../../containers/UserList/UserList';
 import Search from '../Search/Search';
 import RoomListOverview from '../RoomListOverview/RoomListOverview';
-import PropTypes from 'prop-types';
 import { UserContext } from '../../context/userContext';
 
-function Overview(props) {
+function Overview() {
   return (
     <UserContext.Consumer>
       {(user) => {
@@ -27,7 +26,7 @@ function Overview(props) {
               <Search />
             </div>
             <div className="room-list-overview">
-              <RoomListOverview roomList={props.roomList} />
+              <RoomListOverview />
             </div>
             <div className="users-list">
               <UserList />
@@ -42,14 +41,5 @@ function Overview(props) {
     </UserContext.Consumer>
   );
 }
-
-Overview.propTypes = {
-  roomList: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      imageUrl: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-};
 
 export default Overview;
