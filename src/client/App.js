@@ -12,12 +12,23 @@ import Profile from './containers/Profile';
 import Channel from './containers/Channel/Channel';
 import Loader from './components/Loader/Loader';
 import { UserContext } from './context/userContext';
+import { RenderChannelInformation } from './components/ChannelInformation/ChannelInnformation';
 
 function App() {
   const { isAuthenticated, isLoading, user } = useAuthentication();
+  const loginUser =
+    user === null
+      ? {}
+      : {
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
+        };
+
   if (isLoading) return <Loader />;
+
   return (
-    <UserContext.Provider value={user}>
+    <UserContext.Provider value={loginUser}>
       <Router>
         <Header isAuthenticated={isAuthenticated} />
         <Switch>
@@ -37,8 +48,19 @@ function App() {
           <Route exact path="/overview">
             <Overview />
           </Route>
-          <Route exact path="/channel/:id" isAuthenticated={isAuthenticated}>
+          <Route
+            exact
+            path="/channels/:channelId"
+            isAuthenticated={isAuthenticated}
+          >
             <Channel />
+          </Route>
+          <Route
+            exact
+            path="/channels/:id/about"
+            isAuthenticated={isAuthenticated}
+          >
+            <RenderChannelInformation />
           </Route>
         </Switch>
       </Router>

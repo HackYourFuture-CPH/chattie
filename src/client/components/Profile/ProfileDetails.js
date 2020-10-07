@@ -11,11 +11,12 @@ import { useStorage } from '../../hooks/useStorage';
 
 function ProfileDetails({
   profileImage,
-  email,
   userName,
+  email,
   phoneNumber,
   handleSubmit,
   buttonText,
+  user,
 }) {
   const [editMode, setEditMode] = useState(false);
   const [formDetails, setFormDetails] = useState({
@@ -36,7 +37,6 @@ function ProfileDetails({
       if (types.includes(selectedFile.type)) {
         setError(null);
         setFile(selectedFile);
-        // setFormDetails.profileImage(url);
       } else {
         setFile(null);
         setError('Please select an image file (png or jpg)');
@@ -44,9 +44,10 @@ function ProfileDetails({
     }
   };
 
-  const { url } = useStorage(file);
+  const imageUrl = useStorage(file).url;
 
-  function handleEditMode() {
+  function toggleEditMode() {
+    /* To save user information if editMode=true */
     if (editMode) {
       handleSubmit(formDetails);
       setEditMode(false);
@@ -56,15 +57,15 @@ function ProfileDetails({
     return setFormDetails({
       ...formDetails,
       [event.target.id]: event.target.value,
-      profileImage: url,
+      profileImage: imageUrl,
     });
   }
+
   return (
     <div className="container">
       <section className="name-image-container">
         <img
-          src={url || profileImage}
-          // src={formDetails.photoUrl}
+          src={imageUrl || profileImage}
           className="profile-img"
           alt="users profile"
         />
@@ -77,7 +78,7 @@ function ProfileDetails({
                 id="file"
                 style={{ display: 'none' }}
                 onChange={handleImageChange}
-                // onChange={(e) => console.log(e.target.file)}
+                placeholder={imageUrl}
               />
             </label>
           </>
@@ -89,6 +90,7 @@ function ProfileDetails({
               type="user-name"
               name="userName"
               id="userName"
+              value={formDetails.userName}
               onChange={handleChange}
               required
             />
@@ -97,7 +99,7 @@ function ProfileDetails({
           )}
         </div>
         <div id="edit-button" className="edit-name">
-          <button type="button" onClick={handleEditMode}>
+          <button type="button" onClick={toggleEditMode}>
             {editMode ? 'Update' : buttonText}
           </button>
         </div>
@@ -109,7 +111,7 @@ function ProfileDetails({
             <FontAwesomeIcon icon={faEnvelope} />
           </div>
           <div className="email-info">
-            <p>Email: {email}</p>
+            <p>Email: {user ? user.email : email}</p>
           </div>
         </div>
         <div className="user-phone">
@@ -140,8 +142,11 @@ function ProfileDetails({
 export default ProfileDetails;
 
 ProfileDetails.propTypes = {
-  userName: PropTypes.string,
   email: PropTypes.string,
+  user: PropTypes.shape({
+    email: PropTypes.string,
+  }).isRequired,
+  userName: PropTypes.string,
   profileImage: PropTypes.string,
   phoneNumber: PropTypes.string,
   handleSubmit: PropTypes.func.isRequired,
@@ -153,6 +158,6 @@ ProfileDetails.defaultProps = {
   profileImage:
     'https://cdn.pixabay.com/photo/2016/08/31/11/54/user-1633249_960_720.png',
   phoneNumber: '+45---',
-  email: 'email',
   buttonText: 'edit',
+  email: '',
 };

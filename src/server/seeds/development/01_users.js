@@ -105,6 +105,27 @@ exports.seed = function(knex) {
           uid: 'uid',
           phone_number: '+45 31823410',
         },
+
+        {
+          id: 11,
+          profile_image:
+            'https://generated.photos/vue-static/home/feed/adult.png',
+          user_name: 'User2',
+          email: 'test-user2@testdomain.com',
+          last_seen: '2020-07-04 18:29:32',
+          uid: 'tDvqdXBZHPRogo6odUgb6oYKr3A3',
+          phone_number: '+45 31823411',
+        },
+        {
+          id: 12,
+          profile_image:
+            'https://generated.photos/vue-static/home/feed/adult.png',
+          user_name: 'User1',
+          email: 'test-user1@testdomain.com',
+          last_seen: '2020-07-04 18:29:32',
+          uid: 'qb8luwV7Z8gRz2IP7MjnQ0hTL9E3',
+          phone_number: '+45 31823412',
+        },
       ]);
     });
 };
