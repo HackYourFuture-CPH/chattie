@@ -26,7 +26,9 @@ const getUserByUid = async (uid) => {
 
 const getUserById = async (id) => {
   try {
-    const user = await knex('users').select('user_name', 'id').where({ id });
+    const user = await knex('users')
+      .select('user_name', 'id')
+      .where({ id });
     return user;
   } catch (error) {
     return error.message;
@@ -35,7 +37,9 @@ const getUserById = async (id) => {
 
 // users delete by id
 const deleteUser = async (userId) => {
-  return knex('users').where({ id: userId }).del();
+  return knex('users')
+    .where({ id: userId })
+    .del();
 };
 
 const getFilteredUsers = async (req) => {

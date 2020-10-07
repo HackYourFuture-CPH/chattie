@@ -51,7 +51,10 @@ router.post('/', (req, res) => {
     .createNotification(req.body)
     .then((result) => res.json(result))
     .catch(() => {
-      res.status(400).send('Bad request').end();
+      res
+        .status(400)
+        .send('Bad request')
+        .end();
     });
 });
 /**

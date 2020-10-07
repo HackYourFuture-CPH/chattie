@@ -46,7 +46,10 @@ router.get('/common-channels', (req, res) => {
     .catch((error) => {
       console.log(error);
 
-      res.status(400).send('Bad request').end();
+      res
+        .status(400)
+        .send('Bad request')
+        .end();
     });
 });
 
@@ -154,7 +157,10 @@ router.post('/', (req, res) => {
     .createChannelMember(req.body)
     .then((result) => res.json(result))
     .catch(() => {
-      res.status(400).send('Bad request').end();
+      res
+        .status(400)
+        .send('Bad request')
+        .end();
     });
 });
 
@@ -207,7 +213,10 @@ router.get('/', (req, res) => {
     .catch((error) => {
       console.log(error);
 
-      res.status(400).send('Bad request').end();
+      res
+        .status(400)
+        .send('Bad request')
+        .end();
     });
 });
 

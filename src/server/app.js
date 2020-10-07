@@ -40,12 +40,12 @@ app.use(cors());
 
 app.use(process.env.API_PATH, apiRouter);
 
-app.use('/api/', function (req, res) {
+app.use('/api/', function(req, res) {
   res.status(404).send({ error: `The URL /api${req.url} does not exist` });
 });
 
 // If "/api" is called, redirect to the API documentation.
-app.use('/api', function (req, res) {
+app.use('/api', function(req, res) {
   res.redirect(`${process.env.API_PATH}/documentation`);
 });
 

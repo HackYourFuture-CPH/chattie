@@ -37,7 +37,10 @@ router.post('/', (req, res) => {
     .createChannel(req.body)
     .then((result) => res.json(result))
     .catch(() => {
-      res.status(400).send('Bad request').end();
+      res
+        .status(400)
+        .send('Bad request')
+        .end();
     });
 });
 

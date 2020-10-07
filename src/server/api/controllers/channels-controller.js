@@ -52,13 +52,17 @@ const getFilteredChannels = async ({
 };
 
 const editChannel = async (channelId, updatedChannel) => {
-  return knex('channels').where({ id: channelId }).update({
-    title: updatedChannel.title,
-  });
+  return knex('channels')
+    .where({ id: channelId })
+    .update({
+      title: updatedChannel.title,
+    });
 };
 
 const deleteChannelById = async (channelId) => {
-  return knex('channels').where({ id: channelId }).del();
+  return knex('channels')
+    .where({ id: channelId })
+    .del();
 };
 
 module.exports = {
