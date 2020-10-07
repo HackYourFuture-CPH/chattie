@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Profile.styling.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import SignOutButton from '../SignOut/SignOut';
 import {
   faPhoneSquare,
   faEnvelope,
@@ -134,6 +135,9 @@ function ProfileDetails({
             )}
           </div>
         </div>
+      </section>
+      <section>
+        <SignOutButton />
       </section>
     </div>
   );
