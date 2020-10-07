@@ -6,6 +6,7 @@ import { UserContext } from '../../context/userContext';
 import fetchWithAuth from '../../utils/fetchWithAuth';
 import ChannelHeadNav from '../../components/ChannelHeadNav/ChannelHeadNav';
 import useFetch from '../../hooks/useFetch';
+import './Channel.css';
 
 const messageFetchUpdateInterval = 3000;
 

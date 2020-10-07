@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Home } from './containers/Home/Home';
 import SignIn from './containers/SignIn';
@@ -11,23 +11,37 @@ import Header from './components/NavigationHeader/NavigationHeader';
 import Profile from './containers/Profile';
 import Channel from './containers/Channel/Channel';
 import Loader from './components/Loader/Loader';
+import fetchWithAuth from './utils/fetchWithAuth';
 import { UserContext } from './context/userContext';
+import { RenderChannelInformation } from './components/ChannelInformation/ChannelInnformation';
 
 function App() {
+  const [currentUser, setCurrentUser] = useState();
+  const [error, setError] = useState({});
   const { isAuthenticated, isLoading, user } = useAuthentication();
-  const loginUser =
-    user === null
-      ? {}
-      : {
-          uid: user.uid,
-          email: user.email,
-          displayName: user.displayName,
-        };
+
+  useEffect(() => {
+    const fetchUserFromDatabase = () => {
+      try {
+        const { uid } = user;
+        const url = `/api/users/current/?uid=`;
+        fetchWithAuth(`${url}${uid}`).then((userData) =>
+          setCurrentUser(userData),
+        );
+      } catch (err) {
+        setError(err);
+      }
+    };
+    if (user) {
+      fetchUserFromDatabase();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [error, user]);
 
   if (isLoading) return <Loader />;
 
   return (
-    <UserContext.Provider value={loginUser}>
+    <UserContext.Provider value={currentUser}>
       <Router>
         <Header isAuthenticated={isAuthenticated} />
         <Switch>
@@ -49,10 +63,17 @@ function App() {
           </Route>
           <Route
             exact
-            path="/channel/:channelId"
+            path="/channels/:channelId"
             isAuthenticated={isAuthenticated}
           >
             <Channel />
+          </Route>
+          <Route
+            exact
+            path="/channels/:id/about"
+            isAuthenticated={isAuthenticated}
+          >
+            <RenderChannelInformation />
           </Route>
         </Switch>
       </Router>
