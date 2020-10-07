@@ -14,6 +14,7 @@ import Loader from './components/Loader/Loader';
 import { UserContext } from './context/userContext';
 import AddPeopleToRoom from './containers/AddPeopleToRoom/AddPeopleToRoom';
 import { RenderChannelInformation } from './components/ChannelInformation/ChannelInnformation';
+
 function App() {
   const { isAuthenticated, isLoading, user } = useAuthentication();
   const loginUser =
