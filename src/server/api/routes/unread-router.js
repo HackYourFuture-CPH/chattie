@@ -74,10 +74,7 @@ router.patch('/:id', (req, res) => {
     .updateUnreadMessages(req)
     .then((result) => res.json(result))
     .catch(() => {
-      res
-        .status(400)
-        .send('Bad request')
-        .end();
+      res.status(400).send('Bad request').end();
     });
 });
 

@@ -65,19 +65,15 @@ const getMessageById = async (id) => {
 };
 
 const editMessage = async (messageId, updatedMessage) => {
-  return knex('channel_messages')
-    .where('id', '=', messageId)
-    .update({
-      message: updatedMessage.message,
-      fk_channel_id: updatedMessage.channelId,
-      fk_user_id: updatedMessage.userId,
-      updated_at: moment().format(),
-    });
+  return knex('channel_messages').where('id', '=', messageId).update({
+    message: updatedMessage.message,
+    fk_channel_id: updatedMessage.channelId,
+    fk_user_id: updatedMessage.userId,
+    updated_at: moment().format(),
+  });
 };
 const deleteMessage = async (messagesId) => {
-  return knex('channel_messages')
-    .where({ id: messagesId })
-    .del();
+  return knex('channel_messages').where({ id: messagesId }).del();
 };
 
 const createMessage = async (body) => {

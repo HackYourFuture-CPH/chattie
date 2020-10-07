@@ -76,9 +76,7 @@ const createNotification = async (body) => {
 
 // users delete by id
 const deleteNotification = async (notificationId) => {
-  return knex('notifications')
-    .where({ id: notificationId })
-    .del();
+  return knex('notifications').where({ id: notificationId }).del();
 };
 
 module.exports = {
