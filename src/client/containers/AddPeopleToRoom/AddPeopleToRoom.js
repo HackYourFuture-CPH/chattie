@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import AddPeopleToRoomForm from '../../components/AddPeopleToRoom/AddPeopleToRoomForm';
 import '../../components/AddPeopleToRoom/AddPeopleToRoom.css';
 import AddNewRoom from '../AddNewRoom/AddNewRoom';
-import fetchWithAuth from '../../utils/fetchWithAuth';
 
 export default function AddPeopleToRoom() {
   const [users, setUsers] = useState([]); // this is use to control the data from api
