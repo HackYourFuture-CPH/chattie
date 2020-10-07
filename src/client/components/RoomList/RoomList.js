@@ -5,20 +5,16 @@ import PropTypes from 'prop-types';
 
 const RoomList = ({ roomList }) => {
   return (
-    <div className="outside">
+    <ul className="outside">
       {roomList.map((room) => {
         return (
-          <div key={room.title}>
-            <li className="list">
-              <div className="pic-and-title">
-                <img className="Room-image" src={room.imageUrl} alt="" />
-                <label className="Room-title">{room.title}</label>
-              </div>
-            </li>
-          </div>
+          <li key={room.id} className="list">
+            <img className="room-image" src={room.imageUrl} alt="" />
+            <label className="room-title">{room.title}</label>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 };
 
