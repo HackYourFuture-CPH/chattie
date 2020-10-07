@@ -3,22 +3,24 @@
 import React from 'react';
 import Message from '../Message/Message';
 import PropTypes from 'prop-types';
-import '../Message/Message.css';
+import './MessageList.css';
 
 const MessageList = ({ messages, currentUserEmail }) => {
   return (
-    <ul className="chat-message-container">
-      {messages.map(({ id, message, userName, profile_image, email }) =>
-        Message({
-          id,
-          profile_image,
-          userName,
-          message,
-          email,
-          currentUserEmail,
-        }),
-      )}
-    </ul>
+    <div className="chat-message-container">
+      <ul className="chat-message">
+        {messages.map(({ id, message, userName, profile_image, email }) =>
+          Message({
+            id,
+            profile_image,
+            userName,
+            message,
+            email,
+            currentUserEmail,
+          }),
+        )}
+      </ul>
+    </div>
   );
 };
 
