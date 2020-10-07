@@ -32,6 +32,19 @@ const notificationsController = require('../controllers/notifications-controller
  *      400:
  *        description: Bad request.
  */
+router.get('/', (req, res, next) => {
+  notificationsController
+    .getNotifications(req)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+
+router.get('/:id', (req, res, next) => {
+  notificationsController
+    .getNotificationsById(req.params.id)
+    .then((result) => res.json(result))
+    .catch(next);
+});
 
 router.post('/', (req, res) => {
   notificationsController

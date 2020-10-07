@@ -1,4 +1,5 @@
-.current-user-message, .other-users-message {
+.current-user-message,
+.other-users-message {
   border-radius: 10px;
   padding: 3%;
   color: white;
@@ -7,20 +8,13 @@
   margin: 2% 0;
 }
 
-.chat-message-container {
-  display: flex;
-  flex-direction: column;
-  padding: 0 5%;
-  margin: 5% 0;
-}
-
-.chat-message-container .current-user-message {
+.current-user-message {
   background: #2979ff;
   align-self: flex-end;
   color: white;
 }
 
-.chat-message-container .other-users-message {
+.other-users-message {
   color: #353535;
   align-self: flex-start;
 }
