@@ -14,7 +14,7 @@ export const OnStartChat = () => {
     } = await getExistingChannelForUsers(currentUser, userId);
 
     if (existChannelId?.length) {
-      history.push(`/channel/${existChannelId}`);
+      history.push(`/channels/${existChannelId}`);
     } else {
       const { id } = await fetchWithAuth('/api/channels', {
         method: 'POST',
@@ -33,7 +33,7 @@ export const OnStartChat = () => {
         }),
       });
 
-      history.push(`/channel/${newlyCreatedChannelId}`);
+      history.push(`/channels/${newlyCreatedChannelId}`);
     }
   };
   return { user, onCreateConversation };
