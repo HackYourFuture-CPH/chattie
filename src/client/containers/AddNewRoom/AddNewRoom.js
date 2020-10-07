@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import RoomForm from '../../components/AddNewRoom/RoomForm';
 import '../../components/AddNewRoom/AddNewRoomStyle.css';
 import PropTypes from 'prop-types';
+import fetchWithAuth from '../../utils/fetchWithAuth';
 
-const AddNewRoom = ({ addUsers }) => {
+const AddNewRoom = ({ addedUsers }) => {
   const [roomName, setNewRoom] = useState('');
   const [roomId, setRoomId] = useState('');
 
@@ -13,14 +14,14 @@ const AddNewRoom = ({ addUsers }) => {
 
   // send data fucntion
   const createRoom = async (name) => {
-    const response = await fetch('api/channels', {
+    const response = await fetchWithAuth('api/channels', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ title: name }),
     });
-    return response.json();
+    return response;
   };
   const onCreate = async (event) => {
     event.preventDefault();
@@ -29,9 +30,9 @@ const AddNewRoom = ({ addUsers }) => {
   };
 
   // Add user of group in server
-  if (roomId !== '') {
-    addUsers.forEach((user) => {
-      fetch('api/channel-members', {
+  if (roomId) {
+    addedUsers.forEach((user) => {
+      fetchWithAuth('api/channel-members', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,10 +40,10 @@ const AddNewRoom = ({ addUsers }) => {
         body: JSON.stringify({ channelId: roomId, userId: user.id }),
       });
     });
-  } //  end  if statement
+  }
 
   // back button that is move to back app people to room page
-  const backToAddPeople = () => {
+  const onBackToAddPeople = () => {
     window.location.assign('./add-people');
   };
 
@@ -53,14 +54,14 @@ const AddNewRoom = ({ addUsers }) => {
         inputChange={(e) => inputChange(e)}
         roomName={roomName}
         roomId={roomId}
-        backToAddPeople={backToAddPeople}
-        addUsers={addUsers}
+        onBackToAddPeople={onBackToAddPeople}
+        addedUsers={addedUsers}
       />
     </>
   );
 };
 AddNewRoom.propTypes = {
-  addUsers: PropTypes.arrayOf(Object).isRequired,
+  addedUsers: PropTypes.arrayOf(Object).isRequired,
 };
 
 export default AddNewRoom;

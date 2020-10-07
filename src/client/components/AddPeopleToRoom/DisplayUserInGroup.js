@@ -1,25 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './AddPeopleToRoom.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinusSquare } from '@fortawesome/free-solid-svg-icons';
 
-export default function DisplayUserInGroup({ addUsers, onRemoveFromGroup }) {
-  if (addUsers !== 0) {
-    return addUsers.map((user) => (
+export default function DisplayUserInGroup({ addedUsers, onRemoveFromGroup }) {
+  if (addedUsers !== 0) {
+    return addedUsers.map((user) => (
       <div className="selectedpeople-wraper" key={user.id + 1}>
-        <img key={user.id + 2} src={user.profile_image} alt="users_image" />
-        <div key={user.id + 3}>{user.user_name}</div>
-        <div
-          role="presentation"
-          className="x-sign"
-          onClick={() => onRemoveFromGroup(user.id)}
-        >
-          X
+        <img src={user.profile_image} alt="users_image" />
+        <div>{user.user_name}</div>
+        <div role="presentation" onClick={() => onRemoveFromGroup(user.id)}>
+          <FontAwesomeIcon icon={faMinusSquare} />
         </div>
       </div>
     ));
   }
 }
 DisplayUserInGroup.propTypes = {
-  addUsers: PropTypes.arrayOf(Object).isRequired,
+  addedUsers: PropTypes.arrayOf(Object).isRequired,
   onRemoveFromGroup: PropTypes.func.isRequired,
 };

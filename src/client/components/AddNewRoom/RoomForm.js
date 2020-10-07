@@ -9,8 +9,8 @@ const RoomForm = ({
   inputChange,
   roomName,
   roomId,
-  backToAddPeople,
-  addUsers,
+  onBackToAddPeople,
+  addedUsers,
 }) => {
   if (roomId) {
     return <ChatGroup roomId={roomId} roomName={roomName} />;
@@ -34,10 +34,10 @@ const RoomForm = ({
           <h2>Members of the group</h2>
         </div>
         <div className="container-roomform">
-          <DisplaypeopleInGroup addUsers={addUsers} />
+          <DisplaypeopleInGroup addedUsers={addedUsers} />
         </div>
         <div className="back-button">
-          <button type="button" onClick={backToAddPeople}>
+          <button type="button" onClick={onBackToAddPeople}>
             Back
           </button>
         </div>
@@ -50,6 +50,6 @@ RoomForm.propTypes = {
   onCreate: PropTypes.func.isRequired,
   inputChange: PropTypes.func.isRequired,
   roomName: PropTypes.string.isRequired,
-  backToAddPeople: PropTypes.func.isRequired,
+  onBackToAddPeople: PropTypes.func.isRequired,
 };
 export default RoomForm;

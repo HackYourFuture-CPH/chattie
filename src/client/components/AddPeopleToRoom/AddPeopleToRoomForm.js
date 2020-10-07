@@ -8,10 +8,10 @@ export default function AddPeopleToRoom({
   onRemoveFromGroup,
   users,
   input,
-  addUserInGroup,
-  addUsers,
-  onChangeInput,
-  nextToGroup,
+  renderUserInGroup,
+  addedUsers,
+  onSearch,
+  onNext,
 }) {
   return (
     <div className="container">
@@ -20,26 +20,22 @@ export default function AddPeopleToRoom({
           <div>click on + to add people in room</div>
           <div>
             <span>
-              {addUsers.length}/{users.length}
+              {addedUsers.length}/{users.length}
             </span>
           </div>
         </div>
       </div>
 
       <div className="input-search">
-        <input
-          type="text"
-          placeholder="Search for user"
-          onChange={onChangeInput}
-        />
-        <button type="button" className="next-button" onClick={nextToGroup}>
+        <input type="text" placeholder="Search for user" onChange={onSearch} />
+        <button type="button" className="next-button" onClick={onNext}>
           Next
         </button>
       </div>
 
       <div className="add-people">
         <DisplayUserInGroup
-          addUsers={addUsers}
+          addedUsers={addedUsers}
           onRemoveFromGroup={(id) => onRemoveFromGroup(id)}
         />
       </div>
@@ -47,7 +43,7 @@ export default function AddPeopleToRoom({
         <DiplayListOFUsers
           users={users}
           input={input}
-          addUserInGroup={(id) => addUserInGroup(id)}
+          renderUserInGroup={(id) => renderUserInGroup(id)}
         />
       </div>
     </div>
@@ -56,10 +52,10 @@ export default function AddPeopleToRoom({
 
 AddPeopleToRoom.propTypes = {
   onRemoveFromGroup: PropTypes.func.isRequired,
-  addUsers: PropTypes.arrayOf(Object).isRequired,
+  addedUsers: PropTypes.arrayOf(Object).isRequired,
   users: PropTypes.arrayOf(Object).isRequired,
-  addUserInGroup: PropTypes.func.isRequired,
-  onChangeInput: PropTypes.func.isRequired,
-  nextToGroup: PropTypes.func.isRequired,
+  renderUserInGroup: PropTypes.func.isRequired,
+  onSearch: PropTypes.func.isRequired,
+  onNext: PropTypes.func.isRequired,
   input: PropTypes.string.isRequired,
 };
