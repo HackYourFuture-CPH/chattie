@@ -101,6 +101,7 @@ const editUser = async (userId, updatedUser) => {
       profile_image: updatedUser.profileImage,
       user_name: updatedUser.userName,
       email: updatedUser.email,
+      phone_number: updatedUser.phoneNumber,
       last_seen: new Date(),
       updated_at: moment().format('YYYY-MM-DD HH:mm:ss'), // included datetime format for MySQL
     });
