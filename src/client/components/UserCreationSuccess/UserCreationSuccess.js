@@ -1,10 +1,15 @@
 /* eslint-disable no-alert */
 import React from 'react';
+import { toast } from 'react-toastify';
 import { Redirect } from 'react-router-dom';
 
 export default function UserCreationSuccess() {
-  alert('Your account was successfully created');
-  return <Redirect to="/overview" />;
+  toast.success('Your account was successfully created');
+  return (
+    <>
+      <Redirect to="/overview" />
+    </>
+  );
 }
 
 UserCreationSuccess.propTypes = {};
