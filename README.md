@@ -76,6 +76,9 @@ _Class Dates_
 - Week 5 —> 4-oct.-2020
   - How to repect mentors time online
 - Week 6 —> 11-oct.-2020
+  - Giving feedback on PR's
+  - Finishing Chattie - what should we get fixed before finish?
+  - Start thinking about cv's, hire section etc
 - Week 7 —> 18-oct.-2020
 
 Graduation 25/10

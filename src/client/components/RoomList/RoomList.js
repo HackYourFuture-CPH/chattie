@@ -5,24 +5,25 @@ import PropTypes from 'prop-types';
 
 const RoomList = ({ roomList }) => {
   return (
-    <div className="outside">
+    <ul className="outside">
       {roomList.map((room) => {
         return (
-          <div>
-            <li className="list">
-              <div>
-                <img className="Room-image" src={room.imageUrl} alt="" />
-                <label className="Room-title">{room.title}</label>
-              </div>
-            </li>
-          </div>
+          <li key={room.id} className="list">
+            <img className="room-image" src={room.imageUrl} alt="" />
+            <label className="room-title">{room.title}</label>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 };
 
 RoomList.propTypes = {
-  roomList: PropTypes.func.isRequired,
+  roomList: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      imageUrl: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };
 export default RoomList;

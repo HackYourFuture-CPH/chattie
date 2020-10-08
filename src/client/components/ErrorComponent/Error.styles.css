@@ -1,0 +1,34 @@
+.wrapper {
+  display: block;
+  width: 70%;
+  height: auto;
+  background-color: #90ee90;
+  text-align: center;
+  margin: 1%;
+  padding: 1%;
+}
+.wrapper .red {
+  color: #ff0000;
+}
+
+.wrapper .red {
+  animation:  6s ease infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.wrapper .red {
+  animation: four 1s steps(5, start) infinite;
+  -webkit-animation: four 1s steps(5, start) infinite;
+}
+@keyframes four {
+  to {
+    color: yellow;
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes four {
+  to {
+    visibility: hidden;
+  }
+}
