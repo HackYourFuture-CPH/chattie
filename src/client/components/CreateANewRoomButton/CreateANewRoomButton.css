@@ -1,4 +1,4 @@
-/*button {
+.new-room-form button {
   height: 50px;
   min-width: 50px;
   display: block;
@@ -8,7 +8,7 @@
   border: 0;
   background-color: #f0f8ff;
   padding: 5px;
-}*/
+}
 
 .new-room {
   font-size: 10px;
@@ -17,6 +17,7 @@
 
 .new-room-form {
   display: flex;
+  flex-direction: column;
   margin-right: 10px;
   padding: 15px;
 }
