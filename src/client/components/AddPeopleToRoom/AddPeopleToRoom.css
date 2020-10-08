@@ -1,0 +1,109 @@
+.container {
+  width: 80%;
+  border-radius: 40px;
+  border: white;
+}
+.header {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  align-items: center;
+}
+.next-button {
+  width: 150px;
+  height: 50px;
+  margin-left: 10px;
+}
+.list-name {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  color: red;
+}
+.list-name span {
+  color: black;
+}
+.input-search {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 60%;
+  height: 40px;
+  border: 1px solid #cccc;
+  border-radius: 10px;
+}
+.add-people {
+  border: 1px solid #cccc;
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  justify-content: center;
+  margin: auto;
+}
+.list-people {
+  margin-top: 60px;
+  border: 1px solid #cccc;
+  width: 90%;
+  margin: auto;
+}
+.wraper {
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  width: 40%;
+  margin: auto;
+}
+.profile-img {
+  width: 50px;
+  height: 50px;
+  margin-right: auto;
+}
+
+.selectedpeople-wraper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+}
+.selectedpeople-wraper img {
+  width: 50px;
+  height: 50px;
+}
+
+/*Groupchat */
+
+.container-chatgroup {
+  width: 90%;
+  margin: auto;
+  background-color: #cccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wraper-chatgroup {
+  margin: auto;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.group-name {
+  font-size: 40px;
+  color: red;
+}
+
+.group-members-names {
+  margin: 10px;
+  color: green;
+}
+.icons-color {
+  color: #ff0000;
+}
