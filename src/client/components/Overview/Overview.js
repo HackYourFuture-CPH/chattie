@@ -37,7 +37,7 @@ function Overview() {
                 <Search />
               </div>
               <div className="room-list-overview">
-                <RoomListOverview />
+                <RoomListOverview roomList={[]} />
               </div>
               <div className="users-list">
                 <UserList />
