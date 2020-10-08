@@ -38,7 +38,9 @@
 .email-info,
 .phone-info {
   text-align: left;
-  line-height: 0.5;
+  line-height: 1;
+  font-size: small;
+  margin-bottom: 3%;
 }
 
 .name-image-container {
@@ -52,9 +54,9 @@
 .user-phone {
   border-radius: 15px;
   box-shadow: 2px 2px 4px #2b3233;
-  padding: 1%;
+  padding: 3%;
   width: 80%;
-  margin: 0 auto 5%;
+  margin: 0 auto 3%;
 }
 
 .name-image-container {
@@ -73,5 +75,15 @@
   padding: 0.5%;
   background: white;
   box-shadow: 1px 1px 2px #2b3233;
-  margin-top: 18%;
+  margin-top: 35%;
+}
+
+.user-name {
+  margin: 3% auto 0;
+  padding: 10px;
+}
+
+input {
+  padding-right: 2%;
+  line-height: 1px;
 }

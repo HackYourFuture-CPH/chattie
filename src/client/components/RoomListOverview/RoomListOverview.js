@@ -13,6 +13,6 @@ function RoomListOverview(props) {
   );
 }
 RoomListOverview.propTypes = {
-  roomList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  roomList: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 export default RoomListOverview;

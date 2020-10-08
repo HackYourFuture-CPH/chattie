@@ -13,6 +13,7 @@ import Channel from './containers/Channel/Channel';
 import Loader from './components/Loader/Loader';
 import fetchWithAuth from './utils/fetchWithAuth';
 import { UserContext } from './context/userContext';
+import AddPeopleToRoom from './containers/AddPeopleToRoom/AddPeopleToRoom';
 import { RenderChannelInformation } from './components/ChannelInformation/ChannelInnformation';
 
 function App() {
@@ -75,6 +76,12 @@ function App() {
             <RenderChannelInformation />
           </Route>
         </Switch>
+        <Route
+          exact
+          path="/add-people"
+          component={AddPeopleToRoom}
+          isAuthenticated={isAuthenticated}
+        />
       </Router>
     </UserContext.Provider>
   );
