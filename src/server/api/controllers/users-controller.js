@@ -18,6 +18,7 @@ const getUserByUid = async (uid) => {
       'uid',
       'profile_image as profileImage',
       'user_name as userName',
+      'phone_number as phoneNumber',
     )
     .limit(1)
     .where({ uid });
@@ -83,6 +84,7 @@ const createUser = async (body) => {
     user_name: body.userName,
     email: body.email,
     profile_image: body.profileImage,
+    phone_number: body.phoneNumber,
 
     last_seen: new Date(),
   };
