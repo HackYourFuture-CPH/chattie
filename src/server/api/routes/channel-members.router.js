@@ -91,7 +91,7 @@ router.delete('/:id', (req, res) => {
 
 /**
  *@swagger
- * /channel-member/{ID}:
+ * /channel-members/{ID}:
  *  get:
  *    summary: Get channel members by ID
  *    description:
