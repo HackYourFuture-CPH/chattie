@@ -58,10 +58,18 @@ export default function Search() {
                     className="user-list-in-search"
                     key={`${user.user_name}`}
                   >
-                    <UserProfileImage
-                      user={<img src={user.profile_image} alt="" />}
-                    />
-                    <UserDetails user={user.user_name} />
+                    <div className="search-user-render">
+                      <UserProfileImage
+                        user={
+                          <img
+                            src={user.profile_image}
+                            className="search-image"
+                            alt=""
+                          />
+                        }
+                      />
+                      <UserDetails user={user.user_name} />
+                    </div>
                   </li>
                 );
               })}

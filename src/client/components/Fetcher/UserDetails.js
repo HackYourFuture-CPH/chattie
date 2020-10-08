@@ -5,7 +5,7 @@ import '../Search/Search.styles.css';
 // Should lead to the chat-page instead of Home-page //
 
 export const UserDetails = ({ user }) => {
-  return <div>{user}</div>;
+  return <div className="search-name">{user}</div>;
 };
 
 UserDetails.propTypes = {

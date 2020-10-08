@@ -1,7 +1,7 @@
-.search-button{
-display: flex;
-flex-direction: row;
-justify-content: space-between;
+.search-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .search {
@@ -33,8 +33,8 @@ justify-content: space-between;
   border-radius: 0px;
 }
 
-.cancel-input-in-search:hover{
-cursor: pointer;
+.cancel-input-in-search:hover {
+  cursor: pointer;
 }
 
 .user-details {
@@ -45,9 +45,23 @@ cursor: pointer;
   padding: 10px;
 }
 
-.user-list-in-search img {
-  width: 30%;
+.search-image-container {
+  display: inline-block;
+  position: relative;
+  width: 75px;
+  height: 75px;
+  overflow: hidden;
   border-radius: 50%;
-  text-align: center;
-  display:block;
+}
+
+.search-image {
+  width: 100%;
+  height: auto;
+}
+
+.search-user-render {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
