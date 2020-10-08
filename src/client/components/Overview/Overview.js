@@ -12,16 +12,17 @@ function Overview() {
       {(user) => {
         // eslint-disable-next-line no-console
         console.log(user);
-
         return (
           <div className="overview">
             <h3 className="chat-title">Chats</h3>
             <div className="search">
               <Search />
             </div>
+
             <div className="room-list-overview">
-              <RoomListOverview />
+              <RoomListOverview roomList={[]} />
             </div>
+
             <div className="users-list">
               <UserList />
             </div>
