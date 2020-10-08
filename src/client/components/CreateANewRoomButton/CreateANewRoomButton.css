@@ -1,4 +1,4 @@
-button {
+.create-room-btn {
   height: 50px;
   min-width: 50px;
   display: block;
@@ -8,6 +8,8 @@ button {
   border: 0;
   background-color: #f0f8ff;
   padding: 5px;
+  font-size: 20px;
+  color: #00bfff;
 }
 .new-room {
   font-size: 10px;
@@ -17,8 +19,4 @@ button {
   display: flex;
   margin-right: 10px;
   padding: 15px;
-}
-.create-room-btn {
-  font-size: 20px;
-  color: #00bfff;
 }
