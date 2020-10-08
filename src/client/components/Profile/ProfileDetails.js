@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Profile.styling.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import SignOutButton from '../SignOut/SignOut';
 import { faPhoneSquare, faEnvelope } from '@fortawesome/fontawesome-free-solid';
 
 const ProfileDetails = ({ profileImage, userName, email }) => (
-  <>
+  <div className="container">
     <section className="name-image-container">
       <img src={profileImage} className="profile-img" alt="users profile" />
       <h2>{userName}</h2>
@@ -31,19 +32,22 @@ const ProfileDetails = ({ profileImage, userName, email }) => (
         </div>
       </div>
     </section>
-  </>
+    <section>
+      <SignOutButton />
+    </section>
+  </div>
 );
 
 export default ProfileDetails;
 
 ProfileDetails.propTypes = {
-  userName: PropTypes.string,
+  userName: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  profileImage: PropTypes.string,
+  profileImage: PropTypes.string.isRequired,
 };
 
-ProfileDetails.defaultProps = {
-  userName: 'My Name',
-  profileImage:
-    'https://cdn.pixabay.com/photo/2016/08/31/11/54/user-1633249_960_720.png',
-};
+// ProfileDetails.defaultProps = {
+//   displayName: 'My Name',
+//   photoURL:
+//     'https://cdn.pixabay.com/photo/2016/08/31/11/54/user-1633249_960_720.png',
+// };
