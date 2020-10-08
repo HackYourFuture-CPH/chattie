@@ -1,4 +1,4 @@
-button {
+/*button {
   height: 50px;
   min-width: 50px;
   display: block;
@@ -8,16 +8,19 @@ button {
   border: 0;
   background-color: #f0f8ff;
   padding: 5px;
-}
+}*/
+
 .new-room {
   font-size: 10px;
   font-weight: bolder;
 }
+
 .new-room-form {
   display: flex;
   margin-right: 10px;
   padding: 15px;
 }
+
 .create-room-btn {
   font-size: 20px;
   color: #00bfff;

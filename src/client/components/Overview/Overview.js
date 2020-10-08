@@ -25,17 +25,6 @@ function Overview() {
               <div className="search">
                 <Search />
               </div>
-              <div className="users-list">
-                <UserList />
-              </div>
-              <div className="btn-and-profile">
-                <a href="/profile">Profile</a>
-                <a href="/chats">Chats</a>
-              </div>
-
-              <div className="search">
-                <Search />
-              </div>
               <div className="room-list-overview">
                 <RoomListOverview roomList={[]} />
               </div>
