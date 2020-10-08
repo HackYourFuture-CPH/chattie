@@ -55,7 +55,7 @@
   border-radius: 15px;
   box-shadow: 2px 2px 4px #2b3233;
   padding: 3%;
-  width: 80%;
+  width: 90%;
   margin: 0 auto 3%;
 }
 
@@ -84,6 +84,16 @@
 }
 
 input {
-  padding-right: 2%;
+  padding-right: 3%;
   line-height: 1px;
+  border-color: gray;
+}
+
+.profile-sign-out-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  background-color: #007677;
 }
