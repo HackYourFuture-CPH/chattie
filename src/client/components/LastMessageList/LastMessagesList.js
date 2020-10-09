@@ -9,7 +9,7 @@ export default function LastMessageList({ lastChannels }) {
   }
   return (
     <ul>
-      {lastChannels.map(({ message, updated_at, fk_channel_id, title }) => (
+      {lastChannels.map(({ message, updatedAt, ChannelId, title }) => (
         <li
           key={fk_channel_id}
           // onClick={()=>{}} //must open the channel
