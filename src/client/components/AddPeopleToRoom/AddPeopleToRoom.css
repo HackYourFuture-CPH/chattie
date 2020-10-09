@@ -3,6 +3,7 @@
   border-radius: 40px;
   border: white;
 }
+
 .header {
   width: 100%;
   display: flex;
@@ -10,11 +11,13 @@
   margin: auto;
   align-items: center;
 }
+
 .next-button {
   width: 150px;
   height: 50px;
   margin-left: 10px;
 }
+
 .list-name {
   width: 100%;
   display: flex;
@@ -23,16 +26,19 @@
   margin: auto;
   color: red;
 }
+
 .list-name span {
   color: black;
 }
+
 .input-search {
   width: 90%;
   margin: auto;
   display: flex;
   justify-content: center;
 }
-input {
+
+.input-search input {
   margin-top: 10px;
   margin-bottom: 10px;
   text-align: center;
@@ -41,6 +47,7 @@ input {
   border: 1px solid #cccc;
   border-radius: 10px;
 }
+
 .add-people {
   border: 1px solid #cccc;
   display: flex;
@@ -49,12 +56,14 @@ input {
   justify-content: center;
   margin: auto;
 }
+
 .list-people {
   margin-top: 60px;
   border: 1px solid #cccc;
   width: 90%;
   margin: auto;
 }
+
 .wraper {
   padding-top: 10px;
   display: flex;
@@ -62,6 +71,7 @@ input {
   width: 40%;
   margin: auto;
 }
+
 .profile-img {
   width: 50px;
   height: 50px;
@@ -74,6 +84,7 @@ input {
   align-items: center;
   padding: 5px;
 }
+
 .selectedpeople-wraper img {
   width: 50px;
   height: 50px;
@@ -89,12 +100,14 @@ input {
   flex-direction: column;
   align-items: center;
 }
+
 .wraper-chatgroup {
   margin: auto;
   width: 50%;
   display: flex;
   justify-content: center;
 }
+
 .group-name {
   font-size: 40px;
   color: red;
@@ -104,6 +117,7 @@ input {
   margin: 10px;
   color: green;
 }
+
 .icons-color {
   color: #ff0000;
 }

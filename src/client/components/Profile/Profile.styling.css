@@ -1,6 +1,4 @@
-.header-profile ul,
-.user-email,
-.user-phone {
+.header-profile ul, .user-email, .user-phone, .name-edit-btn, .phone-info {
   display: flex;
 }
 
@@ -32,15 +30,20 @@
 
 .icon {
   width: 30%;
-  margin-top: 5%;
 }
 
-.email-info,
-.phone-info {
+.email-info, .phone-info {
   text-align: left;
   line-height: 1;
-  font-size: small;
   margin-bottom: 3%;
+}
+
+.phone-info p {
+  margin-right: 2%;
+}
+
+.phone-info {
+  width: 60%;
 }
 
 .name-image-container {
@@ -50,22 +53,17 @@
   align-items: center;
 }
 
-.user-email,
-.user-phone {
+.user-email, .user-phone {
   border-radius: 15px;
   box-shadow: 2px 2px 4px #2b3233;
   padding: 3%;
   width: 80%;
-  margin: 0 auto 3%;
+  margin: 0 auto 5%;
 }
 
 .name-image-container {
   background-color: #ffb127;
-  background-image: -webkit-linear-gradient(
-    -75deg,
-    #ffb127 49.95%,
-    #ffffff 50.05%
-  );
+  background-image: -webkit-linear-gradient( -75deg, #ffb127 49.95%, #ffffff 50.05%);
   min-height: 50px;
 }
 
@@ -75,7 +73,7 @@
   padding: 0.5%;
   background: white;
   box-shadow: 1px 1px 2px #2b3233;
-  margin-top: 35%;
+  margin-top: 15%;
 }
 
 .user-name {
@@ -83,7 +81,45 @@
   padding: 10px;
 }
 
-input {
+.edit-name button {
+  padding: 10% 20%;
+}
+
+.name-edit-btn, .phone-info, .email-info {
+  align-items: baseline;
+}
+
+.user-name input, .phone-info input {
   padding-right: 2%;
   line-height: 1px;
+}
+
+.name-image-container p {
+  font-size: 20px;
+  margin: 2% 2% 5%
+}
+
+.sign-out-btn {
+  text-align: right;
+  background-color: #ffb127;
+  padding: 2%;
+}
+
+.profile-details-container {
+  margin: 1% auto;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 0 #333333;
+  height: 88vh;
+}
+
+@media screen and (max-width: 1050px) {
+  .name-image-container img {
+    margin-top: 25%;
+  }
+  .profile-details-container {
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+    margin: 0;
+  }
 }
