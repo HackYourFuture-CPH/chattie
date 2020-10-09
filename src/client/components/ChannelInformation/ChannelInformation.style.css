@@ -17,7 +17,7 @@
   text-align: center;
   margin-top: -40vh;
 }
-.channel-information-main {
+.channel-information-main ul {
   display: flex;
   justify-content: space-around;
   flex-flow: row wrap;

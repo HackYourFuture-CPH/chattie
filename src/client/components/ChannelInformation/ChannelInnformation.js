@@ -10,19 +10,21 @@ export const RenderChannelInformation = ({ image, title, members }) => {
       </div>
       <h3 className="channel-information-title">{title}</h3>
       <div className="channel-information-main">
-        {members &&
-          members.map((member) => {
-            return (
-              <div>
-                <img
-                  src={member.imgUrl}
-                  alt="member"
-                  className="member-information-img"
-                />
-                <h4>{member.name}</h4>
-              </div>
-            );
-          })}
+        <ul>
+          {members &&
+            members.map((member) => {
+              return (
+                <li key={member.id}>
+                  <img
+                    src={member.imgUrl}
+                    alt="member"
+                    className="member-information-img"
+                  />
+                  <h4>{member.name}</h4>
+                </li>
+              );
+            })}
+        </ul>
       </div>
     </>
   );
