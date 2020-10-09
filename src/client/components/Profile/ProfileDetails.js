@@ -74,11 +74,14 @@ function ProfileDetails({
   }
 
   return (
-    <div className="container">
+    <div className="profile-details-container">
+      <section className="sign-out-btn">
+        <SignOutButton />
+      </section>
       <section className="name-image-container">
         <img
           src={imageUrl || profileImage}
-          className="profile-img"
+          className="profile-image"
           alt="users profile"
         />
         {editMode ? (
@@ -96,24 +99,26 @@ function ProfileDetails({
           </>
         ) : null}
         {error && <p>{error}</p>}
-        <div className="user-name">
-          {editMode ? (
-            <input
-              type="user-name"
-              name="userName"
-              id="userName"
-              value={formDetails.userName}
-              onChange={handleChange}
-              required
-            />
-          ) : (
-            <h2>{formDetails.userName}</h2>
-          )}
-        </div>
-        <div id="edit-button" className="edit-name">
-          <button type="button" onClick={toggleEditMode}>
-            {editMode ? 'Update' : buttonText}
-          </button>
+        <div className="name-edit-btn">
+          <div className="user-name">
+            {editMode ? (
+              <input
+                type="user-name"
+                name="userName"
+                id="userName"
+                value={formDetails.userName}
+                onChange={handleChange}
+                required
+              />
+            ) : (
+              <h2>{formDetails.userName}</h2>
+            )}
+          </div>
+          <div id="edit-button" className="edit-name">
+            <button type="button" onClick={toggleEditMode}>
+              {editMode ? 'Update' : buttonText}
+            </button>
+          </div>
         </div>
         <p>Professional role</p>
       </section>
@@ -146,9 +151,6 @@ function ProfileDetails({
             )}
           </div>
         </div>
-      </section>
-      <section>
-        <SignOutButton />
       </section>
     </div>
   );
