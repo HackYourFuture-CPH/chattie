@@ -2,6 +2,7 @@ import React from 'react';
 import './Overview.styles.css';
 import UserList from '../../containers/UserList/UserList';
 import Search from '../Search/Search';
+import RoomListOverview from '../RoomListOverview/RoomListOverview';
 import { UserContext } from '../../context/userContext';
 
 function Overview() {
@@ -23,6 +24,9 @@ function Overview() {
 
               <div className="search">
                 <Search />
+              </div>
+              <div className="room-list-overview">
+                <RoomListOverview roomList={[]} />
               </div>
               <div className="users-list">
                 <UserList />

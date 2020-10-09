@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfileDatails from './ProfileDetails';
+import ProfileDetails from './ProfileDetails';
 
 export default {
   title: 'Profile view',
@@ -11,9 +11,12 @@ const profileImage =
   'https://secure.gravatar.com/avatar/3da283f44646867ed9c7e7e022340300?size=150';
 
 export const profileView = () => (
-  <ProfileDatails
+  <ProfileDetails
     userName={username}
     profileImage={profileImage}
     email={email}
+    buttonText="edit"
+    user={email}
+    handleSubmit={() => true}
   />
 );

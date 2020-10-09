@@ -1,32 +1,55 @@
 import React from 'react';
 import './AddNewRoomStyle.css';
+import ChatGroup from '../AddPeopleToRoom/ChatGroup';
 import PropTypes from 'prop-types';
+import DisplaypeopleInGroup from './DisplaypeopleInGroup';
 
-const RoomForm = (props) => {
-  const { onCreate, inputChange, roomName, roomId } = props;
+const RoomForm = ({
+  onCreate,
+  inputChange,
+  roomName,
+  roomId,
+  onBackToAddPeople,
+  addedUsers,
+}) => {
   if (roomId) {
-    return `welcome to new room with id ${roomId} and add people in Room `;
+    return <ChatGroup roomId={roomId} roomName={roomName} />;
   }
   if (!roomId) {
     return (
-      <form onSubmit={onCreate}>
-        <button type="submit">Add Room</button>
-        <input
-          type="text"
-          placeholder="Add new Room"
-          onChange={inputChange}
-          value={roomName}
-          required
-        />
-      </form>
+      <div className="main">
+        <form onSubmit={onCreate}>
+          <div className="form-input">
+            <input
+              type="text"
+              placeholder="please write group name here"
+              onChange={inputChange}
+              value={roomName}
+              required
+            />
+            <button type="submit">Create Room</button>
+          </div>
+        </form>
+        <div className="heading-members-channel">
+          <h2>Members of the group</h2>
+        </div>
+        <div className="container-roomform">
+          <DisplaypeopleInGroup addedUsers={addedUsers} />
+        </div>
+        <div className="back-button">
+          <button type="button" onClick={onBackToAddPeople}>
+            Back
+          </button>
+        </div>
+      </div>
     );
   }
 };
 
-RoomForm.PropTypes = {
-  roomName: PropTypes.string.isRequired,
-  onFormHandler: PropTypes.func.isRequired,
-  roomId: PropTypes.number.isRequired,
+RoomForm.propTypes = {
+  onCreate: PropTypes.func.isRequired,
   inputChange: PropTypes.func.isRequired,
+  roomName: PropTypes.string.isRequired,
+  onBackToAddPeople: PropTypes.func.isRequired,
 };
 export default RoomForm;
