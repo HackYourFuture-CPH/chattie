@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './LastMessagesList.css';
+import { object } from '@storybook/addon-knobs';
 
 export default function LastMessageList({ lastChannels }) {
   if (!lastChannels) {
@@ -11,14 +12,14 @@ export default function LastMessageList({ lastChannels }) {
     <ul>
       {lastChannels.map(({ message, updatedAt, ChannelId, title }) => (
         <li
-          key={fk_channel_id}
+          key={ChannelId}
           // onClick={()=>{}} //must open the channel
           // onKeyDown={()=>{}}
         >
           <p>{title}</p>
           <h6>{message}</h6>
           <span>
-            <h6>{updated_at}</h6>
+            <h6>{updatedAt}</h6>
           </span>
         </li>
       ))}
