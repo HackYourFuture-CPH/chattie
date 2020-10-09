@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
+ }
 
 .search {
   background-color: #f2f9fb;
@@ -42,7 +42,7 @@
   background-color: white;
   position: relative;
   z-index: 10;
-  padding: 10px;
+  padding: 7px;
 }
 
 .search-image-container {

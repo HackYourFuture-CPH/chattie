@@ -19,3 +19,22 @@
   width: 90%;
   margin-top: 20px;
 }
+
+@media screen and (max-width: 1400px) {
+  .room-list-overview {
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .room-list-overview {
+    padding-left: 15%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .room-list-overview {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

@@ -45,3 +45,19 @@
   bottom: -8px;
 }
 
+@media screen and (max-width: 1700px) {
+  .footer-chat-profile {
+    padding-left: 20%;
+    padding-right: 20%;
+   
+  }
+}
+
+  @media screen and (max-width: 750px) {
+    .footer-chat-profile {
+      padding-left: 0;
+      padding-right: 0;
+    }
+}
+
+

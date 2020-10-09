@@ -15,6 +15,7 @@ function Overview() {
         return (
           <div className="overview">
             <h3 className="chat-title">Chats</h3>
+
             <div className="search">
               <Search />
             </div>
