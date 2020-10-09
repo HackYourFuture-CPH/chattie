@@ -1,7 +1,6 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { object } from '@storybook/addon-knobs';
 import './LastMessagesList.css';
 
 export default function LastMessageList({ lastChannels }) {
