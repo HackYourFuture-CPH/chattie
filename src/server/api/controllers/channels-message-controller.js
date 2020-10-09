@@ -5,7 +5,7 @@ const Error = require('../lib/utils/http-error');
 const getChannelsId = async (userId) => {
   try {
     const channels = await knex('channel_members')
-      .select('fk_channel_id')
+      .select('fk_channel_id as channelId')
       .where('fk_user_id', '=', userId);
 
     if (channels.length === 0) {
@@ -16,7 +16,7 @@ const getChannelsId = async (userId) => {
         const message = await knex('channel_messages')
           .select(
             'message',
-            'channel_messages.updated_at',
+            'channel_messages.updated_at as updatedAt',
             'channel_messages.fk_channel_id',
             'title',
           )
