@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import './SignUp.css';
+import './SignUp.style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faCamera } from '@fortawesome/fontawesome-free-solid';
 import { Link } from 'react-router-dom';
@@ -41,19 +41,17 @@ export default function SignUp({ onSubmit }) {
     });
   };
   return (
-    <div>
-      <div className="sign-up-icon-title">
-        <div className="sign-up-icon">
-          <Link to="/">
-            <FontAwesomeIcon icon={faAngleLeft} />
-          </Link>
-        </div>
+    <>
+      <div className="sign-up-icon">
+        <Link to="/">
+          <FontAwesomeIcon icon={faAngleLeft} />
+        </Link>
+      </div>
 
+      <div className="sign-up-forms">
         <div className="sign-up-title">
           <h3>Sign Up</h3>
         </div>
-      </div>
-      <div className="sign-up-forms">
         <div className="sign-up-image">
           <label className="sign-up-add-image-to-profile">
             <FontAwesomeIcon icon={faCamera} />
@@ -150,7 +148,7 @@ export default function SignUp({ onSubmit }) {
           </div>
         </form>
       </div>
-    </div>
+    </>
   );
 }
 
