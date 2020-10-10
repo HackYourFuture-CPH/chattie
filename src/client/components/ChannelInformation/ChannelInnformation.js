@@ -16,11 +16,11 @@ export const RenderChannelInformation = ({ image, title, members }) => {
               return (
                 <li key={member.id}>
                   <img
-                    src={member.imgUrl}
+                    src={member.profile_image}
                     alt="member"
                     className="member-information-img"
                   />
-                  <h4>{member.name}</h4>
+                  <h4>{member.user_name}</h4>
                 </li>
               );
             })}
