@@ -113,7 +113,8 @@
   justify-content: flex-end;
 }
 
-button {
+button.sign-out-button,
+.edit-name button {
   background-color: #007677;
 }
 
