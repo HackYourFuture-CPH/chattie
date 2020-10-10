@@ -1,0 +1,50 @@
+.channel-information-header {
+  height: 50vh;
+  background-color: rgb(149, 162, 185);
+  display: flex;
+  align-items: center;
+}
+.channel-information-header .channel-information-img {
+  position: relative;
+  margin: auto;
+  border-radius: 50%;
+  border: solid cornsilk 4px;
+  height: 90%;
+  max-width: 15%;
+  margin-top: 25vh;
+}
+.channel-information-title {
+  text-align: center;
+  margin-top: -40vh;
+}
+.channel-information-main ul {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  width: 80%;
+  margin: 60vh auto;
+}
+.channel-information-main h4 {
+  position: relative;
+  width: 50%;
+}
+.channel-information-main .member-information-img {
+  position: relative;
+  margin: auto;
+  border-radius: 50%;
+  border: solid cornsilk 4px;
+  height: 100px;
+  width: 100px;
+  margin-top: 25vh;
+}
+@media only screen and (max-width: 600px) {
+  .channel-information-header .channel-information-img {
+    position: relative;
+    margin: auto;
+    border-radius: 50%;
+    border: solid cornsilk 4px;
+    height: 90%;
+    min-width: 30%;
+    margin-top: 25vh;
+  }
+}
