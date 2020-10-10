@@ -1,35 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import fetchWithAuth from '../../utils/fetchWithAuth';
+import React, { useContext } from 'react';
+import useFetch from '../../hooks/useFetch';
 import LastMessagesList from '../../components/LastMessageList/LastMessagesList';
-import PropTypes from 'prop-types';
+import { UserContext } from '../../context/userContext';
+import Loader from '../../components/Loader/Loader';
+import Error from '../../components/ErrorComponent/Error';
 
-const LastChannelsMessageList = ({ user }) => {
-  const [lastChannels, setLastChannels] = useState();
-  const [error, setError] = useState();
+const LastChannelsMessageList = () => {
+  const user = useContext(UserContext);
+  const id = user ? user.id : '';
+  const url = `/api/channels-message/last-messages?userId=${id}`;
+  const { response: lastChannels, loading, error } = useFetch(url);
+  console.log(lastChannels);
+  if (loading) {
+    return <Loader />;
+  }
 
-  useEffect(() => {
-    const fetchLastChannels = () => {
-      try {
-        const { id } = user;
-        const url = `/api/channels-message/`;
-        fetchWithAuth(`${url}${id}`).then((lastChannelsData) =>
-          setLastChannels(lastChannelsData),
-        );
-      } catch (err) {
-        setError(err);
-      }
-    };
-    if (user) {
-      fetchLastChannels();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [error, lastChannels]);
-
-  return <LastMessagesList lastChannels={lastChannels} />;
-};
-
-LastChannelsMessageList.propTypes = {
-  user: PropTypes.arrayOf(PropTypes.objects).isRequired,
+  if (error) {
+    return <Error />;
+  }
+  return (
+    <>{lastChannels && <LastMessagesList lastChannels={lastChannels} />}</>
+  );
 };
 
 export default LastChannelsMessageList;

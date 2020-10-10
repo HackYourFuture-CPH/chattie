@@ -6,7 +6,7 @@ const getChannelsId = async (userId) => {
   try {
     const channels = await knex('channel_members')
       .select('fk_channel_id as channelId')
-      .where('fk_user_id', '=', userId);
+      .where('fk_user_id', userId);
 
     if (channels.length === 0) {
       throw new Error(`create your first conversation!`);
@@ -15,19 +15,15 @@ const getChannelsId = async (userId) => {
       channels.map(async (element) => {
         const message = await knex('channel_messages')
           .select(
-            'message',
+            'channel_messages.message',
             'channel_messages.updated_at as updatedAt',
             'channel_messages.fk_channel_id',
-            'title',
+            'channels.title',
           )
-          .innerJoin(
-            'channels',
-            'channels.id',
-            '=',
-            'channel_messages.fk_channel_id',
-          )
-          .where('fk_channel_id', '=', element.fk_channel_id)
-          .orderBy('channel_messages.updated_at', 'asc')
+          .join('channels', {
+            'channel_messages.fk_channel_id': element.channelId,
+          })
+          .orderBy('channel_messages.updated_at', 'desc')
           .limit(1);
         return message;
       }),
