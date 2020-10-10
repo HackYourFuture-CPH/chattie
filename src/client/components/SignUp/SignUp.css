@@ -4,7 +4,7 @@
   align-items: center;
 }
 
-.sign-up-forms{
+.sign-up-forms {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +19,7 @@
 
 .sign-up-title {
   color: black;
-  margin-left: 30%;
+  margin-left: 27%;
 }
 
 .sign-up-form input {
@@ -31,7 +31,7 @@
   margin-bottom: 30px;
 }
 
-.sign-up-name{
+.sign-up-name {
   margin-top: 65px;
 }
 
@@ -47,4 +47,43 @@
   height: 48px;
   margin-top: 30%;
   text-align: center;
+}
+
+.sign-up-image {
+  margin-top: 35px;
+  margin-left: 15px;
+}
+
+.sign-up-image :hover {
+  cursor: pointer;
+}
+
+.sign-up-add-image-to-profile {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  padding-top: 35px;
+  background-color: #a6c5d7;
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: relative;
+  opacity: 0.1;
+}
+
+.sign-up-add-image-to-profile-preview {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top: 70px;
+  left: auto;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.sign-up-image-user {
+  width: 100%;
+  height: auto;
 }
