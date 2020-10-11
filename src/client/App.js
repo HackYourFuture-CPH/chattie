@@ -13,6 +13,7 @@ import Channel from './containers/Channel/Channel';
 import Loader from './components/Loader/Loader';
 import { UserContext } from './context/userContext';
 import Overview from './components/Overview/Overview';
+import RoomListsPage from './containers/EditRoom/RoomListsPage';
 
 function App() {
   const { isAuthenticated, isLoading, user } = useAuthentication();
@@ -40,6 +41,9 @@ function App() {
           </Route>
           <Route exact path="/channel/:id" isAuthenticated={isAuthenticated}>
             <Channel />
+          </Route>
+          <Route exact path="/channels" isAuthenticated={isAuthenticated}>
+            <RoomListsPage />
           </Route>
         </Switch>
       </Router>

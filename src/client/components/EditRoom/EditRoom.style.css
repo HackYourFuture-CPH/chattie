@@ -5,6 +5,16 @@
   position: absolute;
   width: 100%;
 }
+.room-list{
+  list-style: none;
+  margin-left: 10%;
+  margin: 10px;
+}
+.room-item-view{
+  list-style: none; 
+  margin-left: 10%;
+  margin: 20px;
+}
 .edit-room input {
   display: block;
   text-align: center;
