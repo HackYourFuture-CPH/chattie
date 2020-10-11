@@ -167,6 +167,7 @@ ProfileDetails.propTypes = {
   email: PropTypes.string,
   user: PropTypes.shape({
     email: PropTypes.string,
+    role: PropTypes.string,
   }).isRequired,
   userName: PropTypes.string,
   profileImage: PropTypes.string,
