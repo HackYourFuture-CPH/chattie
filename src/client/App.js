@@ -71,7 +71,7 @@ function App() {
           <Route
             exact
             path="/channels/:id/about"
-            // isAuthenticated={isAuthenticated}
+            isAuthenticated={isAuthenticated}
           >
             <ChannelInfo />
           </Route>
