@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Overview.styles.css';
 import 'react-toastify/dist/ReactToastify.css';
 import UserList from '../../containers/UserList/UserList';
 import LastChannelsMessageList from '../../containers/LastMessagesList/index';
+import useFetch from '../../hooks/useFetch';
+import Loader from '../Loader/Loader';
+import Error from '../ErrorComponent/Error';
 import Search from '../Search/Search';
 import RoomListOverview from '../RoomListOverview/RoomListOverview';
 import { UserContext } from '../../context/userContext';
@@ -10,7 +13,14 @@ import { ToastContainer } from 'react-toastify';
 import FooterChatProfile from '../footerChatProfile/FooterChatProfile';
 
 function Overview() {
-  const user = React.useContext(UserContext);
+  const user = useContext(UserContext);
+  const { response: roomList, loading, error } = useFetch(`/api/channels`);
+  if (loading) {
+    return <Loader />;
+  }
+  if (error) {
+    return <Error />;
+  }
   return (
     <>
       <div className="overview">
@@ -19,7 +29,7 @@ function Overview() {
           <Search />
         </div>
         <div className="room-list-overview">
-          <RoomListOverview roomList={[]} />
+          <RoomListOverview roomList={roomList || []} />
         </div>
         <LastChannelsMessageList user={user} />
         <div className="users-list">
