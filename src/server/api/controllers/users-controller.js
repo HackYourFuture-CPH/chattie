@@ -18,6 +18,8 @@ const getUserByUid = async (uid) => {
       'uid',
       'profile_image as profileImage',
       'user_name as userName',
+      'role',
+      'phone_number as phoneNumber',
     )
     .limit(1)
     .where({ uid });
@@ -83,7 +85,8 @@ const createUser = async (body) => {
     user_name: body.userName,
     email: body.email,
     profile_image: body.profileImage,
-
+    phone_number: body.phoneNumber,
+    role: body.role,
     last_seen: new Date(),
   };
 
@@ -102,6 +105,7 @@ const editUser = async (userId, updatedUser) => {
       user_name: updatedUser.userName,
       email: updatedUser.email,
       phone_number: updatedUser.phoneNumber,
+      role: updatedUser.role,
       last_seen: new Date(),
       updated_at: moment().format('YYYY-MM-DD HH:mm:ss'), // included datetime format for MySQL
     });
