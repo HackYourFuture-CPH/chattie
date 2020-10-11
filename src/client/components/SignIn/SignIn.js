@@ -15,20 +15,18 @@ export default function SignIn({ onSubmit }) {
     onSubmit({ email, password });
   };
   return (
-    <div>
-      <div className="sign-in-icon-title">
-        <div className="sign-in-icon">
-          <Link to="/">
-            <FontAwesomeIcon icon={faAngleLeft} />
-          </Link>
-        </div>
+    <>
+      <div className="sign-in-icon">
+        <Link to="/">
+          <FontAwesomeIcon icon={faAngleLeft} />
+        </Link>
+      </div>
+
+      <div className="sign-in">
         <div className="sign-in-title">
           <h3>Sign In</h3>
         </div>
-      </div>
-
-      <form onSubmit={handleSubmit}>
-        <div className="sign-in">
+        <form onSubmit={handleSubmit}>
           <div className="signin-inputs">
             <div className="sign-in-email">
               <label htmlFor="email">
@@ -60,9 +58,9 @@ export default function SignIn({ onSubmit }) {
               Sign in
             </button>
           </div>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
+    </>
   );
 }
 

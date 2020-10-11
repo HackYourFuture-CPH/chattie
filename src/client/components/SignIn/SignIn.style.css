@@ -5,16 +5,10 @@
   justify-content: center;
 }
 
-.sign-in-icon-title {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  
-}
-
 .sign-in-icon {
   font-size: 30px;
   color: #3e99c0;
+  justify-content: flex-start;
   margin-left: 10%;
 }
 
@@ -25,7 +19,8 @@
 
 .sign-in-title {
   color: black;
-  margin-left: 30%;
+  justify-content: center;
+  margin-top: -30px;
 }
 
 .sign-in-email input,
