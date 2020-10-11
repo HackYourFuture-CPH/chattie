@@ -7,10 +7,10 @@ const getChannelMemberById = async (id) => {
     const channelMemberById = await knex('channel_members')
       .select(
         'channel_members.fk_channel_id',
-        'user_name',
-        'profile_image',
-        'channel_members.created_at',
-        'last_seen',
+        'user_name as userName',
+        'profile_image as profileImage',
+        'channel_members.created_at as createdAt',
+        'last_seen as lastSeen',
       )
       .innerJoin('users', 'users.id', '=', 'channel_members.fk_user_id')
       .where({ 'channel_members.fk_channel_id': id });
