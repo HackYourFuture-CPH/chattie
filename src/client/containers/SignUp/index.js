@@ -50,10 +50,10 @@ export default function SignUpContainer() {
           body: JSON.stringify({
             uid: response.user.uid,
             email,
-            // eslint-disable-next-line @typescript-eslint/camelcase
             profileImage: url,
-            // eslint-disable-next-line @typescript-eslint/camelcase
             userName: name,
+            phoneNumber: phone,
+            role,
           }),
         });
         setIsSuccessful(true);

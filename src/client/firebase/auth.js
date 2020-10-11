@@ -34,7 +34,7 @@ const FIREBASE_ERROR_CODES = {
  */
 export async function signIn({ email, password }) {
   try {
-    await auth.signInWithEmailAndPassword(email, password);
+    return await auth.signInWithEmailAndPassword(email, password);
   } catch (error) {
     handleAuthErrors(error);
   }
