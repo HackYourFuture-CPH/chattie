@@ -17,8 +17,8 @@ export default function ChatGroup({ roomId, roomName }) {
         <div className="group-name">{roomName}</div>
         <ul className="wraper-chatgroup">
           {channelMembers.map((user) => (
-            <li key={user.user_name} className="group-members-names">
-              {user.user_name}
+            <li key={user.userName} className="group-members-names">
+              {user.userName}
             </li>
           ))}
         </ul>
