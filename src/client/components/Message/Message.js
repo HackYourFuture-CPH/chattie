@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Message.css';
+import DeleteMessageBtn from '../DeleteMessageBtn/DeleteMessageBtn';
 
 export default function Message({
   id,
@@ -16,6 +17,7 @@ export default function Message({
   return isCurrentUser ? (
     <li key={id} className="current-user-message">
       <p className="chat-message-text">{message}</p>
+      <DeleteMessageBtn messageId={id} />
     </li>
   ) : (
     <li key={id} className="other-users-message">
