@@ -23,7 +23,16 @@ export default function Profile() {
 
   return (
     <div className="profile-container">
-      {user && <ProfileDetails handleSubmit={handleSubmit} user={user} />}
+      {user && (
+        <ProfileDetails
+          handleSubmit={handleSubmit}
+          user={user}
+          profileImage={user.profileImage}
+          userName={user.userName}
+          email={user.email}
+          phoneNumber={user.phoneNumber}
+        />
+      )}
     </div>
   );
 }

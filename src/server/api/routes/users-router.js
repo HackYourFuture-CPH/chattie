@@ -242,4 +242,19 @@ router.patch('/:id', (req, res) => {
     .catch((error) => console.log(error));
 });
 
+/**
+ * Confirms the logged in user
+ */
+router.post('/confirm', (req, res) => {
+  usersController
+    .confirmUser(req.body)
+    .then((result) => {
+      res.status(200).send(result);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json({ error });
+    });
+});
+
 module.exports = router;

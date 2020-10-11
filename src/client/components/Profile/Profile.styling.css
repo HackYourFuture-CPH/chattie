@@ -1,4 +1,8 @@
-.header-profile ul, .user-email, .user-phone, .name-edit-btn, .phone-info {
+.header-profile ul,
+.user-email,
+.user-phone,
+.name-edit-btn,
+.phone-info {
   display: flex;
 }
 
@@ -15,7 +19,7 @@
 }
 
 .svg-inline--fa {
-  color: #007677;
+  color: #3E99C0;
 }
 
 .svg-inline--fa.fa-w-16 {
@@ -32,7 +36,8 @@
   width: 30%;
 }
 
-.email-info, .phone-info {
+.email-info,
+.phone-info {
   text-align: left;
   line-height: 1;
   margin-bottom: 3%;
@@ -53,7 +58,8 @@
   align-items: center;
 }
 
-.user-email, .user-phone {
+.user-email,
+.user-phone {
   border-radius: 15px;
   box-shadow: 2px 2px 4px #2b3233;
   padding: 3%;
@@ -63,7 +69,11 @@
 
 .name-image-container {
   background-color: #ffb127;
-  background-image: -webkit-linear-gradient( -75deg, #ffb127 49.95%, #ffffff 50.05%);
+  background-image: -webkit-linear-gradient(
+    -75deg,
+    #ffb127 49.95%,
+    #ffffff 50.05%
+  );
   min-height: 50px;
 }
 
@@ -85,18 +95,32 @@
   padding: 10% 20%;
 }
 
-.name-edit-btn, .phone-info, .email-info {
+.name-edit-btn,
+.phone-info,
+.email-info {
   align-items: baseline;
 }
 
-.user-name input, .phone-info input {
+.user-name input,
+.phone-info input {
   padding-right: 2%;
   line-height: 1px;
+  border-color: gray;
+}
+
+.profile-sign-out-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button.sign-out-button,
+.edit-name button {
+  background-color: #007677;
 }
 
 .name-image-container p {
   font-size: 20px;
-  margin: 2% 2% 5%
+  margin: 2% 2% 5%;
 }
 
 .sign-out-btn {
@@ -116,10 +140,19 @@
   .name-image-container img {
     margin-top: 25%;
   }
+
   .profile-details-container {
     width: 100%;
     height: 100%;
     box-shadow: none;
     margin: 0;
+  }
+
+  email .icon {
+    width: 15%;
+  }
+  .user-name input,
+  .phone-info input {
+    width: 125px;
   }
 }

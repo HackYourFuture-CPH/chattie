@@ -39,8 +39,8 @@ button {
 
 @media screen and (max-width: 1400px) {
   #root {
-    padding-left: 15%;
-    padding-right: 15%;
+    padding-left: 30%;
+    padding-right: 30%;
   }
 }
 
