@@ -81,7 +81,7 @@ _Class Dates_
   - Start thinking about cv's, hire section etc
 - Week 7 —> 18-oct.-2020
 
-Graduation 25/10
+Graduation Wednesday 21/10
 
 _Study groups dates_  
 Until further notice, please attend the remote study groups with Elastic and Zendesk
