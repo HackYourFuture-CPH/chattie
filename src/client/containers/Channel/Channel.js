@@ -31,6 +31,7 @@ export default function Channel() {
       } else {
         setChannelTitle(otherMember[0].userName);
       }
+
       if (channel[0].imageUrl) {
         setChannelImage(channel[0].imageUrl);
       } else {
