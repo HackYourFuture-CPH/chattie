@@ -4,6 +4,7 @@ import SendMessageForm from '../../components/MessageForm/SendMessageForm';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
 import fetchWithAuth from '../../utils/fetchWithAuth';
+import ChannelHeadNav from '../../components/ChannelHeadNav/ChannelHeadNav';
 import './Channel.css';
 
 const messageFetchUpdateInterval = 3000;
@@ -11,10 +12,31 @@ const messageFetchUpdateInterval = 3000;
 export default function Channel() {
   const { channelId } = useParams();
   const [messages, setMessages] = useState([]);
+  const [channelTitle, setChannelTitle] = useState('');
+  const [channelImage, setChannelImage] = useState('');
   const user = useContext(UserContext);
-  const [userFromDatabase, setUserFromDatabase] = useState(null);
+  const [userFromDatabase, setUserFromDatabase] = useState('');
 
   useEffect(() => {
+    const getChannelTitleAndImage = async () => {
+      const channel = await fetchWithAuth(`/api/channels/${channelId}`);
+      const membersofChannel = await fetchWithAuth(
+        `api/channel-members/${channelId}`,
+      );
+      const otherMember = membersofChannel.filter(
+        (member) => member.id !== userFromDatabase.id,
+      );
+      if (channel[0].title) {
+        setChannelTitle(channel[0].title);
+      } else {
+        setChannelTitle(otherMember[0].userName);
+      }
+      if (channel[0].imageUrl) {
+        setChannelImage(channel[0].imageUrl);
+      } else {
+        setChannelImage(otherMember[0].profileImage);
+      }
+    };
     const fetchMessages = async () => {
       try {
         const url = `/api/messages?channelId=${channelId}`;
@@ -35,12 +57,12 @@ export default function Channel() {
     if (user) {
       fetchAndSetUserFromDatabase();
     }
-
+    getChannelTitleAndImage();
     const interval = setInterval(() => {
       fetchMessages();
     }, messageFetchUpdateInterval);
     return () => clearInterval(interval);
-  }, [channelId, user]);
+  }, [channelId, user, userFromDatabase.id]);
 
   const currentUserEmail = user ? user.email : '';
 
@@ -54,6 +76,12 @@ export default function Channel() {
   if (messages.length === 0) {
     return (
       <div className="message-list-send-message-form">
+        <ChannelHeadNav
+          channelName={channelTitle}
+          urlBack="/overview"
+          imgUrl={channelImage}
+          channelId={channelId}
+        />
         <div>There does not seem to be any messages here. Try sending one</div>
         <SendMessageForm channelId={channelId} userId={userFromDatabase.id} />
       </div>
@@ -61,6 +89,12 @@ export default function Channel() {
   }
   return (
     <div className="message-list-send-message-form">
+      <ChannelHeadNav
+        channelName={channelTitle}
+        urlBack="/overview"
+        imgUrl={channelImage}
+        channelId={channelId}
+      />
       {messages && (
         <MessageList messages={messages} currentUserEmail={currentUserEmail} />
       )}

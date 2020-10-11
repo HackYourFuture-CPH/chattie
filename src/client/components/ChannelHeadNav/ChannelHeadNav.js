@@ -21,7 +21,7 @@ export default function ChannelHeadNav({
         type="button"
         className="channel-information-button"
         onClick={() => {
-          location.replace(`./channel/${channelId}/about`);
+          location.replace(`./channels/${channelId}/about`);
         }}
       >
         i
