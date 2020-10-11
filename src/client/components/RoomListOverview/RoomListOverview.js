@@ -1,18 +1,13 @@
 import React from 'react';
-import RoomList from '../RoomList/RoomList';
+import Channels from '../../containers/Channels/Channels';
 import './RoomListOverview.css';
-import PropTypes from 'prop-types';
 import CreateANewRoomButton from '../CreateANewRoomButton/CreateANewRoomButton';
-
-function RoomListOverview(props) {
+function RoomListOverview() {
   return (
     <div className="roomlist-overview">
       <CreateANewRoomButton />
-      <RoomList roomList={props.roomList} />
+      <Channels />
     </div>
   );
 }
-RoomListOverview.propTypes = {
-  roomList: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
 export default RoomListOverview;
