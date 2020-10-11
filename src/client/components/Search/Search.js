@@ -43,7 +43,7 @@ export default function Search() {
           <div>
             {loading && <div>Loading... </div>}
             {error && <div>Error...</div>}
-            {noUserMatch && <div>No results founded</div>}
+            {noUserMatch && <div>No users found</div>}
 
             {data &&
               data.map((user) => {
