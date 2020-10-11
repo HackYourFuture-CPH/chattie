@@ -18,10 +18,12 @@ const getUserByUid = async (uid) => {
       'uid',
       'profile_image as profileImage',
       'user_name as userName',
+      'role',
+      'phone_number as phoneNumber',
     )
     .limit(1)
     .where({ uid });
-  return user.length === 1 ? user[0] : undefined;
+  return user.length === 1 ? user[0] : {};
 };
 
 const getUserById = async (id) => {
@@ -83,7 +85,8 @@ const createUser = async (body) => {
     user_name: body.userName,
     email: body.email,
     profile_image: body.profileImage,
-
+    phone_number: body.phoneNumber,
+    role: body.role,
     last_seen: new Date(),
   };
 
@@ -101,9 +104,35 @@ const editUser = async (userId, updatedUser) => {
       profile_image: updatedUser.profileImage,
       user_name: updatedUser.userName,
       email: updatedUser.email,
+      phone_number: updatedUser.phoneNumber,
+      role: updatedUser.role,
       last_seen: new Date(),
       updated_at: moment().format('YYYY-MM-DD HH:mm:ss'), // included datetime format for MySQL
     });
+};
+
+const confirmUser = async ({ uid, email }) => {
+  const users = await knex('users')
+    .where({ uid })
+    .select('id');
+
+  if (!users || !users.length) {
+    console.log('No users found');
+
+    const ids = await knex('users').insert({
+      email,
+      uid,
+      last_seen: new Date(),
+    });
+
+    return {
+      userId: ids[0],
+    };
+  }
+
+  return {
+    userId: users[0].id,
+  };
 };
 
 module.exports = {
@@ -114,4 +143,5 @@ module.exports = {
   createUser,
   deleteUser,
   editUser,
+  confirmUser,
 };
