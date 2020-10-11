@@ -17,12 +17,18 @@ const getChannelsId = async (userId) => {
           .select(
             'channel_messages.message',
             'channel_messages.updated_at as updatedAt',
-            'channel_messages.fk_channel_id',
+            'channels.id as channelId',
             'channels.title',
+            'channel_members.fk_user_id as userId',
           )
-          .join('channels', {
+          .innerJoin('channels', {
             'channel_messages.fk_channel_id': element.channelId,
           })
+          .where('channels.id', element.channelId)
+          .innerJoin('channel_members', {
+            'channel_messages.fk_channel_id': element.channelId,
+          })
+          .where('channel_members.fk_channel_id', element.channelId)
           .orderBy('channel_messages.updated_at', 'desc')
           .limit(1);
         return message;
@@ -30,8 +36,8 @@ const getChannelsId = async (userId) => {
     );
     const lastMessages = messages.map((item) => item[0]);
     lastMessages.sort(function(a, b) {
-      const keyA = new Date(a.updated_at);
-      const keyB = new Date(b.updated_at);
+      const keyA = new Date(a.updatedAt);
+      const keyB = new Date(b.updatedAt);
       if (keyA < keyB) return 1;
       if (keyA > keyB) return -1;
       return 0;

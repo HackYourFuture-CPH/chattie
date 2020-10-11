@@ -8,12 +8,13 @@ export default function LastMessageList({ lastChannels }) {
   if (lastChannels === null) {
     return <p>No channels, start a conversation to see it here</p>;
   }
+
   return (
     <ul>
       {lastChannels
-        ? lastChannels.map(({ message, updatedAt, ChannelId, title }) => (
+        ? lastChannels.map(({ message, updatedAt, channelId, title }) => (
             <li
-              key={ChannelId}
+              key={channelId}
               // onClick={()=>{}} //must open the channel
               // onKeyDown={()=>{}}
             >

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
+import { UserContext } from '../../context/userContext';
 import useFetch from '../../hooks/useFetch';
 import LastMessagesList from '../../components/LastMessageList/LastMessagesList';
-import { UserContext } from '../../context/userContext';
 import Loader from '../../components/Loader/Loader';
 import Error from '../../components/ErrorComponent/Error';
 
@@ -10,7 +10,6 @@ const LastChannelsMessageList = () => {
   const id = user ? user.id : '';
   const url = `/api/channels-message/last-messages?userId=${id}`;
   const { response: lastChannels, loading, error } = useFetch(url);
-  console.log(lastChannels);
   if (loading) {
     return <Loader />;
   }
