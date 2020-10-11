@@ -111,6 +111,30 @@ const editUser = async (userId, updatedUser) => {
     });
 };
 
+const confirmUser = async ({ uid, email }) => {
+  const users = await knex('users')
+    .where({ uid })
+    .select('id');
+
+  if (!users || !users.length) {
+    console.log('No users found');
+
+    const ids = await knex('users').insert({
+      email,
+      uid,
+      last_seen: new Date(),
+    });
+
+    return {
+      userId: ids[0],
+    };
+  }
+
+  return {
+    userId: users[0].id,
+  };
+};
+
 module.exports = {
   getUsers,
   getUserByUid,
@@ -119,4 +143,5 @@ module.exports = {
   createUser,
   deleteUser,
   editUser,
+  confirmUser,
 };
