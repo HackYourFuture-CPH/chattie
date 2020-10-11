@@ -25,7 +25,7 @@ exports.seed = function(knex) {
           last_seen: '2020-08-19 22:15:56',
           uid: 'uid',
           phone_number: '+45 31823402',
-          role: 'Kitchen assiste',
+          role: 'Kitchen assistent',
         },
         {
           id: 3,
@@ -36,7 +36,7 @@ exports.seed = function(knex) {
           last_seen: '2019-06-05 18:09:22',
           uid: 'uid',
           phone_number: '+45 31823403',
-          role: 'Kitchen assiste',
+          role: 'Kitchen assistent',
         },
         {
           id: 4,
