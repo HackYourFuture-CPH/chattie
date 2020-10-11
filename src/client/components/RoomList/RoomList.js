@@ -1,8 +1,6 @@
 import React from 'react';
 import './RoomList.css';
-
 import PropTypes from 'prop-types';
-
 const RoomList = ({ roomList }) => {
   return (
     <ul className="outside">
@@ -17,7 +15,6 @@ const RoomList = ({ roomList }) => {
     </ul>
   );
 };
-
 RoomList.propTypes = {
   roomList: PropTypes.arrayOf(
     PropTypes.shape({

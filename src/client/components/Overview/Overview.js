@@ -1,12 +1,22 @@
 import React from 'react';
 import './Overview.styles.css';
 import UserList from '../../containers/UserList/UserList';
+import useFetch from '../../hooks/useFetch';
+import Loader from '../../components/Loader/Loader';
+import Error from '../../components/ErrorComponent/Error';
 import Search from '../Search/Search';
 import RoomListOverview from '../RoomListOverview/RoomListOverview';
 import { UserContext } from '../../context/userContext';
 import FooterChatProfile from '../footerChatProfile/FooterChatProfile';
 
 function Overview() {
+  const { response: roomList, loading, error } = useFetch(`/api/channels`);
+  if (loading) {
+    return <Loader />;
+  }
+  if (error) {
+    return <Error />;
+  }
   return (
     <UserContext.Consumer>
       {(user) => {
@@ -21,7 +31,7 @@ function Overview() {
             </div>
 
             <div className="room-list-overview">
-              <RoomListOverview roomList={[]} />
+              <RoomListOverview roomList={roomList || []} />
             </div>
 
             <div className="users-list">
