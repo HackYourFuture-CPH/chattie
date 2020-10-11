@@ -4,7 +4,7 @@ import UserList from '../../containers/UserList/UserList';
 import Search from '../Search/Search';
 import RoomListOverview from '../RoomListOverview/RoomListOverview';
 import { UserContext } from '../../context/userContext';
-import FooterChatProfole from '../footerChatProfile/FooterChatProfile';
+import FooterChatProfile from '../footerChatProfile/FooterChatProfile';
 
 function Overview() {
   return (
@@ -28,7 +28,7 @@ function Overview() {
               <UserList />
             </div>
 
-            <FooterChatProfole />
+            <FooterChatProfile />
           </div>
         );
       }}

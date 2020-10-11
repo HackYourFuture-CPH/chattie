@@ -1,7 +1,7 @@
 import React from 'react';
 import './FooterChatProfile.styles.css';
 
-export default function FooterChatProfole() {
+export default function FooterChatProfile() {
   return (
     <div className="footer-chat-profile">
       <div className="title-dot">
