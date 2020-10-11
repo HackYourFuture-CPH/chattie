@@ -23,7 +23,7 @@ const getUserByUid = async (uid) => {
     )
     .limit(1)
     .where({ uid });
-  return user.length === 1 ? user[0] : undefined;
+  return user.length === 1 ? user[0] : {};
 };
 
 const getUserById = async (id) => {
