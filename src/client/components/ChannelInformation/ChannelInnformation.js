@@ -16,11 +16,11 @@ export const ChannelInformationComponent = ({ image, title, members }) => {
               return (
                 <li key={member.id}>
                   <img
-                    src={member.profile_image}
+                    src={member.profileImage}
                     alt="member"
                     className="member-information-img"
                   />
-                  <h4>{member.user_name}</h4>
+                  <h4>{member.userName}</h4>
                 </li>
               );
             })}
