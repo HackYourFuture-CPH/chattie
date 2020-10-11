@@ -1,5 +1,4 @@
 const knex = require('../../config/db');
-
 const Error = require('../lib/utils/http-error');
 
 const getChannelsId = async (userId) => {
@@ -22,7 +21,7 @@ const getChannelsId = async (userId) => {
             'channel_members.fk_user_id as userId',
           )
           .innerJoin('channels', {
-            'channel_messages.fk_channel_id': element.channelId,
+            'channel_messages.fk_channel_id': 'channels.id',
           })
           .where('channels.id', element.channelId)
           .innerJoin('channel_members', {
