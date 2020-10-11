@@ -1,13 +1,13 @@
 import React from 'react';
-import { RenderChannelInformation } from './ChannelInnformation';
+import { ChannelInformationComponent } from './ChannelInnformation';
 
 export default {
   title: 'Channel Information',
-  component: RenderChannelInformation,
+  component: ChannelInformationComponent,
 };
 
 export const Component = () => (
-  <RenderChannelInformation
+  <ChannelInformationComponent
     image="https://loremflickr.com/320/240"
     title="Room"
     members={[

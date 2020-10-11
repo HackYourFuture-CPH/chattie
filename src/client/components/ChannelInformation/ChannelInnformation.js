@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './ChannelInformation.style.css';
 
-export const RenderChannelInformation = ({ image, title, members }) => {
+export const ChannelInformationComponent = ({ image, title, members }) => {
   return (
     <>
       <div className="channel-information-header">
@@ -16,11 +16,11 @@ export const RenderChannelInformation = ({ image, title, members }) => {
               return (
                 <li key={member.id}>
                   <img
-                    src={member.imgUrl}
+                    src={member.profileImage}
                     alt="member"
                     className="member-information-img"
                   />
-                  <h4>{member.name}</h4>
+                  <h4>{member.userName}</h4>
                 </li>
               );
             })}
@@ -29,12 +29,12 @@ export const RenderChannelInformation = ({ image, title, members }) => {
     </>
   );
 };
-RenderChannelInformation.propTypes = {
+ChannelInformationComponent.propTypes = {
   image: PropTypes.string,
   title: PropTypes.string,
   members: PropTypes.arrayOf(PropTypes.object),
 };
-RenderChannelInformation.defaultProps = {
+ChannelInformationComponent.defaultProps = {
   image: '',
   title: '',
   members: [],
