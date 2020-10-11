@@ -40,7 +40,6 @@ function App() {
   }, [error, user]);
 
   if (isLoading) return <Loader />;
-
   return (
     <UserContext.Provider value={currentUser}>
       <Router>
@@ -59,7 +58,7 @@ function App() {
           >
             <Profile />
           </AuthenticatedRoute>
-          <Route exact path="/overview">
+          <Route exact path="/overview" isAuthenticated={isAuthenticated}>
             <Overview />
           </Route>
           <Route
