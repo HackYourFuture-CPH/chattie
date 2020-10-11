@@ -1,0 +1,91 @@
+.sign-up-icon-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sign-up-icon  {
+  font-size: 30px;
+  color: #3e99c0;
+  justify-content: flex-start;
+  margin-left: 10%;
+}
+
+.sign-up-title{
+  color: black;
+  justify-content: center;
+  margin-top: -30px;
+}
+
+.sign-up-forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign-up-form input {
+  display: inline-block;
+  width: 295px;
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: rgb(237, 233, 233);
+  margin-bottom: 30px;
+}
+
+.sign-up-name {
+  margin-top: 65px;
+}
+
+.sign-up-button {
+  background-color: #3e99c0;
+  border-radius: 8px;
+  border-width: 0px;
+  font-weight: 295;
+  color: rgb(255, 255, 255);
+  padding: 5px;
+  font-size: 17px;
+  width: 295px;
+  height: 48px;
+  margin-top: 30%;
+  text-align: center;
+}
+
+.sign-up-image {
+  margin-top: 35px;
+  margin-left: 15px;
+}
+
+.sign-up-image :hover {
+  cursor: pointer;
+}
+
+.sign-up-add-image-to-profile {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  padding-top: 35px;
+  background-color: #a6c5d7;
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: relative;
+  opacity: 0.1;
+}
+
+.sign-up-add-image-to-profile-preview {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top: 70px;
+  left: auto;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.sign-up-image-user {
+  width: 100%;
+  height: auto;
+}
