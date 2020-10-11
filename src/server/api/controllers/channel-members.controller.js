@@ -3,38 +3,24 @@ const Error = require('../lib/utils/http-error');
 const moment = require('moment-timezone');
 
 const getChannelMembersByChannelId = async (channelId) => {
-  const channelMembers = await knex('channel_members')
-    .select(
-      'users.email',
-      'users.user_name as userName',
-      'users.profile_image as profileImage',
-    )
-    .where('channel_members.fk_channel_id', channelId)
-    .join('users', {
-      'channel_members.fk_user_id': 'users.id',
-    });
-  return channelMembers;
-};
-
-const getChannelMemberById = async (id) => {
   try {
-    const channelMemberById = await knex('channel_members')
+    const channelMembers = await knex('channel_members')
       .select(
-        'channel_members.fk_channel_id',
-        'user_name as userName',
-        'profile_image as profileImage',
+        'users.email',
+        'users.user_name as userName',
+        'users.profile_image as profileImage',
         'channel_members.created_at as createdAt',
-        'last_seen as lastSeen',
+        'users.last_seen as lastSeen',
       )
-      .innerJoin('users', 'users.id', '=', 'channel_members.fk_user_id')
-      .where({ 'channel_members.fk_channel_id': id });
-    if (channelMemberById.length === 0) {
-      throw new Error(
-        `incorrect entry channel members with the id of ${id}`,
-        404,
-      );
+      .where('channel_members.fk_channel_id', channelId)
+      .join('users', {
+        'channel_members.fk_user_id': 'users.id',
+      });
+
+    if (channelMembers.length === 0) {
+      throw new Error(404);
     }
-    return channelMemberById;
+    return channelMembers;
   } catch (error) {
     return error.message;
   }
@@ -127,7 +113,6 @@ module.exports = {
   createChannelMember,
   deleteChannelMember,
   getChannelMembersByChannelId,
-  getChannelMemberById,
   checkForGeneralChannels,
   getCommonChannels,
   editChannelMembers,

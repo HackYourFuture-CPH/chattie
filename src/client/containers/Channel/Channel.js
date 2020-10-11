@@ -59,35 +59,18 @@ export default function Channel() {
       </>
     );
   }
-  if (channel?.title === null) {
-    return (
-      <>
-        <ChannelHeadNav
-          urlBack="/overview"
-          channelName={notCurrentUser[0].userName}
-          channelId={channelId}
-          imgUrl={notCurrentUser[0].profileImage}
-        />
-        {messages.length !== 0 ? (
-          messages && (
-            <MessageList
-              messages={messages}
-              currentUserEmail={currentUserEmail}
-            />
-          )
-        ) : (
-          <>There does not seem to be any messages here. Try sending one</>
-        )}
-        <SendMessageForm channelId={channelId} userId={userFromDatabase.id} />
-      </>
-    );
-  }
+
+  const hasTitle = channel?.title !== null;
+  const channelName = hasTitle ? channel.title : notCurrentUser[0].userName;
+  const imgUrl = hasTitle ? imgUrl : notCurrentUser[0].profileImage;
+
   return (
     <>
       <ChannelHeadNav
         urlBack="/overview"
-        channelName={channel.title}
+        channelName={channelName}
         channelId={channelId}
+        imgUrl={imgUrl}
       />
       {messages.length !== 0 ? (
         messages && (
