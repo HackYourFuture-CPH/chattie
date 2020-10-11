@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './ChannelInformation.style.css';
 
-export const RenderChannelInformation = ({ image, title, members }) => {
+export const ChannelInformationComponent = ({ image, title, members }) => {
   return (
     <>
       <div className="channel-information-header">
@@ -29,12 +29,12 @@ export const RenderChannelInformation = ({ image, title, members }) => {
     </>
   );
 };
-RenderChannelInformation.propTypes = {
+ChannelInformationComponent.propTypes = {
   image: PropTypes.string,
   title: PropTypes.string,
   members: PropTypes.arrayOf(PropTypes.object),
 };
-RenderChannelInformation.defaultProps = {
+ChannelInformationComponent.defaultProps = {
   image: '',
   title: '',
   members: [],
