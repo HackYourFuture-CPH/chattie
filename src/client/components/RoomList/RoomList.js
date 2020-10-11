@@ -1,6 +1,7 @@
 import React from 'react';
 import './RoomList.css';
 import PropTypes from 'prop-types';
+
 const RoomList = ({ roomList }) => {
   return (
     <ul className="outside">
