@@ -31,6 +31,7 @@ export default function Profile() {
           userName={user.userName}
           email={user.email}
           phoneNumber={user.phoneNumber}
+          role={user.role}
         />
       )}
     </div>
