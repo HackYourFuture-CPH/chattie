@@ -21,19 +21,20 @@ export default function Channel() {
     const getChannelTitleAndImage = async () => {
       const channel = await fetchWithAuth(`/api/channels/${channelId}`);
       const membersofChannel = await fetchWithAuth(
-        `api/channel-members/${channelId}`,
+        `api/channel-members/membersInfo?channelId=${channelId}`,
       );
       const otherMember = membersofChannel.filter(
         (member) => member.id !== userFromDatabase.id,
       );
-      if (channel[0].title) {
-        setChannelTitle(channel[0].title);
+
+      if (channel.title) {
+        setChannelTitle(channel.title);
       } else {
         setChannelTitle(otherMember[0].userName);
       }
 
-      if (channel[0].imageUrl) {
-        setChannelImage(channel[0].imageUrl);
+      if (channel.imageUrl) {
+        setChannelImage(channel.imageUrl);
       } else {
         setChannelImage(otherMember[0].profileImage);
       }

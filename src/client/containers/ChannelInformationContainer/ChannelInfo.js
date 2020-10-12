@@ -11,18 +11,22 @@ export default function ChannelInfoRender() {
   useEffect(() => {
     const fetchChannelAndMembers = async () => {
       const channel = await fetchWithAuth(`/api/channels/${id}`);
-      const membersofChannel = await fetchWithAuth(`api/channel-members/${id}`);
-      if (channel[0].title) {
-        setchannelTitle(channel[0].title);
+      const membersofChannel = await fetchWithAuth(
+        `api/channel-members/membersInfo?channelId=${id}`,
+      );
+      if (channel.title) {
+        setchannelTitle(channel.title);
       } else {
         setchannelTitle(membersofChannel[0].userName);
       }
-      if (channel[0].imageUrl) {
-        setchannelImageUrl(channel[0].imageUrl);
+      if (channel.imageUrl) {
+        setchannelImageUrl(channel.imageUrl);
       } else {
         setchannelImageUrl(membersofChannel[0].profileImage);
       }
-      const membersRes = await fetchWithAuth(`api/channel-members/${id}`);
+      const membersRes = await fetchWithAuth(
+        `api/channel-members/membersInfo?channelId=${id}`,
+      );
       setMembers(membersRes);
     };
     fetchChannelAndMembers();
