@@ -1,17 +1,18 @@
-import React, { useContext } from 'react';
-import { UserContext } from '../../context/userContext';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 import LastMessagesList from '../../components/LastMessageList/LastMessagesList';
 import Loader from '../../components/Loader/Loader';
 import Error from '../../components/ErrorComponent/Error';
 
-const LastChannelsMessageList = () => {
-  const history = useHistory();
-  const user = useContext(UserContext);
+const LastChannelsMessageList = ({ user }) => {
   const id = user ? user.id : '';
+
+  const history = useHistory();
   const url = `/api/channels-message/last-messages?userId=${id}`;
   const { response: lastChannels, loading, error } = useFetch(url);
+
   const onGoToChatPage = (channelId) => {
     history.push(`/channels/${channelId}`);
   };
@@ -35,3 +36,7 @@ const LastChannelsMessageList = () => {
 };
 
 export default LastChannelsMessageList;
+
+LastChannelsMessageList.propTypes = {
+  user: PropTypes.shape({ id: PropTypes.number.isRequired }).isRequired,
+};
