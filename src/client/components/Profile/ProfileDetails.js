@@ -15,6 +15,7 @@ function ProfileDetails({
   userName,
   email,
   phoneNumber,
+  role,
   handleSubmit,
   buttonText,
   user,
@@ -121,7 +122,9 @@ function ProfileDetails({
             </button>
           </div>
         </div>
-        <p>Professional role</p>
+        <div className="email-info">
+          <p>{user ? user.role : role}</p>
+        </div>
       </section>
       <section className="users-information-container">
         <div className="user-email">
@@ -164,10 +167,12 @@ ProfileDetails.propTypes = {
   email: PropTypes.string,
   user: PropTypes.shape({
     email: PropTypes.string,
+    role: PropTypes.string,
   }).isRequired,
   userName: PropTypes.string,
   profileImage: PropTypes.string,
   phoneNumber: PropTypes.string,
+  role: PropTypes.string,
   handleSubmit: PropTypes.func.isRequired,
   buttonText: PropTypes.string,
 };
@@ -179,4 +184,5 @@ ProfileDetails.defaultProps = {
   phoneNumber: '',
   buttonText: 'edit',
   email: '',
+  role: 'Missing role',
 };
