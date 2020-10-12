@@ -76,12 +76,9 @@ function App() {
             <ChannelInfo />
           </Route>
         </Switch>
-        <Route
-          exact
-          path="/add-people"
-          component={AddPeopleToRoom}
-          isAuthenticated={isAuthenticated}
-        />
+        <Route exact path="/add-people" isAuthenticated={isAuthenticated}>
+          <AddPeopleToRoom />
+        </Route>
       </Router>
     </UserContext.Provider>
   );

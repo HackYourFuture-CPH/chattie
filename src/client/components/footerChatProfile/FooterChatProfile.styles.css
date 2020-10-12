@@ -10,46 +10,55 @@
   position: fixed;
 }
 
-.footer-chat-profile a:hover {
-  text-decoration: none;
-  color: #3e99c0;
-}
-
-.title-dot {
+.footer-chat-container{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
 }
 
-.chat-dot {
+.footer-link {
+  margin-top: 27px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #181818;
+  border-bottom: 3px solid transparent;
+}
+
+.footer-link-active {
+  transition: border-bottom .5s ease-in-out;
+  font-weight: bold;
+  margin-top: 27px;
+}
+
+.footer-dot-active {
   width: 15px;
   height: 15px;
   border-radius: 50%;
   background-color: #3e99c0;
-  position: fixed;
-  bottom: -8px;
+  text-align: center;
 }
 
-/* desible it, when it's profile page and put a class to chat */
-.overview-active-link{
-  font-weight: bold;
-}
-
-/* desible it, when it's profile page and put a class to chat */
-.white-dot {
+.footer-dot {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: #ffffff;
-  position: fixed;
-  bottom: -8px;
+  text-align: center;
+  margin-top:13px;
+}
+
+.footer-link-active > .footer-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #3e99c0;
+  margin-left: 36%;
+  margin-top:13px;
 }
 
 @media screen and (max-width: 1700px) {
   .footer-chat-profile {
     padding-left: 20%;
     padding-right: 20%;
-   
   }
 }
 
@@ -59,5 +68,3 @@
       padding-right: 0;
     }
 }
-
-
