@@ -8,8 +8,16 @@
   margin: 2% 0;
 }
 
-.current-user-message {
-  background: #2979ff;
+
+.chat-message-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 5%;
+  margin: 5% 0;
+}
+
+.chat-message-container .current-user-message {
+  background: #3e99c0;
   align-self: flex-end;
   color: white;
 }
@@ -36,8 +44,9 @@
 
 .other-users-message .messenge-photo img {
   align-self: baseline;
-  width: 20%;
+  width: 25%;
   margin-right: 5%;
+  border-radius: 50%;
 }
 
 .other-users-message .user-name {

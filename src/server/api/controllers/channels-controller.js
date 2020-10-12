@@ -12,10 +12,10 @@ const createChannel = async (body) => {
 
 const getChannelsById = async (id) => {
   const channels = await knex('channels')
-    .select('channels.id as id', 'title')
+    .select('channels.id as id', 'title', 'imageUrl')
     .where({ id });
 
-  return channels;
+  return channels[0];
 };
 
 const getFilteredChannels = async ({

@@ -43,19 +43,21 @@ exports.seed = function(knex) {
         },
         {
           id: 5,
-          title: 'null',
+          title: 'Employment',
           created_at: '2020-10-02 12:20:00',
           updated_at: '2020-10-02 12:20:00',
           deleted_at: '2020-10-02 12:20:00',
-          imageUrl: 'null',
+          imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Math_games_-_Big_Brother_Mouse_activity_day.jpg/1200px-Math_games_-_Big_Brother_Mouse_activity_day.jpg',
         },
         {
           id: 6,
-          title: 'null',
+          title: 'Contact',
           created_at: '2020-10-10 05:20:00',
           updated_at: '2020-10-10 05:20:00',
           deleted_at: '2020-10-10 05:20:00',
-          imageUrl: 'null',
+          imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/GNOME_Web_logo--2018.svg/1200px-GNOME_Web_logo--2018.svg.png',
         },
         {
           id: 7,
@@ -77,11 +79,12 @@ exports.seed = function(knex) {
         },
         {
           id: 9,
-          title: null,
+          title: 'News',
           created_at: '2020-10-10 11:30:00',
           updated_at: '2020-10-10 11:30:00',
           deleted_at: '2020-10-10 11:30:00',
-          imageUrl: 'null',
+          imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/3/33/Al_Jazeera_English_Doha_Newsroom_1.jpg',
         },
         {
           id: 10,

@@ -1,3 +1,4 @@
+
 .header-profile ul,
 .user-email,
 .user-phone,
@@ -36,8 +37,7 @@
   width: 30%;
 }
 
-.email-info,
-.phone-info {
+.email-info, .phone-info {
   text-align: left;
   line-height: 1;
   margin-bottom: 3%;
@@ -58,8 +58,7 @@
   align-items: center;
 }
 
-.user-email,
-.user-phone {
+.user-email, .user-phone {
   border-radius: 15px;
   box-shadow: 2px 2px 4px #2b3233;
   padding: 3%;
@@ -69,11 +68,7 @@
 
 .name-image-container {
   background-color: #ffb127;
-  background-image: -webkit-linear-gradient(
-    -75deg,
-    #ffb127 49.95%,
-    #ffffff 50.05%
-  );
+  background-image: -webkit-linear-gradient( -75deg, #ffb127 49.95%, #ffffff 50.05%);
   min-height: 50px;
 }
 
