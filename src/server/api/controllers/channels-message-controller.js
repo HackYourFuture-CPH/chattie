@@ -1,5 +1,4 @@
 const knex = require('../../config/db');
-const Error = require('../lib/utils/http-error');
 
 const getChannelsId = async (userId) => {
   try {
@@ -8,7 +7,7 @@ const getChannelsId = async (userId) => {
       .where('fk_user_id', userId);
 
     if (channels.length === 0) {
-      throw new Error(`create your first conversation!`);
+      return [];
     }
     const messages = await Promise.all(
       channels.map(async (element) => {
@@ -18,7 +17,10 @@ const getChannelsId = async (userId) => {
             'channel_messages.updated_at as updatedAt',
             'channels.id as channelId',
             'channels.title',
+            'channels.imageUrl',
             'channel_members.fk_user_id as userId',
+            'users.user_name as userName',
+            'users.profile_image as profileImage',
           )
           .innerJoin('channels', {
             'channel_messages.fk_channel_id': 'channels.id',
@@ -28,6 +30,9 @@ const getChannelsId = async (userId) => {
             'channel_messages.fk_channel_id': element.channelId,
           })
           .where('channel_members.fk_channel_id', element.channelId)
+          .innerJoin('users', {
+            'channel_members.fk_user_id': 'users.id',
+          })
           .orderBy('channel_messages.updated_at', 'desc')
           .limit(1);
         return message;
