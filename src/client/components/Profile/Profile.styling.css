@@ -1,4 +1,9 @@
-.header-profile ul, .user-email, .user-phone, .name-edit-btn, .phone-info {
+
+.header-profile ul,
+.user-email,
+.user-phone,
+.name-edit-btn,
+.phone-info {
   display: flex;
 }
 
@@ -15,7 +20,7 @@
 }
 
 .svg-inline--fa {
-  color: #007677;
+  color: #3E99C0;
 }
 
 .svg-inline--fa.fa-w-16 {
@@ -85,18 +90,32 @@
   padding: 10% 20%;
 }
 
-.name-edit-btn, .phone-info, .email-info {
+.name-edit-btn,
+.phone-info,
+.email-info {
   align-items: baseline;
 }
 
-.user-name input, .phone-info input {
+.user-name input,
+.phone-info input {
   padding-right: 2%;
   line-height: 1px;
+  border-color: gray;
+}
+
+.profile-sign-out-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button.sign-out-button,
+.edit-name button {
+  background-color: #007677;
 }
 
 .name-image-container p {
   font-size: 20px;
-  margin: 2% 2% 5%
+  margin: 2% 2% 5%;
 }
 
 .sign-out-btn {
@@ -116,10 +135,19 @@
   .name-image-container img {
     margin-top: 25%;
   }
+
   .profile-details-container {
     width: 100%;
     height: 100%;
     box-shadow: none;
     margin: 0;
+  }
+
+  email .icon {
+    width: 15%;
+  }
+  .user-name input,
+  .phone-info input {
+    width: 125px;
   }
 }

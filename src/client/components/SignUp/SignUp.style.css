@@ -1,7 +1,20 @@
 .sign-up-icon-title {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
+}
+
+.sign-up-icon  {
+  font-size: 30px;
+  color: #3e99c0;
+  justify-content: flex-start;
+  margin-left: 10%;
+}
+
+.sign-up-title{
+  color: black;
+  justify-content: center;
+  margin-top: -30px;
 }
 
 .sign-up-forms {
@@ -9,17 +22,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.sign-up-icon {
-  font-size: 30px;
-  color: #3e99c0;
-  margin-left: 10%;
-}
-
-.sign-up-title {
-  color: black;
-  margin-left: 27%;
 }
 
 .sign-up-form input {

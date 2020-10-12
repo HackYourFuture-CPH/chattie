@@ -7,45 +7,57 @@ exports.seed = function(knex) {
       return knex('channels').insert([
         {
           id: 1,
-          title: 'Front Desk',
+          title: 'Kitchen',
           created_at: '2020-10-01 12:00:00',
           updated_at: '2020-10-01 12:00:00',
           deleted_at: '2020-10-01 12:00:00',
+          imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/c/c5/Kitchen_jantje_zag_eens_pruimen_hangen.jpg',
         },
         {
           id: 2,
-          title: ' kitchen',
+          title: 'FoH',
           created_at: '2020-10-01 12:10:00',
           updated_at: '2020-10-01 12:10:00',
           deleted_at: '2020-10-01 12:10:00',
+          imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Cyclonebill_Hvide_asparges_med_pocheret_aeggeblomme_og_skovmaerkesauce.jpg/220px-Cyclonebill_Hvide_asparges_med_pocheret_aeggeblomme_og_skovmaerkesauce.jpg',
         },
         {
           id: 3,
-          title: null,
+          title: 'Maintenance',
           created_at: '2020-10-01 12:20:00',
           updated_at: '2020-10-01 12:20:00',
           deleted_at: '2020-10-01 12:20:00',
+          imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/435px-Barbieri_-_ViaSophia25668.jpg',
         },
         {
           id: 4,
-          title: 'Hotels',
+          title: 'Delivery',
           created_at: '2020-10-01 12:30:00',
           updated_at: '2020-10-01 12:30:00',
           deleted_at: '2020-10-01 12:30:00',
+          imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/UberEats_cyclist_in_Amsterdam.jpg/330px-UberEats_cyclist_in_Amsterdam.jpg',
         },
         {
           id: 5,
-          title: 'Employees',
+          title: 'Employment',
           created_at: '2020-10-02 12:20:00',
           updated_at: '2020-10-02 12:20:00',
           deleted_at: '2020-10-02 12:20:00',
+          imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Math_games_-_Big_Brother_Mouse_activity_day.jpg/1200px-Math_games_-_Big_Brother_Mouse_activity_day.jpg',
         },
         {
           id: 6,
-          title: null,
+          title: 'Contact',
           created_at: '2020-10-10 05:20:00',
           updated_at: '2020-10-10 05:20:00',
           deleted_at: '2020-10-10 05:20:00',
+          imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/GNOME_Web_logo--2018.svg/1200px-GNOME_Web_logo--2018.svg.png',
         },
         {
           id: 7,
@@ -53,6 +65,8 @@ exports.seed = function(knex) {
           created_at: '2020-10-10 10:00:00',
           updated_at: '2020-10-10 10:00:00',
           deleted_at: '2020-10-10 10:00:00',
+          imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/e/ed/Google_Forms_logo.svg',
         },
         {
           id: 8,
@@ -60,13 +74,17 @@ exports.seed = function(knex) {
           created_at: '2020-10-10 11:20:00',
           updated_at: '2020-10-10 11:20:00',
           deleted_at: '2020-10-10 11:20:00',
+          imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/ADS-Logo_RGB.png/1280px-ADS-Logo_RGB.png',
         },
         {
           id: 9,
-          title: null,
+          title: 'News',
           created_at: '2020-10-10 11:30:00',
           updated_at: '2020-10-10 11:30:00',
           deleted_at: '2020-10-10 11:30:00',
+          imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/3/33/Al_Jazeera_English_Doha_Newsroom_1.jpg',
         },
         {
           id: 10,
@@ -74,6 +92,8 @@ exports.seed = function(knex) {
           created_at: '2020-10-10 11:59:00',
           updated_at: '2020-10-10 11:59:00',
           deleted_at: '2020-10-10 11:59:00',
+          imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/e/ed/Google_Forms_logo.svg',
         },
       ]);
     });
