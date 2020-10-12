@@ -6,30 +6,28 @@ import { Link } from 'react-router-dom';
 const RoomItemEdit = (props) => {
   const [roomTitle, setRoomTitle] = useState('');
   const channel = props.location.roomItemEditProps[0];
-  const id = channel.id;
-  const editChannel = async (id, title) => {
-    await fetchWithAuth(`/api/channels/${id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        id,
-        title,
-      }),
-    });
+  const { id } = channel;
+  const roomInputData = {
+    title: roomTitle,
+  };
+  const handleEditRoom = {
+    method: 'PATCH',
+    body: JSON.stringify(roomInputData),
+  };
+  const onEdit = async () => {
+    await fetchWithAuth(`/api/channels/${id}`, handleEditRoom);
   };
   return (
     <div className="edit-room">
-      <form onSubmit={editChannel}>
+      <form onSubmit={onEdit}>
         <input
           type="text"
           placeholder={channel.title}
           value={roomTitle}
           onChange={(event) => setRoomTitle(event.target.value)}
         />
-        <Link to={'/channels'}>
-          <button type="submit" onClick={() => editChannel(id, roomTitle)}>
+        <Link to="/channels">
+          <button type="submit" onClick={() => onEdit(id, roomTitle)}>
             Submit
           </button>
         </Link>
@@ -37,5 +35,4 @@ const RoomItemEdit = (props) => {
     </div>
   );
 };
-
 export default RoomItemEdit;

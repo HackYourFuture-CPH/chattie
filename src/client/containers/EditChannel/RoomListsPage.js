@@ -27,7 +27,7 @@ const RoomListPage = () => {
           <Route
             exact
             path="/channels"
-            render={(routerProps) => <RoomList channels={channels} />}
+            render={() => <RoomList channels={channels} />}
           />
           <Route
             exact
