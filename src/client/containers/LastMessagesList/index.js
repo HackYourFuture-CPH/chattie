@@ -6,16 +6,11 @@ import LastMessagesList from '../../components/LastMessageList/LastMessagesList'
 import Loader from '../../components/Loader/Loader';
 import Error from '../../components/ErrorComponent/Error';
 
-const LastChannelsMessageList = ({ user }) => {
-  const id = user ? user.id : '';
-
+const LastChannelsMessageList = ({ userId }) => {
   const history = useHistory();
-  const url = `/api/channels-message/last-messages?userId=${id}`;
-  const { response: lastChannels, loading, error } = useFetch(url);
+  const url = `/api/channels-message/last-messages?userId=${userId}`;
+  const { response, loading, error } = useFetch(url);
 
-  const onGoToChatPage = (channelId) => {
-    history.push(`/channels/${channelId}`);
-  };
   if (loading) {
     return <Loader />;
   }
@@ -23,20 +18,22 @@ const LastChannelsMessageList = ({ user }) => {
   if (error) {
     return <Error />;
   }
+
+  if (!response) {
+    return <p>Start a conversation to see it here</p>;
+  }
+
+  const messages = response.filter((mes) => mes);
   return (
-    <>
-      {lastChannels && (
-        <LastMessagesList
-          lastChannels={lastChannels}
-          onGoToChatPage={onGoToChatPage}
-        />
-      )}
-    </>
+    <LastMessagesList
+      messages={messages}
+      onGoToChatPage={(id) => history.push(`/channels/${id}`)}
+    />
   );
 };
 
 export default LastChannelsMessageList;
 
 LastChannelsMessageList.propTypes = {
-  user: PropTypes.shape({ id: PropTypes.number.isRequired }).isRequired,
+  userId: PropTypes.number.isRequired,
 };

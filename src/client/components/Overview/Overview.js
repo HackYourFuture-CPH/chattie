@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import './Overview.styles.css';
 import 'react-toastify/dist/ReactToastify.css';
-import UserList from '../../containers/UserList/UserList';
 import LastChannelsMessageList from '../../containers/LastMessagesList/index';
 import useFetch from '../../hooks/useFetch';
 import Loader from '../Loader/Loader';
@@ -15,7 +14,7 @@ import FooterChatProfile from '../footerChatProfile/FooterChatProfile';
 function Overview() {
   const user = useContext(UserContext);
   const { response: roomList, loading, error } = useFetch(`/api/channels`);
-  if (loading) {
+  if (loading || !user) {
     return <Loader />;
   }
   if (error) {
@@ -31,10 +30,7 @@ function Overview() {
         <div className="room-list-overview">
           <RoomListOverview roomList={roomList || []} />
         </div>
-        <LastChannelsMessageList user={user} />
-        <div className="users-list">
-          <UserList />
-        </div>
+        <LastChannelsMessageList userId={user.id} />
         <FooterChatProfile />
       </div>
       <ToastContainer
