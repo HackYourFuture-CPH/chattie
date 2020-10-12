@@ -9,6 +9,7 @@ import {
   faCamera,
 } from '@fortawesome/fontawesome-free-solid';
 import { useStorage } from '../../hooks/useStorage';
+import FooterChatProfile from '../footerChatProfile/FooterChatProfile';
 
 function ProfileDetails({
   profileImage,
@@ -154,6 +155,8 @@ function ProfileDetails({
           </div>
         </div>
       </section>
+
+      <FooterChatProfile />
     </div>
   );
 }

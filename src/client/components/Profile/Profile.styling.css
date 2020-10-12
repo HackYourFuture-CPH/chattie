@@ -15,7 +15,7 @@
   border-top-left-radius: 3%;
   border-top-right-radius: 3%;
   background-color: #ffb127;
-  padding: 3% 5% 0;
+  padding:0;
 }
 
 .svg-inline--fa {
@@ -130,10 +130,7 @@ button.sign-out-button,
 }
 
 .profile-details-container {
-  margin: 1% auto;
   border-radius: 5px;
-  box-shadow: 0 0 5px 0 #333333;
-  height: 88vh;
 }
 
 @media screen and (max-width: 1050px) {
