@@ -1,19 +1,39 @@
 import React from 'react';
 import './FooterChatProfile.styles.css';
+import { NavLink } from 'react-router-dom';
 
-export default function FooterChatProfile() {
-  return (
-    <div className="footer-chat-profile">
-      <div className="title-dot">
-        <a className="overview-active-link" href="/Overview">
-          Chats
-        </a>
-        <span className="chat-dot"> </span>
+const FooterChatProfile = () => (
+  <nav className="footer-chat-profile">
+    <NavLink
+      exact
+      activeClassName="footer-link-active"
+      className="footer-link"
+      to="/Overview"
+    >
+      Chat
+      <div
+        activeClassName="footer-dot-active"
+        className="footer-dot"
+        to="/Overview"
+      >
+        {' '}
       </div>
-      <div className="title-dot">
-        <a href="/profile">Profile</a>
-        <span className="chat-dot white-dot"> </span>
+    </NavLink>
+    <NavLink
+      activeClassName="footer-link-active"
+      className="footer-link"
+      to="/profile"
+    >
+      Profile
+      <div
+        activeClassName="footer-dot-active"
+        className="footer-dot"
+        to="/profile"
+      >
+        {' '}
       </div>
-    </div>
-  );
-}
+    </NavLink>
+  </nav>
+);
+
+export default FooterChatProfile;
