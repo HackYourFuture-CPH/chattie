@@ -60,9 +60,9 @@ export default function Channel() {
     );
   }
 
-  const hasTitle = channel?.title !== null;
+  const hasTitle = channel?.title !== 'null' && channel?.title !== null;
   const channelName = hasTitle ? channel.title : notCurrentUser[0].userName;
-  const imgUrl = hasTitle ? imgUrl : notCurrentUser[0].profileImage;
+  const imgUrl = hasTitle ? channel.imageUrl : notCurrentUser[0].profileImage;
 
   return (
     <>
