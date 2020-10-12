@@ -1,40 +1,51 @@
-/* eslint-disable camelcase */
 import React from 'react';
+import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 import './LastMessagesList.css';
 import { object } from '@storybook/addon-knobs';
 
-export default function LastMessageList({ lastChannels, onGoToChatPage }) {
-  if (!lastChannels) {
-    return <p>No channels, start a conversation to see it here</p>;
-  }
+const LastMessageList = ({ messages, onGoToChatPage }) => (
+  <ul className="last-messages-container">
+    {messages.map(
+      ({
+        message,
+        updatedAt,
+        channelId,
+        title,
+        userName,
+        imageUrl,
+        profileImage,
+      }) => (
+        <li
+          className="last-conversation-details"
+          role="presentation"
+          key={channelId}
+          onClick={() => {
+            onGoToChatPage(channelId);
+          }}
+        >
+          <div className="last-messages-image">
+            {title ? (
+              <img src={imageUrl} alt="room" />
+            ) : (
+              <img src={profileImage} alt="user profile" />
+            )}
+          </div>
+          <div className="title-messages-container">
+            {title ? <h3>{title}</h3> : <h3>{userName}</h3>}
+            <p>
+              {message} <Moment format="DD/MM">{updatedAt}</Moment>
+            </p>
+          </div>
+        </li>
+      ),
+    )}
+  </ul>
+);
 
-  return (
-    <ul>
-      {lastChannels &&
-        lastChannels.map(({ message, updatedAt, channelId, title }) => (
-          <li
-            role="presentation"
-            key={channelId}
-            onClick={() => {
-              onGoToChatPage(channelId);
-            }}
-            onKeyDown={() => {
-              onGoToChatPage(channelId);
-            }}
-          >
-            <p>{title}</p>
-            <h6>{message}</h6>
-            <span>
-              <h6>{updatedAt}</h6>
-            </span>
-          </li>
-        ))}
-    </ul>
-  );
-}
+export default LastMessageList;
 
 LastMessageList.propTypes = {
-  lastChannels: PropTypes.arrayOf(object).isRequired,
+  messages: PropTypes.arrayOf(object).isRequired,
   onGoToChatPage: PropTypes.func.isRequired,
 };
