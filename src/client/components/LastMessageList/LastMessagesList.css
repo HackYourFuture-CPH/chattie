@@ -1,0 +1,34 @@
+.last-messages-container {
+    width: 70%;
+    margin: 1% auto;
+}
+
+.last-messages-container .last-conversation-details, .last-messages-container, .last-messages-container .title-messages-container {
+    display: flex;
+}
+
+.last-messages-container, .last-messages-container .title-messages-container {
+    flex-direction: column;
+}
+
+.last-conversation-details .last-messages-image img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.last-messages-container .last-conversation-details {
+    margin: 2%;
+}
+
+.last-conversation-details .last-messages-image {
+    margin-right: 10%;
+}
+
+.last-conversation-details .last-messages-image, .last-conversation-details .title-messages-container {
+    align-self: center;
+}
+
+.last-conversation-details .title-messages-container h3 {
+    margin-bottom: 5%;
+}
