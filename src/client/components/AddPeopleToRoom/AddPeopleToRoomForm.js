@@ -14,7 +14,7 @@ export default function AddPeopleToRoom({
   onNext,
 }) {
   const isUserAdded = (id) =>
-    addedUsers.find((user) => user.id === id) ? true : false;
+    Boolean(addedUsers.find((user) => user.id === id));
   const users2 = users.map((user) => ({
     ...user,
     isAddedUser: isUserAdded(user.id),

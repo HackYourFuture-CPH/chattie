@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './ChannelInformation.style.css';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
+import { BrowserRouter, Link } from 'react-router-dom';
 
 export const ChannelInformationComponent = ({
   image,
