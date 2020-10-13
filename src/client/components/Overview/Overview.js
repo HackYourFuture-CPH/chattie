@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Overview.styles.css';
 import 'react-toastify/dist/ReactToastify.css';
+import LastChannelsMessageList from '../../containers/LastMessagesList/index';
 import useFetch from '../../hooks/useFetch';
 import Loader from '../Loader/Loader';
 import Error from '../ErrorComponent/Error';
@@ -11,8 +12,9 @@ import { ToastContainer } from 'react-toastify';
 import FooterChatProfile from '../footerChatProfile/FooterChatProfile';
 
 function Overview() {
+  const user = useContext(UserContext);
   const { response: roomList, loading, error } = useFetch(`/api/channels`);
-  if (loading) {
+  if (loading || !user) {
     return <Loader />;
   }
   if (error) {
@@ -20,26 +22,17 @@ function Overview() {
   }
   return (
     <>
-      <UserContext.Consumer>
-        {(user) => {
-          // eslint-disable-next-line no-console
-          console.log(user);
-          return (
-            <div className="overview">
-              <h3 className="chat-title">Chats</h3>
-
-              <div className="search">
-                <Search />
-              </div>
-              <div className="room-list-overview">
-                <RoomListOverview roomList={roomList || []} />
-              </div>
-              <FooterChatProfile />
-            </div>
-          );
-        }}
-      </UserContext.Consumer>
-
+      <div className="overview">
+        <h3 className="chat-title">Chats</h3>
+        <div className="search">
+          <Search />
+        </div>
+        <div className="room-list-overview">
+          <RoomListOverview roomList={roomList || []} />
+        </div>
+        <LastChannelsMessageList userId={user.id} />
+        <FooterChatProfile />
+      </div>
       <ToastContainer
         position="top-right"
         autoClose={3000}

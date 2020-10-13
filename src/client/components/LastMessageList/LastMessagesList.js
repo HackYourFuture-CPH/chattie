@@ -1,32 +1,51 @@
-/* eslint-disable camelcase */
 import React from 'react';
+import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 import './LastMessagesList.css';
 import { object } from '@storybook/addon-knobs';
 
-export default function LastMessageList({ lastChannels }) {
-  if (!lastChannels) {
-    return <p>No channels, start a conversation to see it here</p>;
-  }
-  return (
-    <ul>
-      {lastChannels.map(({ message, updatedAt, ChannelId, title }) => (
+const LastMessageList = ({ messages, onGoToChatPage }) => (
+  <ul className="last-messages-container">
+    {messages.map(
+      ({
+        message,
+        updatedAt,
+        channelId,
+        title,
+        userName,
+        imageUrl,
+        profileImage,
+      }) => (
         <li
-          key={ChannelId}
-          // onClick={()=>{}} //must open the channel
-          // onKeyDown={()=>{}}
+          className="last-conversation-details"
+          role="presentation"
+          key={channelId}
+          onClick={() => {
+            onGoToChatPage(channelId);
+          }}
         >
-          <p>{title}</p>
-          <h6>{message}</h6>
-          <span>
-            <h6>{updatedAt}</h6>
-          </span>
+          <div className="last-messages-image">
+            {title ? (
+              <img src={imageUrl} alt="room" />
+            ) : (
+              <img src={profileImage} alt="user profile" />
+            )}
+          </div>
+          <div className="title-messages-container">
+            {title ? <h3>{title}</h3> : <h3>{userName}</h3>}
+            <p>
+              {message} <Moment format="DD/MM">{updatedAt}</Moment>
+            </p>
+          </div>
         </li>
-      ))}
-    </ul>
-  );
-}
+      ),
+    )}
+  </ul>
+);
+
+export default LastMessageList;
 
 LastMessageList.propTypes = {
-  lastChannels: PropTypes.arrayOf(object).isRequired,
+  messages: PropTypes.arrayOf(object).isRequired,
+  onGoToChatPage: PropTypes.func.isRequired,
 };
