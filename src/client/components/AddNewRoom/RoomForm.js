@@ -1,6 +1,5 @@
 import React from 'react';
 import './AddNewRoomStyle.css';
-import ChatGroup from '../AddPeopleToRoom/ChatGroup';
 import PropTypes from 'prop-types';
 import DisplaypeopleInGroup from './DisplaypeopleInGroup';
 
@@ -13,7 +12,7 @@ const RoomForm = ({
   addedUsers,
 }) => {
   if (roomId) {
-    return <ChatGroup roomId={roomId} roomName={roomName} />;
+    window.location.assign(`./channels/${roomId}`);
   }
   if (!roomId) {
     return (

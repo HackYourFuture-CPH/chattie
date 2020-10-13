@@ -9,12 +9,14 @@ import {
   faCamera,
 } from '@fortawesome/fontawesome-free-solid';
 import { useStorage } from '../../hooks/useStorage';
+import FooterChatProfile from '../footerChatProfile/FooterChatProfile';
 
 function ProfileDetails({
   profileImage,
   userName,
   email,
   phoneNumber,
+  role,
   handleSubmit,
   buttonText,
   user,
@@ -50,7 +52,7 @@ function ProfileDetails({
   function toggleEditMode() {
     /* To save user information if editMode=true */
     if (editMode) {
-      handleSubmit(formDetails);
+      handleSubmitChange();
       setEditMode(false);
     } else setEditMode(true);
   }
@@ -60,6 +62,17 @@ function ProfileDetails({
       [event.target.id]: event.target.value,
       profileImage: imageUrl,
     });
+  }
+
+  function handleSubmitChange() {
+    const changeFormDetails =
+      formDetails.profileImage === null
+        ? {
+            userName: formDetails.userName,
+            phoneNumber: formDetails.phoneNumber,
+          }
+        : formDetails;
+    handleSubmit(changeFormDetails);
   }
 
   return (
@@ -95,6 +108,7 @@ function ProfileDetails({
                 type="user-name"
                 name="userName"
                 id="userName"
+                placeholder="My Name"
                 value={formDetails.userName}
                 onChange={handleChange}
                 required
@@ -109,7 +123,9 @@ function ProfileDetails({
             </button>
           </div>
         </div>
-        <p>Professional role</p>
+        <div className="email-info">
+          <p>{user ? user.role : role}</p>
+        </div>
       </section>
       <section className="users-information-container">
         <div className="user-email">
@@ -132,6 +148,7 @@ function ProfileDetails({
                 name="phoneNumber"
                 id="phoneNumber"
                 value={formDetails.phoneNumber}
+                placeholder="+45---"
                 onChange={handleChange}
                 required
               />
@@ -141,6 +158,8 @@ function ProfileDetails({
           </div>
         </div>
       </section>
+
+      <FooterChatProfile />
     </div>
   );
 }
@@ -151,19 +170,22 @@ ProfileDetails.propTypes = {
   email: PropTypes.string,
   user: PropTypes.shape({
     email: PropTypes.string,
+    role: PropTypes.string,
   }).isRequired,
   userName: PropTypes.string,
   profileImage: PropTypes.string,
   phoneNumber: PropTypes.string,
+  role: PropTypes.string,
   handleSubmit: PropTypes.func.isRequired,
   buttonText: PropTypes.string,
 };
 
 ProfileDetails.defaultProps = {
-  userName: 'My Name',
+  userName: '',
   profileImage:
     'https://cdn.pixabay.com/photo/2016/08/31/11/54/user-1633249_960_720.png',
-  phoneNumber: '+45---',
+  phoneNumber: '',
   buttonText: 'edit',
   email: '',
+  role: 'Missing role',
 };

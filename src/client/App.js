@@ -14,7 +14,7 @@ import Loader from './components/Loader/Loader';
 import fetchWithAuth from './utils/fetchWithAuth';
 import { UserContext } from './context/userContext';
 import AddPeopleToRoom from './containers/AddPeopleToRoom/AddPeopleToRoom';
-import { RenderChannelInformation } from './components/ChannelInformation/ChannelInnformation';
+import ChannelInfo from './containers/ChannelInformationContainer/ChannelInfo';
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
@@ -73,15 +73,12 @@ function App() {
             path="/channels/:id/about"
             isAuthenticated={isAuthenticated}
           >
-            <RenderChannelInformation />
+            <ChannelInfo />
           </Route>
         </Switch>
-        <Route
-          exact
-          path="/add-people"
-          component={AddPeopleToRoom}
-          isAuthenticated={isAuthenticated}
-        />
+        <Route exact path="/add-people" isAuthenticated={isAuthenticated}>
+          <AddPeopleToRoom />
+        </Route>
       </Router>
     </UserContext.Provider>
   );
