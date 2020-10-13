@@ -1,7 +1,6 @@
 import React from 'react';
 import './Overview.styles.css';
 import 'react-toastify/dist/ReactToastify.css';
-import UserList from '../../containers/UserList/UserList';
 import useFetch from '../../hooks/useFetch';
 import Loader from '../Loader/Loader';
 import Error from '../ErrorComponent/Error';
@@ -32,14 +31,9 @@ function Overview() {
               <div className="search">
                 <Search />
               </div>
-
               <div className="room-list-overview">
                 <RoomListOverview roomList={roomList || []} />
               </div>
-              <div className="users-list">
-                <UserList />
-              </div>
-
               <FooterChatProfile />
             </div>
           );
