@@ -77,63 +77,69 @@ function ProfileDetails({
 
   return (
     <div className="profile-details-container">
-      <section className="sign-out-btn">
-        <SignOutButton />
-      </section>
-      <section className="name-image-container">
-        <img
-          src={imageUrl || profileImage}
-          className="profile-image"
-          alt="users profile"
-        />
-        {editMode ? (
-          <>
-            <label htmlFor="file">
-              <FontAwesomeIcon icon={faCamera} />
-              <input
-                type="file"
-                id="file"
-                style={{ display: 'none' }}
-                onChange={handleImageChange}
-                placeholder={imageUrl}
-              />
-            </label>
-          </>
-        ) : null}
-        {error && <p>{error}</p>}
-        <div className="name-edit-btn">
-          <div className="user-name">
-            {editMode ? (
-              <input
-                type="user-name"
-                name="userName"
-                id="userName"
-                placeholder="My Name"
-                value={formDetails.userName}
-                onChange={handleChange}
-                required
-              />
-            ) : (
-              <h2>{formDetails.userName}</h2>
-            )}
-          </div>
-          <div id="edit-button" className="edit-name">
-            <button type="button" onClick={toggleEditMode}>
-              {editMode ? 'Update' : buttonText}
-            </button>
+      <div className="profile-blue-area">
+        <div className="profile-btn-container">
+          <div className="profile-sign-out-btn">
+            <SignOutButton />
           </div>
         </div>
-        <div className="email-info">
-          <p>{user ? user.role : role}</p>
-        </div>
-      </section>
+
+        <section className="name-image-container">
+          <img
+            src={imageUrl || profileImage}
+            className="profile-image"
+            alt="users profile"
+          />
+          {editMode ? (
+            <>
+              <label htmlFor="file">
+                <FontAwesomeIcon icon={faCamera} />
+                <input
+                  type="file"
+                  id="file"
+                  style={{ display: 'none' }}
+                  onChange={handleImageChange}
+                  placeholder={imageUrl}
+                />
+              </label>
+            </>
+          ) : null}
+          {error && <p>{error}</p>}
+          <div className="name-edit-btn">
+            <div className="user-name">
+              {editMode ? (
+                <input
+                  type="user-name"
+                  name="userName"
+                  id="userName"
+                  placeholder="My Name"
+                  value={formDetails.userName}
+                  onChange={handleChange}
+                  required
+                />
+              ) : (
+                <h2>{formDetails.userName}</h2>
+              )}
+            </div>
+            <div id="edit-button" className="edit-name">
+              <button type="button" onClick={toggleEditMode}>
+                {editMode ? 'Update' : buttonText}
+              </button>
+            </div>
+          </div>
+          <div className="email-info">
+            <p>{user ? user.role : role}</p>
+          </div>
+        </section>
+      </div>
+
       <section className="users-information-container">
         <div className="user-email">
           <div className="icon">
             <FontAwesomeIcon icon={faEnvelope} />
           </div>
           <div className="email-info">
-            <p>Email: {user ? user.email : email}</p>
+            <p>{user ? user.email : email}</p>
           </div>
         </div>
         <div className="user-phone">
@@ -141,7 +147,7 @@ function ProfileDetails({
             <FontAwesomeIcon icon={faPhoneSquare} />
           </div>
           <div className="phone-info">
-            <p> Phone: </p>
+            <p> </p>
             {editMode ? (
               <input
                 type="phoneNumber"

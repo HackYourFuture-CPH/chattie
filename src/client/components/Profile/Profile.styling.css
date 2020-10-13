@@ -51,39 +51,39 @@
   width: 60%;
 }
 
-.name-image-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 .user-email, .user-phone {
-  border-radius: 15px;
-  box-shadow: 2px 2px 4px #2b3233;
+  border-radius: 8px;
+  border: 1px solid #3E99C0;
   padding: 3%;
-  width: 80%;
+  width: 295px;
+  height: 48px;;
   margin: 0 auto 5%;
 }
-
+/*
 .name-image-container {
   background-color: #ffb127;
   background-image: -webkit-linear-gradient( -75deg, #ffb127 49.95%, #ffffff 50.05%);
   min-height: 50px;
-}
+}*/
 
 .name-image-container img {
-  width: 30%;
   border-radius: 50%;
   padding: 0.5%;
-  background: white;
-  box-shadow: 1px 1px 2px #2b3233;
+  background: #F7F9FB;
+ /* box-shadow: 1px 1px 1px #3E99C0;*/
   margin-top: 15%;
 }
 
 .user-name {
-  margin: 3% auto 0;
-  padding: 10px;
+  justify-content: center;
+  padding-top:20px;
+  padding-bottom: 20px;
+
+}
+.profile-image{
+  width: 168px;
+  height: 168px;
 }
 
 .edit-name button {
@@ -107,44 +107,64 @@
   display: flex;
   justify-content: flex-end;
 }
-
+/*
 button.sign-out-button,
 .edit-name button {
   background-color: #007677;
+} */
+
+.profile-blue-area{
+  background-image: -webkit-linear-gradient( -75deg, #3E99C0 49.95%, #ffffff 50.05%);
+  min-height: 65px;
 }
 
 .name-image-container p {
   font-size: 20px;
   margin: 2% 2% 5%;
 }
-
-.sign-out-btn {
-  text-align: right;
-  background-color: #ffb127;
-  padding: 2%;
+.profile-btn-container{
+  display:flex;
+  justify-content: flex-end;
 }
 
+.profile-sign-out-btn {
+  text-align: center;
+  border: 1px solid white;
+  width:100px;
+  border-radius: 8px;
+  margin-top: 8px;
+  margin-right: 8px;
+}
+
+.name-image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
 .profile-details-container {
   border-radius: 5px;
-}
-
+}*/
+/*
 @media screen and (max-width: 1050px) {
-  .name-image-container img {
+  /*.name-image-container img {
     margin-top: 25%;
-  }
-
+  }*/
+/*
   .profile-details-container {
     width: 100%;
     height: 100%;
     box-shadow: none;
     margin: 0;
-  }
-
+  }*/
+/*
   email .icon {
     width: 15%;
   }
   .user-name input,
   .phone-info input {
     width: 125px;
-  }
-}
+  }*/
+
