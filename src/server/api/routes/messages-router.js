@@ -152,7 +152,7 @@ router.post('/', (req, res) => {
  *              type: integer
  *    responses:
  *      200:
- *        description: Module was patched
+ *        description: Message was patched
  *      5XX:
  *        description: Unexpected error.
  */
