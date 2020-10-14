@@ -33,3 +33,7 @@
   position: relative;
   top: -27px;
 }
+
+.new-room-add-image-to-room:hover {
+  cursor: pointer;
+}
