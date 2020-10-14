@@ -46,7 +46,7 @@ export default function AddImageToRoom() {
       {error && <p>{error}</p>}
 
       <div className="new-room-add-image-to-room-preview">
-        {url && <img className="new-room-image-user" alt="" src={url} />}
+        {url && <img className="new-room-image-room" alt="" src={url} />}
       </div>
     </div>
   );
