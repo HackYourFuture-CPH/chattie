@@ -86,7 +86,7 @@ const createMessage = async (body) => {
     fk_user_id: body.userId,
     fk_channel_id: body.channelId,
   };
-  // This is to make sure you can send an empty message.
+  // This is to make sure you can not send an empty message.
   if (newMessage.message.length === 0) {
     return 'sorry message field can not be empty';
   }
