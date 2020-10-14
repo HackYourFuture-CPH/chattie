@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import fetchWithAuth from '../../utils/fetchWithAuth';
 import './EditRoom.style.css';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const RoomItemEdit = (props) => {
   const [roomTitle, setRoomTitle] = useState('');
@@ -34,5 +35,15 @@ const RoomItemEdit = (props) => {
       </form>
     </div>
   );
+};
+RoomItemEdit.propTypes = {
+  location: PropTypes.shape({
+    roomItemEditProps: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+      }),
+    ).isRequired,
+  }).isRequired,
 };
 export default RoomItemEdit;

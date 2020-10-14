@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './EditRoom.style.css';
+import PropTypes from 'prop-types';
 
-const RoomLink = (prop) => {
-  const { id, title, imgUrl } = prop;
+const RoomLink = (props) => {
+  const { id, title, imgUrl } = props;
   return (
     <>
       <Link to={`/channels/${id}`}>
@@ -14,6 +15,11 @@ const RoomLink = (prop) => {
       </Link>
     </>
   );
+};
+RoomLink.propTypes = {
+  title: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  imgUrl: PropTypes.string.isRequired,
 };
 
 export default RoomLink;

@@ -32,7 +32,7 @@ const RoomListPage = () => {
           <Route
             exact
             path="/channels/:id"
-            component={() => <RoomItemView channels={channels} />}
+            render={() => <RoomItemView channels={channels} />}
           />
           <Route exact path="/channels/:id/edit" component={RoomItemEdit} />
         </>
