@@ -11,13 +11,22 @@ export default function ChannelInfoRender() {
   useEffect(() => {
     const fetchChannelAndMembers = async () => {
       const channel = await fetchWithAuth(`/api/channels/${id}`);
-      setchannelTitle(channel[0].title);
-      if (channel[0].url) {
-        setchannelImageUrl(channel[0].url);
+      const membersofChannel = await fetchWithAuth(
+        `api/channel-members/membersInfo?channelId=${id}`,
+      );
+      if (channel.title) {
+        setchannelTitle(channel.title);
       } else {
-        setchannelImageUrl('https://loremflickr.com/320/240');
+        setchannelTitle(membersofChannel[0].userName);
       }
-      const membersRes = await fetchWithAuth(`api/channel-members/${id}`);
+      if (channel.imageUrl) {
+        setchannelImageUrl(channel.imageUrl);
+      } else {
+        setchannelImageUrl(membersofChannel[0].profileImage);
+      }
+      const membersRes = await fetchWithAuth(
+        `api/channel-members/membersInfo?channelId=${id}`,
+      );
       setMembers(membersRes);
     };
     fetchChannelAndMembers();
