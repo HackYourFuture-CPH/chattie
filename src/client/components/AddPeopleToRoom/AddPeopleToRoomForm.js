@@ -13,6 +13,12 @@ export default function AddPeopleToRoom({
   onSearch,
   onNext,
 }) {
+  const isUserAdded = (id) =>
+    Boolean(addedUsers.find((user) => user.id === id));
+  const users2 = users.map((user) => ({
+    ...user,
+    isAddedUser: isUserAdded(user.id),
+  }));
   return (
     <div className="container">
       <div className="header">
@@ -41,9 +47,10 @@ export default function AddPeopleToRoom({
       </div>
       <div className="list-people">
         <DiplayListOFUsers
-          users={users}
+          users={users2}
           input={input}
           renderUserInGroup={(id) => renderUserInGroup(id)}
+          onRemoveFromGroup={(id) => onRemoveFromGroup(id)}
         />
       </div>
     </div>

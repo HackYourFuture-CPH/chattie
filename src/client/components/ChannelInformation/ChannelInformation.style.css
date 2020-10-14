@@ -17,6 +17,12 @@
   text-align: center;
   margin-top: -40vh;
 }
+.channel-information-edit-button {
+  margin-left: 950px;
+  color: red;
+  font-weight: bold;
+  margin-top: 2px;
+}
 .channel-information-main ul {
   display: flex;
   justify-content: space-around;
