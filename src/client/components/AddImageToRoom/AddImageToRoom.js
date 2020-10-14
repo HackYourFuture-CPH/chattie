@@ -1,11 +1,16 @@
-// import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './AddImageToRoom.styles.css';
-import React, { useState } from 'react';
 import { useStorage } from '../../hooks/useStorage';
+import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faImage } from '@fortawesome/free-solid-svg-icons';
 
-export default function AddImageToRoom() {
+export default function AddImageToRoom({ onUpload }) {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
+  const { url } = useStorage(file);
+
+  useEffect(() => onUpload(url), [onUpload, url]);
   const types = ['image/png', 'image/jpeg', 'image/jpg'];
 
   const handleImageUpload = (e) => {
@@ -21,26 +26,27 @@ export default function AddImageToRoom() {
       }
     }
   };
-  const { url } = useStorage(file);
 
   return (
-    <div>
-      <div className="add-image-to-room">
-        <label className="add-image-to-room-label">
-          +
-          <input
-            className="add-image-to-room-input-file"
-            type="file"
-            accept="image/*"
-            onChange={handleImageUpload}
-          />
-        </label>
+    <div className="add-image-to-room">
+      <label className="add-image-to-room-label">
+        <FontAwesomeIcon icon={faImage} />
+        <input
+          className="add-image-to-room-input-file"
+          type="file"
+          accept="image/*"
+          onChange={handleImageUpload}
+        />
+      </label>
 
-        {error && <p>{error}</p>}
-        <div className="add-image-to-room-image-preview">
-          {url && <img alt="room-img" src={url} />}
-        </div>
+      {error && <p>{error}</p>}
+      <div className="add-image-to-room-image-preview">
+        {url && <img alt="room-img" src={url} />}
       </div>
     </div>
   );
 }
+
+AddImageToRoom.propTypes = {
+  onUpload: PropTypes.func.isRequired,
+};

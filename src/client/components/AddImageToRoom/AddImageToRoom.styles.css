@@ -19,11 +19,6 @@
   position: relative;
 }
 
-#root {
-  padding-left: 0;
-  padding-right: 0;
-}
-
 .add-image-to-room :hover {
   cursor: pointer;
 }
@@ -34,5 +29,5 @@
   height: 56px;
   position: absolute;
   top: 0;
-  left: 0;
+  background: white;
 }
