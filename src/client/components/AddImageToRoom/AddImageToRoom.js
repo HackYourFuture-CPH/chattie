@@ -2,6 +2,8 @@
 import './AddImageToRoom.styles.css';
 import React, { useState } from 'react';
 import { useStorage } from '../../hooks/useStorage';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCamera } from '@fortawesome/fontawesome-free-solid';
 
 export default function AddImageToRoom() {
   const [file, setFile] = useState(null);
@@ -25,21 +27,26 @@ export default function AddImageToRoom() {
 
   return (
     <div>
-      <div className="add-image-to-room">
-        <label className="add-image-to-room-label">
-          +
-          <input
-            className="add-image-to-room-input-file"
-            type="file"
-            accept="image/*"
-            onChange={handleImageUpload}
-          />
-        </label>
+      <label className="new-room-add-image-to-room">
+        <FontAwesomeIcon
+          className="new-room-add-image-to-room-icon"
+          icon={faCamera}
+        />
+        <input
+          type="file"
+          name="newRoomImage"
+          accept="image/*"
+          multiple={false}
+          style={{ display: 'none' }}
+          files={file}
+          onChange={handleImageUpload}
+          required
+        />
+      </label>
+      {error && <p>{error}</p>}
 
-        {error && <p>{error}</p>}
-        <div className="add-image-to-room-image-preview">
-          {url && <img alt="room-img" src={url} />}
-        </div>
+      <div className="new-room-add-image-to-room-preview">
+        {url && <img className="new-room-image-user" alt="" src={url} />}
       </div>
     </div>
   );
