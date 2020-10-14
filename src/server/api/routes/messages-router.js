@@ -10,7 +10,7 @@ const messagesController = require('../controllers/messages-controller');
  * @swagger
  * /messages:
  *  get:
- *    summary: Get chennel_messages' data by query
+ *    summary: Get channel_messages data by query
  *    description:
  *      Will return all messages.
  *    produces: application/json
@@ -57,9 +57,9 @@ router.get('/', (req, res, next) => {
  * @swagger
  * /messages/{ID}:
  *  get:
- *    summary: Get module by ID
+ *    summary: Get messages by ID
  *    description:
- *      Will return single module with a matching ID.
+ *      Will return a single message with a matching ID.
  *    produces: application/json
  *    parameters:
  *     - in: path
@@ -67,7 +67,7 @@ router.get('/', (req, res, next) => {
  *       schema:
  *         type: integer
  *         required: true
- *         description: The ID of the module to get
+ *         description: The ID of the message to get
  *
  *    responses:
  *      200:
@@ -86,36 +86,31 @@ router.get('/:id', (req, res, next) => {
  * @swagger
  * /messages:
  *  post:
- *    summary: Create a module
+ *    summary: Create a message
  *    description:
- *      Will create a module.
+ *      Will create a message.
  *    produces: application/json
  *    parameters:
  *      - in: body
- *        name: module
- *        description: The module to create.
+ *        name: message
+ *        description: The message to create.
  *        schema:
  *          type: object
  *          required:
- *            - title
- *            - startDate
- *            - endDate
- *             - classId
+ *            - message
+ *            - userId
+ *            - channelId
  *          properties:
- *            title:
+ *            message:
  *              type: string
- *            startDate:
- *              type: string
- *              format: date-time
- *            endDate:
- *              type: string
- *              format: date-time
- *            classId:
- *              type: string
+ *            channelId:
+ *              type: integer
+ *            userId:
+ *              type: integer
  *    responses:
- *      201:
- *        description: Module created
- *      5XX:
+ *      200:
+ *        description: Message created
+ *      5xx:
  *        description: Unexpected error.
  */
 router.post('/', (req, res) => {
@@ -124,7 +119,6 @@ router.post('/', (req, res) => {
     .then((result) => res.json(result))
     .catch((error) => {
       console.log(error);
-
       res
         .status(400)
         .send('Bad request')
@@ -136,30 +130,26 @@ router.post('/', (req, res) => {
  * @swagger
  * /messages/{ID}:
  *  patch:
- *    summary: Create a module
+ *    summary: edit a message
  *    description:
- *      Will create a module.
+ *      Will edit a message.
  *    produces: application/json
  *    parameters:
  *      - in: path
  *        name: ID
- *        description: ID of the module to patch.
+ *        description: ID of the message to edit.
  *      - in: body
- *        name: module
- *        description: The module to create.
+ *        name: message
+ *        description: The updated message.
  *        schema:
  *          type: object
  *          properties:
- *            title:
+ *            message:
  *              type: string
- *            startDate:
- *              type: string
- *              format: date-time
- *            endDate:
- *              type: string
- *              format: date-time
- *            classId:
- *              type: string
+ *            channelId:
+ *              type: integer
+ *            userId:
+ *              type: integer
  *    responses:
  *      200:
  *        description: Module was patched

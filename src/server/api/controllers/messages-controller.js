@@ -74,6 +74,7 @@ const editMessage = async (messageId, updatedMessage) => {
       updated_at: moment().format(),
     });
 };
+
 const deleteMessage = async (messagesId) => {
   return knex('channel_messages')
     .where({ id: messagesId })
