@@ -105,15 +105,13 @@
 .user-phone {
   border-radius: 8px;
   border: 1px solid #3e99c0;
-  padding: 3%;
+  padding: 5px;
   width: 295px;
   height: 48px;
   margin: 0 auto 5%;
-}
-
-.phone-info p {
-  margin-right: 2%;
-  margin-top: 2px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .profile-name-input-change {
@@ -127,8 +125,7 @@
 
 .profile-phone-input-change {
   color: #333;
-  font-size: 17px;
-  padding: 1rem 0rem;
+  padding: 0rem 0rem;
   background-color: rgb(255, 255, 255);
   border: none;
 }
@@ -143,9 +140,25 @@
   height: 48px;
 }
 
+.user-email {
+  border-radius: 8px;
+  border: 1px solid #3e99c0;
+  padding: 3%;
+  width: 295px;
+  height: 48px;
+  margin: 0 auto 5%;
+}
+
+.email-info p,
+.phone-info p {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+
 /*Icons */
 .profile-icon {
-  width: 22%;
+  width: 40px;
 }
 
 .svg-inline--fa {
