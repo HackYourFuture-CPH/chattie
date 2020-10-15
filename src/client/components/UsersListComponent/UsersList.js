@@ -9,12 +9,12 @@ export default function Userslist({ data, user, onCreateConversation }) {
     return <ul className="user-list" />;
   }
   return (
-    <ul className="user-details">
+    <ul className="user-list">
       {data.map(({ id, user_name, profile_image }) => (
         <li
           key={id}
           role="presentation"
-          className="user-list-in-search"
+          className="user-item"
           onClick={() => onCreateConversation(id, user)}
         >
           <div className="search-user-render">
