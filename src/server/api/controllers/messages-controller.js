@@ -52,13 +52,13 @@ const getChannelMessages = async (req) => {
 
 const getMessageById = async (id) => {
   try {
-    const messages = await knex('messages')
-      .select('messages.id as id', 'title')
+    const messages = await knex('channel_messages')
+      .select('channel_messages.id as id', 'message')
       .where({ id });
     if (messages.length === 0) {
       throw new Error(`incorrect entry message with the id of ${id}`, 404);
     }
-    return messages;
+    return messages[0];
   } catch (error) {
     return error.message;
   }
