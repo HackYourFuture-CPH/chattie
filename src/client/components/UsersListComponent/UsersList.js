@@ -18,13 +18,15 @@ export default function Userslist({ data, user, onCreateConversation }) {
           onClick={() => onCreateConversation(id, user)}
         >
           <div className="search-user-render">
-            <img
-              src={profile_image}
-              alt={profile_image}
-              className="search-image"
-            />
+            <div className="search-image-container">
+              <img
+                src={profile_image}
+                alt={profile_image}
+                className="search-image"
+              />
+            </div>
+            <div className="search-name">{user_name}</div>
           </div>
-          <div className="search-name">{user_name}</div>
         </li>
       ))}
     </ul>
