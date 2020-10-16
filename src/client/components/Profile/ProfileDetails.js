@@ -168,7 +168,21 @@ function ProfileDetails({
                   <FontAwesomeIcon icon={faEnvelope} />
                 </div>
                 <div className="email-info">
-                  <p>{user ? user.email : email}</p>
+                  <p> </p>
+                  {editMode ? (
+                    <input
+                      className="profile-email-input-change"
+                      type="userEmail"
+                      name="userEmail"
+                      id="userEmail"
+                      value={formDetails.email}
+                      placeholder={user.email}
+                      onChange={handleChange}
+                      disabled
+                    />
+                  ) : (
+                    <p>{user ? user.email : email}</p>
+                  )}
                 </div>
               </div>
             </section>

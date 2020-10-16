@@ -156,6 +156,10 @@
   font-size: 13px;
 }
 
+.phone-info input {
+  font-size: 17px;
+}
+
 /*Icons */
 .profile-icon {
   width: 40px;
@@ -173,4 +177,14 @@
 .svg-inline--fa.fa-w-14 {
   width: 1.6em;
   height: 1.6em;
+}
+
+.profile-email-input-change:disabled{
+  padding: 0rem 0rem;
+  background-color: rgb(255, 255, 255);
+  border: none;
+}
+
+.profile-email-input-change{
+  border: 1px solid #dbf3fd;
 }
