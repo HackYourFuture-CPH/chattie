@@ -34,7 +34,10 @@ const LastMessageList = ({ messages, onGoToChatPage }) => (
           <div className="title-messages-container">
             {title ? <h3>{title}</h3> : <h3>{userName}</h3>}
             <p>
-              {message} <Moment format="DD/MM">{updatedAt}</Moment>
+              {message}{' '}
+              <Moment className="message-date" format="DD.MM">
+                {updatedAt}
+              </Moment>
             </p>
           </div>
         </li>

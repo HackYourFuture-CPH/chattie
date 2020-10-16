@@ -14,8 +14,13 @@
 
 .search {
   width: 85%;
-  
   justify-content: center;
+}
+
+.new-messages-list-overview {
+  display: contents;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 1400px) {
@@ -31,9 +36,8 @@
 }
 
 @media screen and (max-width: 440px) {
-  .room-list-overview {
-    padding-left: 1%;
-    padding-right: 1%;
+  .room-list-overview,
+  .new-messages-list-overview {
     max-width: 380px;
   }
 }
