@@ -11,7 +11,7 @@
   text-align: center;
   padding-top: 12px;
   color: white;
-  background-color: #a6c5d7;
+  background-color: #A6C5D7;
   display: inline-block;
   width: 56px;
   height: 56px;
@@ -28,6 +28,12 @@
   width: 56px;
   height: 56px;
   position: absolute;
-  top: 0;
+  top: 25%;
   background: white;
+}
+
+@media (max-width: 600px) {
+  .add-image-to-room-image-preview img {
+    top: 10%
+  }
 }

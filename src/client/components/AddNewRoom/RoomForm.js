@@ -3,9 +3,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import AddImageToRoom from '../AddImageToRoom/AddImageToRoom';
+import DisplayUserInGroup from '../AddPeopleToRoom/DisplayUserInGroup';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft } from '@fortawesome/fontawesome-free-solid';
 import './AddNewRoomStyle.css';
 
-const RoomForm = ({ addedUsers, onSubmit }) => {
+const RoomForm = ({ addedUsers, onSubmit, onRemoveFromGroup }) => {
   const [title, setTitle] = useState('');
   const [url, setUrl] = useState('');
 
@@ -17,44 +20,48 @@ const RoomForm = ({ addedUsers, onSubmit }) => {
           onSubmit({ title, imageUrl: url });
         }}
       >
+        <div className="header-new-group">
+          <div className="back-button">
+            <div
+              role="presentation"
+              onClick={() => window.location.assign('./add-people')}
+            >
+              <FontAwesomeIcon icon={faAngleLeft} /> Back
+            </div>
+          </div>
+          <div className="font-bold">New group</div>
+          <button className="create-group-btn" type="submit">
+            Create
+          </button>
+        </div>
+
         <div className="form-input">
           <AddImageToRoom onUpload={setUrl} value={url} />
           <input
             type="text"
-            placeholder="please write room name here"
+            placeholder="Add group name"
+            className="add-group-input"
             onChange={(e) => setTitle(e.target.value)}
             value={title}
             required
           />
-          <button type="submit">Create Room</button>
         </div>
       </form>
       <div className="heading-members-channel">
-        <h2>Members of the room</h2>
+        <p>People in group</p>
       </div>
       <ul className="container-roomform">
-        {addedUsers.map(({ id, profile_image, user_name }) => (
-          <li key={id} className="wraper-roomform">
-            <div>
-              <img src={profile_image} alt="users_image" />
-            </div>
-            <p>{user_name}</p>
-          </li>
-        ))}
+        <DisplayUserInGroup
+          addedUsers={addedUsers}
+          onRemoveFromGroup={(id) => onRemoveFromGroup(id)}
+        />
       </ul>
-      <div className="back-button">
-        <button
-          type="button"
-          onClick={() => window.location.assign('./add-people')}
-        >
-          Back
-        </button>
-      </div>
     </div>
   );
 };
 RoomForm.propTypes = {
   addedUsers: PropTypes.arrayOf(Object).isRequired,
   onSubmit: PropTypes.func.isRequired,
+  onRemoveFromGroup: PropTypes.func.isRequired,
 };
 export default RoomForm;

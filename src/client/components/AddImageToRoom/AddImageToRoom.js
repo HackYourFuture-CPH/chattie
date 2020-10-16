@@ -3,7 +3,7 @@ import './AddImageToRoom.styles.css';
 import { useStorage } from '../../hooks/useStorage';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faImage } from '@fortawesome/free-solid-svg-icons';
+import { faImage } from '@fortawesome/free-regular-svg-icons';
 
 export default function AddImageToRoom({ onUpload }) {
   const [file, setFile] = useState(null);

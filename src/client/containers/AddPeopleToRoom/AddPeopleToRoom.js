@@ -70,7 +70,13 @@ export default function AddPeopleToRoom() {
     return <Loader />;
   }
   if (toAddRoom === true) {
-    return <RoomForm addedUsers={addedUsers} onSubmit={createNewRoom} />;
+    return (
+      <RoomForm
+        addedUsers={addedUsers}
+        onSubmit={createNewRoom}
+        onRemoveFromGroup={(id) => onRemoveFromGroup(id)}
+      />
+    );
   }
   return (
     <AddPeopleToRoomForm
