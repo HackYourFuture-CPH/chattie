@@ -8,7 +8,9 @@ const RoomList = ({ roomList }) => {
       {roomList.map((room) => {
         return (
           <li key={room.id} className="list">
-            <img className="room-image" src={room.imageUrl} alt="" />
+            <div className="room-image-cropper">
+              <img className="room-profile-pic" src={room.imageUrl} alt="" />
+            </div>
             <label className="room-title">{room.title}</label>
           </li>
         );

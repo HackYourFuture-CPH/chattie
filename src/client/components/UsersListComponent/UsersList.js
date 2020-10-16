@@ -9,22 +9,24 @@ export default function Userslist({ data, user, onCreateConversation }) {
     return <ul className="user-list" />;
   }
   return (
-    <ul className="user-details">
+    <ul className="user-list">
       {data.map(({ id, user_name, profile_image }) => (
         <li
           key={id}
           role="presentation"
-          className="user-list-in-search"
+          className="user-item"
           onClick={() => onCreateConversation(id, user)}
         >
           <div className="search-user-render">
-            <img
-              src={profile_image}
-              alt={profile_image}
-              className="search-image"
-            />
+            <div className="search-image-container">
+              <img
+                src={profile_image}
+                alt={profile_image}
+                className="search-image"
+              />
+            </div>
+            <div className="search-name">{user_name}</div>
           </div>
-          <div className="search-name">{user_name}</div>
         </li>
       ))}
     </ul>

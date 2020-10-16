@@ -22,11 +22,11 @@ const LastChannelsMessageList = ({ userId }) => {
   if (!response) {
     return <p>Start a conversation to see it here</p>;
   }
-
   const messages = response.filter((mes) => mes);
   return (
     <LastMessagesList
       messages={messages}
+      userId={userId}
       onGoToChatPage={(id) => history.push(`/channels/${id}`)}
     />
   );

@@ -38,7 +38,6 @@ export default function AddImageToRoom({ onUpload }) {
           onChange={handleImageUpload}
         />
       </label>
-
       {error && <p>{error}</p>}
       <div className="add-image-to-room-image-preview">
         {url && <img alt="room-img" src={url} />}
