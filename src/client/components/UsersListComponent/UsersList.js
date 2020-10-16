@@ -24,7 +24,7 @@ export default function Userslist({ data, user, onCreateConversation }) {
               className="search-image"
             />
           </div>
-          <div className="search-name">{user_name} </div>
+          <div className="search-name">{user_name}</div>
         </li>
       ))}
     </ul>

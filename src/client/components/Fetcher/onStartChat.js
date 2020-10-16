@@ -12,6 +12,7 @@ export const OnStartChat = () => {
       existChannelId,
       currentUserFromServer,
     } = await getExistingChannelForUsers(currentUser, userId);
+
     if (existChannelId?.length) {
       history.push(`/channels/${existChannelId}`);
     } else {

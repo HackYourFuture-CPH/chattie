@@ -52,6 +52,7 @@ export const Fetcher = ({ search }) => {
       setNoUserMatch(false);
     }
   }, [search]);
+
   if (loading) {
     return <Loader />;
   }
@@ -59,9 +60,11 @@ export const Fetcher = ({ search }) => {
   if (error) {
     return <Error />;
   }
+
   if (noUserMatch) {
     return <div className="user-details">No users found</div>;
   }
+
   return (
     <>
       {data && user && onCreateConversation && (

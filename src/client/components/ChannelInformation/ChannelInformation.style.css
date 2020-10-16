@@ -9,13 +9,19 @@
   margin: auto;
   border-radius: 50%;
   border: solid cornsilk 4px;
-  height: 90%;
-  max-width: 15%;
-  margin-top: 25vh;
+  height: 200px;
+  max-width: 200px;
+  margin-top: 35vh;
 }
 .channel-information-title {
   text-align: center;
   margin-top: -40vh;
+}
+.channel-information-edit-button {
+  margin-left: 950px;
+  color: red;
+  font-weight: bold;
+  margin-top: 2px;
 }
 .channel-information-main ul {
   display: flex;
