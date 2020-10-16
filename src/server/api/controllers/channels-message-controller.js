@@ -14,6 +14,7 @@ const getChannelsId = async (userId) => {
         const message = await knex('channel_messages')
           .select(
             'channel_messages.message',
+            'channel_messages.fk_user_id as authorMessageId',
             'channel_messages.updated_at as updatedAt',
             'channels.id as channelId',
             'channels.title',
