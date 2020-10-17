@@ -14,7 +14,7 @@ const UserList = () => {
   }
 
   if (error) {
-    return <Error />;
+    return <Error> Error! could not get users</Error>;
   }
   return (
     <>

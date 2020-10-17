@@ -58,7 +58,7 @@ export const Fetcher = ({ search }) => {
   }
 
   if (error) {
-    return <Error />;
+    return <Error> Error! Could not get Users</Error>;
   }
 
   if (noUserMatch) {
