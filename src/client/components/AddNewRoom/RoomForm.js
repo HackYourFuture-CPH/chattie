@@ -2,6 +2,7 @@ import React from 'react';
 import './AddNewRoomStyle.css';
 import PropTypes from 'prop-types';
 import DisplaypeopleInGroup from './DisplaypeopleInGroup';
+import AddImageToRoom from '../AddImageToRoom/AddImageToRoom';
 
 const RoomForm = ({
   onCreate,
@@ -26,6 +27,7 @@ const RoomForm = ({
               value={roomName}
               required
             />
+            <AddImageToRoom />
             <button type="submit">Create Room</button>
           </div>
         </form>

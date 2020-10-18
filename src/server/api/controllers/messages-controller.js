@@ -52,28 +52,38 @@ const getChannelMessages = async (req) => {
 
 const getMessageById = async (id) => {
   try {
-    const messages = await knex('messages')
-      .select('messages.id as id', 'title')
+    const messages = await knex('channel_messages')
+      .select('channel_messages.id as id', 'message')
       .where({ id });
     if (messages.length === 0) {
       throw new Error(`incorrect entry message with the id of ${id}`, 404);
     }
-    return messages;
+    return messages[0];
   } catch (error) {
     return error.message;
   }
 };
 
 const editMessage = async (messageId, updatedMessage) => {
-  return knex('channel_messages')
-    .where('id', '=', messageId)
-    .update({
-      message: updatedMessage.message,
-      fk_channel_id: updatedMessage.channelId,
-      fk_user_id: updatedMessage.userId,
-      updated_at: moment().format(),
-    });
+  try {
+    // This is to make sure you can not patch with an empty string.
+    if (updatedMessage.message.length === 0) {
+      return 'sorry message field can not be empty';
+    }
+    const editedMessage = await knex('channel_messages')
+      .where('id', '=', messageId)
+      .update({
+        message: updatedMessage.message,
+        fk_channel_id: updatedMessage.channelId,
+        fk_user_id: updatedMessage.userId,
+        updated_at: moment().format(),
+      });
+    return editedMessage;
+  } catch (error) {
+    return error;
+  }
 };
+
 const deleteMessage = async (messagesId) => {
   return knex('channel_messages')
     .where({ id: messagesId })
@@ -86,6 +96,11 @@ const createMessage = async (body) => {
     fk_user_id: body.userId,
     fk_channel_id: body.channelId,
   };
+  // This is to make sure you can not send an empty message.
+  if (newMessage.message.length === 0) {
+    return 'sorry message field can not be empty';
+  }
+
   const messageId = await knex('channel_messages').insert(newMessage);
   const usersInChannel = await knex
     .select('fk_user_id')

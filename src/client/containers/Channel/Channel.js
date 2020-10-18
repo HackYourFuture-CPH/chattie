@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
 import fetchWithAuth from '../../utils/fetchWithAuth';
 import ChannelHeadNav from '../../components/ChannelHeadNav/ChannelHeadNav';
+import Loader from '../../components/Loader/Loader';
 import useFetch from '../../hooks/useFetch';
 import './Channel.css';
 
@@ -49,20 +50,16 @@ export default function Channel() {
   );
   const currentUserEmail = user ? user.email : '';
   const notCurrentUser = channelMembers
-    ? channelMembers.filter((member) => member.email !== currentUserEmail)
-    : [];
+    ? channelMembers.filter((member) => member.email !== currentUserEmail)[0]
+    : null;
 
-  if (!userFromDatabase) {
-    return (
-      <>
-        <div>Loading user</div>
-      </>
-    );
+  if (!userFromDatabase || !notCurrentUser) {
+    return <Loader />;
   }
 
-  const hasTitle = channel?.title !== 'null' && channel?.title !== null;
-  const channelName = hasTitle ? channel.title : notCurrentUser[0].userName;
-  const imgUrl = hasTitle ? channel.imageUrl : notCurrentUser[0].profileImage;
+  const hasTitle = channel?.title && channel.title !== 'null';
+  const channelName = hasTitle ? channel.title : notCurrentUser.userName;
+  const imgUrl = hasTitle ? channel.imageUrl : notCurrentUser.profileImage;
 
   return (
     <>

@@ -4,22 +4,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './UsersListStyle.css';
 
-export default function Userslist({ users, user, onCreateConversation }) {
-  if (!user || !users) {
+export default function Userslist({ data, user, onCreateConversation }) {
+  if (!user || !data) {
     return <ul className="user-list" />;
   }
   return (
     <ul className="user-list">
-      {users.map(({ id, user_name, profile_image }) => (
+      {data.map(({ id, user_name, profile_image }) => (
         <li
           key={id}
           role="presentation"
           className="user-item"
           onClick={() => onCreateConversation(id, user)}
-          onKeyDown={() => onCreateConversation(id, user)}
         >
-          <img src={profile_image} alt={profile_image} />
-          <span>{user_name} </span>
+          <div className="search-user-render">
+            <div className="search-image-container">
+              <img
+                src={profile_image}
+                alt={profile_image}
+                className="search-image"
+              />
+            </div>
+            <div className="search-name">{user_name}</div>
+          </div>
         </li>
       ))}
     </ul>
@@ -27,7 +34,7 @@ export default function Userslist({ users, user, onCreateConversation }) {
 }
 
 Userslist.propTypes = {
-  users: PropTypes.arrayOf(
+  data: PropTypes.arrayOf(
     PropTypes.shape({
       user_name: PropTypes.string,
       profile_image: PropTypes.string,

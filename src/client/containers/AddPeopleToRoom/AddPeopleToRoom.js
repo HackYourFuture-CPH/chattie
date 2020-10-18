@@ -26,23 +26,12 @@ export default function AddPeopleToRoom() {
         setAddedUsers([...addedUsers, user]);
       }
     });
-
-    // this is use to remove the item in list of user when click on user
-    const removeUserFromUserList = users.filter((user) => user.id !== id);
-    setUsers(removeUserFromUserList);
   };
 
   //  this function is user to remove user from added group of user
   const onRemoveFromGroup = (id) => {
     const removeUserFromGroup = addedUsers.filter((user) => user.id !== id);
     setAddedUsers(removeUserFromGroup);
-
-    //  this is use to add the user to list of user from added user in group
-    addedUsers.forEach((user) => {
-      if (user.id === id) {
-        setUsers([...users, user]);
-      }
-    });
   };
 
   // onChangeInput function that will be props to AddNewRoomForm

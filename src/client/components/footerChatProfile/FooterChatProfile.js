@@ -12,7 +12,7 @@ const FooterChatProfile = () => (
     >
       Chat
       <div
-        activeClassName="footer-dot-active"
+        activeclassname="footer-dot-active"
         className="footer-dot"
         to="/Overview"
       >
@@ -26,7 +26,7 @@ const FooterChatProfile = () => (
     >
       Profile
       <div
-        activeClassName="footer-dot-active"
+        activeclassname="footer-dot-active"
         className="footer-dot"
         to="/profile"
       >
