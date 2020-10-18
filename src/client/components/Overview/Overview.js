@@ -18,7 +18,7 @@ function Overview() {
     return <Loader />;
   }
   if (error) {
-    return <Error />;
+    return <Error>Error! Could not get rooms</Error>;
   }
   return (
     <>
