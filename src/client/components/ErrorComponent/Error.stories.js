@@ -7,7 +7,7 @@ export default { title: 'Error', decorators: [withKnobs] };
 
 export const Component = () => (
   <Router>
-    <Error />
+    <Error>Error! Something went wrong</Error>
     <Route path="/home">
       <h1>Home</h1>
     </Route>
