@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './AddPeopleToRoom.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMinusSquare } from '@fortawesome/free-solid-svg-icons';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 export default function DisplayUserInGroup({ addedUsers, onRemoveFromGroup }) {
   if (addedUsers !== 0) {
@@ -11,7 +11,7 @@ export default function DisplayUserInGroup({ addedUsers, onRemoveFromGroup }) {
         <img src={user.profile_image} alt="users_image" />
         <div>{user.user_name}</div>
         <div role="presentation" onClick={() => onRemoveFromGroup(user.id)}>
-          <FontAwesomeIcon icon={faMinusSquare} className="icons-color" />
+          <FontAwesomeIcon icon={faTimesCircle} className="icons-color" />
         </div>
       </div>
     ));

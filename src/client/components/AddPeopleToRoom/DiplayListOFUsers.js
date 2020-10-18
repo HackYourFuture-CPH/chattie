@@ -2,9 +2,14 @@ import React from 'react';
 import './AddPeopleToRoom.css';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faCircle } from '@fortawesome/free-solid-svg-icons';
 
-export default function DiplayListOFUsers({ users, input, renderUserInGroup }) {
+export default function DiplayListOFUsers({
+  users,
+  input,
+  renderUserInGroup,
+  onRemoveFromGroup,
+}) {
   const userSearch = users.filter(
     (user) => user.user_name.toLowerCase().indexOf(input) !== -1,
   );
@@ -13,9 +18,17 @@ export default function DiplayListOFUsers({ users, input, renderUserInGroup }) {
     <div key={user.id} className="wraper">
       <img className="profile-img" src={user.profile_image} alt="users_image" />
       <div>{user.user_name}</div>
-      <div role="presentation" onClick={() => renderUserInGroup(user.id)}>
-        <FontAwesomeIcon icon={faPlusSquare} />
-      </div>
+
+      {user.isAddedUser === true && (
+        <div role="presentation" onClick={() => onRemoveFromGroup(user.id)}>
+          <FontAwesomeIcon icon={faCheckCircle} />
+        </div>
+      )}
+      {user.isAddedUser === false && (
+        <div role="presentation" onClick={() => renderUserInGroup(user.id)}>
+          <FontAwesomeIcon icon={faCircle} />
+        </div>
+      )}
     </div>
   ));
   return getusersearch;
@@ -24,4 +37,5 @@ DiplayListOFUsers.propTypes = {
   users: PropTypes.arrayOf(Object).isRequired,
   renderUserInGroup: PropTypes.func.isRequired,
   input: PropTypes.string.isRequired,
+  onRemoveFromGroup: PropTypes.func.isRequired,
 };

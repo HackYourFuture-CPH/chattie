@@ -2,6 +2,8 @@
 import './AddImageToRoom.styles.css';
 import React, { useState } from 'react';
 import { useStorage } from '../../hooks/useStorage';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faImage } from '@fortawesome/free-solid-svg-icons';
 
 export default function AddImageToRoom() {
   const [file, setFile] = useState(null);
@@ -27,7 +29,7 @@ export default function AddImageToRoom() {
     <div>
       <div className="add-image-to-room">
         <label className="add-image-to-room-label">
-          +
+          <FontAwesomeIcon icon={faImage} />
           <input
             className="add-image-to-room-input-file"
             type="file"
