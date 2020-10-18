@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import Userslist from '../UsersListComponent/UsersList';
+import { OnStartChat } from './onStartChat';
 import PropTypes from 'prop-types';
 import fetchWithAuth from '../../utils/fetchWithAuth';
+import Loader from '../Loader/Loader';
+import Error from '../ErrorComponent/Error';
 
 const baseUrl = `/api/users?userName=`;
 
@@ -9,7 +13,8 @@ async function getUserData(search) {
   return result;
 }
 
-export const Fetcher = ({ search, render }) => {
+export const Fetcher = ({ search }) => {
+  const { user, onCreateConversation } = OnStartChat();
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(search);
   const [error, setError] = useState('');
@@ -48,19 +53,31 @@ export const Fetcher = ({ search, render }) => {
     }
   }, [search]);
 
+  if (loading) {
+    return <Loader />;
+  }
+
+  if (error) {
+    return <Error />;
+  }
+
+  if (noUserMatch) {
+    return <div className="user-details">No users found</div>;
+  }
+
   return (
     <>
-      {render({
-        loading,
-        data,
-        error,
-        noUserMatch,
-      })}
+      {data && user && onCreateConversation && (
+        <Userslist
+          data={data}
+          user={user}
+          onCreateConversation={onCreateConversation}
+        />
+      )}
     </>
   );
 };
 
 Fetcher.propTypes = {
-  render: PropTypes.func.isRequired,
   search: PropTypes.string.isRequired,
 };

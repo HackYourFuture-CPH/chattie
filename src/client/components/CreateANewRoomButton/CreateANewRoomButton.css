@@ -1,13 +1,14 @@
 .new-room-form button {
-  height: 50px;
-  min-width: 50px;
+  height: 60px;
+  min-width: 60px;
   display: block;
   border-radius: 50%;
-  margin: auto;
-  margin-bottom: 5px;
+  margin-top: 8px;
+  margin-right: 19px;
+  margin-bottom: 2px;
   border: 0;
   background-color: #f0f8ff;
-  padding: 5px;
+  padding: 5px 5px 5px 0;
 }
 
 .new-room {
@@ -19,7 +20,7 @@
   display: flex;
   flex-direction: column;
   margin-right: 10px;
-  padding: 15px;
+  padding: 15px 0 15px 0px;
 }
 
 .create-room-btn {

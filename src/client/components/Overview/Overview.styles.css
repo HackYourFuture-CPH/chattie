@@ -1,7 +1,9 @@
 .overview {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 .chat-title {
@@ -11,30 +13,31 @@
 }
 
 .search {
-  width: 90%;
-  margin: auto;
+  width: 85%;
+  justify-content: center;
 }
 
-.users-list {
-  width: 90%;
-  margin-top: 20px;
+.new-messages-list-overview {
+  display: contents;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 1400px) {
   .room-list-overview {
-    padding-left: 0;
+    max-width: 400px;
   }
 }
 
 @media screen and (max-width: 750px) {
   .room-list-overview {
-    padding-left: 15%;
+    max-width: 400px;
   }
 }
 
-@media screen and (max-width: 414px) {
-  .room-list-overview {
-    padding-left: 0;
-    padding-right: 0;
+@media screen and (max-width: 440px) {
+  .room-list-overview,
+  .new-messages-list-overview {
+    max-width: 380px;
   }
 }

@@ -1,54 +1,67 @@
-import React from 'react';
-import './AddNewRoomStyle.css';
+/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable camelcase */
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import DisplaypeopleInGroup from './DisplaypeopleInGroup';
+import AddImageToRoom from '../AddImageToRoom/AddImageToRoom';
+import DisplayUserInGroup from '../AddPeopleToRoom/DisplayUserInGroup';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft } from '@fortawesome/fontawesome-free-solid';
+import './AddNewRoomStyle.css';
 
-const RoomForm = ({
-  onCreate,
-  inputChange,
-  roomName,
-  roomId,
-  onBackToAddPeople,
-  addedUsers,
-}) => {
-  if (roomId) {
-    window.location.assign(`./channels/${roomId}`);
-  }
-  if (!roomId) {
-    return (
-      <div className="main">
-        <form onSubmit={onCreate}>
-          <div className="form-input">
-            <input
-              type="text"
-              placeholder="please write group name here"
-              onChange={inputChange}
-              value={roomName}
-              required
-            />
-            <button type="submit">Create Room</button>
+const RoomForm = ({ addedUsers, onSubmit, onRemoveFromGroup }) => {
+  const [title, setTitle] = useState('');
+  const [url, setUrl] = useState('');
+
+  return (
+    <div className="main">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          onSubmit({ title, imageUrl: url });
+        }}
+      >
+        <div className="header-new-group">
+          <div className="back-button">
+            <div
+              role="presentation"
+              onClick={() => window.location.assign('./add-people')}
+            >
+              <FontAwesomeIcon icon={faAngleLeft} /> Back
+            </div>
           </div>
-        </form>
-        <div className="heading-members-channel">
-          <h2>Members of the group</h2>
-        </div>
-        <div className="container-roomform">
-          <DisplaypeopleInGroup addedUsers={addedUsers} />
-        </div>
-        <div className="back-button">
-          <button type="button" onClick={onBackToAddPeople}>
-            Back
+          <div className="font-bold">New group</div>
+          <button className="create-group-btn" type="submit">
+            Create
           </button>
         </div>
-      </div>
-    );
-  }
-};
 
+        <div className="form-input">
+          <AddImageToRoom onUpload={setUrl} value={url} />
+          <input
+            type="text"
+            placeholder="Add group name"
+            className="add-group-input"
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
+            required
+          />
+        </div>
+      </form>
+      <div className="heading-members-channel">
+        <p>People in group</p>
+      </div>
+      <ul className="container-roomform">
+        <DisplayUserInGroup
+          addedUsers={addedUsers}
+          onRemoveFromGroup={(id) => onRemoveFromGroup(id)}
+        />
+      </ul>
+    </div>
+  );
+};
 RoomForm.propTypes = {
-  onCreate: PropTypes.func.isRequired,
-  inputChange: PropTypes.func.isRequired,
-  roomName: PropTypes.string.isRequired,
-  onBackToAddPeople: PropTypes.func.isRequired,
+  addedUsers: PropTypes.arrayOf(Object).isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  onRemoveFromGroup: PropTypes.func.isRequired,
 };
 export default RoomForm;

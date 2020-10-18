@@ -1,13 +1,16 @@
-// import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './AddImageToRoom.styles.css';
-import React, { useState } from 'react';
 import { useStorage } from '../../hooks/useStorage';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCamera } from '@fortawesome/fontawesome-free-solid';
 
-export default function AddImageToRoom() {
+export default function AddImageToRoom({ onUpload }) {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
+  const { url } = useStorage(file);
+
+  useEffect(() => onUpload(url), [onUpload, url]);
   const types = ['image/png', 'image/jpeg', 'image/jpg'];
 
   const handleImageUpload = (e) => {
@@ -23,7 +26,6 @@ export default function AddImageToRoom() {
       }
     }
   };
-  const { url } = useStorage(file);
 
   return (
     <div>
@@ -51,3 +53,7 @@ export default function AddImageToRoom() {
     </div>
   );
 }
+
+AddImageToRoom.propTypes = {
+  onUpload: PropTypes.func.isRequired,
+};
