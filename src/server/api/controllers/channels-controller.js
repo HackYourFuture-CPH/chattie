@@ -57,6 +57,7 @@ const editChannel = async (channelId, updatedChannel) => {
     .where({ id: channelId })
     .update({
       title: updatedChannel.title,
+      imageUrl: updatedChannel.imageUrl,
     });
 };
 
