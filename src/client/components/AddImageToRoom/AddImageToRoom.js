@@ -3,7 +3,7 @@ import './AddImageToRoom.styles.css';
 import { useStorage } from '../../hooks/useStorage';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faImage } from '@fortawesome/free-regular-svg-icons';
+import { faCamera } from '@fortawesome/fontawesome-free-solid';
 
 export default function AddImageToRoom({ onUpload }) {
   const [file, setFile] = useState(null);
@@ -28,19 +28,27 @@ export default function AddImageToRoom({ onUpload }) {
   };
 
   return (
-    <div className="add-image-to-room">
-      <label className="add-image-to-room-label">
-        <FontAwesomeIcon icon={faImage} />
+    <div>
+      <label className="new-room-add-image-to-room">
+        <FontAwesomeIcon
+          className="new-room-add-image-to-room-icon"
+          icon={faCamera}
+        />
         <input
-          className="add-image-to-room-input-file"
           type="file"
+          name="newRoomImage"
           accept="image/*"
+          multiple={false}
+          style={{ display: 'none' }}
+          files={file}
           onChange={handleImageUpload}
+          required
         />
       </label>
       {error && <p>{error}</p>}
-      <div className="add-image-to-room-image-preview">
-        {url && <img alt="room-img" src={url} />}
+
+      <div className="new-room-add-image-to-room-preview">
+        {url && <img className="new-room-image-room" alt="" src={url} />}
       </div>
     </div>
   );

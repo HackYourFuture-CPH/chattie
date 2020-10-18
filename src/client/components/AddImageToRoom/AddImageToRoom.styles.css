@@ -1,39 +1,39 @@
-.add-image-to-room-input-file {
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-}
-
-.add-image-to-room-label {
-  font-size: 24px;
+.new-room-add-image-to-room {
+  font-size: 30px;
   font-weight: 700;
   text-align: center;
-  padding-top: 12px;
-  color: white;
-  background-color: #A6C5D7;
+  padding-top: 35px;
+  background-color: #a6c5d7;
   display: inline-block;
   width: 56px;
   height: 56px;
   border-radius: 50%;
   position: relative;
+  opacity: 0.1;
 }
 
-.add-image-to-room :hover {
-  cursor: pointer;
-}
-
-.add-image-to-room-image-preview img {
+.new-room-add-image-to-room-preview {
   border-radius: 50%;
   width: 56px;
   height: 56px;
   position: absolute;
-  top: 25%;
-  background: white;
+  top:70px;
+  left: auto;
+  z-index: -1;
+  overflow: hidden;
 }
 
-@media (max-width: 600px) {
-  .add-image-to-room-image-preview img {
-    top: 10%
-  }
+.new-room-image-room {
+  width: 100%;
+  height: auto;
+}
+
+.new-room-add-image-to-room-icon {
+  font-size: 15px;
+  position: relative;
+  top: -27px;
+}
+
+.new-room-add-image-to-room:hover {
+  cursor: pointer;
 }
