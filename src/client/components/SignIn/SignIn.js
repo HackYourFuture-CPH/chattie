@@ -14,6 +14,9 @@ export default function SignIn({ onSubmit }) {
     e.preventDefault();
     onSubmit({ email, password });
   };
+
+  
+
   return (
     <>
       <div className="sign-in-icon">
@@ -58,6 +61,16 @@ export default function SignIn({ onSubmit }) {
               Sign in
             </button>
           </div>
+          <div>
+          <button className="sign-in-button-test-user" type="submit" onClick={() => {setEmail('test-user1@testdomain.com');setPassword('User1@123')}}>
+              Sign in as Test User1
+            </button>
+            </div>
+            <div>
+          <button className="sign-in-button-test-user" type="submit" onClick={() => {setEmail('test-user2@testdomain.com');setPassword('User2@123')}}>
+              Sign in as Test User2
+            </button>
+            </div>
         </form>
       </div>
     </>
@@ -67,3 +80,5 @@ export default function SignIn({ onSubmit }) {
 SignIn.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
+
+
