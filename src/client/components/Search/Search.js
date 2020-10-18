@@ -11,7 +11,6 @@ export default function Search() {
     setSearch('');
     setIsSearching(false);
   };
-
   return (
     <>
       <div className="search-button">

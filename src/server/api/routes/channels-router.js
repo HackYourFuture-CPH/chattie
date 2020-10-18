@@ -21,8 +21,11 @@ const channelsController = require('../controllers/channels-controller');
  *          type: object
  *          required:
  *              - title
+ *              - imageUrl
  *          properties:
  *            title:
+ *              type: string
+ *            imageUrl:
  *              type: string
  *    responses:
  *      201:

@@ -2,45 +2,81 @@
   padding: 0;
   margin: 0;
 }
+
 .main {
   width: 100%;
   margin: auto;
 }
+
 .form-input {
   display: flex;
-  justify-content: center;
+  width: 90%;
+  justify-content: space-between;
   margin: auto;
+  padding: 6% 4%;
 }
-.form-input button {
-  width: 150px;
-  height: 50px;
-  margin-left: 10px;
+
+.form-input .add-image-to-room {
+  width: 10%;
+}
+
+.add-group-input {
+  border-top: 1px solid #F2F2F2;
+  border-bottom: 1px solid #F2F2F2;
+  border-right: none;
+  border-left: none;
+  width: 85%;
+}
+
+.font-bold {
+  font-weight: bold;
 }
 
 .wraper img {
-  width: 30px;
-  height: 30px;
+  width: 33px;
+  height: 33px;
 }
 
 .wraper-roomform {
-  width: 70%;
+  padding: 1% 4%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 20px;
+  position: relative;
 }
+
 .wraper-roomform img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   padding: 5px;
+  border-radius: 50%;
 }
-.wraper-roomform div {
-  color: red;
-}
+
 .back-button {
-  margin: auto;
-  width: 90%;
+  color: #3e99c0;
 }
+
+.back-button .svg-inline--fa {
+  width: 1.3em;
+  height: 1.3em;
+}
+
+.create-group-btn {
+  background-color: #F6F6F6;
+  color: #3e99c0;
+}
+
+.header-new-group {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  align-items: baseline;
+  background: #F6F6F6;
+  padding: 2% 4%;
+}
+
 .back-button button {
   width: 100px;
   height: 50px;
@@ -49,12 +85,34 @@
 
 .container-roomform {
   margin-top: 10px;
-  color: green;
-  width: 70%;
+  width: 90%;
   display: flex;
   margin: auto;
 }
+
+.container-roomform .selected-people-wraper {
+  padding-left: 4%;
+}
+
 .heading-members-channel {
-  text-align: center;
-  font-size: 10px;
+  text-align: left;
+  font-size: 13px;
+  padding: 1% 4%;
+  background: #F6F6F6;
+  width: 90%;
+  margin: 0 auto 3%;
+  color: #AFAFAF;
+  font-weight: 400;
+}
+
+@media (max-width: 600px) {
+  .header-new-group, .heading-members-channel, .form-input {
+    width: 100%;
+  }
+  .form-input .add-image-to-room {
+    padding-left: 5%;
+  }
+  .form-input .add-group-input {
+    width: 72%;
+  }
 }
