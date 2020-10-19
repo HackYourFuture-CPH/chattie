@@ -6,7 +6,7 @@ export async function getExistingChannelForUsers(currentUser, userId) {
     `/api/users/current?uid=${uid}`,
   );
   const existChannelId = await fetchWithAuth(
-    `api/channel-members/?memberIds=${currentUserFromServer.id},${userId}`,
+    `api/channel-members/common-channels?users=[${currentUserFromServer.id},${userId}]`,
   );
   return { existChannelId, currentUserFromServer };
 }
