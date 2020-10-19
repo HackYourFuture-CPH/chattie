@@ -9,10 +9,10 @@ const MessageList = ({ messages, currentUserEmail }) => {
   return (
     <div className="chat-message-container">
       <ul className="chat-message">
-        {messages.map(({ id, message, userName, profile_image, email }) =>
+        {messages.map(({ id, message, userName, profileImage, email }) =>
           Message({
             id,
-            profile_image,
+            profileImage,
             userName,
             message,
             email,
@@ -28,7 +28,7 @@ MessageList.propTypes = {
   messages: PropTypes.arrayOf(
     PropTypes.shape({
       userName: PropTypes.string,
-      profile_image: PropTypes.string,
+      profileImage: PropTypes.string,
       message: PropTypes.string,
       email: PropTypes.string,
     }),
