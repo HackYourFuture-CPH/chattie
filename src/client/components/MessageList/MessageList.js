@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/camelcase */
-/* eslint-disable camelcase */
 import React from 'react';
 import Message from '../Message/Message';
 import PropTypes from 'prop-types';
