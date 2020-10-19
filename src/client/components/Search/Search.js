@@ -18,7 +18,7 @@ export default function Search() {
           <input
             className="search"
             type="text"
-            placeholder="Search"
+            placeholder="Search for a user"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             onFocus={() => setIsSearching(true)}

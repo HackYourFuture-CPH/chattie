@@ -8,7 +8,6 @@
   margin-bottom: 2px;
   border: 0;
   background-color: #f0f8ff;
-  padding: 5px 5px 5px 0;
 }
 
 .new-room {
@@ -23,7 +22,12 @@
   padding: 15px 0 15px 0px;
 }
 
+.new-room-form > a {
+  margin-bottom: 8px;
+}
+
 .create-room-btn {
   font-size: 20px;
   color: #00bfff;
+  cursor: pointer;
 }

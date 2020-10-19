@@ -28,6 +28,11 @@
   border-radius: 8px;
   margin-top: 8px;
   margin-right: 8px;
+  cursor: pointer;
+}
+
+.profile-sign-out-btn button {
+  cursor: pointer !important;
 }
 
 .name-image-container {
@@ -179,12 +184,12 @@
   height: 1.6em;
 }
 
-.profile-email-input-change:disabled{
+.profile-email-input-change:disabled {
   padding: 0rem 0rem;
   background-color: rgb(255, 255, 255);
   border: none;
 }
 
-.profile-email-input-change{
+.profile-email-input-change {
   border: 1px solid #dbf3fd;
 }

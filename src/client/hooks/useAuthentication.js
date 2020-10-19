@@ -6,7 +6,7 @@ function authRedirect() {
     window.location.pathname === '/sign-in' ||
     window.location.pathname === '/'
   ) {
-    window.location.href = '/Overview';
+    window.location.href = '/overview';
   }
 }
 /**

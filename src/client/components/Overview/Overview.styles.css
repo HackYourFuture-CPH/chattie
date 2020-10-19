@@ -21,6 +21,7 @@
   display: contents;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 36px;
 }
 
 @media screen and (max-width: 1400px) {
@@ -40,4 +41,8 @@
   .new-messages-list-overview {
     max-width: 380px;
   }
+}
+
+.room-list-overview {
+  margin-top: 48px;
 }

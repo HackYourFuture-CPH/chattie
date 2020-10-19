@@ -13,14 +13,15 @@ export const ChannelInformationComponent = ({
     <>
       <div className="channel-information-header">
         <img src={image} alt="Room" className="channel-information-img" />
+        <div className="channel-information-edit-button">
+          <BrowserRouter>
+            <Link to={link}>Edit</Link>
+          </BrowserRouter>
+        </div>
       </div>
       <h3 className="channel-information-title">{title}</h3>
-      <div className="channel-information-edit-button">
-        <BrowserRouter>
-          <Link to={link}>Edit</Link>
-        </BrowserRouter>
-      </div>
       <div className="channel-information-main">
+        <h3>Members</h3>
         <ul>
           {members &&
             members.map((member) => {

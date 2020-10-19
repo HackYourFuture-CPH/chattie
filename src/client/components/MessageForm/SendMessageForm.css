@@ -1,16 +1,19 @@
 .send-new-message-form {
-  background-color: lightgray;
+  background-color: rgb(241, 241, 241);
   color: #ffffff;
   padding: 10px 0;
-  position: absolute;
+  position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
-  display: flex;
+  padding: 12px;
 }
 .send-new-message-form input {
-  margin-left: 40px;
-  width: 800px;
   margin-top: 5px;
+  border-radius: 16px;
+  border: 1px solid rgb(223, 223, 223);
+  padding: 12px;
+  width: 100%;
 }
 .send-new-message-form img {
   width: 30px;

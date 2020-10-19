@@ -1,5 +1,4 @@
 .channel-head-navigation {
-  margin-bottom: 5%;
   height: 12vh;
   background-color: #f3f3f3;
   display: flex;
@@ -20,7 +19,9 @@
 
 .channel-info .channel-head-img {
   border-radius: 50%;
-  max-width: 15%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
 }
 
 .channel-info .channel-head-name {
@@ -31,4 +32,5 @@
 .channel-head-navigation .channel-information-button {
   margin-right: 5%;
   font-size: 20px;
+  cursor: pointer;
 }

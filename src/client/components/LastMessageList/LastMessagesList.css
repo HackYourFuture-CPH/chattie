@@ -14,10 +14,21 @@
   flex-direction: column;
 }
 
+.last-messages-header {
+  margin-top: 54px;
+  margin-bottom: 8px;
+  width: 343px;
+}
+
+.no-latest-messages {
+  width: 343px;
+}
+
 .last-conversation-details .last-messages-image img {
   border-radius: 50%;
   width: 60px;
   height: 60px;
+  object-fit: cover;
 }
 
 .last-messages-container .last-conversation-details {

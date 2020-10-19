@@ -59,10 +59,11 @@ nav {
   display: flex;
   justify-content: center;
   bottom: 10%;
+  margin-top: 16px;
 }
 
 .home-hyf-text p {
-  font-size: 11px;
+  font-size: 1.2rem;
 }
 
 @media screen and (max-width: 750px) {

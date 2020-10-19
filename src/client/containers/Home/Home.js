@@ -34,13 +34,15 @@ export const Home = () => (
         <div>
           <Link to="/sign-in">
             <button className="home-button-signin" type="button">
-              Sign in
+              Sign in (you dont need an account)
             </button>
           </Link>
         </div>
-
         <div className="home-hyf-text">
-          <p>Built by students from HackYourFuture</p>
+          <p>
+            Built by students from{' '}
+            <a href="http://www.hackyourfuture.dk"> HackYourFuture</a>
+          </p>
         </div>
       </div>
     </div>

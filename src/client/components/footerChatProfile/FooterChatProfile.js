@@ -8,13 +8,13 @@ const FooterChatProfile = () => (
       exact
       activeClassName="footer-link-active"
       className="footer-link"
-      to="/Overview"
+      to="/overview"
     >
       Chat
       <div
         activeclassname="footer-dot-active"
         className="footer-dot"
-        to="/Overview"
+        to="/overview"
       >
         {' '}
       </div>
