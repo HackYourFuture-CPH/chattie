@@ -4,6 +4,7 @@ import RoomList from '../../components/EditChannel/RoomList';
 import RoomItemView from '../../components/EditChannel/RoomItemView';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import RoomItemEdit from '../../components/EditChannel/RoomItemEdit';
+import '../../components/EditChannel/EditRoom.style.css';
 
 const RoomListPage = () => {
   const [channels, setChannels] = useState([]);
