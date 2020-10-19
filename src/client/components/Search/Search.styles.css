@@ -71,9 +71,16 @@
   width: 100%;
 }
 
+.search-user-render:hover {
+  background-color: #f2f9fb;
+  cursor: pointer;
+}
+
 @media (max-width: 600px) {
   .user-details {
     width: 111%;
     margin-left: -7%;
+    padding-left: 7%;
+    padding-right: 7%;
   }
 }
