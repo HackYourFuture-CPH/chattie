@@ -47,7 +47,6 @@
 }
 
 .search-image-container {
-  margin-left: -25%;
   display: inline-block;
   position: relative;
   width: 75px;
@@ -63,7 +62,7 @@
 
 .search-user-render {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
 }
@@ -72,5 +71,7 @@
   .user-details {
     width: 111%;
     margin-left: -7%;
+    padding-left: 7%;
+    padding-right: 7%;
   }
 }
