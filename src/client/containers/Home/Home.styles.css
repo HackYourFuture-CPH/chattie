@@ -21,8 +21,7 @@ nav {
 }
 
 .home-logo-anna {
-  width: 400px;
-  height: 400px;
+  width: 100%;
 }
 .home-buttons {
   bottom: 20%;
@@ -60,10 +59,16 @@ nav {
   justify-content: center;
   bottom: 10%;
   margin-top: 16px;
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.home-hyf-text a {
+  text-decoration: underline;
 }
 
 .home-hyf-text p {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 @media screen and (max-width: 750px) {
@@ -78,9 +83,5 @@ nav {
 
   .home-img {
     margin-top: 8%;
-  }
-
-  .home-hyf-text p {
-    font-size: 10px;
   }
 }

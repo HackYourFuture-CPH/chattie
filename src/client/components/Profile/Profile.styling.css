@@ -194,3 +194,7 @@
 .profile-email-input-change {
   border: 1px solid #dbf3fd;
 }
+
+.name-image-container {
+  padding-bottom: 70px;
+}

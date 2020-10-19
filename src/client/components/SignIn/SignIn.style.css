@@ -48,8 +48,6 @@
   font-size: 17px;
   width: 295px;
   height: 48px;
-  margin-top: 30%;
-  margin-bottom: 50%;
 }
 
 .sign-in-button-test-user {
@@ -64,4 +62,8 @@
   width: 295px;
   height: 48px;
   margin-top: 10%;
+}
+
+.signin-inputs {
+  margin-bottom: 24px;
 }
