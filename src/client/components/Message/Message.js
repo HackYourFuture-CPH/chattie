@@ -4,10 +4,10 @@ import './Message.css';
 
 export default function Message({
   id,
-  profileImage,
-  userName,
   message,
   email,
+  profileImage,
+  userName,
   currentUserEmail,
 }) {
   const isCurrentUser = email === currentUserEmail;
