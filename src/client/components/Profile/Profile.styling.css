@@ -88,10 +88,11 @@
   justify-content: center;
 }
 
-.user-name {
+.user-name-profile {
   text-align: center;
-  padding-top: 100px;
+  padding-top: 12px;
   padding-bottom: 5px;
+  margin-top: 86px;
 }
 
 .profile-user-role {

@@ -4,9 +4,12 @@
   padding: 10px 0;
   position: fixed;
   bottom: 0;
-  left: 0;
+  left: 50%;
   width: 100%;
   padding: 12px;
+  max-width: 768px;
+  transform: translateX(-50%);
+  border-radius: 4px;
 }
 .send-new-message-form input {
   margin-top: 5px;

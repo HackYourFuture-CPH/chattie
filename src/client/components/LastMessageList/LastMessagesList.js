@@ -37,9 +37,9 @@ const LastMessageList = ({ messages, onGoToChatPage, userId }) => (
 
             <div>
               {authorMessageId === userId ? (
-                <span>You: {message} </span>
+                <span className="latest-message-text">You: {message} </span>
               ) : (
-                <span>{message}</span>
+                <span className="latest-message-text">{message}</span>
               )}
               <Moment className="message-date" format="DD.MM">
                 {updatedAt}

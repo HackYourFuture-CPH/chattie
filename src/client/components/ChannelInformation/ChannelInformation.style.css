@@ -7,9 +7,9 @@
   position: relative;
   margin: auto;
   border-radius: 50%;
-  border: solid cornsilk 4px;
   height: 200px;
-  max-width: 200px;
+  width: 200px;
+  object-fit: cover;
 }
 
 .channel-information-header {
@@ -50,7 +50,6 @@
   position: relative;
   margin: auto;
   border-radius: 50%;
-  border: solid cornsilk 4px;
   height: 100px;
   width: 100px;
 }
@@ -59,7 +58,6 @@
     position: relative;
     margin: auto;
     border-radius: 50%;
-    border: solid cornsilk 4px;
     height: 90%;
     min-width: 30%;
     margin-top: 25vh;

@@ -118,7 +118,7 @@ function ProfileDetails({
           ) : null}
           {error && <p>{error}</p>}
           <div className="name-edit-btn">
-            <div className="user-name">
+            <div className="user-name-profile">
               {editMode ? (
                 <input
                   className="profile-name-input-change"
