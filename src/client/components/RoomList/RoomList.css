@@ -16,7 +16,6 @@
 .room-title {
   font-size: 10px;
   font-weight: bolder;
-  text-align: center;
 }
 
 .room-image-cropper {
@@ -26,6 +25,12 @@
   overflow: hidden;
   border-radius: 50%;
   margin-bottom: 8px;
+}
+
+.room-list-image-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .room-profile-pic {
