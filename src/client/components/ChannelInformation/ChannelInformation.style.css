@@ -72,6 +72,7 @@
 }
 
 .channel-information-main .member-information-img {
+  border: 2px solid white;
   border-radius: 50%;
   height: 68px;
   width: 68px;
