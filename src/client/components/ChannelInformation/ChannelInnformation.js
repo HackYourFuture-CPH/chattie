@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './ChannelInformation.style.css';
 import { BrowserRouter, Link } from 'react-router-dom';
+import FooterChatProfile from '../footerChatProfile/FooterChatProfile';
 
 export const ChannelInformationComponent = ({
   image,
@@ -13,15 +14,17 @@ export const ChannelInformationComponent = ({
     <>
       <div className="channel-information-header">
         <img src={image} alt="Room" className="channel-information-img" />
-        <div className="channel-information-edit-button">
+        <div className="channel-information-links">
           <BrowserRouter>
-            <Link to={link}>Edit</Link>
+            <Link className="channel-information-edit-button" to={link}>
+              Edit
+            </Link>
           </BrowserRouter>
         </div>
       </div>
-      <h3 className="channel-information-title">{title}</h3>
+      <h2 className="channel-information-title">{title}</h2>
       <div className="channel-information-main">
-        <h3>Members</h3>
+        <h5>Members:</h5>
         <ul>
           {members &&
             members.map((member) => {
@@ -38,6 +41,8 @@ export const ChannelInformationComponent = ({
             })}
         </ul>
       </div>
+
+      <FooterChatProfile />
     </>
   );
 };
