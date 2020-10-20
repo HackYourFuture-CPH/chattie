@@ -53,13 +53,3 @@
   height: 100px;
   width: 100px;
 }
-@media only screen and (max-width: 600px) {
-  .channel-information-header .channel-information-img {
-    position: relative;
-    margin: auto;
-    border-radius: 50%;
-    height: 90%;
-    min-width: 30%;
-    margin-top: 25vh;
-  }
-}
