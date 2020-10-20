@@ -21,6 +21,7 @@
   z-index: -1;
   overflow: hidden;
 }
+
 .new-room-image-container{
   display: flex;
   flex-direction: column;
