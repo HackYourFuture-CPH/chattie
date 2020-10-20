@@ -12,7 +12,7 @@ export default function DiplayListOFUsers({
   onRemoveFromGroup,
 }) {
   const userSearch = users.filter(
-    (user) => user.user_name.toLowerCase().indexOf(input) !== -1,
+    (user) => (user.user_name || '').toLowerCase().indexOf(input) !== -1,
   );
 
   const getusersearch = userSearch.map((user) => (
