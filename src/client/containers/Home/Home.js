@@ -34,7 +34,7 @@ export const Home = () => (
         <div>
           <Link to="/sign-in">
             <button className="home-button-signin" type="button">
-              Sign in (you dont need an account)
+              Sign in <br /> (you dont need an account)
             </button>
           </Link>
         </div>

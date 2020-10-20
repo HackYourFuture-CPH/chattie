@@ -48,7 +48,7 @@ nav {
   background-color: white;
   color: #3e99c0;
   width: 295px;
-  height: 48px;
+  padding: 8px;
 }
 
 .home-button-signin:hover {
