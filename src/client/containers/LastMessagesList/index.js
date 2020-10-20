@@ -8,6 +8,7 @@ import Error from '../../components/ErrorComponent/Error';
 
 const LastChannelsMessageList = ({ userId }) => {
   const history = useHistory();
+
   const url = `/api/channels-message/last-messages?userId=${userId}`;
   const { response, loading, error } = useFetch(url);
 
@@ -19,7 +20,8 @@ const LastChannelsMessageList = ({ userId }) => {
     return <Error />;
   }
 
-  if (response === null || response.length === 0) {
+  // This is do bad 😭
+  if (response === null || response.length === 0 || response[0] === null) {
     return (
       <>
         <h2 className="last-messages-header">Latest messages</h2>
@@ -29,6 +31,7 @@ const LastChannelsMessageList = ({ userId }) => {
       </>
     );
   }
+
   const messages = response.filter((mes) => mes);
   return (
     <>

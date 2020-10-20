@@ -4,3 +4,10 @@
   display: flex;
   flex-direction: column;
 }
+
+.no-messages {
+  text-align: center;
+  top: 42%;
+  position: relative;
+  transform: translateY(-50%);
+}

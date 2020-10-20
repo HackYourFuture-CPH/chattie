@@ -66,7 +66,7 @@ const getFilteredUsers = async (req) => {
       return searchUsers;
     }
     if (email) {
-      searchUsers = searchUsers.where('email', 'like', `%${email}%`);
+      searchUsers = searchUsers.where('email', '=', `${email}`);
       return searchUsers;
     }
 

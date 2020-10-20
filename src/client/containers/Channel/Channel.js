@@ -31,10 +31,12 @@ export default function Channel() {
     fetchMessages();
 
     const fetchAndSetUserFromDatabase = async () => {
+      console.log(`/api/users?email=${user.email}`);
       const users = await fetchWithAuth(`/api/users?email=${user.email}`);
-
+      console.log(users);
       setUserFromDatabase(users[0]);
     };
+
     if (user) {
       fetchAndSetUserFromDatabase();
     }
@@ -52,6 +54,8 @@ export default function Channel() {
   const notCurrentUser = channelMembers
     ? channelMembers.filter((member) => member.email !== currentUserEmail)[0]
     : null;
+
+  // console.log(userFromDatabase, notCurrentUser);
 
   if (!userFromDatabase || !notCurrentUser) {
     return <Loader />;
@@ -77,7 +81,9 @@ export default function Channel() {
           />
         )
       ) : (
-        <>There does not seem to be any messages here. Try sending one</>
+        <p className="no-messages">
+          There does not seem to be any messages here. Try sending one
+        </p>
       )}
       <SendMessageForm channelId={channelId} userId={userFromDatabase.id} />
     </>
