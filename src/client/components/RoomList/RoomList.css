@@ -1,7 +1,7 @@
 .outside {
   display: flex;
   flex-direction: row;
-  max-width: 250px
+  max-width: 250px;
 }
 
 .list {
@@ -25,12 +25,13 @@
   position: relative;
   overflow: hidden;
   border-radius: 50%;
+  margin-bottom: 8px;
 }
 
 .room-profile-pic {
-display: inline;
-margin: 0 auto;
-margin-left: 0; 
-height: 100%;
-width: auto;
+  display: inline;
+  margin: 0 auto;
+  margin-left: 0;
+  height: 100%;
+  width: auto;
 }

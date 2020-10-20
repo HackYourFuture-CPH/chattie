@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './AddPeopleToRoom.css';
 import PropTypes from 'prop-types';
 import DisplayUserInGroup from './DisplayUserInGroup';
@@ -21,24 +22,29 @@ export default function AddPeopleToRoom({
   }));
   return (
     <div className="container">
-      <div className="header">
-        <div className="list-name">
-          <div>click on + to add people in room</div>
-          <div>
+      <div className="header-search-container">
+        <div className="header">
+          <Link to="/overview" className="next-cancel-button">
+            Cancel
+          </Link>
+          <div className="list-name">
+            <div className="font-bold">Add people</div>
             <span>
               {addedUsers.length}/{users.length}
             </span>
           </div>
+          <div
+            role="presentation"
+            className="next-cancel-button"
+            onClick={onNext}
+          >
+            Next
+          </div>
+        </div>
+        <div className="input-search">
+          <input type="text" placeholder="Search" onChange={onSearch} />
         </div>
       </div>
-
-      <div className="input-search">
-        <input type="text" placeholder="Search for user" onChange={onSearch} />
-        <button type="button" className="next-button" onClick={onNext}>
-          Next
-        </button>
-      </div>
-
       <div className="add-people">
         <DisplayUserInGroup
           addedUsers={addedUsers}

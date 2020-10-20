@@ -1,6 +1,7 @@
 import React from 'react';
 import './RoomList.css';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const RoomList = ({ roomList }) => {
   return (
@@ -8,10 +9,12 @@ const RoomList = ({ roomList }) => {
       {roomList.map((room) => {
         return (
           <li key={room.id} className="list">
-            <div className="room-image-cropper">
-              <img className="room-profile-pic" src={room.imageUrl} alt="" />
-            </div>
-            <label className="room-title">{room.title}</label>
+            <Link to={`/channels/${room.id}`}>
+              <div className="room-image-cropper">
+                <img className="room-profile-pic" src={room.imageUrl} alt="" />
+              </div>
+              <label className="room-title">{room.title}</label>
+            </Link>
           </li>
         );
       })}

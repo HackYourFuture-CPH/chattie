@@ -1,30 +1,33 @@
-.container {
+.add-group-container {
   width: 80%;
   border-radius: 40px;
   border: white;
 }
 
 .header {
-  width: 100%;
+  width: 90%;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
   margin: auto;
-  align-items: center;
+  align-items: baseline;
 }
 
-.next-button {
-  width: 150px;
-  height: 50px;
-  margin-left: 10px;
+.header-search-container {
+  background: #f6f6f6;
+  width: 90%;
+}
+
+.next-cancel-button {
+  color: #3e99c0;
+  margin-top: 5%;
+  cursor: pointer;
 }
 
 .list-name {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: auto;
-  color: red;
 }
 
 .list-name span {
@@ -41,55 +44,81 @@
 .input-search input {
   margin-top: 10px;
   margin-bottom: 10px;
-  text-align: center;
-  width: 60%;
+  padding-left: 4%;
+  text-align: left;
+  width: 100%;
   height: 40px;
-  border: 1px solid #cccc;
+  background: #eaeaea;
+  border: none;
+  color: black;
   border-radius: 10px;
 }
 
 .add-people {
-  border: 1px solid #cccc;
   display: flex;
+  padding-left: 5%;
   flex-wrap: wrap;
   width: 90%;
-  justify-content: center;
+  justify-content: flex-start;
   margin: auto;
+  border: 1px solid #f6f6f6;
 }
 
 .list-people {
   margin-top: 60px;
-  border: 1px solid #cccc;
+  border: 1px solid #f6f6f6;
+  border-top: none;
   width: 90%;
   margin: auto;
 }
 
 .wraper {
-  padding-top: 10px;
+  padding-top: 3%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  width: 40%;
+  width: 85%;
   margin: auto;
 }
 
-.profile-img {
-  width: 50px;
-  height: 50px;
+.wraper .image-name-container {
+  display: flex;
+  width: 35%;
+  align-items: center;
+  font-weight: 600;
+}
+
+.wraper .svg-inline--fa {
+  color: #c7c7cb;
+  width: 1.1em;
+  height: 1.1em;
+}
+
+.image-name-container .profile-img-container {
+  margin-right: 15%;
+}
+
+.profile-img-container .profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   margin-right: auto;
 }
 
-.selectedpeople-wraper {
+.selected-people-wraper {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   padding: 5px;
   position: relative;
+  margin: 2%;
 }
 
-.selectedpeople-wraper img {
+.selected-people-wraper img {
   width: 50px;
   height: 50px;
   display: block;
+  border-radius: 50%;
 }
 
 /*Groupchat */
@@ -121,10 +150,37 @@
 }
 
 .icons-color {
-  color: grey;
+  color: #8e8e92;
   position: absolute;
   top: 0;
   right: 0;
   height: 2px;
   width: 3px;
+  cursor: pointer;
+}
+
+.selected-people-wraper .svg-inline--fa.fa-w-16 {
+  width: 1.3em;
+  height: 1.3em;
+}
+
+.icon-check-color .svg-inline--fa.fa-w-16 {
+  color: #3e99c0;
+}
+
+@media (max-width: 600px) {
+  .header-search-container,
+  .add-people,
+  .list-people {
+    width: 100%;
+  }
+  .list-name {
+    margin: 1% auto;
+  }
+  .header {
+    align-items: center;
+  }
+  .list-people {
+    margin-bottom: 3%;
+  }
 }

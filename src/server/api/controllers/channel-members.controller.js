@@ -6,6 +6,7 @@ const getChannelMembersByChannelId = async (channelId) => {
   try {
     const channelMembers = await knex('channel_members')
       .select(
+        'users.id',
         'users.email',
         'users.user_name as userName',
         'users.profile_image as profileImage',

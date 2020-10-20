@@ -2,7 +2,8 @@ import React from 'react';
 import './AddPeopleToRoom.css';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle, faCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCircle } from '@fortawesome/free-regular-svg-icons';
 
 export default function DiplayListOFUsers({
   users,
@@ -16,11 +17,23 @@ export default function DiplayListOFUsers({
 
   const getusersearch = userSearch.map((user) => (
     <div key={user.id} className="wraper">
-      <img className="profile-img" src={user.profile_image} alt="users_image" />
-      <div>{user.user_name}</div>
+      <div className="image-name-container">
+        <div className="profile-img-container">
+          <img
+            className="profile-img"
+            src={user.profile_image}
+            alt="users_image"
+          />
+        </div>
+        <div>{user.user_name}</div>
+      </div>
 
       {user.isAddedUser === true && (
-        <div role="presentation" onClick={() => onRemoveFromGroup(user.id)}>
+        <div
+          className="icon-check-color"
+          role="presentation"
+          onClick={() => onRemoveFromGroup(user.id)}
+        >
           <FontAwesomeIcon icon={faCheckCircle} />
         </div>
       )}

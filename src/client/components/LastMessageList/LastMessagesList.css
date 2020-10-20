@@ -1,34 +1,72 @@
 .last-messages-container {
-    width: 70%;
-    margin: 1% auto;
+  width: 343px;
+  margin: 1% auto;
 }
 
-.last-messages-container .last-conversation-details, .last-messages-container, .last-messages-container .title-messages-container {
-    display: flex;
+.last-messages-container .last-conversation-details,
+.last-messages-container,
+.last-messages-container .title-messages-container {
+  display: flex;
 }
 
-.last-messages-container, .last-messages-container .title-messages-container {
-    flex-direction: column;
+.last-messages-container,
+.last-messages-container .title-messages-container {
+  flex-direction: column;
+}
+
+.latest-message-text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 250px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.last-messages-header {
+  margin-top: 54px;
+  margin-bottom: 8px;
+  width: 343px;
+}
+
+.no-latest-messages {
+  width: 343px;
 }
 
 .last-conversation-details .last-messages-image img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
 }
 
 .last-messages-container .last-conversation-details {
-    margin: 2%;
+  margin-bottom: 24px;
 }
 
 .last-conversation-details .last-messages-image {
-    margin-right: 10%;
+  margin-right: 10%;
 }
 
-.last-conversation-details .last-messages-image, .last-conversation-details .title-messages-container {
-    align-self: center;
+.last-conversation-details .last-messages-image,
+.last-conversation-details .title-messages-container {
+  align-self: center;
 }
 
 .last-conversation-details .title-messages-container h3 {
-    margin-bottom: 5%;
+  margin-bottom: 4px;
+}
+
+.message-date {
+  color: #9d9d9d;
+}
+
+.last-conversation-details:hover {
+  background-color: #f2f9fb;
+  cursor: pointer;
+}
+
+.last-messages-image {
+  padding-top: 4px;
+  padding-left: 4px;
 }

@@ -3,6 +3,7 @@ const knex = require('../../config/db');
 const createChannel = async (body) => {
   const newChannel = {
     title: body.title,
+    imageUrl: body.imageUrl,
   };
   //  will return the total number of channels after inserting a new channel
   const insertedChannels = await knex('channels').insert(newChannel);
@@ -56,6 +57,7 @@ const editChannel = async (channelId, updatedChannel) => {
     .where({ id: channelId })
     .update({
       title: updatedChannel.title,
+      imageUrl: updatedChannel.imageUrl,
     });
 };
 

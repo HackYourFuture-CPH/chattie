@@ -4,14 +4,14 @@
   align-items: center;
 }
 
-.sign-up-icon  {
+.sign-up-icon {
   font-size: 30px;
   color: #3e99c0;
   justify-content: flex-start;
   margin-left: 10%;
 }
 
-.sign-up-title{
+.sign-up-title {
   color: black;
   justify-content: center;
   margin-top: -30px;
@@ -47,7 +47,7 @@
   font-size: 17px;
   width: 295px;
   height: 48px;
-  margin-top: 30%;
+  margin-top: 36px;
   text-align: center;
 }
 

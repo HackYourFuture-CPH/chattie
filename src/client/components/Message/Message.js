@@ -7,7 +7,7 @@ import DeleteMessageBtn from '../DeleteMessageBtn/DeleteMessageBtn';
 
 export default function Message({
   id,
-  profile_image,
+  profileImage,
   userName,
   message,
   email,
@@ -22,7 +22,7 @@ export default function Message({
   ) : (
     <li key={id} className="other-users-message">
       <div className="messenge-photo">
-        <img src={profile_image} alt={profile_image} />
+        <img src={profileImage} alt={profileImage} />
         <p className="chat-message-text">{message}</p>
       </div>
       <p className="user-name">{userName}</p>
@@ -33,7 +33,7 @@ export default function Message({
 Message.propTypes = {
   id: PropTypes.string.isRequired,
   userName: PropTypes.string.isRequired,
-  profile_image: PropTypes.string.isRequired,
+  profileImage: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   currentUserEmail: PropTypes.string.isRequired,

@@ -1,19 +1,17 @@
 .current-user-message,
 .other-users-message {
   border-radius: 10px;
-  padding: 3%;
+  padding: 12px;
   color: white;
   display: inline-block;
   max-width: 80%;
-  margin: 2% 0;
+  margin: 12px 0 12px;
 }
-
 
 .chat-message-container {
   display: flex;
   flex-direction: column;
-  padding: 0 5%;
-  margin: 5% 0;
+  padding: 0 5% 36px;
 }
 
 .chat-message-container .current-user-message {
@@ -30,7 +28,7 @@
 .other-users-message .chat-message-text {
   background: #f3f3f3;
   border-radius: 10px;
-  padding: 5%;
+  padding: 12px;
 }
 
 .chat-message-text {
@@ -44,13 +42,16 @@
 
 .other-users-message .messenge-photo img {
   align-self: baseline;
-  width: 25%;
+  width: 30px;
+  height: 30px;
   margin-right: 5%;
   border-radius: 50%;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
 }
 
 .other-users-message .user-name {
   text-align: left;
   font-size: 12px;
-  margin-left: 25%;
+  margin-top: 8px;
 }

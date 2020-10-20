@@ -19,16 +19,26 @@ const LastChannelsMessageList = ({ userId }) => {
     return <Error />;
   }
 
-  if (!response) {
-    return <p>Start a conversation to see it here</p>;
+  if (response === null || response.length === 0) {
+    return (
+      <>
+        <h2 className="last-messages-header">Latest messages</h2>
+        <p className="no-latest-messages">
+          Start a conversation to see it here
+        </p>
+      </>
+    );
   }
   const messages = response.filter((mes) => mes);
   return (
-    <LastMessagesList
-      messages={messages}
-      userId={userId}
-      onGoToChatPage={(id) => history.push(`/channels/${id}`)}
-    />
+    <>
+      <h2 className="last-messages-header">Latest messages</h2>
+      <LastMessagesList
+        messages={messages}
+        userId={userId}
+        onGoToChatPage={(id) => history.push(`/channels/${id}`)}
+      />
+    </>
   );
 };
 

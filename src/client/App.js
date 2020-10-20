@@ -15,6 +15,7 @@ import fetchWithAuth from './utils/fetchWithAuth';
 import { UserContext } from './context/userContext';
 import AddPeopleToRoom from './containers/AddPeopleToRoom/AddPeopleToRoom';
 import ChannelInfo from './containers/ChannelInformationContainer/ChannelInfo';
+import RoomListsPage from './containers/EditChannel/RoomListsPage';
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
@@ -74,6 +75,9 @@ function App() {
             isAuthenticated={isAuthenticated}
           >
             <ChannelInfo />
+          </Route>
+          <Route exact path="/channels" isAuthenticated={isAuthenticated}>
+            <RoomListsPage />
           </Route>
         </Switch>
         <Route exact path="/add-people" isAuthenticated={isAuthenticated}>

@@ -21,8 +21,7 @@ nav {
 }
 
 .home-logo-anna {
-  width: 400px;
-  height: 400px;
+  width: 100%;
 }
 .home-buttons {
   bottom: 20%;
@@ -30,6 +29,7 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 50px;
 }
 
 .home-button-signup {
@@ -48,7 +48,7 @@ nav {
   background-color: white;
   color: #3e99c0;
   width: 295px;
-  height: 48px;
+  padding: 8px;
 }
 
 .home-button-signin:hover {
@@ -59,10 +59,17 @@ nav {
   display: flex;
   justify-content: center;
   bottom: 10%;
+  margin-top: 36px;
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.home-hyf-text a {
+  text-decoration: underline;
 }
 
 .home-hyf-text p {
-  font-size: 11px;
+  font-size: 1rem;
 }
 
 @media screen and (max-width: 750px) {
@@ -72,14 +79,10 @@ nav {
   }
 
   .home-buttons {
-    bottom: 51px;
+    margin-bottom: 50px;
   }
 
   .home-img {
     margin-top: 8%;
-  }
-
-  .home-hyf-text p {
-    font-size: 10px;
   }
 }

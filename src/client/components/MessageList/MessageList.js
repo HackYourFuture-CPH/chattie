@@ -9,10 +9,10 @@ const MessageList = ({ messages, currentUserEmail }) => {
   return (
     <div className="chat-message-container">
       <ul className="chat-message">
-        {messages.map(({ id, message, userName, profile_image, email }) =>
+        {messages.map(({ id, message, userName, profileImage, email }) =>
           Message({
             id,
-            profile_image,
+            profileImage,
             userName,
             message,
             email,

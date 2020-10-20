@@ -18,8 +18,15 @@ const getChannelMessages = async (req) => {
       );
     }
     if (channelId) {
-      channelMessages = channelMessages
-        .select('users.user_name as userName')
+      channelMessages = knex('channel_messages')
+        .select(
+          'users.user_name as userName',
+          'users.email',
+          'users.profile_image as profileImage',
+          'channel_messages.updated_at',
+          'channel_messages.id',
+          'channel_messages.message',
+        )
         .where('channel_messages.fk_channel_id', channelId)
         .join('users', {
           'channel_messages.fk_user_id': 'users.id',

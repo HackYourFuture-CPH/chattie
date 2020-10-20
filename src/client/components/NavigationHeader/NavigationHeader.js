@@ -18,6 +18,9 @@ export default function NavigationHeader({ isAuthenticated = false }) {
             <Link to="/channel">Chats</Link>
           </li>
           <li>
+            <Link to="/channels">Channels</Link>
+          </li>
+          <li>
             <button type="button" onClick={signOut}>
               Sign out
             </button>

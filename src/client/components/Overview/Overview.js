@@ -18,7 +18,7 @@ function Overview() {
     return <Loader />;
   }
   if (error) {
-    return <Error />;
+    return <Error>Error! Could not get rooms</Error>;
   }
   return (
     <>
@@ -30,7 +30,9 @@ function Overview() {
         <div className="room-list-overview">
           <RoomListOverview roomList={roomList || []} />
         </div>
-        <LastChannelsMessageList userId={user.id} />
+        <div className="new-messages-list-overview">
+          <LastChannelsMessageList userId={user.id} />
+        </div>
         <FooterChatProfile />
       </div>
       <ToastContainer

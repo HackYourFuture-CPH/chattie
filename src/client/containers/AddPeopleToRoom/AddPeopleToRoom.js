@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { UserContext } from '../../context/userContext';
 import AddPeopleToRoomForm from '../../components/AddPeopleToRoom/AddPeopleToRoomForm';
 import '../../components/AddPeopleToRoom/AddPeopleToRoom.css';
-import AddNewRoom from '../AddNewRoom/AddNewRoom';
+import RoomForm from '../../components/AddNewRoom/RoomForm';
+import Loader from '../../components/Loader/Loader';
 import fetchWithAuth from '../../utils/fetchWithAuth';
 
 export default function AddPeopleToRoom() {
@@ -9,7 +11,7 @@ export default function AddPeopleToRoom() {
   const [addedUsers, setAddedUsers] = useState([]); //  this is use to add user to usersgroup
   const [input, setInput] = useState(''); //  this is use to handle the input from user to search out
   const [toAddRoom, setToAddRoom] = useState(false); //  thi is use to move to next page
-
+  const currentUser = useContext(UserContext);
   const url = 'api/users';
   useEffect(() => {
     async function fetchUsers() {
@@ -45,23 +47,46 @@ export default function AddPeopleToRoom() {
       setToAddRoom(true);
     }
   };
+
+  const createNewRoom = async ({ title, imageUrl }) => {
+    const channel = await fetchWithAuth('api/channels', {
+      method: 'POST',
+      body: JSON.stringify({ title, imageUrl }),
+    });
+    const requests = addedUsers
+      .map(({ id }) => id)
+      .concat(currentUser.id)
+      .map((id) =>
+        fetchWithAuth('api/channel-members', {
+          method: 'POST',
+          body: JSON.stringify({ channelId: channel.id, userId: id }),
+        }),
+      );
+    await Promise.all(requests);
+    window.location.assign(`./channels/${channel.id}`);
+  };
+
+  if (!currentUser) {
+    return <Loader />;
+  }
+  if (toAddRoom === true) {
+    return (
+      <RoomForm
+        addedUsers={addedUsers}
+        onSubmit={createNewRoom}
+        onRemoveFromGroup={(id) => onRemoveFromGroup(id)}
+      />
+    );
+  }
   return (
-    <>
-      {toAddRoom === true ? (
-        <AddNewRoom addedUsers={addedUsers} />
-      ) : (
-        <div>
-          <AddPeopleToRoomForm
-            onRemoveFromGroup={(id) => onRemoveFromGroup(id)}
-            users={users}
-            input={input}
-            renderUserInGroup={(id) => renderUserInGroup(id)}
-            addedUsers={addedUsers}
-            onSearch={(event) => onSearch(event)}
-            onNext={onNext}
-          />
-        </div>
-      )}
-    </>
+    <AddPeopleToRoomForm
+      onRemoveFromGroup={(id) => onRemoveFromGroup(id)}
+      users={users}
+      input={input}
+      renderUserInGroup={(id) => renderUserInGroup(id)}
+      addedUsers={addedUsers}
+      onSearch={(event) => onSearch(event)}
+      onNext={onNext}
+    />
   );
 }

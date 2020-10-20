@@ -11,7 +11,6 @@ export default function Search() {
     setSearch('');
     setIsSearching(false);
   };
-
   return (
     <>
       <div className="search-button">
@@ -19,7 +18,7 @@ export default function Search() {
           <input
             className="search"
             type="text"
-            placeholder="Search"
+            placeholder="Search for a user"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             onFocus={() => setIsSearching(true)}

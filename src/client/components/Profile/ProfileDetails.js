@@ -76,91 +76,132 @@ function ProfileDetails({
   }
 
   return (
-    <div className="profile-details-container">
-      <section className="sign-out-btn">
-        <SignOutButton />
-      </section>
-      <section className="name-image-container">
-        <img
-          src={imageUrl || profileImage}
-          className="profile-image"
-          alt="users profile"
-        />
-        {editMode ? (
-          <>
-            <label htmlFor="file">
-              <FontAwesomeIcon icon={faCamera} />
-              <input
-                type="file"
-                id="file"
-                style={{ display: 'none' }}
-                onChange={handleImageChange}
-                placeholder={imageUrl}
-              />
-            </label>
-          </>
-        ) : null}
-        {error && <p>{error}</p>}
-        <div className="name-edit-btn">
-          <div className="user-name">
-            {editMode ? (
-              <input
-                type="user-name"
-                name="userName"
-                id="userName"
-                placeholder="My Name"
-                value={formDetails.userName}
-                onChange={handleChange}
-                required
-              />
-            ) : (
-              <h2>{formDetails.userName}</h2>
-            )}
-          </div>
-          <div id="edit-button" className="edit-name">
-            <button type="button" onClick={toggleEditMode}>
-              {editMode ? 'Update' : buttonText}
-            </button>
+    <>
+      <div className="profile-blue-area">
+        <div className="profile-btn-container">
+          <div className="profile-sign-out-btn">
+            <SignOutButton />
           </div>
         </div>
-        <div className="email-info">
-          <p>{user ? user.role : role}</p>
-        </div>
-      </section>
-      <section className="users-information-container">
-        <div className="user-email">
-          <div className="icon">
-            <FontAwesomeIcon icon={faEnvelope} />
+
+        <section className="name-image-container">
+          <div className="profile-image-cropper">
+            <img
+              src={imageUrl || profileImage}
+              className="profile-image"
+              alt=""
+            />
           </div>
-          <div className="email-info">
-            <p>Email: {user ? user.email : email}</p>
+
+          <FontAwesomeIcon
+            icon={faCamera}
+            className="profile-image-edit-before"
+          />
+
+          {editMode ? (
+            <>
+              <label htmlFor="file">
+                <FontAwesomeIcon
+                  icon={faCamera}
+                  className="profile-image-edit-after"
+                />
+                <input
+                  type="file"
+                  className="profile-picture-download"
+                  id="file"
+                  style={{ display: 'none' }}
+                  onChange={handleImageChange}
+                  placeholder={imageUrl}
+                />
+              </label>
+            </>
+          ) : null}
+          {error && <p>{error}</p>}
+          <div className="name-edit-btn">
+            <div className="user-name-profile">
+              {editMode ? (
+                <input
+                  className="profile-name-input-change"
+                  type="user-name"
+                  name="userName"
+                  id="userName"
+                  placeholder="My Name"
+                  value={formDetails.userName}
+                  onChange={handleChange}
+                  required
+                />
+              ) : (
+                <h2>{formDetails.userName}</h2>
+              )}
+            </div>
+
+            <div className="profile-user-role">
+              <p>{user ? user.role : role}</p>
+            </div>
+
+            <div className="user-phone">
+              <div className="profile-icon">
+                <FontAwesomeIcon icon={faPhoneSquare} />
+              </div>
+              <div className="phone-info">
+                <p> </p>
+                {editMode ? (
+                  <input
+                    className="profile-phone-input-change"
+                    type="phoneNumber"
+                    name="phoneNumber"
+                    id="phoneNumber"
+                    value={formDetails.phoneNumber}
+                    placeholder="+45---"
+                    onChange={handleChange}
+                    required
+                  />
+                ) : (
+                  <p>{formDetails.phoneNumber}</p>
+                )}
+              </div>
+            </div>
+
+            <section>
+              <div className="user-email">
+                <div className="profile-icon">
+                  <FontAwesomeIcon icon={faEnvelope} />
+                </div>
+                <div className="email-info">
+                  <p> </p>
+                  {editMode ? (
+                    <input
+                      className="profile-email-input-change"
+                      type="userEmail"
+                      name="userEmail"
+                      id="userEmail"
+                      value={formDetails.email}
+                      placeholder={user.email}
+                      onChange={handleChange}
+                      disabled
+                    />
+                  ) : (
+                    <p>{user ? user.email : email}</p>
+                  )}
+                </div>
+              </div>
+            </section>
+
+            <div id="edit-button">
+              <button
+                className="edit-button"
+                type="button"
+                onClick={toggleEditMode}
+              >
+                {editMode ? 'Update' : buttonText}
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="user-phone">
-          <div className="icon">
-            <FontAwesomeIcon icon={faPhoneSquare} />
-          </div>
-          <div className="phone-info">
-            <p> Phone: </p>
-            {editMode ? (
-              <input
-                type="phoneNumber"
-                name="phoneNumber"
-                id="phoneNumber"
-                value={formDetails.phoneNumber}
-                placeholder="+45---"
-                onChange={handleChange}
-                required
-              />
-            ) : (
-              <p>{formDetails.phoneNumber}</p>
-            )}
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <FooterChatProfile />
-    </div>
+    </>
   );
 }
 
@@ -185,7 +226,7 @@ ProfileDetails.defaultProps = {
   profileImage:
     'https://cdn.pixabay.com/photo/2016/08/31/11/54/user-1633249_960_720.png',
   phoneNumber: '',
-  buttonText: 'edit',
+  buttonText: 'Change',
   email: '',
   role: 'Missing role',
 };
