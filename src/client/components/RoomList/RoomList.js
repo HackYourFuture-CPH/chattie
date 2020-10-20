@@ -10,10 +10,16 @@ const RoomList = ({ roomList }) => {
         return (
           <li key={room.id} className="list">
             <Link to={`/channels/${room.id}`}>
-              <div className="room-image-cropper">
-                <img className="room-profile-pic" src={room.imageUrl} alt="" />
+              <div className="room-list-image-title">
+                <div className="room-image-cropper">
+                  <img
+                    className="room-profile-pic"
+                    src={room.imageUrl}
+                    alt=""
+                  />
+                </div>
+                <label className="room-title">{room.title}</label>
               </div>
-              <label className="room-title">{room.title}</label>
             </Link>
           </li>
         );
