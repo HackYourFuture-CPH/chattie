@@ -1,41 +1,49 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
 import { ChannelInformationComponent } from '../../components/ChannelInformation/ChannelInnformation';
 import fetchWithAuth from '../../utils/fetchWithAuth';
+import { UserContext } from '../../context/userContext';
 
 export default function ChannelInfoRender() {
   const [channelTitle, setchannelTitle] = useState('');
   const [channelImageUrl, setchannelImageUrl] = useState('');
   const [members, setMembers] = useState([]);
-  const { id } = useParams();
+  const { channelId } = useParams();
+  const history = useHistory();
+  const user = useContext(UserContext);
+  const userId = user ? user.id : null;
   useEffect(() => {
     const fetchChannelAndMembers = async () => {
-      const channel = await fetchWithAuth(`/api/channels/${id}`);
-      const membersofChannel = await fetchWithAuth(
-        `api/channel-members/membersInfo?channelId=${id}`,
+      const channel = await fetchWithAuth(`/api/channels/${channelId}`);
+      const membersOfChannel = await fetchWithAuth(
+        `api/channel-members/membersInfo?channelId=${channelId}`,
       );
+      const notCurrentUser = membersOfChannel
+        ? membersOfChannel.filter((member) => member.id !== userId)[0]
+        : null;
       if (channel.title) {
         setchannelTitle(channel.title);
       } else {
-        setchannelTitle(membersofChannel[0].userName);
+        setchannelTitle(notCurrentUser.userName);
       }
       if (channel.imageUrl) {
         setchannelImageUrl(channel.imageUrl);
       } else {
-        setchannelImageUrl(membersofChannel[0].profileImage);
+        setchannelImageUrl(notCurrentUser.profileImage);
       }
-      const membersRes = await fetchWithAuth(
-        `api/channel-members/membersInfo?channelId=${id}`,
-      );
-      setMembers(membersRes);
+
+      setMembers(membersOfChannel);
     };
     fetchChannelAndMembers();
-  }, [id]);
+  }, [channelId, userId]);
+
   return (
     <ChannelInformationComponent
       image={channelImageUrl}
       title={channelTitle}
       members={members}
+      onGoToChatBack={(id) => history.push(`/channels/${id}`)}
+      channelId={channelId}
     />
   );
 }
