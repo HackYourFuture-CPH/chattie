@@ -1,23 +1,27 @@
-/* eslint-disable @typescript-eslint/camelcase */
-/* eslint-disable camelcase */
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/fontawesome-free-solid';
+import fetchWithAuth from '../../utils/fetchWithAuth';
 
-export default function DeleteMessageBtn(messageId) {
-  const deleteMessage = () => {
-    return console.log('after delete confirmed', messageId);
+export default function DeleteMessageBtn({ id }) {
+  const deleteMessage = async () => {
+    const url = 'api/messages/';
+    await fetchWithAuth(`${url}${id.messageId}`, {
+      method: 'DELETE',
+    });
   };
+
   return (
     <button
       type="button"
       onClick={() => {
         if (
+          // eslint-disable-next-line no-alert
           window.confirm('Are you sure you want to delete this message') ===
           true
         )
-          return deleteMessage();
+          deleteMessage();
       }}
     >
       <FontAwesomeIcon icon={faTrashAlt} />
@@ -25,10 +29,6 @@ export default function DeleteMessageBtn(messageId) {
   );
 }
 
-// DeleteMessageBtn.propTypes = {
-//   messageId: PropTypes.string,
-// };
-
-DeleteMessageBtn.defaultProps = {
-  messageId: '1',
+DeleteMessageBtn.propTypes = {
+  id: PropTypes.shape({ messageId: PropTypes.string }).isRequired,
 };
