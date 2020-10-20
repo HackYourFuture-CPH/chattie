@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/fontawesome-free-solid';
 import './ChannelInformation.style.css';
 import { BrowserRouter, Link } from 'react-router-dom';
+import FooterChatProfile from '../footerChatProfile/FooterChatProfile';
 
 export const ChannelInformationComponent = ({
   image,
@@ -32,9 +33,9 @@ export const ChannelInformationComponent = ({
           </BrowserRouter>
         </div>
       </div>
-      <h3 className="channel-information-title">{title}</h3>
+      <h2 className="channel-information-title">{title}</h2>
       <div className="channel-information-main">
-        <h3>Members</h3>
+        <h5>Members:</h5>
         <ul>
           {members &&
             members.map((member) => {
@@ -51,6 +52,8 @@ export const ChannelInformationComponent = ({
             })}
         </ul>
       </div>
+
+      <FooterChatProfile />
     </>
   );
 };
