@@ -28,7 +28,7 @@ export default function AddImageToRoom({ onUpload }) {
   };
 
   return (
-    <div>
+    <div className="new-room-image-container">
       <label className="new-room-add-image-to-room">
         <FontAwesomeIcon
           className="new-room-add-image-to-room-icon"
