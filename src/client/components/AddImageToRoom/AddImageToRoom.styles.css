@@ -17,13 +17,18 @@
   width: 56px;
   height: 56px;
   position: absolute;
-  top:70px;
   left: auto;
   z-index: -1;
   overflow: hidden;
 }
 
+.new-room-image-container{
+  display: flex;
+  flex-direction: column;
+}
+
 .new-room-image-room {
+  margin-top: 0;
   width: 100%;
   height: auto;
 }
