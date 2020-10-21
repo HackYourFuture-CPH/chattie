@@ -64,16 +64,17 @@ function ProfileDetails({
     });
   }
 
-  function handleSubmitChange() {
-    const changeFormDetails =
-      formDetails.profileImage === null
-        ? {
-            userName: formDetails.userName,
-            phoneNumber: formDetails.phoneNumber,
-          }
-        : formDetails;
-    handleSubmit(changeFormDetails);
-  }
+function handleSubmitChange() {
+  const changeFormDetails = (
+    (formDetails.profileImage === null)
+      ? {
+        userName: formDetails.userName,
+        phoneNumber: formDetails.phoneNumber,
+      }
+      : formDetails
+  )
+  handleSubmit(changeFormDetails);
+}
 
   return (
     <>
