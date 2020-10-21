@@ -31,9 +31,7 @@ export default function Channel() {
     fetchMessages();
 
     const fetchAndSetUserFromDatabase = async () => {
-      console.log(`/api/users?email=${user.email}`);
       const users = await fetchWithAuth(`/api/users?email=${user.email}`);
-      console.log(users);
       setUserFromDatabase(users[0]);
     };
 
@@ -54,8 +52,6 @@ export default function Channel() {
   const notCurrentUser = channelMembers
     ? channelMembers.filter((member) => member.email !== currentUserEmail)[0]
     : null;
-
-  // console.log(userFromDatabase, notCurrentUser);
 
   if (!userFromDatabase || !notCurrentUser) {
     return <Loader />;
