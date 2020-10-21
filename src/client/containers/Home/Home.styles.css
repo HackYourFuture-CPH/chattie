@@ -14,14 +14,14 @@ nav {
   overflow: auto;
 }
 
-.home-img {
+.home-img a{
   margin-top: 5%;
   display: flex;
   justify-content: center;
 }
 
 .home-logo-anna {
-  width: 100%;
+  width: 70%;
 }
 .home-buttons {
   bottom: 20%;
@@ -69,7 +69,7 @@ nav {
 }
 
 .home-hyf-text p {
-  font-size: 1rem;
+  font-size: 0.94rem;
 }
 
 @media screen and (max-width: 750px) {
