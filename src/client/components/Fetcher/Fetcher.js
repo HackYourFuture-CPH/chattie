@@ -44,7 +44,7 @@ export const Fetcher = ({ search }) => {
       }
     };
 
-    if (search !== '' && search.length >= 2) {
+    if (search !== '' && search.length >= 1) {
       getData();
     } else {
       setError(false);
