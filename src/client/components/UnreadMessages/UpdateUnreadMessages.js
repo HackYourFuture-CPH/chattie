@@ -1,14 +1,13 @@
 import fetchWithAuth from '../../utils/fetchWithAuth';
-import { useParams } from 'react-router-dom';
 
-export default function UpdateUnreadMessages() {
-  const { id, userId, channelId } = useParams();
-
+export default function UpdateUnreadMessages(props) {
+  const { userId, channelId } = props;
   const update = {
     userId,
     channelId,
   };
-  fetchWithAuth(`/api/unread/${id}`, {
+
+  fetchWithAuth(`/api/unread/:`, {
     method: 'PATCH',
     body: JSON.stringify(update),
   });
