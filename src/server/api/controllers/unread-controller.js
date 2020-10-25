@@ -26,12 +26,10 @@ const getUnreadMessages = async (req) => {
 };
 
 const updateUnreadMessages = async (req) => {
-  const { id } = req.params;
   const { userId, channelId } = req.body;
   try {
     const upDateUnReadMessage = await knex('unread_messages')
       .update('unread', 0)
-      .where('id', id)
       .andWhere('fk_user_id', userId)
       .andWhere('fk_channel_id', channelId);
 
