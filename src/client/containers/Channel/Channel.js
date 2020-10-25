@@ -8,6 +8,7 @@ import ChannelHeadNav from '../../components/ChannelHeadNav/ChannelHeadNav';
 import Loader from '../../components/Loader/Loader';
 import useFetch from '../../hooks/useFetch';
 import './Channel.css';
+import UpdateUnreadMessages from '../../components/UnreadMessages/UpdateUnreadMessages';
 
 const messageFetchUpdateInterval = 3000;
 
@@ -82,6 +83,7 @@ export default function Channel() {
         </p>
       )}
       <SendMessageForm channelId={channelId} userId={userFromDatabase.id} />
+      <UpdateUnreadMessages userId={user.id} channelId={channelId} />
     </>
   );
 }
