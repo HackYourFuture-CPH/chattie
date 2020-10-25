@@ -2,6 +2,7 @@ import React from 'react';
 import './RoomList.css';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import CountUnreadMessages from '../../containers/CountUnreadMessages/CountUnreadMessages';
 
 const RoomList = ({ roomList }) => {
   return (
@@ -12,6 +13,7 @@ const RoomList = ({ roomList }) => {
             <Link to={`/channels/${room.id}`}>
               <div className="room-list-image-title">
                 <div className="room-image-cropper">
+                  <CountUnreadMessages channelId={room.id} />
                   <img
                     className="room-profile-pic"
                     src={room.imageUrl}
